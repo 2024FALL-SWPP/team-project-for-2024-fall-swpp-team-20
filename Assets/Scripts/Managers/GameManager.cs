@@ -23,6 +23,22 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        initialize();
+    }
+
+    public void MoveToGameScene() {
+        SceneManager.LoadScene("GameScene");
+        StartCoroutine(InitializeAfterSceneLoad());
+    }
+
+    private IEnumerator InitializeAfterSceneLoad()
+    {
+        yield return new WaitForSeconds(0.1f);
+        initialize();
+    }
+
+    private void initialize()
+    {
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "GameScene") {
             pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
@@ -30,9 +46,5 @@ public class GameManager : MonoBehaviour
         }
         um = FindObjectOfType<UIManager>().GetComponent<UIManager>();
         sm = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
-    }
-
-    public void MoveToGameScene() {
-        SceneManager.LoadScene("GameScene");
     }
 }
