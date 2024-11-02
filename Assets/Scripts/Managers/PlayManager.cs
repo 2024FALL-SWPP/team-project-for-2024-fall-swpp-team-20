@@ -12,15 +12,19 @@ public class PlayManager : MonoBehaviour
 
     private GameObject currentMap;
     private GameObject player;
+    private GameObject clockHourHand;
+    private float initialClockRotation;
     private PlayerController pc;
-
     private MapController mc;
+    
     void Start()
     {
         stage = 0;
+        initialClockRotation = 240.0f;
         player = GameObject.FindGameObjectWithTag("Player");
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pc = player.GetComponent<PlayerController>();
+        currentMap = GameObject.FindGameObjectWithTag("Map");
         InitializeStage(0);
     }
 
@@ -28,16 +32,6 @@ public class PlayManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-
-    // Call this when user interacts with bed with some interactino key
-    public void OnBedInteraction(InputValue value) {
-        if (pc.canSleep)
-        {
-            float input = value.Get<float>();
-            StartCoroutine(BedInteraction(input > 0));
-        }
     }
 
     public void TryBedInteraction(bool sleep) => StartCoroutine(BedInteraction(sleep));
@@ -84,21 +78,25 @@ public class PlayManager : MonoBehaviour
         player.transform.position = new Vector3(0.41f, 0.5f, 0f);
         // Create new stage map
         currentMap = mc.GenerateMap(haveAnomaly);
-        
-        
+        // Set time
+        SetClock(stage);
+    }
+
+    private void SetClock(int stage)
+    {
+        clockHourHand = currentMap.transform.Find("clock_wood").Find("Hour Hand").gameObject;
+        clockHourHand.transform.localRotation = Quaternion.Euler(0, 0, initialClockRotation + 30 * stage);
     }
 
 
     private void Succeed(bool sleep)
     {
         // TODO: Animation
-        Debug.Log("Hello from succeed");
         InitializeStage(++stage);
     }
 
     private void Fail(bool sleep) {
         // TODO: Animation
-        Debug.Log("Hello from fial");
         if (stage > 1) stage--;
         InitializeStage(stage);
     }

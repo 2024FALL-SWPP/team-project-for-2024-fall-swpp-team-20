@@ -3,7 +3,9 @@ guid: fbcc61264f337d14080a24cbbd5e3216
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bedroomPrefab: {fileID: 1170573965009164854, guid: 5d661cacd7e8e3d4e8216c8d494136a6, type: 3}
+  - myBedroom: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
