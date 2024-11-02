@@ -18,7 +18,7 @@
                     "name": "Rotate",
                     "type": "Value",
                     "id": "7cdd0b93-69f2-40fe-b5ae-1cc3a2b9d822",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -44,42 +44,9 @@
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
-                    "id": "a88d883e-0d2a-4f9d-addd-a40734c20ab5",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "9e6ce59c-f710-409f-aa60-54d3247e905f",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "548e009b-d55a-4d21-9192-5df47ec7900d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Move",
                     "id": "86bae1f7-ca9f-4938-9df7-24dd0c565ae3",
-                    "path": "1DAxis",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -88,8 +55,19 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Up",
                     "id": "990c5d10-0fb2-4758-a5a1-c0e3118f258a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "deb7f5f3-b1a7-4d37-ab65-71f7097e3305",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -99,9 +77,20 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "deb7f5f3-b1a7-4d37-ab65-71f7097e3305",
-                    "path": "<Keyboard>/w",
+                    "name": "Left",
+                    "id": "5cd6e18d-c13e-4b9c-8707-5203594a85d6",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "9c9417c5-54e0-4de8-9f72-08ab60b367aa",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -152,6 +141,17 @@
                     "action": "BedInteraction",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6410a768-0ac7-42b6-8b5c-419713247389",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
