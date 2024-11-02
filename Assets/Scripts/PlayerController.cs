@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private float moveDirection;
+    private Vector2 moveDirection;
     private float rotateDirection;
     private Rigidbody rb;
     public float moveSpeed;
@@ -27,19 +27,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.Rotate(rotateDirection * rotateSpeed * Vector3.up);
-        transform.Translate(moveSpeed * moveDirection * Vector3.forward, Space.Self);
+        transform.Translate(moveDirection.x * moveSpeed * Time.deltaTime, 0, moveDirection.y * moveSpeed * Time.deltaTime);
     }
 
     public void OnMove(InputValue value) {
-        float input = value.Get<float>();
-        moveDirection = input;
-        Debug.Log("trying to move");
+        moveDirection = value.Get<Vector2>();
     }
 
     public void OnRotate(InputValue value) { 
-        float input = value.Get<float>();
-        rotateDirection = input;
+        Vector2 input = value.Get<Vector2>();
+        float mouseDeltaX = input.x;
+        rotateDirection = mouseDeltaX;
     }
+    
     public void OnJump(InputValue value) {
 
         float jumped = value.Get<float>();
