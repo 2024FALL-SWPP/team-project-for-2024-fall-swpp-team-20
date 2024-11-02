@@ -14,10 +14,14 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
 
+    public bool canSleep;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         isJumping = false;
+
+        canSleep = true;
     }
     // Update is called once per frame
     void Update()
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value) {
         float input = value.Get<float>();
         moveDirection = input;
+        Debug.Log("trying to move");
     }
 
     public void OnRotate(InputValue value) { 
@@ -51,5 +56,29 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
 
         //TODO: isJumping = false when only collision with plane
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bed")) {
+            canSleep = true;
+            // Show UI to inform that you can sleep
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bed")) {
+            canSleep = false;
+            // Show UI to inform that you cannot sleep
+        }
+    }
+
+    public void OnBedInteraction(InputValue value)
+    {
+        if (canSleep)
+        {
+            float input = value.Get<float>();
+            GameManager.instance.pm.TryBedInteraction(input > 0);
+        }
     }
 }
