@@ -24,4 +24,4 @@ jobs:
           dotnet-version: '6.x'  # 필요한 .NET SDK 버전을 지정합니다
 
       - name: Run dotnet format
-        run: dotnet format Assets/Scripts
+        run: dotnet format team-project-for-2024-fall-swpp-team-20.sln
