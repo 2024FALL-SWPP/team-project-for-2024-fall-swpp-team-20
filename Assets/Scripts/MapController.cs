@@ -26,7 +26,8 @@ public class MapController : MonoBehaviour
         ShuffleAnomaly();
     }
 
-    private void ShuffleAnomaly() {
+    private void ShuffleAnomaly()
+    {
         for (int i = 0; i < maxAnomalyCount; i++)
         {
             anomalies.Add(i);
@@ -34,17 +35,20 @@ public class MapController : MonoBehaviour
         System.Random rand = new System.Random();
         anomalies = anomalies.OrderBy(_ => rand.Next()).ToList();
     }
-    public GameObject GenerateMap(bool haveAnomaly) {
+    public GameObject GenerateMap(bool haveAnomaly)
+    {
         if (!haveAnomaly)
         {
             myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity);
             return myBedroom;
         }
-        else {
+        else
+        {
 
             myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity, transform);
             SetAnomaly(anomalies[++anomalyIndex]);
-            if (anomalyIndex >= maxAnomalyCount) {
+            if (anomalyIndex >= maxAnomalyCount)
+            {
                 // TODO: There are two options
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
