@@ -1,0 +1,27 @@
+name: Lint C# Code
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - develop
+      - feat*
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.x'  # 필요한 .NET SDK 버전을 지정합니다
+
+      - name: Run dotnet format
+        run: dotnet format Don\'t\ Sleep.sln
