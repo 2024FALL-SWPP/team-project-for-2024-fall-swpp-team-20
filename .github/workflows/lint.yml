@@ -1,0 +1,23 @@
+name: Unity Project Lint
+
+on:
+  push:
+    branches:
+      - feat*
+      - develop
+  pull_request:
+    branches: 
+      - main
+      - develop
+
+jobs:
+  lint:
+    name: Run Unity Linter
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Unity Linter
+      uses: integraldx/UnityLinter@v0.1.0
