@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         initialize();
     }
 
-    public void MoveToGameScene() {
+    public void MoveToGameScene()
+    {
         SceneManager.LoadScene("GameScene");
         StartCoroutine(InitializeAfterSceneLoad());
     }
@@ -40,7 +41,8 @@ public class GameManager : MonoBehaviour
     private void initialize()
     {
         string activeScene = SceneManager.GetActiveScene().name;
-        if (activeScene == "GameScene") {
+        if (activeScene == "GameScene")
+        {
             pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
             stm = FindObjectOfType<StateManager>().GetComponent<StateManager>();
         }

@@ -16,7 +16,7 @@ public class PlayManager : MonoBehaviour
     private float initialClockRotation;
     private PlayerController pc;
     private MapController mc;
-    
+
     void Start()
     {
         stage = 0;
@@ -31,7 +31,7 @@ public class PlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TryBedInteraction(bool sleep) => StartCoroutine(BedInteraction(sleep));
@@ -40,7 +40,8 @@ public class PlayManager : MonoBehaviour
     /// function called when player interacts with bed
     /// </summary>
     /// <param name="sleep">true when player decides sleep, false when player decides to wake up</param>
-    public IEnumerator BedInteraction(bool sleep) {
+    public IEnumerator BedInteraction(bool sleep)
+    {
         Debug.Log($"sleep: {sleep}");
         Debug.Log($"stage: {stage}");
 
@@ -67,7 +68,8 @@ public class PlayManager : MonoBehaviour
         }
     }
 
-    private void InitializeStage(int stage) {
+    private void InitializeStage(int stage)
+    {
 
         // TODO: Reset previous stage
         Destroy(currentMap);
@@ -95,7 +97,8 @@ public class PlayManager : MonoBehaviour
         InitializeStage(++stage);
     }
 
-    private void Fail(bool sleep) {
+    private void Fail(bool sleep)
+    {
         // TODO: Animation
         if (stage > 1) stage--;
         InitializeStage(stage);

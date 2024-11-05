@@ -30,22 +30,26 @@ public class PlayerController : MonoBehaviour
         transform.Translate(moveDirection.x * moveSpeed * Time.deltaTime, 0, moveDirection.y * moveSpeed * Time.deltaTime);
     }
 
-    public void OnMove(InputValue value) {
+    public void OnMove(InputValue value)
+    {
         moveDirection = value.Get<Vector2>();
     }
 
-    public void OnRotate(InputValue value) { 
+    public void OnRotate(InputValue value)
+    {
         Vector2 input = value.Get<Vector2>();
         float mouseDeltaX = input.x;
         rotateDirection = mouseDeltaX;
     }
-    
-    public void OnJump(InputValue value) {
+
+    public void OnJump(InputValue value)
+    {
 
         float jumped = value.Get<float>();
         Debug.Log(jumped);
 
-        if (jumped > 0f && !isJumping) {
+        if (jumped > 0f && !isJumping)
+        {
             isJumping = true;
             rb.AddForce(Vector3.up * jumpForce);
         }
@@ -60,14 +64,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bed")) {
+        if (other.gameObject.CompareTag("Bed"))
+        {
             canSleep = true;
             // Show UI to inform that you can sleep
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Bed")) {
+        if (other.gameObject.CompareTag("Bed"))
+        {
             canSleep = false;
             // Show UI to inform that you cannot sleep
         }
