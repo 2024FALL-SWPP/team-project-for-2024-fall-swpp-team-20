@@ -41,6 +41,7 @@ public class PlayManager : MonoBehaviour
     /// </summary>
     /// <param name="sleep">true when player decides sleep, false when player decides to wake up</param>
     public IEnumerator BedInteraction(bool sleep) {
+        pc.ToggleInteraction(false);
         Debug.Log($"sleep: {sleep}");
         Debug.Log($"stage: {stage}");
 
@@ -65,11 +66,12 @@ public class PlayManager : MonoBehaviour
             if (sleep ^ haveAnomaly) Succeed(sleep);
             else Fail(sleep);
         }
+        
     }
 
     private void InitializeStage(int stage) {
 
-        // TODO: Reset previous stage
+        // Reset previous stage
         Destroy(currentMap);
         // TODO: Set Anomaly
         if (stage == 0 || Random.Range(0f, 1f) > 0.5) haveAnomaly = false;
@@ -80,6 +82,8 @@ public class PlayManager : MonoBehaviour
         currentMap = mc.GenerateMap(haveAnomaly);
         // Set time
         SetClock(stage);
+        pc.ToggleInteraction(true);
+        Debug.Log("Start done");
     }
 
     private void SetClock(int stage)
