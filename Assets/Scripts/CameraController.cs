@@ -36,7 +36,5 @@ public class CameraController : MonoBehaviour
     public void linting()
     {
         Debug.Log("Linting");
-
-
     }
 }
