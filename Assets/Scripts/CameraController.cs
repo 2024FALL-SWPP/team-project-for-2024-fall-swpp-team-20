@@ -32,4 +32,5 @@ public class CameraController : MonoBehaviour
         rotateX = input.x;
         rotateY = input.y;
     }
+     // linting test
 }
