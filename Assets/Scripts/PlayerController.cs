@@ -6,11 +6,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDirection;
-    private float rotateDirection;
+
     private Rigidbody rb;
+    
     public float moveSpeed;
     public float rotateSpeed;
+    public float mouseDeltaX;
+
     public float jumpForce;
+    private float deltaTime;
 
     private bool isJumping;
 
@@ -18,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        mouseDeltaX = 0;
+        transform.localRotation = Quaternion.identity;
         rb = GetComponent<Rigidbody>();
         isJumping = false;
 
@@ -26,8 +32,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(rotateDirection * rotateSpeed * Vector3.up);
-        transform.Translate(moveDirection.x * moveSpeed * Time.deltaTime, 0, moveDirection.y * moveSpeed * Time.deltaTime);
+        deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
+        transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
+        transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
     }
 
     public void OnMove(InputValue value) {
@@ -36,8 +43,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRotate(InputValue value) { 
         Vector2 input = value.Get<Vector2>();
-        float mouseDeltaX = input.x;
-        rotateDirection = mouseDeltaX;
+        mouseDeltaX = input.x;
     }
     
     public void OnJump(InputValue value) {
@@ -80,5 +86,18 @@ public class PlayerController : MonoBehaviour
             float input = value.Get<float>();
             GameManager.instance.pm.TryBedInteraction(input > 0);
         }
+    }
+
+
+    /* README: Added temporary pause button for only testing
+     * It works only in Editor
+     */
+    public void OnPause(InputValue value) {
+#if UNITY_EDITOR
+        if (value.Get<float>() > 0f)
+        {
+            Debug.Break();
+        }
+#endif
     }
 }
