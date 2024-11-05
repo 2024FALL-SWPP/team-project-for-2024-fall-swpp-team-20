@@ -32,8 +32,11 @@ public class CameraController : MonoBehaviour
         rotateX = input.x;
         rotateY = input.y;
     }
-    
-    public void linting(){
+
+    public void linting()
+    {
         Debug.Log("Linting");
+
+
     }
 }
