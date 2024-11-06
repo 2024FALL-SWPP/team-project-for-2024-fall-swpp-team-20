@@ -37,23 +37,27 @@ public class PlayerController : MonoBehaviour
         transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
     }
 
-    public void OnMove(InputValue value) {
+    public void OnMove(InputValue value)
+    {
         Debug.Log("Move..");
         moveDirection = value.Get<Vector2>();
     }
 
-    public void OnRotate(InputValue value) {
+    public void OnRotate(InputValue value)
+    {
         Debug.Log("Rotate..");
         Vector2 input = value.Get<Vector2>();
         mouseDeltaX = input.x;
     }
-    
-    public void OnJump(InputValue value) {
+
+    public void OnJump(InputValue value)
+    {
         Debug.Log("Jump..");
         float jumped = value.Get<float>();
         Debug.Log(jumped);
 
-        if (jumped > 0f && !isJumping) {
+        if (jumped > 0f && !isJumping)
+        {
             isJumping = true;
             rb.AddForce(Vector3.up * jumpForce);
         }
@@ -68,7 +72,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bed")) {
+        if (other.gameObject.CompareTag("Bed"))
+        {
             canSleep = true;
             // Show UI to inform that you can sleep
         }
@@ -76,13 +81,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!canSleep && other.gameObject.CompareTag("Bed")) {
+        if (!canSleep && other.gameObject.CompareTag("Bed"))
+        {
             canSleep = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Bed")) {
+        if (other.gameObject.CompareTag("Bed"))
+        {
             canSleep = false;
             // Show UI to inform that you cannot sleep
         }
@@ -97,7 +104,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ToggleInteraction(bool canInteract) {
+    public void ToggleInteraction(bool canInteract)
+    {
         canSleep = canInteract;
         canMove = canInteract;
     }
@@ -105,7 +113,8 @@ public class PlayerController : MonoBehaviour
     /* README: Added temporary pause button for only testing
      * It works only in Editor
      */
-    public void OnPause(InputValue value) {
+    public void OnPause(InputValue value)
+    {
 #if UNITY_EDITOR
         if (value.Get<float>() > 0f)
         {

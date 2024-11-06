@@ -27,8 +27,9 @@ public class CameraController : MonoBehaviour
         //transform.RotateAround(transform.position, Vector3.up, rotateX);
         currentX = transform.localEulerAngles.x;
         Debug.Log(currentX);
-        if (canRotate(currentX, rotateY)) { 
-        transform.Rotate(Vector3.left * Time.deltaTime * rotateY * cameraRotateSpeed, Space.Self);
+        if (canRotate(currentX, rotateY))
+        {
+            transform.Rotate(Vector3.left * Time.deltaTime * rotateY * cameraRotateSpeed, Space.Self);
         }
     }
 
@@ -40,7 +41,8 @@ public class CameraController : MonoBehaviour
         Debug.Log(rotateY);
     }
 
-    private bool canRotate(float currentX, float rotateY) {
+    private bool canRotate(float currentX, float rotateY)
+    {
         if (currentX < 60 || currentX > 300) return true;
         if (rotateY < 0 && 200 < currentX) return true;
         if (rotateY > 0 && 160 > currentX) return true;
