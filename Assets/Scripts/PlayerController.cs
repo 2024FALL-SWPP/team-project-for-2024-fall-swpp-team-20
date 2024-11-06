@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
 
-    public bool canSleep = false;
+    public bool canInteract = false;
 
     private void Start()
     {
@@ -39,22 +39,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        Debug.Log("Move..");
         moveDirection = value.Get<Vector2>();
     }
 
     public void OnRotate(InputValue value)
     {
-        Debug.Log("Rotate..");
         Vector2 input = value.Get<Vector2>();
         mouseDeltaX = input.x;
     }
 
     public void OnJump(InputValue value)
     {
-        Debug.Log("Jump..");
         float jumped = value.Get<float>();
-        Debug.Log(jumped);
 
         if (jumped > 0f && !isJumping)
         {
@@ -74,30 +70,30 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            canSleep = true;
+            canInteract = true;
             // Show UI to inform that you can sleep
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!canSleep && other.gameObject.CompareTag("Bed"))
+        if (!canInteract && other.gameObject.CompareTag("Bed"))
         {
-            canSleep = true;
+            canInteract = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            canSleep = false;
+            canInteract = false;
             // Show UI to inform that you cannot sleep
         }
     }
 
     public void OnBedInteraction(InputValue value)
     {
-        if (canSleep)
+        if (canInteract)
         {
             float input = value.Get<float>();
             GameManager.instance.pm.TryBedInteraction(input > 0);
@@ -106,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleInteraction(bool canInteract)
     {
-        canSleep = canInteract;
+        this.canInteract = canInteract;
         canMove = canInteract;
     }
 

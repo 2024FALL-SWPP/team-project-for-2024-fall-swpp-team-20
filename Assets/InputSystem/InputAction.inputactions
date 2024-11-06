@@ -42,6 +42,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "ObjectInteraction",
+                    "type": "Button",
+                    "id": "22456a6d-1741-4645-8de0-31eac44c1fe9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "f705e781-6fe1-4cb9-ab27-e66f6cf295d2",
@@ -170,6 +179,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e70a583-30e1-451d-80fe-ed4816526506",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ObjectInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
