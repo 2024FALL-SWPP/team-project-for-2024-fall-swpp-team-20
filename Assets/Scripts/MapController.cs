@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 public class MapController : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class MapController : MonoBehaviour
             HandleAnomaly1,
             HandleAnomaly2,
             HandleAnomaly3
-            // 필요한 만큼 추가
         };
     }
 
@@ -34,7 +34,7 @@ public class MapController : MonoBehaviour
     {
         if (!haveAnomaly)
         {
-            myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity);
+            myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity, transform);
             return myBedroom;
         }
         else
@@ -66,16 +66,18 @@ public class MapController : MonoBehaviour
     // 예시 핸들러 함수들
     private void HandleAnomaly1(int anomaly)
     {
-        Debug.Log("Handling anomaly 1: " + anomaly);
+        GameObject piano = myBedroom.transform.Find("Piano").gameObject;
+        piano.transform.rotation = Quaternion.Euler(-90, 0, -140);
+        piano.transform.position = new Vector3(0.53f, 0.177f, 9.1f);
     }
 
     private void HandleAnomaly2(int anomaly)
     {
-        Debug.Log("Handling anomaly 2: " + anomaly);
+        //TODO: Implement anomaly 2
     }
 
     private void HandleAnomaly3(int anomaly)
     {
-        Debug.Log("Handling anomaly 3: " + anomaly);
+        //TODO: Implement anomaly 3
     }
 }
