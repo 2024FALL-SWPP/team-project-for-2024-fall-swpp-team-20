@@ -48,4 +48,9 @@ public class CameraController : MonoBehaviour
         if (rotateY > 0 && 160 > currentX) return true;
         return false;
     }
+
+    public void linting()
+    {
+        Debug.Log("Linting");
+    }
 }

@@ -43,8 +43,6 @@ public class PlayManager : MonoBehaviour
     public IEnumerator BedInteraction(bool sleep)
     {
         pc.ToggleInteraction(false);
-        Debug.Log($"sleep: {sleep}");
-        Debug.Log($"stage: {stage}");
 
         if (sleep && stage == 0)
         {

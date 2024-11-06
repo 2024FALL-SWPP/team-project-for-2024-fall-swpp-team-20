@@ -1,0 +1,3 @@
+# .gitconfig
+[core]
+	hooksPath = .githooks
