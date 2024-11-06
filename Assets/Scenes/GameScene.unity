@@ -552,7 +552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5976228307234180507}
-  cameraRotateSpeed: 10
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,7 +1038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 0
   moveSpeed: 1
-  rotateSpeed: 10
+  rotateSpeed: 1
   mouseDeltaX: 0
   jumpForce: 150
   canSleep: 0

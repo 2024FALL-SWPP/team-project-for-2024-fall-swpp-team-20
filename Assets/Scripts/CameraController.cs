@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     //private float rotateX;
     private float rotateY;
     private float currentX;
-    public float cameraRotateSpeed;
+    public float cameraRotateSpeed => player.rotateSpeed;
 
     public bool CanMove => player.canMove;
 
