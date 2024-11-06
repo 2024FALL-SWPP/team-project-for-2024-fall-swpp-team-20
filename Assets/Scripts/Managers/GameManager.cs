@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     private void initialize()
     {
         string activeScene = SceneManager.GetActiveScene().name;
-        if (activeScene == "GameScene")
+        if (activeScene == "GameScene" || activeScene == "DesignScene")
         {
             pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
             stm = FindObjectOfType<StateManager>().GetComponent<StateManager>();
