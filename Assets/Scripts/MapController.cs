@@ -7,34 +7,29 @@ using System.Linq;
 public class MapController : MonoBehaviour
 {
     public GameObject bedroomPrefab;
-    public GameObject myBedroom;
+    private GameObject myBedroom;
+    private int anomalyIndex = -1;
+    private const int maxAnomalyCount = 10;
+    private int[] anomalies = new int[maxAnomalyCount];
 
-    public List<int> anomalies;
-    public int anomalyIndex;
-    public int maxAnomalyCount = 30;
+    public delegate void AnomalyHandler(int anomaly);
 
-    // maxBasicAnomaly: Number of basic anomaly
-    public int maxBasicAnomaly;
-    //maxHardAnomaly: Number of hard anomaly
-    public int maxHardAnomaly;
+    // 델리게이트 배열 생성 : 
+    //refer by Github Copilot : 이상현상 구현 관련 basic structure 조언 받음
+    private AnomalyHandler[] anomalyHandlers;
 
-
-    private void Start()
+    void Start()
     {
-        anomalies = new List<int>();
-        anomalyIndex = 0;
-        ShuffleAnomaly();
-    }
-
-    private void ShuffleAnomaly()
-    {
-        for (int i = 0; i < maxAnomalyCount; i++)
+        // 델리게이트 배열 초기화
+        anomalyHandlers = new AnomalyHandler[]
         {
-            anomalies.Add(i);
-        }
-        System.Random rand = new System.Random();
-        anomalies = anomalies.OrderBy(_ => rand.Next()).ToList();
+            HandleAnomaly1,
+            HandleAnomaly2,
+            HandleAnomaly3
+            // 필요한 만큼 추가
+        };
     }
+
     public GameObject GenerateMap(bool haveAnomaly)
     {
         if (!haveAnomaly)
@@ -44,7 +39,6 @@ public class MapController : MonoBehaviour
         }
         else
         {
-
             myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity, transform);
             SetAnomaly(anomalies[++anomalyIndex]);
             if (anomalyIndex >= maxAnomalyCount)
@@ -57,9 +51,31 @@ public class MapController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Modify map with given anomaly
-    /// </summary>
-    /// <param name="anomaly"></param>
-    private void SetAnomaly(int anomaly) { }
+    private void SetAnomaly(int anomaly)
+    {
+        if (anomalyIndex < anomalyHandlers.Length)
+        {
+            anomalyHandlers[anomalyIndex](anomaly);
+        }
+        else
+        {
+            Debug.LogWarning("No handler for anomaly index: " + anomalyIndex);
+        }
+    }
+
+    // 예시 핸들러 함수들
+    private void HandleAnomaly1(int anomaly)
+    {
+        Debug.Log("Handling anomaly 1: " + anomaly);
+    }
+
+    private void HandleAnomaly2(int anomaly)
+    {
+        Debug.Log("Handling anomaly 2: " + anomaly);
+    }
+
+    private void HandleAnomaly3(int anomaly)
+    {
+        Debug.Log("Handling anomaly 3: " + anomaly);
+    }
 }
