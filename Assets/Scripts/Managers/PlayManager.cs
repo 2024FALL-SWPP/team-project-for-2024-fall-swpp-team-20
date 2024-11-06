@@ -42,8 +42,7 @@ public class PlayManager : MonoBehaviour
     /// <param name="sleep">true when player decides sleep, false when player decides to wake up</param>
     public IEnumerator BedInteraction(bool sleep)
     {
-        Debug.Log($"sleep: {sleep}");
-        Debug.Log($"stage: {stage}");
+        pc.ToggleInteraction(false);
 
         if (sleep && stage == 0)
         {
@@ -66,22 +65,25 @@ public class PlayManager : MonoBehaviour
             if (sleep ^ haveAnomaly) Succeed(sleep);
             else Fail(sleep);
         }
+
     }
 
     private void InitializeStage(int stage)
     {
 
-        // TODO: Reset previous stage
+        // Reset previous stage
         Destroy(currentMap);
         // TODO: Set Anomaly
         if (stage == 0 || Random.Range(0f, 1f) > 0.5) haveAnomaly = false;
         else haveAnomaly = true;
-        // TODO: Reset Player position
+        // Reset Player position
         player.transform.position = new Vector3(0.41f, 0.5f, 0f);
         // Create new stage map
         currentMap = mc.GenerateMap(haveAnomaly);
         // Set time
         SetClock(stage);
+        pc.ToggleInteraction(true);
+        Debug.Log("Start done");
     }
 
     private void SetClock(int stage)

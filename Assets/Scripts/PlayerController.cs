@@ -6,45 +6,53 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDirection;
-    private float rotateDirection;
+
     private Rigidbody rb;
+
+    public bool canMove = false;
+
     public float moveSpeed;
     public float rotateSpeed;
+    public float mouseDeltaX;
+
     public float jumpForce;
+    private float deltaTime;
 
     private bool isJumping;
 
-    public bool canSleep;
+    public bool canSleep = false;
 
     private void Start()
     {
+        mouseDeltaX = 0;
+        transform.localRotation = Quaternion.identity;
         rb = GetComponent<Rigidbody>();
         isJumping = false;
-
-        canSleep = true;
     }
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(rotateDirection * rotateSpeed * Vector3.up);
-        transform.Translate(moveDirection.x * moveSpeed * Time.deltaTime, 0, moveDirection.y * moveSpeed * Time.deltaTime);
+        deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
+        transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
+        transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
     }
 
     public void OnMove(InputValue value)
     {
+        Debug.Log("Move..");
         moveDirection = value.Get<Vector2>();
     }
 
     public void OnRotate(InputValue value)
     {
+        Debug.Log("Rotate..");
         Vector2 input = value.Get<Vector2>();
-        float mouseDeltaX = input.x;
-        rotateDirection = mouseDeltaX;
+        mouseDeltaX = input.x;
     }
 
     public void OnJump(InputValue value)
     {
-
+        Debug.Log("Jump..");
         float jumped = value.Get<float>();
         Debug.Log(jumped);
 
@@ -70,6 +78,14 @@ public class PlayerController : MonoBehaviour
             // Show UI to inform that you can sleep
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!canSleep && other.gameObject.CompareTag("Bed"))
+        {
+            canSleep = true;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Bed"))
@@ -86,5 +102,24 @@ public class PlayerController : MonoBehaviour
             float input = value.Get<float>();
             GameManager.instance.pm.TryBedInteraction(input > 0);
         }
+    }
+
+    public void ToggleInteraction(bool canInteract)
+    {
+        canSleep = canInteract;
+        canMove = canInteract;
+    }
+
+    /* README: Added temporary pause button for only testing
+     * It works only in Editor
+     */
+    public void OnPause(InputValue value)
+    {
+#if UNITY_EDITOR
+        if (value.Get<float>() > 0f)
+        {
+            Debug.Break();
+        }
+#endif
     }
 }
