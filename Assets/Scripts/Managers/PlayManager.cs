@@ -83,6 +83,13 @@ public class PlayManager : MonoBehaviour
         // Set time
         SetClock(stage);
         pc.ToggleInteraction(true);
+
+        // Fix Mouse cursor to center
+        Cursor.lockState = CursorLockMode.Locked;
+        /* TODO: If press ESC to pause, release mouse cursor
+         * use this:
+         * Cursor.lockState = CursorLockMode.None;
+         */
     }
 
     private void SetClock(int stage)

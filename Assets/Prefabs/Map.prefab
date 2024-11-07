@@ -1087,6 +1087,19 @@ MonoBehaviour:
   - {fileID: -6131792653216720945, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   - {fileID: 2994280962357473363, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   screen: {fileID: 7839441263021854031}
+--- !u!65 &798430772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633805639431078981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3996802, y: 0.35125655, z: 0.30546033}
+  m_Center: {x: -0.00097501284, y: 0.025084615, z: 0.15273017}
 --- !u!4 &4117994669318184703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
