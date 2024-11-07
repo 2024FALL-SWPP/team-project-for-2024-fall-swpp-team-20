@@ -35,12 +35,12 @@ public class CameraController : MonoBehaviour
         {
             transform.Rotate(Vector3.left * Time.deltaTime * rotateY * cameraRotateSpeed, Space.Self);
         }
-        if (Physics.Raycast(transform.position,transform.forward, out hit, Mathf.Infinity, layerMask)) {
+        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask)) {
             if (hit.distance < 10f) {
                 Debug.Log("HIT!!");
             }
         }
-        Debug.DrawRay(transform.position, 100 * transform.forward, Color.red);
+        Debug.DrawRay(transform.position, 10 * transform.forward, Color.red);
     }
 
     public void OnRotate(InputValue value)

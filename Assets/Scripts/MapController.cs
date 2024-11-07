@@ -7,8 +7,8 @@ using System.Runtime.CompilerServices;
 
 public class MapController : MonoBehaviour
 {
-    public GameObject bedroomPrefab;
-    private GameObject myBedroom;
+    public GameObject mapPrefab;
+    private GameObject map;
     private int anomalyIndex = -1;
     private const int maxAnomalyCount = 10;
     private Anomaly[] anomalies;
@@ -24,12 +24,12 @@ public class MapController : MonoBehaviour
     {
         if (!haveAnomaly)
         {
-            myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity, transform);
-            return myBedroom;
+            map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
+            return map;
         }
         else
         {
-            myBedroom = Instantiate(bedroomPrefab, Vector3.zero, Quaternion.identity, transform);
+            map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetAnomaly(anomalies[++anomalyIndex]);
             if (anomalyIndex >= maxAnomalyCount)
             {
@@ -37,7 +37,7 @@ public class MapController : MonoBehaviour
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
-            return myBedroom;
+            return map;
         }
     }
 
@@ -45,7 +45,7 @@ public class MapController : MonoBehaviour
     {
         if (anomalyIndex < anomalies.Length)
         {
-            anomaly.Apply(myBedroom);
+            anomaly.Apply(map);
         }
     }
 }
