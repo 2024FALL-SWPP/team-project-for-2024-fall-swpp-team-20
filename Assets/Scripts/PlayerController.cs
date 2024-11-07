@@ -39,22 +39,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        Debug.Log("Move..");
         moveDirection = value.Get<Vector2>();
     }
 
     public void OnRotate(InputValue value)
     {
-        Debug.Log("Rotate..");
         Vector2 input = value.Get<Vector2>();
         mouseDeltaX = input.x;
     }
 
     public void OnJump(InputValue value)
     {
-        Debug.Log("Jump..");
         float jumped = value.Get<float>();
-        Debug.Log(jumped);
 
         if (jumped > 0f && !isJumping)
         {
