@@ -11,25 +11,15 @@ public class MapController : MonoBehaviour
     private GameObject myBedroom;
     private int anomalyIndex = -1;
     private const int maxAnomalyCount = 10;
-    private int[] anomalies = new int[maxAnomalyCount];
-
-    public delegate void AnomalyHandler(int anomaly);
-
-    // 델리게이트 배열 생성 : 
-    //refer by Github Copilot : 이상현상 구현 관련 basic structure 조언 받음
-    private AnomalyHandler[] anomalyHandlers;
+    private Anomaly[] anomalies;
 
     void Start()
     {
         // 델리게이트 배열 초기화
-        anomalyHandlers = new AnomalyHandler[]
-        {
-            HandleAnomaly1,
-            HandleAnomaly2,
-            HandleAnomaly3
+        anomalies = new Anomaly[]
+        { gameObject.AddComponent<EasyPianoAnomaly>(),
         };
     }
-
     public GameObject GenerateMap(bool haveAnomaly)
     {
         if (!haveAnomaly)
@@ -51,33 +41,11 @@ public class MapController : MonoBehaviour
         }
     }
 
-    private void SetAnomaly(int anomaly)
+    private void SetAnomaly(Anomaly anomaly)
     {
-        if (anomalyIndex < anomalyHandlers.Length)
+        if (anomalyIndex < anomalies.Length)
         {
-            anomalyHandlers[anomalyIndex](anomaly);
+            anomaly.Apply(myBedroom);
         }
-        else
-        {
-            Debug.LogWarning("No handler for anomaly index: " + anomalyIndex);
-        }
-    }
-
-    // 예시 핸들러 함수들
-    private void HandleAnomaly1(int anomaly)
-    {
-        GameObject piano = myBedroom.transform.Find("Piano").gameObject;
-        piano.transform.rotation = Quaternion.Euler(-90, 0, -140);
-        piano.transform.position = new Vector3(0.53f, 0.177f, 9.1f);
-    }
-
-    private void HandleAnomaly2(int anomaly)
-    {
-        //TODO: Implement anomaly 2
-    }
-
-    private void HandleAnomaly3(int anomaly)
-    {
-        //TODO: Implement anomaly 3
     }
 }

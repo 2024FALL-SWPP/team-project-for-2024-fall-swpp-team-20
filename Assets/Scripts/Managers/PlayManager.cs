@@ -83,7 +83,6 @@ public class PlayManager : MonoBehaviour
         // Set time
         SetClock(stage);
         pc.ToggleInteraction(true);
-        Debug.Log("Start done");
     }
 
     private void SetClock(int stage)
