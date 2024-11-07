@@ -17,6 +17,10 @@ public class PlayManager : MonoBehaviour
     private PlayerController pc;
     private MapController mc;
 
+    private GameObject landscapeObject;
+
+    public Material[] landscapeMaterials;
+
     void Start()
     {
         stage = 0;
@@ -25,6 +29,7 @@ public class PlayManager : MonoBehaviour
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pc = player.GetComponent<PlayerController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
+        landscapeObject = GameObject.Find("Landscape");
         InitializeStage(0);
     }
 
@@ -83,6 +88,7 @@ public class PlayManager : MonoBehaviour
         // Set time
         SetClock(stage);
         pc.ToggleInteraction(true);
+        ChangeLandscape(stage);
 
         // Fix Mouse cursor to center
         Cursor.lockState = CursorLockMode.Locked;
@@ -110,6 +116,15 @@ public class PlayManager : MonoBehaviour
         // TODO: Animation
         if (stage > 1) stage--;
         InitializeStage(stage);
+    }
+
+    private void ChangeLandscape(int stage)
+    {
+        if (stage >= 0 && stage < landscapeMaterials.Length)
+        {
+            Renderer renderer = landscapeObject.GetComponent<Renderer>();
+            renderer.material = landscapeMaterials[stage];
+        }
     }
 
     // Call When player restarts
