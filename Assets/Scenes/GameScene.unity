@@ -557,6 +557,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
+  landscapeMaterials:
+  - {fileID: 2100000, guid: b1455e465f75f41c0aeafb9aaeef16a6, type: 2}
+  - {fileID: 2100000, guid: e5a5bf4f4e7e04466b31202aa4863314, type: 2}
+  - {fileID: 2100000, guid: de19580a2e4dd4b9680e1487709c68e3, type: 2}
+  - {fileID: 2100000, guid: 911260dd550c14692a6f334f03fabac1, type: 2}
+  - {fileID: 2100000, guid: 014f844873a12470aaa72fdf7f88972a, type: 2}
+  - {fileID: 2100000, guid: a3f76542596d24e9285999379d15ac33, type: 2}
+  - {fileID: 2100000, guid: c9b7b5c7934dd4b42bd2722877fdf5bb, type: 2}
+  - {fileID: 2100000, guid: 12db5ab4fa47c4a77a5d5a2b2495b5b4, type: 2}
 --- !u!4 &1237701058
 Transform:
   m_ObjectHideFlags: 0
