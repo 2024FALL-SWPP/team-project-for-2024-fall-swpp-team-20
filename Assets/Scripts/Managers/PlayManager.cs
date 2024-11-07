@@ -77,7 +77,7 @@ public class PlayManager : MonoBehaviour
         if (stage == 0 || Random.Range(0f, 1f) > 0.5) haveAnomaly = false;
         else haveAnomaly = true;
         // Reset Player position
-        player.transform.position = new Vector3(0.41f, 0.5f, 0f);
+        player.transform.position = new Vector3(2.06f, 0.465f, -1.41f);
         // Create new stage map
         currentMap = mc.GenerateMap(haveAnomaly);
         // Set time
@@ -87,7 +87,7 @@ public class PlayManager : MonoBehaviour
 
     private void SetClock(int stage)
     {
-        clockHourHand = currentMap.transform.Find("clock_wood").Find("Hour Hand").gameObject;
+        clockHourHand = currentMap.transform.Find("Bedroom").Find("clock").Find("Hour Hand").gameObject;
         clockHourHand.transform.localRotation = Quaternion.Euler(0, 0, initialClockRotation + 30 * stage);
     }
 
