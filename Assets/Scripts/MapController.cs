@@ -18,6 +18,7 @@ public class MapController : MonoBehaviour
         // 델리게이트 배열 초기화
         anomalies = new Anomaly[]
         { gameObject.AddComponent<EasyPianoAnomaly>(),
+        gameObject.AddComponent<EasyDiceAnomaly>(),
         };
     }
     public GameObject GenerateMap(bool haveAnomaly)
