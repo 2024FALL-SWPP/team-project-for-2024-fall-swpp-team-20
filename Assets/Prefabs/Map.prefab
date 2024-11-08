@@ -1418,7 +1418,12 @@ MonoBehaviour:
   - {fileID: -3179197617483101925, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   - {fileID: -6131792653216720945, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   - {fileID: 2994280962357473363, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
+  anomalyMaterialSet:
+  - {fileID: -3179197617483101925, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
+  - {fileID: -6131792653216720945, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
+  - {fileID: -1345243696464467942, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   screen: {fileID: 7839441263021854031}
+  inAnomaly: 0
 --- !u!4 &4117994669318184703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
