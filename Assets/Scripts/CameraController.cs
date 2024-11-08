@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour
         }
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask)) {
             if (hit.distance < 10f) {
-                Debug.Log("HIT!!");
+                //Debug.Log("HIT!!");
             }
         }
         Debug.DrawRay(transform.position, 10 * transform.forward, Color.red);
