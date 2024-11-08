@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,6 @@ public class PlayManager : MonoBehaviour
 
     private GameObject currentMap;
     private GameObject player;
-    private GameObject clockHourHand;
     private float initialClockRotation;
     private PlayerController pc;
     private MapController mc;
@@ -103,8 +103,10 @@ public class PlayManager : MonoBehaviour
 
     private void SetClock(int stage)
     {
-        clockHourHand = currentMap.transform.Find("Bedroom").Find("clock").Find("Hour Hand").gameObject;
-        clockHourHand.transform.localRotation = Quaternion.Euler(0, 0, initialClockRotation + 30 * stage);
+        GameObject clockHourHand = currentMap.transform.Find("Bedroom").Find("clock").Find("Hour Hand").gameObject;
+        clockHourHand.transform.localRotation = Quaternion.Euler(-90, 0, initialClockRotation + 30 * stage);
+        TextMeshPro digitalClockText = currentMap.transform.Find("Bedroom").Find("digital_clock").Find("ClockText").GetComponent<TextMeshPro>();
+        digitalClockText.text = stage == 0 ? "00:00" : "0" + stage.ToString() + ":00";
     }
 
 
