@@ -8,6 +8,7 @@ TagManager:
   - HourHand
   - Map
   - Labtop
+  - Dice
   layers:
   - Default
   - TransparentFX

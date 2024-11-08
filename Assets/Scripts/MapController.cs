@@ -17,7 +17,9 @@ public class MapController : MonoBehaviour
     {
         // 델리게이트 배열 초기화
         anomalies = new Anomaly[]
-        { gameObject.AddComponent<EasyPianoAnomaly>(),
+        {
+            gameObject.AddComponent<EasyPianoAnomaly>(),
+            gameObject.AddComponent<EasyDiceAnomaly>(),
         };
     }
     public GameObject GenerateMap(bool haveAnomaly)
@@ -30,7 +32,7 @@ public class MapController : MonoBehaviour
         else
         {
             map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
-            SetAnomaly(anomalies[++anomalyIndex]);
+            SetAnomaly(anomalies[++anomalyIndex % anomalies.Length]);
             if (anomalyIndex >= maxAnomalyCount)
             {
                 // TODO: There are two options
