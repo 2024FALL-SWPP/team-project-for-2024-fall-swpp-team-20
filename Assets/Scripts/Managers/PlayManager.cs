@@ -21,6 +21,9 @@ public class PlayManager : MonoBehaviour
 
     public Material[] landscapeMaterials;
 
+    //only for anomaly testing
+    private bool Test => mc.test;
+
     void Start()
     {
         stage = 0;
@@ -79,7 +82,7 @@ public class PlayManager : MonoBehaviour
         // Reset previous stage
         Destroy(currentMap);
         // TODO: Set Anomaly
-        if (stage == 0 || Random.Range(0f, 1f) > 0.5) haveAnomaly = false;
+        if (!Test && (stage == 0 || Random.Range(0f, 1f) > 0.5)) haveAnomaly = false;
         else haveAnomaly = true;
         // Reset Player position
         player.transform.position = new Vector3(2.06f, 0.465f, -1.41f);
