@@ -11,12 +11,10 @@ public class RightCloset : MonoBehaviour, IInteractable
             open = value;
             if(open)
             {
-                Debug.Log("Right Closet Opened");
                 transform.rotation = Quaternion.Euler(-90, 0, 0);
             }
             else
             {
-                Debug.Log("Right Closet Closed");
                 transform.rotation = Quaternion.Euler(-90, 0, 90);
             }
         }

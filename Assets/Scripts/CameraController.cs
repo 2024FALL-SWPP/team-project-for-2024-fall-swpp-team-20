@@ -57,7 +57,6 @@ public class CameraController : MonoBehaviour
             {
                 GameObject target = hit.transform.gameObject;
                 target.GetComponent<IInteractable>().Interact(target);
-                Debug.Log("Interacted with " + target.name);
             }
         }
     }
