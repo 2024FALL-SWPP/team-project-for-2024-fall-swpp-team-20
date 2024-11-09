@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPrefab: {fileID: 6260140572017040805, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
   test: 0
-  testAnomaly: 2
+  testAnomaly: 1
 --- !u!4 &570821364
 Transform:
   m_ObjectHideFlags: 0
