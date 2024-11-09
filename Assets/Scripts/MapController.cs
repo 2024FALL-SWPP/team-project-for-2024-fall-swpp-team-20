@@ -25,6 +25,7 @@ public class MapController : MonoBehaviour
             gameObject.AddComponent<EasyPianoAnomaly>(),
             gameObject.AddComponent<EasyDiceAnomaly>(),
             gameObject.AddComponent<EasyLaptopAnomaly>(),
+            gameObject.AddComponent<EasySpintopAnomaly>(),
         };
     }
     public GameObject GenerateMap(bool haveAnomaly)
