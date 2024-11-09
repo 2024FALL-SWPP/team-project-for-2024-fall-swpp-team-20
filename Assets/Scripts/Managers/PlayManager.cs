@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
@@ -13,7 +10,6 @@ public class PlayManager : MonoBehaviour
 
     private GameObject currentMap;
     private GameObject player;
-    private float initialClockRotation;
     private PlayerController pc;
     private MapController mc;
 
@@ -27,7 +23,6 @@ public class PlayManager : MonoBehaviour
     void Start()
     {
         stage = 0;
-        initialClockRotation = 240.0f;
         player = GameObject.FindGameObjectWithTag("Player");
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pc = player.GetComponent<PlayerController>();
@@ -87,9 +82,8 @@ public class PlayManager : MonoBehaviour
         // Reset Player position
         player.transform.position = new Vector3(2.06f, 0.465f, -1.41f);
         // Create new stage map
-        currentMap = mc.GenerateMap(haveAnomaly);
+        currentMap = mc.GenerateMap(haveAnomaly, stage);
         // Set time
-        SetClock(stage);
         pc.ToggleInteraction(true);
         ChangeLandscape(stage);
 
@@ -100,15 +94,6 @@ public class PlayManager : MonoBehaviour
          * Cursor.lockState = CursorLockMode.None;
          */
     }
-
-    private void SetClock(int stage)
-    {
-        GameObject clockHourHand = currentMap.transform.Find("Bedroom").Find("clock").Find("Hour Hand").gameObject;
-        clockHourHand.transform.localRotation = Quaternion.Euler(-90, 0, initialClockRotation + 30 * stage);
-        TextMeshPro digitalClockText = currentMap.transform.Find("Bedroom").Find("digital_clock").Find("ClockText").GetComponent<TextMeshPro>();
-        digitalClockText.text = stage == 0 ? "00:00" : "0" + stage.ToString() + ":00";
-    }
-
 
     private void Succeed(bool sleep)
     {
