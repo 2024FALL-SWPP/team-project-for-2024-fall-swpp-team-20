@@ -6,7 +6,7 @@ public class EasySpintopAnomaly : Anomaly
 {
     public override void Apply(GameObject myBedroom)
     {
-        Totem totem = FindObjectOfType<Totem>();
+        Totem totem = myBedroom.transform.Find("Studyroom").Find("inception_totem").GetComponent<Totem>();
         totem.inAnomaly = true;
     }
 }
