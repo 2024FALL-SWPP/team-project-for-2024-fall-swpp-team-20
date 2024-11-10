@@ -1,5 +1,8 @@
 using UnityEngine;
-using TMPro;
+using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Reflection;
 
 public class MapController : MonoBehaviour
 {
@@ -7,8 +10,8 @@ public class MapController : MonoBehaviour
     private GameObject map;
     private float initialClockRotation = 240.0f;
     private int anomalyIndex = -1;
-    private const int maxAnomalyCount = 10;
-    private Anomaly[] anomalies;
+    private const int maxAnomalyCount = 50;
+    private List<Anomaly> anomalies;
 
     //only for anomlay testing
     public bool test;
@@ -16,14 +19,20 @@ public class MapController : MonoBehaviour
 
     void Start()
     {
-        anomalies = new Anomaly[]
+        // Asked for chatGPT about how to use assembly
+        Assembly assembly = Assembly.GetExecutingAssembly();
+
+        // filling delegate list
+        anomalies = new List<Anomaly>();
+        foreach (Type type in assembly.GetTypes())
         {
-            gameObject.AddComponent<EasyPianoAnomaly>(),
-            gameObject.AddComponent<EasyDiceAnomaly>(),
-            gameObject.AddComponent<EasyLaptopAnomaly>(),
-            gameObject.AddComponent<EasyDigitalClockAnomaly>(),
-            gameObject.AddComponent<EasySpintopAnomaly>(),
-        };
+            if (type.IsSubclassOf(typeof(Anomaly)) && !type.IsSubclassOf(typeof(MonoBehaviour)))
+            {
+                // Create an instance of each type and add it to the list.
+                Anomaly instance = (Anomaly)Activator.CreateInstance(type);
+                anomalies.Add(instance);
+            }
+        }
     }
     public GameObject GenerateMap(bool haveAnomaly, int stage)
     {
@@ -38,7 +47,7 @@ public class MapController : MonoBehaviour
             map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             if (test) SetAnomaly(anomalies[testAnomaly]);
-            else SetAnomaly(anomalies[++anomalyIndex % anomalies.Length]);
+            else SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
             if (anomalyIndex >= maxAnomalyCount)
             {
                 // TODO: There are two options
@@ -51,7 +60,7 @@ public class MapController : MonoBehaviour
 
     private void SetAnomaly(Anomaly anomaly)
     {
-        if (anomalyIndex < anomalies.Length)
+        if (anomalyIndex < anomalies.Count)
         {
             anomaly.Apply(map);
         }
