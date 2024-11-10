@@ -13,16 +13,38 @@ public class LeftCloset : MonoBehaviour, IInteractable
             open = value;
             if (open)
             {
-                transform.rotation = Quaternion.Euler(-90, 0, 90);
+                StartCoroutine(OpenDoor());
             }
             else
             {
-                transform.rotation = Quaternion.Euler(-90, 0, 180);
+                StartCoroutine(CloseDoor());
             }
         }
     }
     public void Interact(GameObject obj)
     {
         Open = !Open;
+    }
+
+    public IEnumerator OpenDoor()
+    {
+        Quaternion targetRotation = Quaternion.Euler(-90, 0, 180);
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2f);
+            yield return null;
+        }
+        transform.rotation = targetRotation;
+    }
+
+    public IEnumerator CloseDoor()
+    {
+        Quaternion targetRotation = Quaternion.Euler(-90, 0, 90);
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2f);
+            yield return null;
+        }
+        transform.rotation = targetRotation;
     }
 }
