@@ -35,6 +35,10 @@ public class MapController : MonoBehaviour
                 anomalies.Add(instance);
             }
         }
+
+        foreach (Anomaly anomaly in anomalies) {
+            Debug.Log(anomaly.GetType());
+        }
     }
     public GameObject GenerateMap(bool haveAnomaly, int stage)
     {

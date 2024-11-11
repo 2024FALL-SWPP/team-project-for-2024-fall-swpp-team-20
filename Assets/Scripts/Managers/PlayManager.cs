@@ -9,7 +9,7 @@ public class PlayManager : MonoBehaviour
     private bool haveAnomaly;
 
     private GameObject currentMap;
-    private GameObject player;
+    [SerializeField] private GameObject player;
     private PlayerController pc;
     private MapController mc;
 
