@@ -863,7 +863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6260140571371954142}
   m_Layer: 0
-  m_Name: book_collection
+  m_Name: book_collection0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -987,7 +987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6260140572158623003}
   m_Layer: 0
-  m_Name: book_collection (1)
+  m_Name: book_collection1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5058,7 +5058,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0121437ec9f25ce4981f2e9a1d233104, type: 2}
     - target: {fileID: 919132149155446097, guid: bebc64cbe0f969a4d96db880bc75b186, type: 3}
       propertyPath: m_Name
-      value: book
+      value: book (0)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebc64cbe0f969a4d96db880bc75b186, type: 3}
@@ -5214,7 +5214,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0121437ec9f25ce4981f2e9a1d233104, type: 2}
     - target: {fileID: 919132149155446097, guid: bebc64cbe0f969a4d96db880bc75b186, type: 3}
       propertyPath: m_Name
-      value: book
+      value: book (0)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebc64cbe0f969a4d96db880bc75b186, type: 3}
