@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Collections.Generic;
 using TMPro;
+using Shuffle = System.Random;
 
 public class MapController : MonoBehaviour
 {
@@ -36,8 +37,16 @@ public class MapController : MonoBehaviour
             }
         }
 
-        foreach (Anomaly anomaly in anomalies) {
-            Debug.Log(anomaly.GetType());
+
+        if (!test)
+        {
+            Shuffle s = new();
+            anomalies = anomalies.OrderBy(_ => s.Next()).ToList();
+        }
+
+        for (int index = 0; index < anomalies.Count; index++)
+        {
+            Debug.Log($"Index {index}: {anomalies[index].GetType()}");
         }
     }
     public GameObject GenerateMap(bool haveAnomaly, int stage)
