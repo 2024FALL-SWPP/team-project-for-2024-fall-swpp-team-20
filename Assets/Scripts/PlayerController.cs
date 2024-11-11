@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            Debug.Log("HELLO1");
             canSleep = true;
             EnableSleepUI();
         }
@@ -82,7 +81,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!canSleep && other.gameObject.CompareTag("Bed"))
         {
-            Debug.Log("HELLO2");
             canSleep = true;
             EnableSleepUI();
         }
@@ -91,7 +89,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            Debug.Log("HELLO3");
             canSleep = false;
             DisableSleepUI();
         }
@@ -107,12 +104,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void EnableSleepUI() {
+    private void EnableSleepUI()
+    {
         GameManager.instance.um.ShowSleepInfo();
     }
 
 
-    private void DisableSleepUI() {
+    private void DisableSleepUI()
+    {
         GameManager.instance.um.HideInfo();
     }
 
