@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Bed"))
         {
             canInteract = true;
-            // Show UI to inform that you can sleep
+            EnableSleepUI();
         }
     }
 
@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         if (!canInteract && other.gameObject.CompareTag("Bed"))
         {
             canInteract = true;
+            EnableSleepUI();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Bed"))
         {
             canInteract = false;
-            // Show UI to inform that you cannot sleep
+            DisableSleepUI();
         }
     }
 
@@ -104,6 +105,15 @@ public class PlayerController : MonoBehaviour
     {
         this.canInteract = canInteract;
         canMove = canInteract;
+    }
+
+    private void EnableSleepUI() {
+        GameManager.instance.um.ShowSleepInfo();
+    }
+
+
+    private void DisableSleepUI() {
+        GameManager.instance.um.HideInfo();
     }
 
     /* README: Added temporary pause button for only testing

@@ -14,6 +14,9 @@ public class CameraController : MonoBehaviour
     public bool CanMove => player.canMove;
     public bool CanInteract => player.canInteract;
 
+    // true when player can interact with anything right now using mouse click
+    private bool immInteractable;
+
     private int layerMask;
     private RaycastHit hit;
 
@@ -24,6 +27,7 @@ public class CameraController : MonoBehaviour
         rotateY = 0;
         transform.localRotation = Quaternion.identity;
         layerMask = 1 << LayerMask.NameToLayer("Interactable");
+        immInteractable = false;
     }
 
     // Update is called once per frame
@@ -35,14 +39,26 @@ public class CameraController : MonoBehaviour
         {
             transform.Rotate(Vector3.left * Time.deltaTime * rotateY * cameraRotateSpeed, Space.Self);
         }
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask)) {
-            if (hit.distance < 10f) {
-                //Debug.Log("HIT!!");
+        if (CanInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
+        {
+            if (!immInteractable)
+            {
+                ShowInteractableUI(hit);
             }
         }
-        Debug.DrawRay(transform.position, 10 * transform.forward, Color.red);
+        else if (immInteractable) HideInteractableUI();
+        Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
     }
 
+    private void ShowInteractableUI(RaycastHit hit) {
+        immInteractable = true;
+        GameManager.instance.um.ShowInteractionInfo(hit);
+    }
+
+    private void HideInteractableUI() {
+        immInteractable = false;
+        GameManager.instance.um.HideInteractionInfo();
+    }
     public void OnRotate(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
@@ -51,13 +67,17 @@ public class CameraController : MonoBehaviour
     }
 
     public void OnObjectInteraction(InputValue value) {
-        if (CanInteract && Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
+        /*if (CanInteract && Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
         {
-            if (hit.distance < 10f && value.Get<float>() > 0f)
+            if (hit.distance < 5f && value.Get<float>() > 0f)
             {
                 GameObject target = hit.transform.gameObject;
                 target.GetComponent<IInteractable>().Interact(target);
             }
+        }*/
+        if (immInteractable) {
+            GameObject target = hit.transform.gameObject;
+            target.GetComponent<IInteractable>().Interact(target);
         }
     }
 
