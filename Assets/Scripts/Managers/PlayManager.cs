@@ -18,6 +18,7 @@ public class PlayManager : MonoBehaviour
 
     public Material[] landscapeMaterials;
 
+
     //only for anomaly testing
     private bool Test => mc.test;
 
@@ -75,6 +76,10 @@ public class PlayManager : MonoBehaviour
 
     private void InitializeStage(int stage)
     {
+        if (stage == 7) {
+            GameClear();
+            return;
+        }
 
         // Reset previous stage
         Destroy(currentMap);
@@ -122,6 +127,21 @@ public class PlayManager : MonoBehaviour
             Renderer renderer = landscapeObject.GetComponent<Renderer>();
             renderer.material = landscapeMaterials[stage];
         }
+    }
+
+    private void GameClear() {
+        DisableControllers();
+        GameManager.instance.um.ShowFinishUI(true);
+    }
+
+    private void DisableControllers() {
+        pc.enabled = false;
+        cc.enabled = false;
+    }
+
+    private void EnableControllers() {
+        pc.enabled = true;
+        cc.enabled = true;
     }
 
     // Call When player restarts

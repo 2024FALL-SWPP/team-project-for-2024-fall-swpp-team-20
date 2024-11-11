@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     private Text generalInfo;
     private Text interactionInfo;
+    private Text finishInfo;
     private RawImage[] cursorImage;
 
     private void Start()
@@ -23,10 +24,12 @@ public class UIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene") {
             generalInfo = canvasTransform.Find("InformationText").GetComponent<Text>();
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
+            finishInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
             cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponentsInChildren<RawImage>();
         }
         generalInfo.enabled = false;
         interactionInfo.enabled = false;
+        finishInfo.enabled = false;
     }
 
     public void ShowSleepInfo() {
@@ -43,6 +46,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowFinishUI(bool clear) {
+        finishInfo.enabled = true;
+        if (clear)
+        {
+            finishInfo.text = "Game Clear!";
+        }
+        else finishInfo.text = "Game Over...";
+    }
 
     // Make cursor White if Interaction becomes unable
     public void HideInteractionInfo() {

@@ -42,6 +42,7 @@ public class MapController : MonoBehaviour
         {
             map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
+            Debug.Log($"Stage {stage}: No Anomaly");
             return map;
         }
         else
@@ -56,6 +57,7 @@ public class MapController : MonoBehaviour
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
+            Debug.Log($"Stage {stage}: Anomaly {anomalies[testAnomaly].GetType()}");
             return map;
         }
     }

@@ -20,9 +20,7 @@ public class CameraController : MonoBehaviour
     private int layerMask;
     private RaycastHit hit;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Initialize() {
         //rotateX = 0;
         rotateY = 0;
         transform.localRotation = Quaternion.identity;
@@ -30,6 +28,10 @@ public class CameraController : MonoBehaviour
         immInteractable = false;
         canInteract = false;
     }
+
+    // Start is called before the first frame update
+    void Start() => Initialize();
+    private void OnEnable() => Initialize();
 
     // Update is called once per frame
     void Update()

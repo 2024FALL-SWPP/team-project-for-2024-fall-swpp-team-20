@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canSleep;
 
-    private void Start()
-    {
+    private void Initialize() {
         mouseDeltaX = 0;
         transform.localRotation = Quaternion.identity;
         rb = GetComponent<Rigidbody>();
@@ -31,12 +30,18 @@ public class PlayerController : MonoBehaviour
         canSleep = false;
         canMove = false;
     }
+
+    private void Start() => Initialize();
+    private void OnEnable() => Initialize();
     // Update is called once per frame
     void Update()
     {
         deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
-        transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
-        transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
+        if (canMove)
+        {
+            transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
+            transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
+        }
     }
 
     public void OnMove(InputValue value)
