@@ -12,6 +12,7 @@ public class PlayManager : MonoBehaviour
     private GameObject player;
     private PlayerController pc;
     private MapController mc;
+    private CameraController cc;
 
     private GameObject landscapeObject;
 
@@ -26,6 +27,7 @@ public class PlayManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pc = player.GetComponent<PlayerController>();
+        cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeObject = GameObject.Find("Landscape");
         InitializeStage(0);
@@ -45,7 +47,7 @@ public class PlayManager : MonoBehaviour
     /// <param name="sleep">true when player decides sleep, false when player decides to wake up</param>
     public IEnumerator BedInteraction(bool sleep)
     {
-        pc.ToggleInteraction(false);
+        ToggleInteraction(false);
 
         if (sleep && stage == 0)
         {
@@ -84,7 +86,7 @@ public class PlayManager : MonoBehaviour
         // Create new stage map
         currentMap = mc.GenerateMap(haveAnomaly, stage);
         // Set time
-        pc.ToggleInteraction(true);
+        ToggleInteraction(true);
         ChangeLandscape(stage);
 
         // Fix Mouse cursor to center
@@ -95,6 +97,11 @@ public class PlayManager : MonoBehaviour
          */
     }
 
+    private void ToggleInteraction(bool canInteract) { 
+        pc.canSleep = canInteract;
+        pc.canMove = canInteract;
+        cc.canInteract = canInteract;
+    }
     private void Succeed(bool sleep)
     {
         // TODO: Animation

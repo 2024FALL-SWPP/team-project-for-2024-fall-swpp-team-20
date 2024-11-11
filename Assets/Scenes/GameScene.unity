@@ -1004,7 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1cb8cb3bb58774898201c466a8cd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalInfo: {fileID: 0}
 --- !u!4 &1513956438
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,6 +1528,10 @@ PrefabInstance:
     - target: {fileID: 5553260332354593010, guid: 666f37683e11f4148ad396bdce234760, type: 3}
       propertyPath: m_Name
       value: TemporaryPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553260332354593014, guid: 666f37683e11f4148ad396bdce234760, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553260332354593033, guid: 666f37683e11f4148ad396bdce234760, type: 3}
       propertyPath: m_RootOrder

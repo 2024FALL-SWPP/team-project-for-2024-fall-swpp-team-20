@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
 
-    public bool canInteract = false;
+    public bool canSleep;
 
     private void Start()
     {
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.identity;
         rb = GetComponent<Rigidbody>();
         isJumping = false;
+        canSleep = false;
+        canMove = false;
     }
     // Update is called once per frame
     void Update()
@@ -70,16 +72,18 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            canInteract = true;
+            Debug.Log("HELLO1");
+            canSleep = true;
             EnableSleepUI();
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!canInteract && other.gameObject.CompareTag("Bed"))
+        if (!canSleep && other.gameObject.CompareTag("Bed"))
         {
-            canInteract = true;
+            Debug.Log("HELLO2");
+            canSleep = true;
             EnableSleepUI();
         }
     }
@@ -87,25 +91,21 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            canInteract = false;
+            Debug.Log("HELLO3");
+            canSleep = false;
             DisableSleepUI();
         }
     }
 
     public void OnBedInteraction(InputValue value)
     {
-        if (canInteract)
+        if (canSleep)
         {
             float input = value.Get<float>();
             GameManager.instance.pm.TryBedInteraction(input > 0);
         }
     }
 
-    public void ToggleInteraction(bool canInteract)
-    {
-        this.canInteract = canInteract;
-        canMove = canInteract;
-    }
 
     private void EnableSleepUI() {
         GameManager.instance.um.ShowSleepInfo();

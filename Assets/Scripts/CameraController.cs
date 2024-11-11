@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     public float cameraRotateSpeed => player.rotateSpeed;
 
     public bool CanMove => player.canMove;
-    public bool CanInteract => player.canInteract;
+    public bool canInteract;
 
     // true when player can interact with anything right now using mouse click
     private bool immInteractable;
@@ -28,6 +28,7 @@ public class CameraController : MonoBehaviour
         transform.localRotation = Quaternion.identity;
         layerMask = 1 << LayerMask.NameToLayer("Interactable");
         immInteractable = false;
+        canInteract = false;
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class CameraController : MonoBehaviour
         {
             transform.Rotate(Vector3.left * Time.deltaTime * rotateY * cameraRotateSpeed, Space.Self);
         }
-        if (CanInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
+        if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
             if (!immInteractable)
             {
