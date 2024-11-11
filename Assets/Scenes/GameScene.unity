@@ -973,6 +973,10 @@ PrefabInstance:
       propertyPath: rotateSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2043367620, guid: 65652e61b0a15ab46b91f82ddc722c6e, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 2133882178, guid: 65652e61b0a15ab46b91f82ddc722c6e, type: 3}
       propertyPath: player
       value: 
