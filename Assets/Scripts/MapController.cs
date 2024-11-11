@@ -57,7 +57,7 @@ public class MapController : MonoBehaviour
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
-            Debug.Log($"Stage {stage}: Anomaly {anomalies[testAnomaly].GetType()}");
+            Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex].GetType()}");
             return map;
         }
     }
