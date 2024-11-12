@@ -22,21 +22,25 @@ public class PlayerController : MonoBehaviour
 
     public bool canSleep;
 
-    private void Initialize() {
+    private GameState State => GameManager.instance.state;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    public void Initialize() {
         mouseDeltaX = 0;
         transform.localRotation = Quaternion.identity;
-        rb = GetComponent<Rigidbody>();
+
         isJumping = false;
         canSleep = false;
         canMove = false;
     }
-
-    private void Start() => Initialize();
-    private void OnEnable() => Initialize();
     // Update is called once per frame
     void Update()
     {
         deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
+        if (State != GameState.Playing) return;
         if (canMove)
         {
             transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        if (State != GameState.Playing) return;
         float jumped = value.Get<float>();
 
         if (jumped > 0f && !isJumping)
@@ -101,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnBedInteraction(InputValue value)
     {
+        if (State != GameState.Playing) return;
         if (canSleep)
         {
             float input = value.Get<float>();
@@ -120,16 +126,33 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.um.HideInfo();
     }
 
-    /* README: Added temporary pause button for only testing
-     * It works only in Editor
-     */
+    //Pause when press esc
+    //Resume when press Esc again
     public void OnPause(InputValue value)
     {
-#if UNITY_EDITOR
-        if (value.Get<float>() > 0f)
-        {
-            Debug.Break();
+        if (value.Get<float>() > 0) {
+            if (State == GameState.Playing)
+            {
+                Time.timeScale = 0f;
+                GameManager.instance.um.ShowStateUI(GameState.Pause);
+                GameManager.instance.Pause();
+            }
+            else if (State == GameState.Pause) {
+                Time.timeScale = 1f;
+                GameManager.instance.um.HideStateUI();
+                GameManager.instance.Play();
+            }
         }
-#endif
+
+    }
+
+
+    // Can restart only in pause, gameover, gamestart
+    public void OnRestart(InputValue value) {
+        if (value.Get<float>() > 0) {
+            if (State != GameState.Playing) {
+                GameManager.instance.pm.GameStart();
+            }
+        }
     }
 }

@@ -19,8 +19,7 @@ public class MapController : MonoBehaviour
     public bool test;
     public int testAnomaly;
 
-    void Start()
-    {
+    public void FillAnomaly() {
         // Asked for chatGPT about how to use assembly
         Assembly assembly = Assembly.GetExecutingAssembly();
 
@@ -36,6 +35,7 @@ public class MapController : MonoBehaviour
             }
         }
     }
+
     public GameObject GenerateMap(bool haveAnomaly, int stage)
     {
         if (!haveAnomaly)

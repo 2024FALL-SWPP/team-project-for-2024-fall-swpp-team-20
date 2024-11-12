@@ -20,22 +20,26 @@ public class CameraController : MonoBehaviour
     private int layerMask;
     private RaycastHit hit;
 
-    private void Initialize() {
+    private GameState State => GameManager.instance.state;
+
+    private void Start()
+    {
+        layerMask = 1 << LayerMask.NameToLayer("Interactable");
+    }
+
+    public void Initialize() {
         //rotateX = 0;
         rotateY = 0;
         transform.localRotation = Quaternion.identity;
-        layerMask = 1 << LayerMask.NameToLayer("Interactable");
         immInteractable = false;
         canInteract = false;
     }
 
-    // Start is called before the first frame update
-    void Start() => Initialize();
-    private void OnEnable() => Initialize();
 
     // Update is called once per frame
     void Update()
     {
+        if (State != GameState.Playing) return;
         //transform.RotateAround(transform.position, Vector3.up, rotateX);
         currentX = transform.localEulerAngles.x;
         if (CanRotate(currentX, rotateY))
@@ -64,6 +68,7 @@ public class CameraController : MonoBehaviour
     }
     public void OnRotate(InputValue value)
     {
+        if (State != GameState.Playing) return;
         Vector2 input = value.Get<Vector2>();
         //rotateX = input.x;
         rotateY = CanMove ? input.y : 0;
@@ -78,6 +83,7 @@ public class CameraController : MonoBehaviour
                 target.GetComponent<IInteractable>().Interact(target);
             }
         }*/
+        if (State != GameState.Playing) return;
         if (immInteractable) {
             GameObject target = hit.transform.gameObject;
             target.GetComponent<IInteractable>().Interact(target);

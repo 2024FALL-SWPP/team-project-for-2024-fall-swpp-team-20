@@ -18,26 +18,31 @@ public class PlayManager : MonoBehaviour
 
     public Material[] landscapeMaterials;
 
+    private GameState State => GameManager.instance.state;
+
 
     //only for anomaly testing
     private bool Test => mc.test;
 
     void Start()
     {
-        stage = 0;
         player = GameObject.FindGameObjectWithTag("Player");
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeObject = GameObject.Find("Landscape");
-        InitializeStage(0);
+        GameStart();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+    public void GameStart() {
+        stage = 0;
+        pc.Initialize();
+        cc.Initialize();
+        mc.FillAnomaly();
+        GameManager.instance.um.Initialize();
+        GameManager.instance.Play();
+        InitializeStage(0);
     }
 
     public void TryBedInteraction(bool sleep) => StartCoroutine(BedInteraction(sleep));
@@ -130,21 +135,9 @@ public class PlayManager : MonoBehaviour
     }
 
     private void GameClear() {
-        DisableControllers();
-        GameManager.instance.um.ShowFinishUI(true);
+        //DisableControllers();
+        GameManager.instance.Clear();
+        GameManager.instance.um.ShowStateUI(GameState.GameClear);
     }
 
-    private void DisableControllers() {
-        pc.enabled = false;
-        cc.enabled = false;
-    }
-
-    private void EnableControllers() {
-        pc.enabled = true;
-        cc.enabled = true;
-    }
-
-    // Call When player restarts
-    // Refactoring suggestion: implement without using scene reload
-    public void Restart() => SceneManager.LoadScene("GameScene");
 }

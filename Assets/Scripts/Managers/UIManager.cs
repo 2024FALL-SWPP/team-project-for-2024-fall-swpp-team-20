@@ -14,22 +14,22 @@ public class UIManager : MonoBehaviour
 
     private Text generalInfo;
     private Text interactionInfo;
-    private Text finishInfo;
+    private Text stateInfo;
     private RawImage[] cursorImage;
 
-    private void Start()
-    {
-        canvasTransform = FindAnyObjectByType<Canvas>().transform;
 
-        if (SceneManager.GetActiveScene().name == "GameScene") {
+    public void Initialize() {
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            canvasTransform = FindAnyObjectByType<Canvas>().transform;
             generalInfo = canvasTransform.Find("InformationText").GetComponent<Text>();
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
-            finishInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
+            stateInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
             cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponentsInChildren<RawImage>();
         }
         generalInfo.enabled = false;
         interactionInfo.enabled = false;
-        finishInfo.enabled = false;
+        stateInfo.enabled = false;
     }
 
     public void ShowSleepInfo() {
@@ -46,14 +46,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowFinishUI(bool clear) {
-        finishInfo.enabled = true;
-        if (clear)
+    public void ShowStateUI(GameState state) {
+        stateInfo.enabled = true;
+        switch (state)
         {
-            finishInfo.text = "Game Clear!";
+            case GameState.GameClear:
+                stateInfo.text = "Game Clear!";
+                break;
+            case GameState.GameOver:
+                stateInfo.text = "Game Over...";
+                break;
+            case GameState.Pause:
+                stateInfo.text = "Pause..";
+                break;
+            default:
+                Debug.LogError($"Unexpected State: {state}");
+                break;
         }
-        else finishInfo.text = "Game Over...";
     }
+
+    public void HideStateUI() => stateInfo.enabled = false;
 
     // Make cursor White if Interaction becomes unable
     public void HideInteractionInfo() {
