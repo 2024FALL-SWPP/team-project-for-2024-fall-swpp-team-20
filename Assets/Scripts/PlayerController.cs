@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    public void Initialize() {
+    public void Initialize()
+    {
         mouseDeltaX = 0;
         transform.localRotation = Quaternion.identity;
 
@@ -130,14 +131,16 @@ public class PlayerController : MonoBehaviour
     //Resume when press Esc again
     public void OnPause(InputValue value)
     {
-        if (value.Get<float>() > 0) {
+        if (value.Get<float>() > 0)
+        {
             if (State == GameState.Playing)
             {
                 Time.timeScale = 0f;
                 GameManager.instance.um.ShowStateUI(GameState.Pause);
                 GameManager.instance.Pause();
             }
-            else if (State == GameState.Pause) {
+            else if (State == GameState.Pause)
+            {
                 Time.timeScale = 1f;
                 GameManager.instance.um.HideStateUI();
                 GameManager.instance.Play();
@@ -148,11 +151,8 @@ public class PlayerController : MonoBehaviour
 
 
     // Can restart only in pause, gameover, gamestart
-    public void OnRestart(InputValue value) {
-        if (value.Get<float>() > 0) {
-            if (State != GameState.Playing) {
-                GameManager.instance.pm.GameStart();
-            }
-        }
+    public void OnRestart(InputValue value)
+    {
+        if (value.Get<float>() > 0) GameManager.instance.pm.GameStart();
     }
 }
