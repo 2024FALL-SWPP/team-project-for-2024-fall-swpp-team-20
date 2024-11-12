@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Collections.Generic;
 using TMPro;
+using Shuffle = System.Random;
 
 public class MapController : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class MapController : MonoBehaviour
     public bool test;
     public int testAnomaly;
 
-    public void FillAnomaly() {
+    public void FillAnomaly()
+    {
         // Asked for chatGPT about how to use assembly
         Assembly assembly = Assembly.GetExecutingAssembly();
 
@@ -33,6 +35,18 @@ public class MapController : MonoBehaviour
                 Anomaly instance = (Anomaly)Activator.CreateInstance(type);
                 anomalies.Add(instance);
             }
+        }
+
+
+        if (!test)
+        {
+            Shuffle s = new();
+            anomalies = anomalies.OrderBy(_ => s.Next()).ToList();
+        }
+
+        for (int index = 0; index < anomalies.Count; index++)
+        {
+            Debug.Log($"Index {index}: {anomalies[index].GetType()}");
         }
     }
 
