@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameState
+{
+    Playing,
+    Pause,
+    GameOver,
+    GameClear
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public GameState state;
+
     public PlayManager pm;
     public UIManager um;
     public SoundManager sm;
-    public StateManager stm;
     private void Awake()
     {
         if (instance == null)
@@ -44,9 +53,15 @@ public class GameManager : MonoBehaviour
         if (activeScene == "GameScene")
         {
             pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
-            stm = FindObjectOfType<StateManager>().GetComponent<StateManager>();
         }
         um = FindObjectOfType<UIManager>().GetComponent<UIManager>();
         sm = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
     }
+
+    public void Clear() => state = GameState.GameClear;
+    public void Pause() => state = GameState.Pause;
+    public void Play() => state = GameState.Playing;
+
+    public GameState GetState() => state;
+
 }

@@ -20,7 +20,7 @@ public class MapController : MonoBehaviour
     public bool test;
     public int testAnomaly;
 
-    void Start()
+    public void FillAnomaly()
     {
         // Asked for chatGPT about how to use assembly
         Assembly assembly = Assembly.GetExecutingAssembly();
@@ -49,12 +49,14 @@ public class MapController : MonoBehaviour
             Debug.Log($"Index {index}: {anomalies[index].GetType()}");
         }
     }
+
     public GameObject GenerateMap(bool haveAnomaly, int stage)
     {
         if (!haveAnomaly)
         {
             map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
+            Debug.Log($"Stage {stage}: No Anomaly");
             return map;
         }
         else
@@ -69,6 +71,7 @@ public class MapController : MonoBehaviour
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
+            Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex].GetType()}");
             return map;
         }
     }
