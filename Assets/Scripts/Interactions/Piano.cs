@@ -28,6 +28,8 @@ public class Piano : MonoBehaviour, IInteractable
         isInteracting = true;
         mainCamera.gameObject.SetActive(false);
         pianoCamera.gameObject.SetActive(true);
+        GameManager.instance.pm.ToggleInteraction(false);
+        GameManager.instance.um.ShowPianoInteractionInfo();
     }
 
     private void EndInteraction()
@@ -35,6 +37,8 @@ public class Piano : MonoBehaviour, IInteractable
         isInteracting = false;
         pianoCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
+        GameManager.instance.pm.ToggleInteraction(true);
+        GameManager.instance.um.HidePianoInteractionInfo();
     }
 
     private void Update()

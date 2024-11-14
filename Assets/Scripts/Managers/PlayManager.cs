@@ -108,7 +108,7 @@ public class PlayManager : MonoBehaviour
          */
     }
 
-    private void ToggleInteraction(bool canInteract)
+    public void ToggleInteraction(bool canInteract)
     {
         pc.canSleep = canInteract;
         pc.canMove = canInteract;
