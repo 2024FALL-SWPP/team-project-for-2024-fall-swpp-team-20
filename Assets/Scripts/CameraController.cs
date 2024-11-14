@@ -22,11 +22,23 @@ public class CameraController : MonoBehaviour
 
     private GameState State => GameManager.instance.state;
 
+    private Control control;
     private void Start()
     {
         layerMask = 1 << LayerMask.NameToLayer("Interactable");
     }
 
+    private void OnEnable()
+    {
+        control = new Control();
+        control.Enable();
+        control.NewMap.Rotate.performed += OnRotate;
+    }
+    private void OnDisable()
+    {
+        control.NewMap.Rotate.performed -= OnRotate;
+        control.Disable();
+    }
     public void Initialize() {
         //rotateX = 0;
         rotateY = 0;
@@ -41,11 +53,7 @@ public class CameraController : MonoBehaviour
     {
         if (State != GameState.Playing) return;
         //transform.RotateAround(transform.position, Vector3.up, rotateX);
-        currentX = transform.localEulerAngles.x;
-        if (CanRotate(currentX, rotateY))
-        {
-            transform.Rotate(Vector3.left * Time.deltaTime * rotateY * cameraRotateSpeed, Space.Self);
-        }
+        
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
             if (!immInteractable)
@@ -66,12 +74,17 @@ public class CameraController : MonoBehaviour
         immInteractable = false;
         GameManager.instance.um.HideInteractionInfo();
     }
-    public void OnRotate(InputValue value)
+    public void OnRotate(InputAction.CallbackContext value)
     {
         if (State != GameState.Playing) return;
-        Vector2 input = value.Get<Vector2>();
-        //rotateX = input.x;
+        Vector2 input = value.ReadValue<Vector2>();
         rotateY = CanMove ? input.y : 0;
+
+        currentX = transform.localEulerAngles.x;
+        if (CanRotate(currentX, rotateY))
+        {
+            transform.Rotate(cameraRotateSpeed * rotateY * Time.deltaTime * Vector3.left, Space.Self);
+        }
     }
 
     public void OnObjectInteraction(InputValue value) {

@@ -22,11 +22,37 @@ public class PlayerController : MonoBehaviour
 
     public bool canSleep;
 
+    private Control control;
+
     private GameState State => GameManager.instance.state;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnEnable()
+    {
+        control = new Control();
+        control.Enable();
+        control.NewMap.Move.performed += OnMove;
+        control.NewMap.Move.canceled += OnMoveCanceled;
+        control.NewMap.Jump.performed += OnJump;
+        control.NewMap.Pause.performed += OnPause;
+        control.NewMap.BedInteraction.performed += OnBedInteraction;
+        control.NewMap.Rotate.performed += OnRotate;
+    }
+
+    private void OnDisable()
+    {
+        
+        control.NewMap.Move.performed -= OnMove;
+        control.NewMap.Move.canceled -= OnMoveCanceled;
+        control.NewMap.Jump.performed -= OnJump;
+        control.NewMap.Pause.performed -= OnPause;
+        control.NewMap.BedInteraction.performed -= OnBedInteraction;
+        control.NewMap.Rotate.performed -= OnRotate;
+        control.Disable();
     }
     public void Initialize()
     {
@@ -41,29 +67,38 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
-        if (State != GameState.Playing) return;
-        if (canMove)
+        if (State == GameState.Playing && canMove)
         {
-            transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
             transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
         }
     }
 
-    public void OnMove(InputValue value)
+    public void OnMove(InputAction.CallbackContext value)
     {
-        moveDirection = value.Get<Vector2>();
+        if (State == GameState.Playing && canMove)
+        {
+            moveDirection = value.ReadValue<Vector2>();
+        }
     }
 
-    public void OnRotate(InputValue value)
-    {
-        Vector2 input = value.Get<Vector2>();
-        mouseDeltaX = input.x;
+    public void OnMoveCanceled(InputAction.CallbackContext value) {
+        moveDirection = Vector2.zero;
     }
 
-    public void OnJump(InputValue value)
+    public void OnRotate(InputAction.CallbackContext value)
+    {
+        if (State == GameState.Playing && canMove)
+        {
+            Vector2 input = value.ReadValue<Vector2>();
+            mouseDeltaX = input.x;
+            transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext value)
     {
         if (State != GameState.Playing) return;
-        float jumped = value.Get<float>();
+        float jumped = value.ReadValue<float>();
 
         if (jumped > 0f && !isJumping)
         {
@@ -105,12 +140,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnBedInteraction(InputValue value)
+    public void OnBedInteraction(InputAction.CallbackContext value)
     {
         if (State != GameState.Playing) return;
         if (canSleep)
         {
-            float input = value.Get<float>();
+            float input = value.ReadValue<float>();
             GameManager.instance.pm.TryBedInteraction(input > 0);
         }
     }
@@ -129,9 +164,9 @@ public class PlayerController : MonoBehaviour
 
     //Pause when press esc
     //Resume when press Esc again
-    public void OnPause(InputValue value)
+    public void OnPause(InputAction.CallbackContext value)
     {
-        if (value.Get<float>() > 0)
+        if (value.ReadValue<float>() > 0)
         {
             if (State == GameState.Playing)
             {
@@ -151,8 +186,8 @@ public class PlayerController : MonoBehaviour
 
 
     // Can restart only in pause, gameover, gamestart
-    public void OnRestart(InputValue value)
+    public void OnRestart(InputAction.CallbackContext value)
     {
-        if (value.Get<float>() > 0) GameManager.instance.pm.GameStart();
+        if (value.ReadValue<float>() > 0) GameManager.instance.pm.GameStart();
     }
 }
