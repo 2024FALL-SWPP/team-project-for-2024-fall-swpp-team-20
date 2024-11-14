@@ -2,6 +2,8 @@
 using UnityEditor;
 using UnityEngine;
 
+// Negative Box Collider Fixing Tool
+// Reference: https://bonnate.tistory.com/538
 public class NegativeBoxColliderModifier : MonoBehaviour
 {
     [MenuItem("Tools/Bonnate/Negative Box Collider Modifier")]
