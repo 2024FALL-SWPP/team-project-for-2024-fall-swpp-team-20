@@ -33553,7 +33553,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorFrame_Apt_04
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1769733901, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
 --- !u!4 &1406333088161229868 stripped
 Transform:
