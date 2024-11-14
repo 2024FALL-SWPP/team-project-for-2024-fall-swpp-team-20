@@ -16,6 +16,7 @@ namespace SojaExiles
 		void Start()
 		{
 			open = false;
+			Player = GameObject.FindWithTag("Player").transform;
 		}
 
 		void OnMouseOver()
