@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Piano : MonoBehaviour, IInteractable
 {
@@ -41,7 +42,7 @@ public class Piano : MonoBehaviour, IInteractable
         GameManager.instance.um.HidePianoInteractionInfo();
     }
 
-    private void Update()
+    public void Update()
     {
         if (isInteracting)
         {
@@ -49,21 +50,22 @@ public class Piano : MonoBehaviour, IInteractable
             {
                 EndInteraction();
             }
+        }
+    }
 
-            for (int i = 0; i < pianoKeys.Length; i++)
+    public void OnPlayPiano(InputValue value)
+    {
+        if (isInteracting)
+        {
+            int keyIndex = value.Get<int>();
+            StartCoroutine(PressKey(keyIndex));
+            if (inAnomaly)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-                {
-                    StartCoroutine(PressKey(i));
-                    if(inAnomaly)
-                    {
-                        PlayKeySound(7 - i);
-                    }
-                    else
-                    {
-                        PlayKeySound(i);
-                    }
-                }
+                PlayKeySound(7 - keyIndex);
+            }
+            else
+            {
+                PlayKeySound(keyIndex);
             }
         }
     }
