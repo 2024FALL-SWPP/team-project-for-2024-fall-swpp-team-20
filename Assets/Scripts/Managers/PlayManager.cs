@@ -35,7 +35,8 @@ public class PlayManager : MonoBehaviour
         GameStart();
     }
 
-    public void GameStart() {
+    public void GameStart()
+    {
         stage = 0;
         pc.Initialize();
         cc.Initialize();
@@ -46,7 +47,6 @@ public class PlayManager : MonoBehaviour
     }
 
     public void TryBedInteraction(bool sleep) => StartCoroutine(BedInteraction(sleep));
-
     /// <summary>
     /// function called when player interacts with bed
     /// </summary>
@@ -81,7 +81,8 @@ public class PlayManager : MonoBehaviour
 
     private void InitializeStage(int stage)
     {
-        if (stage == 7) {
+        if (stage == 7)
+        {
             GameClear();
             return;
         }
@@ -107,7 +108,8 @@ public class PlayManager : MonoBehaviour
          */
     }
 
-    private void ToggleInteraction(bool canInteract) { 
+    private void ToggleInteraction(bool canInteract)
+    {
         pc.canSleep = canInteract;
         pc.canMove = canInteract;
         cc.canInteract = canInteract;
@@ -134,7 +136,8 @@ public class PlayManager : MonoBehaviour
         }
     }
 
-    private void GameClear() {
+    private void GameClear()
+    {
         //DisableControllers();
         GameManager.instance.Clear();
         GameManager.instance.um.ShowStateUI(GameState.GameClear);
