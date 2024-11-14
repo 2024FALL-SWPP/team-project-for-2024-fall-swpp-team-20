@@ -50,7 +50,15 @@ public class Piano : MonoBehaviour, IInteractable
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
-                    PlayKeySound(i);
+                    StartCoroutine(PressKey(i));
+                    if(inAnomaly)
+                    {
+                        PlayKeySound(7 - i);
+                    }
+                    else
+                    {
+                        PlayKeySound(i);
+                    }
                 }
             }
         }
@@ -59,5 +67,12 @@ public class Piano : MonoBehaviour, IInteractable
     private void PlayKeySound(int keyIndex)
     {
         AudioSource.PlayClipAtPoint(pianoSounds[keyIndex], transform.position);
+    }
+
+    private IEnumerator PressKey(int keyIndex)
+    {
+        pianoKeys[keyIndex].transform.position += new Vector3(0, -0.01f, 0);
+        yield return new WaitForSeconds(0.1f);
+        pianoKeys[keyIndex].transform.position += new Vector3(0, 0.01f, 0);
     }
 }
