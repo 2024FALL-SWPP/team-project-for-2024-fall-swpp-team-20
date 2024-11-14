@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioClip[] pianoSounds = new AudioClip[8];
+
+    public void PlayPianoSound(int keyIndex)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        AudioSource.PlayClipAtPoint(pianoSounds[keyIndex], transform.position);
     }
 }

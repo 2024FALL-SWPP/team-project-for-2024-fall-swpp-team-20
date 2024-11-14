@@ -70,12 +70,12 @@
                 },
                 {
                     "name": "PlayPiano",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "7be75081-e253-430f-bde9-5b4eb68a205f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

@@ -7815,19 +7815,10 @@ MonoBehaviour:
   - {fileID: 6352612503090867870}
   - {fileID: 1617673532307013653}
   - {fileID: 2567207917842056849}
-  pianoSounds:
-  - {fileID: 8300000, guid: b36f218760abf4c64a2043a088411709, type: 3}
-  - {fileID: 8300000, guid: 9c12534a22bca4883ab7857670bab855, type: 3}
-  - {fileID: 8300000, guid: 4294d2d1b81764087a1b1803b1ff0a67, type: 3}
-  - {fileID: 8300000, guid: cb6c826d266e04b88818e6fb243fc67c, type: 3}
-  - {fileID: 8300000, guid: 420a7010663074ee5953b2c09ea74dae, type: 3}
-  - {fileID: 8300000, guid: 4eaad5c46a99b4979a25f5bf7152ee76, type: 3}
-  - {fileID: 8300000, guid: bf4bcaf360254416c84e0eeb40804277, type: 3}
-  - {fileID: 8300000, guid: 48eb6d222a5b94fa092aed3863650461, type: 3}
   inAnomaly: 0
   mainCamera: {fileID: 0}
   pianoCamera: {fileID: 0}
---- !u!114 &1266332455762817238
+--- !u!114 &997622710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7840,7 +7831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 980620ef9831d034b9483efed27d2fce, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -7851,7 +7842,39 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf48aeca-0043-4501-8a5b-7a388cb276ec
+    m_ActionName: NewMap/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7cdd0b93-69f2-40fe-b5ae-1cc3a2b9d822
+    m_ActionName: NewMap/Rotate[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18c614df-9749-4d34-ab96-70b902ce6b28
+    m_ActionName: NewMap/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b860589-5c22-4ee2-a9db-55852effe1b7
+    m_ActionName: NewMap/BedInteraction[/Keyboard/g,/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 22456a6d-1741-4645-8de0-31eac44c1fe9
+    m_ActionName: NewMap/ObjectInteraction[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f705e781-6fe1-4cb9-ab27-e66f6cf295d2
+    m_ActionName: NewMap/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1a2e207-c7c9-4c09-bb15-2ed3598ad352
+    m_ActionName: NewMap/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7be75081-e253-430f-bde9-5b4eb68a205f
+    m_ActionName: NewMap/PlayPiano[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7,/Keyboard/8]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: NewMap

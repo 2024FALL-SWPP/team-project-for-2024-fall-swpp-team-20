@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Piano : MonoBehaviour, IInteractable
 {
     public GameObject[] pianoKeys = new GameObject[8];
-    public AudioClip[] pianoSounds = new AudioClip[8];
     public bool inAnomaly = false;
     public Camera mainCamera;
     public Camera pianoCamera;
@@ -50,29 +48,15 @@ public class Piano : MonoBehaviour, IInteractable
             {
                 EndInteraction();
             }
-        }
-    }
-
-    public void OnPlayPiano(InputValue value)
-    {
-        if (isInteracting)
-        {
-            int keyIndex = value.Get<int>();
-            StartCoroutine(PressKey(keyIndex));
-            if (inAnomaly)
+            for (int i = 0; i < 8; i++)
             {
-                PlayKeySound(7 - keyIndex);
-            }
-            else
-            {
-                PlayKeySound(keyIndex);
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    GameManager.instance.sm.PlayPianoSound(i);
+                    StartCoroutine(PressKey(i));
+                }
             }
         }
-    }
-
-    private void PlayKeySound(int keyIndex)
-    {
-        AudioSource.PlayClipAtPoint(pianoSounds[keyIndex], transform.position);
     }
 
     private IEnumerator PressKey(int keyIndex)
