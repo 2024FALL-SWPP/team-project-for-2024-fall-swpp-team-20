@@ -3513,14 +3513,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
-    - target: {fileID: 8224648076833701246, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 941659628}
-    - target: {fileID: 8224648076833701246, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8224648076833701246, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
