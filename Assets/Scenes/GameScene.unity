@@ -3450,18 +3450,14 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140445505}
   m_CullTransparentMesh: 1
---- !u!1001 &139157799089065038
+--- !u!1001 &2480468208446385226
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1684509965983953119, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 941659628}
-    - target: {fileID: 1684509966212993389, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+    - target: {fileID: 3187264778706255814, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 941659628}
