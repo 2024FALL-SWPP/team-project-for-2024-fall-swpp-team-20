@@ -32,7 +32,7 @@ public class PlayManager : MonoBehaviour
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeObject = GameObject.FindGameObjectsWithTag("Landscape");
-        GameStart();
+
     }
 
     public void GameStart()

@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         }
         um = FindObjectOfType<UIManager>().GetComponent<UIManager>();
         sm = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        pm.GameStart();
     }
 
     public void Clear() => state = GameState.GameClear;

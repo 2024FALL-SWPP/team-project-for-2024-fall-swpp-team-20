@@ -9083,6 +9083,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1050666295784109254, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+      propertyPath: m_Size.z
+      value: -0.86681116
+      objectReference: {fileID: 0}
     - target: {fileID: 1382648566164412814, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -9131,6 +9135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4006537208810180083, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+      propertyPath: m_Size.z
+      value: -0.86681104
+      objectReference: {fileID: 0}
     - target: {fileID: 4958267544043016039, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
       propertyPath: Player
       value: 
@@ -9138,6 +9146,14 @@ PrefabInstance:
     - target: {fileID: 5987332885971693606, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
       propertyPath: m_Name
       value: Cabinet_Base_SD_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504855302379988529, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+      propertyPath: m_Size.z
+      value: -0.86681116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890422935271344918, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+      propertyPath: m_Size.z
+      value: -0.887308
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
@@ -15669,6 +15685,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8224648078550369532}
     m_Modifications:
+    - target: {fileID: 609126468041172476, guid: cb533d6f7329a744fb5c0396de1b8b4b, type: 3}
+      propertyPath: m_Size.z
+      value: -0.023218542
+      objectReference: {fileID: 0}
+    - target: {fileID: 703964251201245475, guid: cb533d6f7329a744fb5c0396de1b8b4b, type: 3}
+      propertyPath: m_Size.z
+      value: -1.751122
+      objectReference: {fileID: 0}
     - target: {fileID: 2805616125457797558, guid: cb533d6f7329a744fb5c0396de1b8b4b, type: 3}
       propertyPath: m_Name
       value: BathTub_Base_01
@@ -15676,6 +15700,10 @@ PrefabInstance:
     - target: {fileID: 6976062566496198565, guid: cb533d6f7329a744fb5c0396de1b8b4b, type: 3}
       propertyPath: Player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976062566496198566, guid: cb533d6f7329a744fb5c0396de1b8b4b, type: 3}
+      propertyPath: m_Size.z
+      value: -1.7461019
       objectReference: {fileID: 0}
     - target: {fileID: 9160075805504388056, guid: cb533d6f7329a744fb5c0396de1b8b4b, type: 3}
       propertyPath: m_RootOrder
@@ -15928,6 +15956,10 @@ PrefabInstance:
     - target: {fileID: 778501377, guid: 36510e737e626954986f2c5112be9091, type: 3}
       propertyPath: Player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 778501379, guid: 36510e737e626954986f2c5112be9091, type: 3}
+      propertyPath: m_Size.z
+      value: -0.86681134
       objectReference: {fileID: 0}
     - target: {fileID: 2483685999063698019, guid: 36510e737e626954986f2c5112be9091, type: 3}
       propertyPath: m_RootOrder
@@ -32786,6 +32818,10 @@ PrefabInstance:
     - target: {fileID: 2302305627258387644, guid: 79723f7a04c42fa4cb0fefb4f7686381, type: 3}
       propertyPath: Player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302305627258387645, guid: 79723f7a04c42fa4cb0fefb4f7686381, type: 3}
+      propertyPath: m_Size.z
+      value: -0.08435202
       objectReference: {fileID: 0}
     - target: {fileID: 2302305627513817228, guid: 79723f7a04c42fa4cb0fefb4f7686381, type: 3}
       propertyPath: Player
