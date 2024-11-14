@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Piano : MonoBehaviour, IInteractable
 {
@@ -10,11 +11,30 @@ public class Piano : MonoBehaviour, IInteractable
     public Camera pianoCamera;
     private bool isInteracting = false;
 
+    public PianoSystem pianoInput;
+
     private void Start()
     {
+        
         mainCamera = Camera.main;
         pianoCamera = GameObject.Find("PianoCamera").GetComponent<Camera>();
         pianoCamera.gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        pianoInput = new PianoSystem();
+        pianoInput.Enable();
+        pianoInput.PianoMap.PlayPiano.performed += OnPiano;
+        pianoInput.PianoMap.Quit.performed += EndInteraction;
+        Debug.Log("Piano Enabled");
+    }
+
+    private void OnDisable()
+    {
+        pianoInput.PianoMap.PlayPiano.performed -= OnPiano;
+        pianoInput.PianoMap.Quit.performed -= EndInteraction;
+        pianoInput.Disable();
     }
 
     public void Interact(GameObject obj)
@@ -31,8 +51,9 @@ public class Piano : MonoBehaviour, IInteractable
         GameManager.instance.um.ShowPianoInteractionInfo();
     }
 
-    private void EndInteraction()
+    private void EndInteraction(InputAction.CallbackContext context)
     {
+        if (!isInteracting) return;
         isInteracting = false;
         pianoCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
@@ -42,7 +63,7 @@ public class Piano : MonoBehaviour, IInteractable
 
     public void Update()
     {
-        if (isInteracting)
+        /*if (isInteracting)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -56,11 +77,18 @@ public class Piano : MonoBehaviour, IInteractable
                     StartCoroutine(PressKey(i));
                 }
             }
-        }
+        }*/
+    }
+
+    private void OnPiano(InputAction.CallbackContext context) {
+        if (!isInteracting) return;
+        int bindingIndex = context.action.GetBindingIndexForControl(context.control);
+        StartCoroutine(PressKey(bindingIndex));
     }
 
     private IEnumerator PressKey(int keyIndex)
     {
+        GameManager.instance.sm.PlayPianoSound(keyIndex);
         pianoKeys[keyIndex].transform.position += new Vector3(0, -0.01f, 0);
         yield return new WaitForSeconds(0.1f);
         pianoKeys[keyIndex].transform.position += new Vector3(0, 0.01f, 0);

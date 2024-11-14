@@ -3466,6 +3466,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26891483, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: pianoAction.m_Name
+      value: Piano
+      objectReference: {fileID: 0}
+    - target: {fileID: 26891483, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: endPianoAction.m_Name
+      value: End Piano
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 9366e6a2da92b1445870a07c6c4bd24d, type: 3}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: PianoMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: e3f719b0-b2cf-4d01-b28b-0a4f52e437c3
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: PianoMap/PlayPiano[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7,/Keyboard/8]
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3187264778706255814, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
       propertyPath: Player
       value: 
@@ -3518,5 +3570,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
