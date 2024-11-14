@@ -14,7 +14,7 @@ public class PlayManager : MonoBehaviour
     private MapController mc;
     private CameraController cc;
 
-    private GameObject landscapeObject;
+    private GameObject[] landscapeObjects;
 
     public Material[] landscapeMaterials;
 
@@ -31,11 +31,12 @@ public class PlayManager : MonoBehaviour
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
-        landscapeObject = GameObject.Find("Landscape");
-        GameStart();
+        landscapeObjects = GameObject.FindGameObjectsWithTag("Landscape");
+
     }
 
-    public void GameStart() {
+    public void GameStart()
+    {
         stage = 0;
         pc.Initialize();
         cc.Initialize();
@@ -46,7 +47,6 @@ public class PlayManager : MonoBehaviour
     }
 
     public void TryBedInteraction(bool sleep) => StartCoroutine(BedInteraction(sleep));
-
     /// <summary>
     /// function called when player interacts with bed
     /// </summary>
@@ -81,7 +81,8 @@ public class PlayManager : MonoBehaviour
 
     private void InitializeStage(int stage)
     {
-        if (stage == 7) {
+        if (stage == 7)
+        {
             GameClear();
             return;
         }
@@ -92,7 +93,7 @@ public class PlayManager : MonoBehaviour
         if (!Test && (stage == 0 || Random.Range(0f, 1f) > 0.5)) haveAnomaly = false;
         else haveAnomaly = true;
         // Reset Player position
-        player.transform.position = new Vector3(2.06f, 0.465f, -1.41f);
+        player.transform.position = new Vector3(-19.5f, 0.2f, -7.31f);
         // Create new stage map
         currentMap = mc.GenerateMap(haveAnomaly, stage);
         // Set time
@@ -107,7 +108,8 @@ public class PlayManager : MonoBehaviour
          */
     }
 
-    private void ToggleInteraction(bool canInteract) { 
+    private void ToggleInteraction(bool canInteract)
+    {
         pc.canSleep = canInteract;
         pc.canMove = canInteract;
         cc.canInteract = canInteract;
@@ -129,12 +131,16 @@ public class PlayManager : MonoBehaviour
     {
         if (stage >= 0 && stage < landscapeMaterials.Length)
         {
-            Renderer renderer = landscapeObject.GetComponent<Renderer>();
-            renderer.material = landscapeMaterials[stage];
+            foreach (GameObject landscapeObject in landscapeObjects)
+            {
+                Renderer renderer = landscapeObject.GetComponent<Renderer>();
+                renderer.material = landscapeMaterials[stage];
+            }
         }
     }
 
-    private void GameClear() {
+    private void GameClear()
+    {
         //DisableControllers();
         GameManager.instance.Clear();
         GameManager.instance.um.ShowStateUI(GameState.GameClear);

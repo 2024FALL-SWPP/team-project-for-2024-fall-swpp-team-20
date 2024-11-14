@@ -9,6 +9,7 @@ TagManager:
   - Map
   - Labtop
   - Dice
+  - Landscape
   layers:
   - Default
   - TransparentFX
