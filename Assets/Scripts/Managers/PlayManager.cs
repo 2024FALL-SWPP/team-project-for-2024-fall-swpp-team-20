@@ -14,7 +14,7 @@ public class PlayManager : MonoBehaviour
     private MapController mc;
     private CameraController cc;
 
-    private GameObject landscapeObject;
+    private GameObject[] landscapeObject;
 
     public Material[] landscapeMaterials;
 
@@ -31,7 +31,7 @@ public class PlayManager : MonoBehaviour
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
-        landscapeObject = GameObject.Find("Landscape");
+        landscapeObject = GameObject.FindGameObjectsWithTag("Landscape");
         GameStart();
     }
 
@@ -131,8 +131,11 @@ public class PlayManager : MonoBehaviour
     {
         if (stage >= 0 && stage < landscapeMaterials.Length)
         {
-            Renderer renderer = landscapeObject.GetComponent<Renderer>();
-            renderer.material = landscapeMaterials[stage];
+            foreach (GameObject landscapeObject in landscapeObject)
+            {
+                Renderer renderer = landscapeObject.GetComponent<Renderer>();
+                renderer.material = landscapeMaterials[stage];
+            }
         }
     }
 
