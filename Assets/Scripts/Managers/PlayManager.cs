@@ -93,7 +93,7 @@ public class PlayManager : MonoBehaviour
         if (!Test && (stage == 0 || Random.Range(0f, 1f) > 0.5)) haveAnomaly = false;
         else haveAnomaly = true;
         // Reset Player position
-        player.transform.position = new Vector3(2.06f, 0.465f, -1.41f);
+        player.transform.position = new Vector3(-19.5f, 0.2f, -7.31f);
         // Create new stage map
         currentMap = mc.GenerateMap(haveAnomaly, stage);
         // Set time
