@@ -174,7 +174,11 @@ public class PlayerController : MonoBehaviour
     // Can restart only in pause, gameover, gamestart
     public void OnRestart(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0) GameManager.GetInstance().stageManager.GameStart();
+        if (value.ReadValue<float>() > 0)
+        {
+            GameManager.GetInstance().um.HideStateUI();
+            GameManager.GetInstance().stageManager.GameStart();
+        }
     }
 
     public void EnableInput()
