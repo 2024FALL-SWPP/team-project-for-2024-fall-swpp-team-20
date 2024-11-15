@@ -3560,22 +3560,6 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 941659628}
-    - target: {fileID: 5542273695934890126, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: m_Name
-      value: DiningTable
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848821804074537274, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: m_Name
-      value: Chair 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897980276531268361, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: m_Name
-      value: Chair 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6087088330446950613, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: m_Name
-      value: Chair 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6260140572017040804, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
       propertyPath: m_RootOrder
       value: 3
