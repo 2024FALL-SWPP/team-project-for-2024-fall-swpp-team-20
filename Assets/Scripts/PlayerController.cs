@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
         control.NewMap.Move.performed -= OnMove;
         control.NewMap.Move.canceled -= OnMoveCanceled;
         control.NewMap.Jump.performed -= OnJump;
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
         if (canSleep)
         {
             float input = value.ReadValue<float>();
-            GameManager.GetInstance().pm.TryBedInteraction(input > 0);
+            GameManager.GetInstance().bedInteractionManager.TryBedInteraction(input > 0);
         }
     }
 
@@ -189,6 +189,6 @@ public class PlayerController : MonoBehaviour
     // Can restart only in pause, gameover, gamestart
     public void OnRestart(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0) GameManager.GetInstance().pm.GameStart();
+        if (value.ReadValue<float>() > 0) GameManager.GetInstance().stageManager.GameStart();
     }
 }

@@ -14,7 +14,6 @@ public class StageManager : MonoBehaviour
     private MapController mc;
     private PlayerController pc;
     private CameraController cc;
-    private PlayManager pm;
 
     private LandscapeManager landscapeManager;
 
@@ -28,7 +27,6 @@ public class StageManager : MonoBehaviour
     private void InitializeVariables()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
@@ -42,6 +40,7 @@ public class StageManager : MonoBehaviour
         pc.Initialize();
         cc.Initialize();
         mc.FillAnomaly();
+        GameManager.GetInstance().Play();
         InitializeStage(currentStage);
     }
 

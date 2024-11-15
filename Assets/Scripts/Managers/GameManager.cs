@@ -17,18 +17,11 @@ public class GameManager
 
     public GameState state;
 
-    public PlayManager pm;
+    public StageManager stageManager;
+    public BedInteractionManager bedInteractionManager;
+
     public UIManager um;
     public SoundManager sm;
-    /*private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else Destroy(gameObject);
-    }*/
 
     public static GameManager GetInstance() {
         if (instance == null) {
@@ -44,11 +37,13 @@ public class GameManager
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "GameScene")
         {
-            pm = GameObject.FindAnyObjectByType<PlayManager>().GetComponent<PlayManager>();
+            stageManager = GameObject.FindAnyObjectByType<StageManager>().GetComponent<StageManager>();
+            bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
         }
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
-        pm.GameStart();
+        stageManager.GameStart();
+        um.Initialize();
     }
 
     public void Clear() => state = GameState.GameClear;
