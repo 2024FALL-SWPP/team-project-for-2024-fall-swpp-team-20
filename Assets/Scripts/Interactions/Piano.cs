@@ -13,9 +13,10 @@ public class Piano : MonoBehaviour, IInteractable
 
     public PianoSystem pianoInput;
 
+
     private void Start()
     {
-        
+
         mainCamera = Camera.main;
         pianoCamera = GameObject.Find("PianoCamera").GetComponent<Camera>();
         pianoCamera.gameObject.SetActive(false);
@@ -47,8 +48,8 @@ public class Piano : MonoBehaviour, IInteractable
         isInteracting = true;
         mainCamera.gameObject.SetActive(false);
         pianoCamera.gameObject.SetActive(true);
-        GameManager.instance.pm.ToggleInteraction(false);
-        GameManager.instance.um.ShowPianoInteractionInfo();
+        GameManager.GetInstance().stageManager.ToggleActionAvailability(false);
+        GameManager.GetInstance().um.ShowPianoInteractionInfo();
     }
 
     private void EndInteraction(InputAction.CallbackContext context)
@@ -57,8 +58,8 @@ public class Piano : MonoBehaviour, IInteractable
         isInteracting = false;
         pianoCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
-        GameManager.instance.pm.ToggleInteraction(true);
-        GameManager.instance.um.HidePianoInteractionInfo();
+        GameManager.GetInstance().stageManager.ToggleActionAvailability(true);
+        GameManager.GetInstance().um.HidePianoInteractionInfo();
     }
 
     public void Update()
@@ -88,7 +89,7 @@ public class Piano : MonoBehaviour, IInteractable
 
     private IEnumerator PressKey(int keyIndex)
     {
-        GameManager.instance.sm.PlayPianoSound(keyIndex);
+        GameManager.GetInstance().sm.PlayPianoSound(keyIndex);
         pianoKeys[keyIndex].transform.position += new Vector3(0, -0.01f, 0);
         yield return new WaitForSeconds(0.1f);
         pianoKeys[keyIndex].transform.position += new Vector3(0, 0.01f, 0);

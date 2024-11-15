@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     private RawImage[] cursorImage;
 
 
-    public void Initialize() {
+    public void Initialize()
+    {
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
             canvasTransform = FindAnyObjectByType<Canvas>().transform;
@@ -32,21 +33,30 @@ public class UIManager : MonoBehaviour
         stateInfo.enabled = false;
     }
 
-    public void ShowSleepInfo() {
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ShowSleepInfo()
+    {
         generalInfo.enabled = true;
         generalInfo.text = "Press [F] to Sleep\n Press [G] to Wake Up";
     }
 
     //Make cursor Red if Interaction is able with mouse click
-    public void ShowInteractionInfo(RaycastHit hit) {
+    public void ShowInteractionInfo(RaycastHit hit)
+    {
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with {hit.transform.name}";
-        foreach (RawImage i in cursorImage) {
+        foreach (RawImage i in cursorImage)
+        {
             i.color = Color.red;
         }
     }
 
-    public void ShowStateUI(GameState state) {
+    public void ShowStateUI(GameState state)
+    {
         stateInfo.enabled = true;
         switch (state)
         {
@@ -65,10 +75,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowPianoInteractionInfo() {
+    public void ShowPianoInteractionInfo()
+    {
         interactionInfo.enabled = true;
         interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
-        foreach (RawImage i in cursorImage) {
+        foreach (RawImage i in cursorImage)
+        {
             i.enabled = false;
         }
     }
@@ -76,21 +88,26 @@ public class UIManager : MonoBehaviour
     public void HideStateUI() => stateInfo.enabled = false;
 
     // Make cursor White if Interaction becomes unable
-    public void HideInteractionInfo() {
+    public void HideInteractionInfo()
+    {
         interactionInfo.enabled = false;
-        foreach (RawImage i in cursorImage) {
+        foreach (RawImage i in cursorImage)
+        {
             i.color = Color.white;
         }
     }
 
-    public void HideInfo() {
+    public void HideInfo()
+    {
         generalInfo.enabled = false;
     }
 
-    public void HidePianoInteractionInfo() {
+    public void HidePianoInteractionInfo()
+    {
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with piano";
-        foreach (RawImage i in cursorImage) {
+        foreach (RawImage i in cursorImage)
+        {
             i.enabled = true;
         }
     }

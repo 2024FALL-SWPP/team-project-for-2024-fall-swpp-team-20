@@ -11,52 +11,39 @@ public enum GameState
     GameClear
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager
 {
-    public static GameManager instance;
+    private volatile static GameManager instance;
 
     public GameState state;
 
-    public PlayManager pm;
+    public StageManager stageManager;
+    public BedInteractionManager bedInteractionManager;
+
     public UIManager um;
     public SoundManager sm;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+
+    public static GameManager GetInstance() {
+        if (instance == null) {
+            instance = new GameManager();
+            instance.Initialize();
         }
-        else Destroy(gameObject);
+        return instance;
     }
 
-    private void Start()
-    {
-        initialize();
-    }
 
-    public void MoveToGameScene()
-    {
-        SceneManager.LoadScene("GameScene");
-        StartCoroutine(InitializeAfterSceneLoad());
-    }
-
-    private IEnumerator InitializeAfterSceneLoad()
-    {
-        yield return new WaitForSeconds(0.1f);
-        initialize();
-    }
-
-    private void initialize()
+    private void Initialize()
     {
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "GameScene")
         {
-            pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
+            stageManager = GameObject.FindAnyObjectByType<StageManager>().GetComponent<StageManager>();
+            bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
         }
-        um = FindObjectOfType<UIManager>().GetComponent<UIManager>();
-        sm = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
-        pm.GameStart();
+        um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
+        sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
+        stageManager.GameStart();
+        um.Initialize();
     }
 
     public void Clear() => state = GameState.GameClear;

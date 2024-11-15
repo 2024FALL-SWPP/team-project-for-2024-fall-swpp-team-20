@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     public PlayerController player;
-    //private float rotateX;
     private float rotateY;
     private float currentX;
     public float cameraRotateSpeed => player.rotateSpeed;
@@ -20,7 +19,7 @@ public class CameraController : MonoBehaviour
     private int layerMask;
     private RaycastHit hit;
 
-    private GameState State => GameManager.instance.state;
+    //private GameState State => GameManager.instance.state;
 
     private Control control;
     private void Start()
@@ -33,10 +32,12 @@ public class CameraController : MonoBehaviour
         control = new Control();
         control.Enable();
         control.NewMap.Rotate.performed += OnRotate;
+        control.NewMap.ObjectInteraction.performed += OnObjectInteraction;
     }
     private void OnDisable()
     {
         control.NewMap.Rotate.performed -= OnRotate;
+        control.NewMap.ObjectInteraction.performed -= OnObjectInteraction;
         control.Disable();
     }
     public void Initialize() {
@@ -51,9 +52,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (State != GameState.Playing) return;
+        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         //transform.RotateAround(transform.position, Vector3.up, rotateX);
-        
+
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
             if (!immInteractable)
@@ -67,16 +68,16 @@ public class CameraController : MonoBehaviour
 
     private void ShowInteractableUI(RaycastHit hit) {
         immInteractable = true;
-        GameManager.instance.um.ShowInteractionInfo(hit);
+        GameManager.GetInstance().um.ShowInteractionInfo(hit);
     }
 
     private void HideInteractableUI() {
         immInteractable = false;
-        GameManager.instance.um.HideInteractionInfo();
+        GameManager.GetInstance().um.HideInteractionInfo();
     }
     public void OnRotate(InputAction.CallbackContext value)
     {
-        if (State != GameState.Playing) return;
+        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         Vector2 input = value.ReadValue<Vector2>();
         rotateY = CanMove ? input.y : 0;
 
@@ -87,7 +88,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void OnObjectInteraction(InputValue value) {
+    public void OnObjectInteraction(InputAction.CallbackContext value) {
         /*if (CanInteract && Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.distance < 5f && value.Get<float>() > 0f)
@@ -96,7 +97,7 @@ public class CameraController : MonoBehaviour
                 target.GetComponent<IInteractable>().Interact(target);
             }
         }*/
-        if (State != GameState.Playing) return;
+        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         if (immInteractable) {
             GameObject target = hit.transform.gameObject;
             target.GetComponent<IInteractable>().Interact(target);
