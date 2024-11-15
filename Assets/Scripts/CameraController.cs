@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     public PlayerController player;
-    //private float rotateX;
     private float rotateY;
     private float currentX;
     public float cameraRotateSpeed => player.rotateSpeed;
@@ -55,7 +54,7 @@ public class CameraController : MonoBehaviour
     {
         if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         //transform.RotateAround(transform.position, Vector3.up, rotateX);
-        
+
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
             if (!immInteractable)

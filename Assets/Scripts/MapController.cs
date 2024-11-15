@@ -10,7 +10,7 @@ using Shuffle = System.Random;
 public class MapController : MonoBehaviour
 {
     public GameObject mapPrefab;
-    private GameObject map;
+    private GameObject currentMap;
     private float initialClockRotation = 240.0f;
     private int anomalyIndex = -1;
     private const int maxAnomalyCount = 50;
@@ -19,6 +19,10 @@ public class MapController : MonoBehaviour
     //only for anomlay testing
     public bool test;
     public int testAnomaly;
+
+    private void Start() {
+        currentMap = GameObject.FindGameObjectWithTag("Map");
+    }
 
     public void FillAnomaly()
     {
@@ -50,18 +54,29 @@ public class MapController : MonoBehaviour
         }
     }
 
+    private void CleanupCurrentMap()
+    {
+        if (currentMap != null)
+        {
+            Destroy(currentMap);
+            currentMap = null;
+        }
+    }
+
     public GameObject GenerateMap(bool haveAnomaly, int stage)
     {
+        CleanupCurrentMap();
+
         if (!haveAnomaly)
         {
-            map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
+            currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             Debug.Log($"Stage {stage}: No Anomaly");
-            return map;
+            return currentMap;
         }
         else
         {
-            map = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
+            currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             if (test) SetAnomaly(anomalies[testAnomaly]);
             else SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
@@ -72,7 +87,7 @@ public class MapController : MonoBehaviour
                 // second option: game over
             }
             Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
-            return map;
+            return currentMap;
         }
     }
 
@@ -80,15 +95,15 @@ public class MapController : MonoBehaviour
     {
         if (anomalyIndex < anomalies.Count)
         {
-            anomaly.Apply(map);
+            anomaly.Apply(currentMap);
         }
     }
 
     private void SetClock(int stage)
     {
-        GameObject clockHourHand = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("clock").Find("Hour Hand").gameObject;
+        GameObject clockHourHand = currentMap.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("clock").Find("Hour Hand").gameObject;
         clockHourHand.transform.localRotation = Quaternion.Euler(-90, 0, initialClockRotation + 30 * stage);
-        TextMeshPro digitalClockText = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("digital_clock").Find("ClockText").GetComponent<TextMeshPro>();
+        TextMeshPro digitalClockText = currentMap.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("digital_clock").Find("ClockText").GetComponent<TextMeshPro>();
         digitalClockText.text = stage == 0 ? "00:00" : "0" + stage.ToString() + ":00";
     }
 }
