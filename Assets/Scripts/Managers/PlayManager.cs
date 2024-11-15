@@ -18,7 +18,7 @@ public class PlayManager : MonoBehaviour
 
     public Material[] landscapeMaterials;
 
-    private GameState State => GameManager.instance.state;
+    //private GameState State;
 
 
     //only for anomaly testing
@@ -32,7 +32,6 @@ public class PlayManager : MonoBehaviour
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeObjects = GameObject.FindGameObjectsWithTag("Landscape");
-
     }
 
     public void GameStart()
@@ -41,8 +40,8 @@ public class PlayManager : MonoBehaviour
         pc.Initialize();
         cc.Initialize();
         mc.FillAnomaly();
-        GameManager.instance.um.Initialize();
-        GameManager.instance.Play();
+        GameManager.GetInstance().um.Initialize();
+        GameManager.GetInstance().Play();
         InitializeStage(0);
     }
 
@@ -142,8 +141,8 @@ public class PlayManager : MonoBehaviour
     private void GameClear()
     {
         //DisableControllers();
-        GameManager.instance.Clear();
-        GameManager.instance.um.ShowStateUI(GameState.GameClear);
+        GameManager.GetInstance().Clear();
+        GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
     }
 
 }

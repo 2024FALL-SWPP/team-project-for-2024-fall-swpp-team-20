@@ -24,11 +24,12 @@ public class PlayerController : MonoBehaviour
 
     private Control control;
 
-    private GameState State => GameManager.instance.state;
+    //private GameState State => GameManager.instance.state;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
     }
 
     private void OnEnable()
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
-        if (State == GameState.Playing && canMove)
+        if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
             transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
         }
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext value)
     {
-        if (State == GameState.Playing && canMove)
+        if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
             moveDirection = value.ReadValue<Vector2>();
         }
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRotate(InputAction.CallbackContext value)
     {
-        if (State == GameState.Playing && canMove)
+        if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
             Vector2 input = value.ReadValue<Vector2>();
             mouseDeltaX = input.x;
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext value)
     {
-        if (State != GameState.Playing) return;
+        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         float jumped = value.ReadValue<float>();
 
         if (jumped > 0f && !isJumping)
@@ -142,24 +143,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnBedInteraction(InputAction.CallbackContext value)
     {
-        if (State != GameState.Playing) return;
+        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         if (canSleep)
         {
             float input = value.ReadValue<float>();
-            GameManager.instance.pm.TryBedInteraction(input > 0);
+            GameManager.GetInstance().pm.TryBedInteraction(input > 0);
         }
     }
 
 
     private void EnableSleepUI()
     {
-        GameManager.instance.um.ShowSleepInfo();
+        GameManager.GetInstance().um.ShowSleepInfo();
     }
 
 
     private void DisableSleepUI()
     {
-        GameManager.instance.um.HideInfo();
+        GameManager.GetInstance().um.HideInfo();
     }
 
     //Pause when press esc
@@ -168,17 +169,17 @@ public class PlayerController : MonoBehaviour
     {
         if (value.ReadValue<float>() > 0)
         {
-            if (State == GameState.Playing)
+            if (GameManager.GetInstance().GetState() == GameState.Playing)
             {
                 Time.timeScale = 0f;
-                GameManager.instance.um.ShowStateUI(GameState.Pause);
-                GameManager.instance.Pause();
+                GameManager.GetInstance().um.ShowStateUI(GameState.Pause);
+                GameManager.GetInstance().Pause();
             }
-            else if (State == GameState.Pause)
+            else if (GameManager.GetInstance().GetState() == GameState.Pause)
             {
                 Time.timeScale = 1f;
-                GameManager.instance.um.HideStateUI();
-                GameManager.instance.Play();
+                GameManager.GetInstance().um.HideStateUI();
+                GameManager.GetInstance().Play();
             }
         }
 
@@ -188,6 +189,6 @@ public class PlayerController : MonoBehaviour
     // Can restart only in pause, gameover, gamestart
     public void OnRestart(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0) GameManager.instance.pm.GameStart();
+        if (value.ReadValue<float>() > 0) GameManager.GetInstance().pm.GameStart();
     }
 }

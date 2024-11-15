@@ -11,16 +11,16 @@ public enum GameState
     GameClear
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager
 {
-    public static GameManager instance;
+    private volatile static GameManager instance;
 
     public GameState state;
 
     public PlayManager pm;
     public UIManager um;
     public SoundManager sm;
-    private void Awake()
+    /*private void Awake()
     {
         if (instance == null)
         {
@@ -28,34 +28,26 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+    }*/
+
+    public static GameManager GetInstance() {
+        if (instance == null) {
+            instance = new GameManager();
+            instance.Initialize();
+        }
+        return instance;
     }
 
-    private void Start()
-    {
-        initialize();
-    }
 
-    public void MoveToGameScene()
-    {
-        SceneManager.LoadScene("GameScene");
-        StartCoroutine(InitializeAfterSceneLoad());
-    }
-
-    private IEnumerator InitializeAfterSceneLoad()
-    {
-        yield return new WaitForSeconds(0.1f);
-        initialize();
-    }
-
-    private void initialize()
+    private void Initialize()
     {
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "GameScene")
         {
-            pm = FindObjectOfType<PlayManager>().GetComponent<PlayManager>();
+            pm = GameObject.FindAnyObjectByType<PlayManager>().GetComponent<PlayManager>();
         }
-        um = FindObjectOfType<UIManager>().GetComponent<UIManager>();
-        sm = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
+        sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
         pm.GameStart();
     }
 
