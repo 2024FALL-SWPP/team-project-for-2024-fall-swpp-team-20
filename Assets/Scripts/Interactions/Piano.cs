@@ -81,7 +81,8 @@ public class Piano : MonoBehaviour, IInteractable
         }*/
     }
 
-    private void OnPiano(InputAction.CallbackContext context) {
+    private void OnPiano(InputAction.CallbackContext context)
+    {
         if (!isInteracting) return;
         int bindingIndex = context.action.GetBindingIndexForControl(context.control);
         StartCoroutine(PressKey(bindingIndex));
@@ -89,9 +90,10 @@ public class Piano : MonoBehaviour, IInteractable
 
     private IEnumerator PressKey(int keyIndex)
     {
-        GameManager.GetInstance().sm.PlayPianoSound(keyIndex);
-        pianoKeys[keyIndex].transform.position += new Vector3(0, -0.01f, 0);
+        int realIndex = inAnomaly ? 7 - keyIndex : keyIndex;
+        GameManager.GetInstance().sm.PlayPianoSound(realIndex);
+        pianoKeys[realIndex].transform.position += new Vector3(0, -0.01f, 0);
         yield return new WaitForSeconds(0.1f);
-        pianoKeys[keyIndex].transform.position += new Vector3(0, 0.01f, 0);
+        pianoKeys[realIndex].transform.position += new Vector3(0, 0.01f, 0);
     }
 }
