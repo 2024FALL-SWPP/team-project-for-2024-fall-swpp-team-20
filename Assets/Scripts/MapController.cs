@@ -78,15 +78,23 @@ public class MapController : MonoBehaviour
         {
             currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
-            if (test) SetAnomaly(anomalies[testAnomaly]);
-            else SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
+            if (test)
+            {
+                SetAnomaly(anomalies[testAnomaly]);
+                Debug.Log($"Test: Anomaly {anomalies[testAnomaly].GetType()}");
+            }
+            else
+            {
+                SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
+                Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
+            }
             if (anomalyIndex >= maxAnomalyCount)
             {
                 // TODO: There are two options
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
-            Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
+            
             return currentMap;
         }
     }
