@@ -814,7 +814,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2133882180, guid: 65652e61b0a15ab46b91f82ddc722c6e, type: 3}
       propertyPath: field of view
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6201480847250627414, guid: 65652e61b0a15ab46b91f82ddc722c6e, type: 3}
       propertyPath: m_RootOrder
@@ -2875,7 +2875,7 @@ GameObject:
   - component: {fileID: 1698399175}
   - component: {fileID: 1698399174}
   m_Layer: 0
-  m_Name: MapController
+  m_Name: MapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
