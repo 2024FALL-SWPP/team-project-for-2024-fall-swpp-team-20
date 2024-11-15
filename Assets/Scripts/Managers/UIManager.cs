@@ -65,6 +65,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowPianoInteractionInfo() {
+        interactionInfo.enabled = true;
+        interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        foreach (RawImage i in cursorImage) {
+            i.enabled = false;
+        }
+    }
+
     public void HideStateUI() => stateInfo.enabled = false;
 
     // Make cursor White if Interaction becomes unable
@@ -77,5 +85,13 @@ public class UIManager : MonoBehaviour
 
     public void HideInfo() {
         generalInfo.enabled = false;
+    }
+
+    public void HidePianoInteractionInfo() {
+        interactionInfo.enabled = true;
+        interactionInfo.text = $"Mouse click to interact with piano";
+        foreach (RawImage i in cursorImage) {
+            i.enabled = true;
+        }
     }
 }

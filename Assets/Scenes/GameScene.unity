@@ -672,6 +672,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441e552c2d1a59c4bb5aab2f8923630c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pianoSounds:
+  - {fileID: 8300000, guid: b36f218760abf4c64a2043a088411709, type: 3}
+  - {fileID: 8300000, guid: 9c12534a22bca4883ab7857670bab855, type: 3}
+  - {fileID: 8300000, guid: 4294d2d1b81764087a1b1803b1ff0a67, type: 3}
+  - {fileID: 8300000, guid: cb6c826d266e04b88818e6fb243fc67c, type: 3}
+  - {fileID: 8300000, guid: 420a7010663074ee5953b2c09ea74dae, type: 3}
+  - {fileID: 8300000, guid: 4eaad5c46a99b4979a25f5bf7152ee76, type: 3}
+  - {fileID: 8300000, guid: bf4bcaf360254416c84e0eeb40804277, type: 3}
+  - {fileID: 8300000, guid: 48eb6d222a5b94fa092aed3863650461, type: 3}
 --- !u!4 &230178952
 Transform:
   m_ObjectHideFlags: 0
@@ -3450,18 +3459,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140445505}
   m_CullTransparentMesh: 1
---- !u!1001 &139157799089065038
+--- !u!1001 &2480468208446385226
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1684509965983953119, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
-      propertyPath: Player
+    - target: {fileID: 26891483, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: pianoAction.m_Name
+      value: Piano
+      objectReference: {fileID: 0}
+    - target: {fileID: 26891483, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: endPianoAction.m_Name
+      value: End Piano
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_Actions
       value: 
-      objectReference: {fileID: 941659628}
-    - target: {fileID: 1684509966212993389, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      objectReference: {fileID: -944628639613478452, guid: 9366e6a2da92b1445870a07c6c4bd24d, type: 3}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: PianoMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: e3f719b0-b2cf-4d01-b28b-0a4f52e437c3
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: PianoMap/PlayPiano[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7,/Keyboard/8]
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
+      propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187264778706255814, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 941659628}
@@ -3513,5 +3570,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 997622710, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2dca6aa900aba493d9382063aa790ee7, type: 3}
