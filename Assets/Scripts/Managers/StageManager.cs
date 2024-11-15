@@ -11,13 +11,13 @@ public class StageManager : MonoBehaviour
     public bool GetHaveAnomaly() => haveAnomaly;
     private GameObject player;
 
-    private MapController mc;
+    private MapManager mapManager;
     private PlayerController pc;
     private CameraController cc;
 
     private LandscapeManager landscapeManager;
 
-    private bool Test => mc.test;
+    private bool Test => mapManager.test;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class StageManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
-        mc = FindObjectOfType<MapController>().GetComponent<MapController>();
+        mapManager = FindObjectOfType<MapManager>().GetComponent<MapManager>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>().GetComponent<LandscapeManager>();
     }
@@ -39,7 +39,7 @@ public class StageManager : MonoBehaviour
         currentStage = 0;
         pc.Initialize();
         cc.Initialize();
-        mc.FillAnomaly();
+        mapManager.FillAnomaly();
         GameManager.GetInstance().Play();
         InitializeStage(currentStage);
     }
@@ -61,7 +61,7 @@ public class StageManager : MonoBehaviour
         // Reset Player position
         player.transform.position = new Vector3(-19.5f, 0.2f, -7.31f);
         // Create new stage map
-        mc.GenerateMap(haveAnomaly, stage);
+        mapManager.GenerateMap(haveAnomaly, stage);
         // Set time
 
         ToggleActionAvailability(true);
