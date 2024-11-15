@@ -65,13 +65,13 @@ public class StageManager : MonoBehaviour
         mc.GenerateMap(haveAnomaly, stage);
         // Set time
 
-        pm.ToggleInteraction(true);
+        ToggleActionAvailability(true);
         landscapeManager.ChangeLandscape(stage);
 
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void ToggleInteraction(bool canInteract)
+    public void ToggleActionAvailability(bool canInteract)
     {
         pc.canSleep = canInteract;
         pc.canMove = canInteract;

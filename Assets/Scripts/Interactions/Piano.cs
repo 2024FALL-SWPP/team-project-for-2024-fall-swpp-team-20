@@ -16,7 +16,7 @@ public class Piano : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        
+
         mainCamera = Camera.main;
         pianoCamera = GameObject.Find("PianoCamera").GetComponent<Camera>();
         pianoCamera.gameObject.SetActive(false);
@@ -48,7 +48,7 @@ public class Piano : MonoBehaviour, IInteractable
         isInteracting = true;
         mainCamera.gameObject.SetActive(false);
         pianoCamera.gameObject.SetActive(true);
-        GameManager.GetInstance().pm.ToggleInteraction(false);
+        GameManager.GetInstance().pm.ToggleActionAvailability(false);
         GameManager.GetInstance().um.ShowPianoInteractionInfo();
     }
 
@@ -58,7 +58,7 @@ public class Piano : MonoBehaviour, IInteractable
         isInteracting = false;
         pianoCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
-        GameManager.GetInstance().pm.ToggleInteraction(true);
+        GameManager.GetInstance().pm.ToggleActionAvailability(true);
         GameManager.GetInstance().um.HidePianoInteractionInfo();
     }
 

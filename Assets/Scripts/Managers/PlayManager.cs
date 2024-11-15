@@ -20,8 +20,9 @@ public class PlayManager : MonoBehaviour
     }
 
     public void TryBedInteraction(bool sleep) => bedInteractionManager.TryBedInteraction(sleep);
-    public void ToggleInteraction(bool canInteract)
+
+    public void ToggleActionAvailability(bool canInteract)
     {
-        stageManager.ToggleInteraction(canInteract);
+        stageManager.ToggleActionAvailability(canInteract);
     }
 }
