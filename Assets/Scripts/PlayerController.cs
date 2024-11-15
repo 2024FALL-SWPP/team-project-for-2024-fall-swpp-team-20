@@ -35,26 +35,10 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         control = new Control();
-        control.Enable();
-        control.NewMap.Move.performed += OnMove;
-        control.NewMap.Move.canceled += OnMoveCanceled;
-        control.NewMap.Jump.performed += OnJump;
-        control.NewMap.Pause.performed += OnPause;
-        control.NewMap.BedInteraction.performed += OnBedInteraction;
-        control.NewMap.Rotate.performed += OnRotate;
+        EnableInput();
     }
 
-    private void OnDisable()
-    {
-
-        control.NewMap.Move.performed -= OnMove;
-        control.NewMap.Move.canceled -= OnMoveCanceled;
-        control.NewMap.Jump.performed -= OnJump;
-        control.NewMap.Pause.performed -= OnPause;
-        control.NewMap.BedInteraction.performed -= OnBedInteraction;
-        control.NewMap.Rotate.performed -= OnRotate;
-        control.Disable();
-    }
+    private void OnDisable() => DisableInput();
     public void Initialize()
     {
         mouseDeltaX = 0;
@@ -82,7 +66,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnMoveCanceled(InputAction.CallbackContext value) {
+    public void OnMoveCanceled(InputAction.CallbackContext value)
+    {
         moveDirection = Vector2.zero;
     }
 
@@ -190,5 +175,28 @@ public class PlayerController : MonoBehaviour
     public void OnRestart(InputAction.CallbackContext value)
     {
         if (value.ReadValue<float>() > 0) GameManager.GetInstance().stageManager.GameStart();
+    }
+
+    public void EnableInput()
+    {
+        control.Enable();
+        control.NewMap.Move.performed += OnMove;
+        control.NewMap.Move.canceled += OnMoveCanceled;
+        control.NewMap.Jump.performed += OnJump;
+        control.NewMap.Pause.performed += OnPause;
+        control.NewMap.BedInteraction.performed += OnBedInteraction;
+        control.NewMap.Rotate.performed += OnRotate;
+        control.NewMap.Restart.performed += OnRestart;
+    }
+
+    public void DisableInput()
+    {
+        control.NewMap.Move.performed -= OnMove;
+        control.NewMap.Move.canceled -= OnMoveCanceled;
+        control.NewMap.Jump.performed -= OnJump;
+        control.NewMap.Pause.performed -= OnPause;
+        control.NewMap.BedInteraction.performed -= OnBedInteraction;
+        control.NewMap.Rotate.performed -= OnRotate;
+        control.Disable();
     }
 }
