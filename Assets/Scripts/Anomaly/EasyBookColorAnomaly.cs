@@ -15,11 +15,11 @@ public class EasyBookColorAnomaly : Anomaly
         Color.magenta
     };
 
-    public override void Apply(GameObject myBedroom)
+    public override void Apply(GameObject map)
     {
         for (int i = 0; i < 2; i++)
         {
-            GameObject bookCollection = myBedroom.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("book_collection" + i).gameObject;
+            GameObject bookCollection = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("book_collection" + i).gameObject;
             for (int j = 0; j < 8; j++)
             {
                 bookCoverRenderer[j] = bookCollection.transform.Find("book" + " (" + j + ")").Find("book_cover").GetComponent<Renderer>();
