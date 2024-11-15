@@ -10,6 +10,7 @@ TagManager:
   - Labtop
   - Dice
   - Landscape
+  - Lava
   layers:
   - Default
   - TransparentFX
