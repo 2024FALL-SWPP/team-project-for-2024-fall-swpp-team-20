@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 1297090416360155004}
   - component: {fileID: 4962997610077502726}
   m_Layer: 0
-  m_Name: Player_Tutorial
+  m_Name: Player_NotSleeping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
