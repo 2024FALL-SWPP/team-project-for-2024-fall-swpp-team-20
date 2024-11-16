@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class AnomalySceneController : MonoBehaviour
+public class AnomalyFalseWakeupSceneController : MonoBehaviour
 {
     public Animator animator;
     public TextMeshProUGUI messageText;
