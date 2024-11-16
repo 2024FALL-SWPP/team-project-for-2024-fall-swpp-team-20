@@ -5,10 +5,11 @@ using TMPro;
 
 public class AnomalySceneController : MonoBehaviour
 {
+    public Animator animator;
     public TextMeshProUGUI messageText;
     public string message = "Oh no, something's gone wrong...";
     public string targetObjectName = "Barrier";
-    public float displayDelay = 0.4f;
+    public float delay = 0.4f;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -20,7 +21,13 @@ public class AnomalySceneController : MonoBehaviour
 
     private IEnumerator DisplayMessage()
     {
-        yield return new WaitForSeconds(displayDelay);
+        yield return new WaitForSeconds(delay);
         messageText.text = message;
+    }
+
+    private IEnumerator Stun()
+    {
+        yield return new WaitForSeconds(delay);
+        animator.SetTrigger("stunTrigger");
     }
 }
