@@ -23,7 +23,6 @@ public class PlayerInformation : MonoBehaviour
 
     // HurtPlayer can be used whenever If needed
     private void HurtPlayer(float damage) {
-        Debug.Log("Ouch!");
         if (health <= 0) return;
         health -= damage;
         GameManager.GetInstance().um.SetHealthImage(health);

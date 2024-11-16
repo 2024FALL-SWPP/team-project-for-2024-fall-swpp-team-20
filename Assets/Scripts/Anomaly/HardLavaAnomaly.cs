@@ -14,6 +14,7 @@ public class HardLavaAnomaly : HardAnomaly
     public override void GiveInformation()
     {
         Debug.Log("Showing Lava Information..");
+        // Not Implemented yet
     }
 
     public override void InitializeForHard()

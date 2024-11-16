@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
 
 
     public bool canSleep;
-    [SerializeField] private bool inBedRange;
-    [SerializeField] private bool inHardAnomaly;
+    private bool inBedRange;
+    private bool inHardAnomaly;
 
     private Control control;
 
