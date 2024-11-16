@@ -50,10 +50,10 @@ public class BedInteractionManager : MonoBehaviour
         }
     }
 
-    public void ToggleInteraction(bool canInteract)
+    public void ToggleInteraction(bool available)
     {
-        pc.canSleep = canInteract;
-        pc.canMove = canInteract;
-        cc.canInteract = canInteract;
+        pc.SetSleep(available);
+        pc.SetMove(available);
+        cc.SetInteract(available);
     }
 }

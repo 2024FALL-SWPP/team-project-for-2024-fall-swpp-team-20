@@ -64,16 +64,18 @@ public class MapController : MonoBehaviour
         }
     }
 
-    public GameObject GenerateMap(bool haveAnomaly, int stage)
+    // returns current anomaly is hard or not
+    public bool GenerateMap(bool haveAnomaly, int stage)
     {
         CleanupCurrentMap();
+        Anomaly anomaly = null;
 
         if (!haveAnomaly)
         {
             currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             Debug.Log($"Stage {stage}: No Anomaly");
-            return currentMap;
+            return false;
         }
         else
         {
@@ -81,13 +83,13 @@ public class MapController : MonoBehaviour
             SetClock(stage);
             if (test)
             {
-                SetAnomaly(anomalies[testAnomaly]);
-                Debug.Log($"Test: Anomaly {anomalies[testAnomaly].GetType()}");
+                anomaly = anomalies[testAnomaly];
+                Debug.Log($"Test: Anomaly {anomaly.GetType()}");
             }
             else
             {
-                SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
-                Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
+                anomaly = anomalies[++anomalyIndex % anomalies.Count];
+                Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
             }
             if (anomalyIndex >= maxAnomalyCount)
             {
@@ -95,8 +97,9 @@ public class MapController : MonoBehaviour
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
-            
-            return currentMap;
+            SetAnomaly(anomaly);
+            if (anomaly == null) return false;
+            return anomaly is HardAnomaly;
         }
     }
 

@@ -112,5 +112,8 @@ public class CameraController : MonoBehaviour
         return false;
     }
 
+    public void SetInteract(bool available) {
+        canInteract = available;
+    }
 
 }

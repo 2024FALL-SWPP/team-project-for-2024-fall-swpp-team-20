@@ -66,8 +66,9 @@ public class StageManager : MonoBehaviour
         // Reset Player position and Information
         player.transform.position = new Vector3(-19.5f, 1.2f, -5.45f);
         pi.Initialize();
-        // Create new stage map
-        mc.GenerateMap(haveAnomaly, stage);
+        // Create new stage map and inform player about it is hard anomaly or not
+        bool hard = mc.GenerateMap(haveAnomaly, stage);
+        pc.SetAnomalyType(hard);
         // Set time
         ToggleActionAvailability(true);
         landscapeManager.ChangeLandscape(stage);
@@ -75,11 +76,11 @@ public class StageManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void ToggleActionAvailability(bool canInteract)
+    public void ToggleActionAvailability(bool available)
     {
-        pc.canSleep = canInteract;
-        pc.canMove = canInteract;
-        cc.canInteract = canInteract;
+        pc.SetSleep(available);
+        pc.SetMove(available);
+        cc.SetInteract(available);
     }
     private void GameClear()
     {

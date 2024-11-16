@@ -20,7 +20,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
 
+
     public bool canSleep;
+    [SerializeField] private bool inBedRange;
+    [SerializeField] private bool inHardAnomaly;
 
     private Control control;
 
@@ -45,8 +48,9 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.identity;
 
         isJumping = false;
-        canSleep = false;
-        canMove = false;
+        SetInBedRange(false);
+        SetSleep(false);
+        SetMove(false);
     }
     // Update is called once per frame
     void Update()
@@ -104,49 +108,40 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            canSleep = true;
-            EnableSleepUI();
+            SetInBedRange(true);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!canSleep && other.gameObject.CompareTag("Bed"))
+        if (!inBedRange && other.gameObject.CompareTag("Bed"))
         {
-            canSleep = true;
-            EnableSleepUI();
+            SetInBedRange(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Bed"))
         {
-            canSleep = false;
-            DisableSleepUI();
+            SetInBedRange(false);
         }
     }
 
     public void OnBedInteraction(InputAction.CallbackContext value)
     {
         if (GameManager.GetInstance().GetState() != GameState.Playing) return;
-        if (canSleep)
+        if (ActuallyCanSleep())
         {
             float input = value.ReadValue<float>();
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(input > 0);
         }
     }
 
-
-    private void EnableSleepUI()
-    {
-        GameManager.GetInstance().um.ShowSleepInfo();
+    private void ToggleSleepUI() { 
+        if (ActuallyCanSleep()) GameManager.GetInstance().um.ShowSleepInfo();
+        else GameManager.GetInstance().um.HideSleepInfo();
     }
 
-
-    private void DisableSleepUI()
-    {
-        GameManager.GetInstance().um.HideInfo();
-    }
 
     //Pause when press esc
     //Resume when press Esc again
@@ -203,4 +198,23 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.performed -= OnRotate;
         control.Disable();
     }
+
+    private bool ActuallyCanSleep() {
+        return canSleep && inBedRange && !inHardAnomaly;
+    }
+
+    public void SetSleep(bool available) {
+        canSleep = available;
+        ToggleSleepUI();
+    }
+
+    public void SetInBedRange(bool inRange) { 
+        inBedRange = inRange;
+        ToggleSleepUI();
+    }
+
+    public void SetMove(bool available) {
+        canMove = available;
+    }
+    public void SetAnomalyType(bool hard) => inHardAnomaly = hard;
 }

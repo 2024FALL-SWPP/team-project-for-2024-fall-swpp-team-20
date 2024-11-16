@@ -97,7 +97,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HideInfo()
+    public void HideSleepInfo()
     {
         generalInfo.enabled = false;
     }
@@ -120,7 +120,7 @@ public class UIManager : MonoBehaviour
 
     //Reset UI when new stage starts
     public void HideEverything() {
-        HideInfo();
+        HideSleepInfo();
         HideInteractionInfo();
         HideStateInfo();
         HideHealthImage();

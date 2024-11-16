@@ -44,8 +44,6 @@ public class GameManager
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
         um.Initialize();
         stageManager.GameStart();
-
-
     }
 
     public void Clear() => state = GameState.GameClear;
