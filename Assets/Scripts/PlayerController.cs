@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
             else if (GameManager.GetInstance().GetState() == GameState.Pause)
             {
                 Time.timeScale = 1f;
-                GameManager.GetInstance().um.HideStateUI();
+                GameManager.GetInstance().um.HideStateInfo();
                 GameManager.GetInstance().Play();
             }
         }
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.ReadValue<float>() > 0)
         {
-            GameManager.GetInstance().um.HideStateUI();
+            GameManager.GetInstance().um.HideStateInfo();
             GameManager.GetInstance().stageManager.GameStart();
         }
     }

@@ -33,14 +33,15 @@ public class MapController : MonoBehaviour
         anomalies = new List<Anomaly>();
         foreach (Type type in assembly.GetTypes())
         {
-            if (type.IsSubclassOf(typeof(Anomaly)) && !type.IsSubclassOf(typeof(MonoBehaviour)))
+            //Debug.Log($"{type} isAnomaly:{type == typeof(Anomaly)} isHardAnomaly:{type == typeof(HardAnomaly)}");
+            if (type == typeof(Anomaly) || type == typeof(HardAnomaly)) continue;
+            if (typeof(Anomaly).IsAssignableFrom(type))
             {
                 // Create an instance of each type and add it to the list.
                 Anomaly instance = (Anomaly)Activator.CreateInstance(type);
                 anomalies.Add(instance);
             }
         }
-
 
         if (!test)
         {
@@ -104,6 +105,12 @@ public class MapController : MonoBehaviour
         if (anomalyIndex < anomalies.Count)
         {
             anomaly.Apply(currentMap);
+            //Do Additional Setting For Each Hard Anomaly
+            if (anomaly is HardAnomaly) {
+                HardAnomaly ha = anomaly as HardAnomaly;
+                ha.GiveInformation();
+                ha.InitializeForHard();   
+            }
         }
     }
 

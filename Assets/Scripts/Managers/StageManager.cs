@@ -15,6 +15,8 @@ public class StageManager : MonoBehaviour
     private PlayerController pc;
     private CameraController cc;
 
+    private PlayerInformation pi;
+
     private LandscapeManager landscapeManager;
 
     private bool Test => mc.test;
@@ -30,6 +32,7 @@ public class StageManager : MonoBehaviour
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
+        pi = player.GetComponent<PlayerInformation>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>().GetComponent<LandscapeManager>();
     }
@@ -58,12 +61,14 @@ public class StageManager : MonoBehaviour
         else
             haveAnomaly = true;
 
-        // Reset Player position
-        player.transform.position = new Vector3(-19.5f, 0.2f, -7.31f);
+        // Reset UI
+        GameManager.GetInstance().um.HideEverything();
+        // Reset Player position and Information
+        player.transform.position = new Vector3(-19.5f, 1.2f, -5.45f);
+        pi.Initialize();
         // Create new stage map
         mc.GenerateMap(haveAnomaly, stage);
         // Set time
-
         ToggleActionAvailability(true);
         landscapeManager.ChangeLandscape(stage);
 
@@ -83,6 +88,10 @@ public class StageManager : MonoBehaviour
         GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
     }
 
+    public void GameOver() {
+        GameManager.GetInstance().GameOver();
+        GameManager.GetInstance().um.ShowStateUI(GameState.GameOver);
+    }
     public void HandleSleepOutcome(bool sleep)
     {
         if (sleep ^ haveAnomaly)

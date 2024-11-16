@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HardLavaAnomaly : MonoBehaviour
+public class HardLavaAnomaly : HardAnomaly
 {
-    // Start is called before the first frame update
-    void Start()
+    GameObject lava;
+    public override void Apply(GameObject map)
     {
-        
+        lava = map.transform.Find("Lavas").gameObject;
+        lava.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void GiveInformation()
     {
-        
+        Debug.Log("Showing Lava Information..");
+    }
+
+    public override void InitializeForHard()
+    {
+        GameManager.GetInstance().um.ShowHealthImage();
     }
 }

@@ -42,13 +42,17 @@ public class GameManager
         }
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
-        stageManager.GameStart();
         um.Initialize();
+        stageManager.GameStart();
+
+
     }
 
     public void Clear() => state = GameState.GameClear;
     public void Pause() => state = GameState.Pause;
     public void Play() => state = GameState.Playing;
+
+    public void GameOver() => state = GameState.GameOver;
 
     public GameState GetState() => state;
 

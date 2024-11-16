@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     private Text generalInfo;
     private Text interactionInfo;
     private Text stateInfo;
+    private RectTransform health;
     private RawImage[] cursorImage;
 
 
@@ -27,10 +28,9 @@ public class UIManager : MonoBehaviour
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
             stateInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
             cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponentsInChildren<RawImage>();
+            health = canvasTransform.Find("Health").GetComponent<RectTransform>();
         }
-        generalInfo.enabled = false;
-        interactionInfo.enabled = false;
-        stateInfo.enabled = false;
+        HideEverything();
     }
 
     public void LoadScene(string sceneName)
@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HideStateUI() => stateInfo.enabled = false;
+    public void HideStateInfo() => stateInfo.enabled = false;
 
     // Make cursor White if Interaction becomes unable
     public void HideInteractionInfo()
@@ -110,5 +110,19 @@ public class UIManager : MonoBehaviour
         {
             i.enabled = true;
         }
+    }
+
+    public void ShowHealthImage() => health.gameObject.SetActive(true);
+    public void HideHealthImage() => health.gameObject.SetActive(false);
+    public void SetHealthImage(float health) {
+        this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
+    }
+
+    //Reset UI when new stage starts
+    public void HideEverything() {
+        HideInfo();
+        HideInteractionInfo();
+        HideStateInfo();
+        HideHealthImage();
     }
 }
