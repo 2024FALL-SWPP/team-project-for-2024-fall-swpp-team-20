@@ -75,22 +75,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //
-    public void ShowSpecificInteractionInfo(int infoCode)
+    public void ShowPianoInteractionInfo()
     {
         interactionInfo.enabled = true;
-        switch (infoCode) {
-            case 0:
-                interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
-                break;
-            default:
-                break;
-            }   
-        foreach (RawImage i in cursorImage)
-        {
-            i.enabled = false;
-        }
+        interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        HideCursor();
     }
+
+
 
     public void HideStateInfo() => stateInfo.enabled = false;
 
@@ -113,10 +105,7 @@ public class UIManager : MonoBehaviour
     {
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with piano";
-        foreach (RawImage i in cursorImage)
-        {
-            i.enabled = true;
-        }
+        ShowCursor();
     }
 
     public void ShowHealthImage() => health.gameObject.SetActive(true);
@@ -131,5 +120,29 @@ public class UIManager : MonoBehaviour
         HideInteractionInfo();
         HideStateInfo();
         HideHealthImage();
+    }
+
+    // For Watching Laptop
+    public void TemporaryHideInteractionInfo() {
+        interactionInfo.text = $"";
+        HideCursor();
+    }
+    public void ShowLaptopInteractionInfo() {
+        interactionInfo.text = $"Mouse click to interact with laptop";
+        ShowCursor();
+    }
+
+    private void HideCursor() {
+        foreach (RawImage i in cursorImage)
+        {
+            i.enabled = false;
+        }
+    }
+
+    private void ShowCursor() {
+        foreach (RawImage i in cursorImage)
+        {
+            i.enabled = true;
+        }
     }
 }

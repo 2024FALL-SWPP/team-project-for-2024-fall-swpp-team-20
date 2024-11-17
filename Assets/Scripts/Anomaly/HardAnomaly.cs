@@ -4,5 +4,6 @@ using UnityEngine;
 
 public abstract class HardAnomaly : Anomaly
 {
-    public abstract void GiveInformation();
+    public Laptop laptop;
+    public abstract void SetHardAnomalyCodeForLaptop();
 }

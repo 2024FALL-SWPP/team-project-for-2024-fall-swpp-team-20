@@ -111,7 +111,7 @@ public class MapController : MonoBehaviour
             //Do Additional Setting For Each Hard Anomaly
             if (anomaly is HardAnomaly) {
                 HardAnomaly ha = anomaly as HardAnomaly;
-                ha.GiveInformation(); 
+                ha.SetHardAnomalyCodeForLaptop(); 
             }
         }
     }
