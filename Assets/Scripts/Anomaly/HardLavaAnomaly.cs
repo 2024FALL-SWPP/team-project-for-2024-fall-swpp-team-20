@@ -12,13 +12,23 @@ public class HardLavaAnomaly : HardAnomaly
             Find("Apartment_01").Find("Props").Find("laptop").GetComponent<Laptop>();
         lava.SetActive(true);
         GameManager.GetInstance().um.ShowHealthImage();
-        
+        GameManager.GetInstance().player.transform.localScale = 0.05f * Vector3.one;
+        RemoveOriginalObjects();
     }
 
     public override void SetHardAnomalyCodeForLaptop()
     {
         Debug.Log("HELLO");
         laptop.SetAnomalyCode(2);
+    }
+
+    // Used some objects as platform to escape the room, removing same objects at the original position
+    // it is better to just manipulate transform of objects, but it is too hard work..
+    private void RemoveOriginalObjects() {
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("LavaPlatform");
+        foreach (GameObject platform in platforms) {
+            Object.Destroy(platform);
+        }
     }
 
 

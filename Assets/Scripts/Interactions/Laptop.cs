@@ -25,7 +25,7 @@ public class Laptop : MonoBehaviour, IInteractable
 
     private float[] waitingTimes = { 1f, 0.7f, 0.5f, 0.3f, 0.2f };
 
-    // anomalyCode: 0 if no anomaly, 1 if laptop anomaly, 2 if hard Anomaly
+    // anomalyCode for laptop: 0 if no anomaly, 1 if laptop anomaly, 2 if hard Anomaly
     private int anomalyCode = 0;
 
     private bool power = false;
@@ -75,13 +75,13 @@ public class Laptop : MonoBehaviour, IInteractable
     private void TurnOn() {
         power = true;
         screen.materials = materialSet1;
-        EnableText();
+        if (anomalyCode >= 2) EnableText();
     }
 
     private void TurnOff() {
         power = false;
         screen.materials = materialSet2;
-        DisableText();
+        if (anomalyCode >= 2) DisableText();
     }
 
     private IEnumerator ToggleLaptop1() {

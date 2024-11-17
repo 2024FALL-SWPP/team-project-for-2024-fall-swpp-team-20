@@ -13,11 +13,5 @@ public class LavaBehaviour : MonoBehaviour
         pi.HurtPlayerByHeat();
     }
 
-    private void Update()
-    {
-        transform.Translate(Vector3.right * Time.deltaTime);
-        if (transform.position.x > initialPosX + 50f) transform.Translate(Vector3.right * -50f);
-    }
-
 
 }

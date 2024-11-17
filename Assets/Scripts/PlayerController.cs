@@ -110,6 +110,9 @@ public class PlayerController : MonoBehaviour
         {
             SetInBedRange(true);
         }
+        if (other.gameObject.CompareTag("Goal")) {
+            GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -133,7 +136,8 @@ public class PlayerController : MonoBehaviour
         if (ActuallyCanSleep())
         {
             float input = value.ReadValue<float>();
-            GameManager.GetInstance().bedInteractionManager.TryBedInteraction(input > 0);
+            BedInteractionType type = input > 0 ? BedInteractionType.Sleep : BedInteractionType.Wakeup;
+            GameManager.GetInstance().bedInteractionManager.TryBedInteraction(type);
         }
     }
 

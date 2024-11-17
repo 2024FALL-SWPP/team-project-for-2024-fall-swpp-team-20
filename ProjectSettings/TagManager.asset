@@ -11,6 +11,8 @@ TagManager:
   - Dice
   - Landscape
   - Lava
+  - LavaPlatform
+  - Goal
   layers:
   - Default
   - TransparentFX

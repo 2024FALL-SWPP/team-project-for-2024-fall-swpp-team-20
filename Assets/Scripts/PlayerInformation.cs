@@ -13,7 +13,7 @@ public class PlayerInformation : MonoBehaviour
     public void Initialize()
     {
         health = 100f;
-        if (hurt != null) StopCoroutine(hurt);
+        StopCoroutines();
     }
 
     private void OnTriggerStay(Collider other)
@@ -42,5 +42,10 @@ public class PlayerInformation : MonoBehaviour
             HurtPlayer(0.5f);
             yield return new WaitForSeconds(0.25f);
         }
+    }
+
+    public void StopCoroutines() {
+        if (hurt != null) StopCoroutine(hurt);
+        // Add more if there is another coroutine
     }
 }

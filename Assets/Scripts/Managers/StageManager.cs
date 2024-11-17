@@ -45,25 +45,30 @@ public class StageManager : MonoBehaviour
 
     public void InitializeStage(int stage)
     {
-        if (stage == 7)
-        {
-            GameClear();
-            return;
-        }
-        this.currentStage = stage;
+        
+        currentStage = stage;
 
-        if (!Test && (stage == 0 || Random.Range(0f, 1f) > 0.5))
+        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5))
             haveAnomaly = false;
         else
             haveAnomaly = true;
 
         // Reset UI
         GameManager.GetInstance().um.HideEverything();
-        // Reset Player position and Information
+        // Reset Player position, scale and Information
         player.transform.position = new Vector3(-19.5f, 1.2f, -5.45f);
+        player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
+
         // Create new stage map and inform player about it is hard anomaly or not
         bool hard = mc.GenerateMap(haveAnomaly, stage);
+
+        if (stage == 7)
+        {
+            GameClear();
+            return;
+        }
+
         pc.SetAnomalyType(hard);
         // Set time
         ToggleActionAvailability(true);
@@ -89,8 +94,9 @@ public class StageManager : MonoBehaviour
         GameManager.GetInstance().GameOver();
         GameManager.GetInstance().um.ShowStateUI(GameState.GameOver);
     }
-    public void HandleSleepOutcome(bool sleep)
+    public void HandleSleepOutcome(BedInteractionType type)
     {
+        bool sleep = type == BedInteractionType.Sleep ? true : false;
         if (sleep ^ haveAnomaly)
             Succeed();
         else
