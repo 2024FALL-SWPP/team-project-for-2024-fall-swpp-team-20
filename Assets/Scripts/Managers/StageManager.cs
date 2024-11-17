@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
 
     private MapManager mapManager;
     private PlayerController pc;
-    private CameraController cc;
+    private InteractionHandler interactionHandler;
 
     private LandscapeManager landscapeManager;
 
@@ -28,8 +28,13 @@ public class StageManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
+<<<<<<< Updated upstream
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         mapManager = FindObjectOfType<MapManager>().GetComponent<MapManager>();
+=======
+        interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
+        mc = FindObjectOfType<MapController>().GetComponent<MapController>();
+>>>>>>> Stashed changes
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>().GetComponent<LandscapeManager>();
     }
@@ -38,8 +43,12 @@ public class StageManager : MonoBehaviour
     {
         currentStage = 0;
         pc.Initialize();
+<<<<<<< Updated upstream
         cc.Initialize();
         mapManager.FillAnomaly();
+=======
+        mc.FillAnomaly();
+>>>>>>> Stashed changes
         GameManager.GetInstance().Play();
         InitializeStage(currentStage);
     }
@@ -74,7 +83,7 @@ public class StageManager : MonoBehaviour
     {
         pc.canSleep = canInteract;
         pc.canMove = canInteract;
-        cc.canInteract = canInteract;
+        interactionHandler.canInteract = canInteract;
     }
     private void GameClear()
     {

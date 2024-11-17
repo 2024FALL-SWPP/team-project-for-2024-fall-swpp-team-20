@@ -8,13 +8,13 @@ public class BedInteractionManager : MonoBehaviour
 
     private GameObject player;
     private PlayerController pc;
-    private CameraController cc;
+    private InteractionHandler interactionHandler;
     private StageManager stageManager;
 
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
-        cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
+        interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
         stageManager = FindObjectOfType<StageManager>().GetComponent<StageManager>();
     }
 
@@ -54,6 +54,6 @@ public class BedInteractionManager : MonoBehaviour
     {
         pc.canSleep = canInteract;
         pc.canMove = canInteract;
-        cc.canInteract = canInteract;
+        interactionHandler.canInteract = canInteract;
     }
 }
