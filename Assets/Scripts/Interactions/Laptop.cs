@@ -113,7 +113,6 @@ public class Laptop : MonoBehaviour, IInteractable
     }
 
     private void StartReadingLaptop() {
-        Debug.Log("Hello?");
         reading = true;
         mainCamera.gameObject.SetActive(false);
         laptopCamera.gameObject.SetActive(true);

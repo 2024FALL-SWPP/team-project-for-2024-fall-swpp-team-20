@@ -18,7 +18,6 @@ public class HardLavaAnomaly : HardAnomaly
 
     public override void SetHardAnomalyCodeForLaptop()
     {
-        Debug.Log("HELLO");
         laptop.SetAnomalyCode(2);
     }
 
