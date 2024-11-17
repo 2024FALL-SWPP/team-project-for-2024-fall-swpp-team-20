@@ -23,6 +23,8 @@ public class GameManager
     public UIManager um;
     public SoundManager sm;
 
+    public GameObject player;
+
     public static GameManager GetInstance() {
         if (instance == null) {
             instance = new GameManager();
@@ -37,12 +39,17 @@ public class GameManager
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "GameScene")
         {
+            player = GameObject.FindGameObjectWithTag("Player");
             stageManager = GameObject.FindAnyObjectByType<StageManager>().GetComponent<StageManager>();
             bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
+            stageManager.InitializeVariables();
+            bedInteractionManager.InitializeVariables();
+
         }
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
         um.Initialize();
+        
         stageManager.GameStart();
     }
 

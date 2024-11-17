@@ -75,10 +75,17 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowPianoInteractionInfo()
+    //
+    public void ShowSpecificInteractionInfo(int infoCode)
     {
         interactionInfo.enabled = true;
-        interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        switch (infoCode) {
+            case 0:
+                interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+                break;
+            default:
+                break;
+            }   
         foreach (RawImage i in cursorImage)
         {
             i.enabled = false;

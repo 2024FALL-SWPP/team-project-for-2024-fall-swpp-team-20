@@ -9,7 +9,7 @@ public class StageManager : MonoBehaviour
     private GameObject currentMap;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
-    private GameObject player;
+    private GameObject player => GameManager.GetInstance().player;
 
     private MapController mc;
     private PlayerController pc;
@@ -21,14 +21,10 @@ public class StageManager : MonoBehaviour
 
     private bool Test => mc.test;
 
-    private void Awake()
-    {
-        InitializeVariables();
-    }
 
-    private void InitializeVariables()
+    public void InitializeVariables()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();

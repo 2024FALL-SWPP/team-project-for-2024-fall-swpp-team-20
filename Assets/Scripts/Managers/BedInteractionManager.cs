@@ -6,13 +6,14 @@ using UnityEngine;
 public class BedInteractionManager : MonoBehaviour
 {
 
-    private GameObject player;
+    private GameObject player => GameManager.GetInstance().player;
     private PlayerController pc;
     private CameraController cc;
     private StageManager stageManager;
 
-    private void Start() {
-        player = GameObject.FindGameObjectWithTag("Player");
+
+    public void InitializeVariables() {
+        //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         stageManager = FindObjectOfType<StageManager>().GetComponent<StageManager>();
