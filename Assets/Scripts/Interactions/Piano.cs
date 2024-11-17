@@ -94,4 +94,6 @@ public class Piano : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(0.1f);
         pianoKeys[keyIndex].transform.position += new Vector3(0, 0.01f, 0);
     }
+
+    public bool IsInteractable() => true;
 }

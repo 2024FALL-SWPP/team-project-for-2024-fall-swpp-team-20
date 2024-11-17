@@ -46,4 +46,6 @@ public class RightCloset : MonoBehaviour, IInteractable
         }
         transform.rotation = targetRotation;
     }
+
+    public bool IsInteractable() => true;
 }

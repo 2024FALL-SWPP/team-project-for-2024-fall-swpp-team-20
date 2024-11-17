@@ -4763,7 +4763,33 @@ MonoBehaviour:
   - {fileID: -6131792653216720945, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   - {fileID: -1345243696464467942, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
   screen: {fileID: 6019516258220507611}
-  inAnomaly: 0
+  screenAni: {fileID: 1368235438}
+--- !u!1 &5770588319473088235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3315954688725367957, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}
+  m_PrefabInstance: {fileID: 139157798579467648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1368235438
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770588319473088235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82ff6b3d3a5bd094c966e9e9030cfd4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!23 &6019516258220507611 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -3285378800646228901, guid: 5dfb4d37820a2bc46bd1c639618fee17, type: 3}

@@ -47,4 +47,6 @@ public class Drawer : MonoBehaviour, IInteractable
         }
         transform.position = targetPosition;
     }
+
+    public bool IsInteractable() => true;
 }
