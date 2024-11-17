@@ -61,7 +61,7 @@ public class Stage0AnimationController : MonoBehaviour
         if (context.performed && !isInteracting)
         {
             isInteracting = true;
-            StartCoroutine(ActivateSleepTriggerAfterDelay(4f));
+            StartCoroutine(ActivateSleepTriggerAfterDelay(0f));
         }
     }
 
