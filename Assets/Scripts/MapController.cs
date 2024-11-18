@@ -92,25 +92,14 @@ public class MapController : MonoBehaviour
                 anomaly = anomalies[++anomalyIndex % anomalies.Count];
                 Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
             }
+
             if (anomalyIndex >= maxAnomalyCount)
             {
-                if (stage != 0)
-                {
-                    SetAnomaly(anomalies[testAnomaly]);
-                    Debug.Log($"Stage {stage}: Anomaly {anomalies[testAnomaly].GetType()}");
-                }
+                // TODO: There are two options
+                // first option: just refill anomalies and keep playing game
+                // second option: game over
             }
-            else
-            {
-                SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
-                if (anomalyIndex >= maxAnomalyCount)
-                {
-                    // TODO: There are two options
-                    // first option: just refill anomalies and keep playing game
-                    // second option: game over
-                }
-                Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
-            }
+
             SetAnomaly(anomaly);
             if (anomaly == null) return false;
             return anomaly is HardAnomaly;
@@ -123,9 +112,10 @@ public class MapController : MonoBehaviour
         {
             anomaly.Apply(currentMap);
             //Do Additional Setting For Each Hard Anomaly
-            if (anomaly is HardAnomaly) {
+            if (anomaly is HardAnomaly)
+            {
                 HardAnomaly ha = anomaly as HardAnomaly;
-                ha.SetHardAnomalyCodeForLaptop(); 
+                ha.SetHardAnomalyCodeForLaptop();
             }
         }
     }
