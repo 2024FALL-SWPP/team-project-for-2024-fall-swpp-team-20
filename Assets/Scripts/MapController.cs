@@ -20,7 +20,8 @@ public class MapController : MonoBehaviour
     public bool test;
     public int testAnomaly;
 
-    private void Start() {
+    private void Start()
+    {
         currentMap = GameObject.FindGameObjectWithTag("Map");
     }
 
@@ -93,9 +94,22 @@ public class MapController : MonoBehaviour
             }
             if (anomalyIndex >= maxAnomalyCount)
             {
-                // TODO: There are two options
-                // first option: just refill anomalies and keep playing game
-                // second option: game over
+                if (stage != 0)
+                {
+                    SetAnomaly(anomalies[testAnomaly]);
+                    Debug.Log($"Stage {stage}: Anomaly {anomalies[testAnomaly].GetType()}");
+                }
+            }
+            else
+            {
+                SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
+                if (anomalyIndex >= maxAnomalyCount)
+                {
+                    // TODO: There are two options
+                    // first option: just refill anomalies and keep playing game
+                    // second option: game over
+                }
+                Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
             }
             SetAnomaly(anomaly);
             if (anomaly == null) return false;
