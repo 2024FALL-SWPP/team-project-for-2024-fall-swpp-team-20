@@ -44,7 +44,7 @@ public class Laptop : MonoBehaviour, IInteractable
         laptopInput = new LaptopSystem();
         laptopInput.Enable();
         laptopInput.Laptop.Quit.performed += StopReadingLaptop;
-        Debug.Log("Piano Enabled");
+        Debug.Log("Laptop Enabled");
     }
 
     private void OnDisable()
@@ -52,9 +52,11 @@ public class Laptop : MonoBehaviour, IInteractable
         laptopInput.Laptop.Quit.performed -= StopReadingLaptop;
         laptopInput.Disable();
     }
-    public void Interact(GameObject obj) {
+    public void Interact(GameObject obj)
+    {
 
-        switch (anomalyCode) {
+        switch (anomalyCode)
+        {
             case 0: // no anomaly
                 if (power) TurnOff();
                 else TurnOn();
@@ -72,20 +74,24 @@ public class Laptop : MonoBehaviour, IInteractable
         }
     }
 
-    private void TurnOn() {
+    private void TurnOn()
+    {
         power = true;
         screen.materials = materialSet1;
         if (anomalyCode >= 2) EnableText();
     }
 
-    private void TurnOff() {
+    private void TurnOff()
+    {
         power = false;
         screen.materials = materialSet2;
         if (anomalyCode >= 2) DisableText();
     }
 
-    private IEnumerator ToggleLaptop1() {
-        foreach (float time in waitingTimes) {
+    private IEnumerator ToggleLaptop1()
+    {
+        foreach (float time in waitingTimes)
+        {
             screen.materials = anomalyMaterialSet;
             yield return new WaitForSeconds(time);
             screen.materials = materialSet2;
@@ -94,9 +100,11 @@ public class Laptop : MonoBehaviour, IInteractable
         power = false;
     }
 
-    public void SetAnomalyCode(int code) {
+    public void SetAnomalyCode(int code)
+    {
         anomalyCode = code;
-        switch (code) {
+        switch (code)
+        {
             case 0:
             case 1:
                 laptopInfo.text = "";
@@ -107,12 +115,14 @@ public class Laptop : MonoBehaviour, IInteractable
         }
     }
 
-    public bool IsInteractable() {
+    public bool IsInteractable()
+    {
         if (anomalyCode == 1) return !power;
         else return true;
     }
 
-    private void StartReadingLaptop() {
+    private void StartReadingLaptop()
+    {
         reading = true;
         mainCamera.gameObject.SetActive(false);
         laptopCamera.gameObject.SetActive(true);
@@ -120,7 +130,8 @@ public class Laptop : MonoBehaviour, IInteractable
         GameManager.GetInstance().um.TemporaryHideInteractionInfo();
     }
 
-    private void StopReadingLaptop(InputAction.CallbackContext context) {
+    private void StopReadingLaptop(InputAction.CallbackContext context)
+    {
         if (GameManager.GetInstance().state != GameState.Playing) return;
         laptopCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
@@ -129,11 +140,13 @@ public class Laptop : MonoBehaviour, IInteractable
         reading = false;
     }
 
-    private void EnableText() {
+    private void EnableText()
+    {
         laptopInfo.enabled = true;
         quitInfo.enabled = true;
     }
-    private void DisableText() {
+    private void DisableText()
+    {
         laptopInfo.enabled = false;
         quitInfo.enabled = false;
     }
