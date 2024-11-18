@@ -59,7 +59,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 25
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 2043367618}
   - component: {fileID: 2043367617}
   - component: {fileID: 2043367620}
+  - component: {fileID: 1191168192}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -753,7 +754,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 10
   mouseDeltaX: 0
-  jumpForce: 150
+  jumpForce: 250
   canSleep: 0
 --- !u!54 &2043367620
 Rigidbody:
@@ -771,6 +772,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1191168192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727187441019732460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593315d429d84e348aa6dd4170c9de2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7819376372091148159
 GameObject:
   m_ObjectHideFlags: 0

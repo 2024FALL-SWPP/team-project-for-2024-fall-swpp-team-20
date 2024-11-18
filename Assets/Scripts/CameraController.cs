@@ -57,9 +57,13 @@ public class CameraController : MonoBehaviour
 
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
-            if (!immInteractable)
+            GameObject target = hit.transform.gameObject;
+            if (!immInteractable && target.GetComponent<IInteractable>().IsInteractable())
             {
                 ShowInteractableUI(hit);
+            }
+            else if (immInteractable && !target.GetComponent<IInteractable>().IsInteractable()) {
+                HideInteractableUI();
             }
         }
         else if (immInteractable) HideInteractableUI();
@@ -112,5 +116,8 @@ public class CameraController : MonoBehaviour
         return false;
     }
 
+    public void SetInteract(bool available) {
+        canInteract = available;
+    }
 
 }

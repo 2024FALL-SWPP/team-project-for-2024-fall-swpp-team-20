@@ -14,6 +14,8 @@ public class Piano : MonoBehaviour, IInteractable
     public PianoSystem pianoInput;
 
 
+
+
     private void Start()
     {
 
@@ -54,6 +56,7 @@ public class Piano : MonoBehaviour, IInteractable
 
     private void EndInteraction(InputAction.CallbackContext context)
     {
+        if (GameManager.GetInstance().state != GameState.Playing) return;
         if (!isInteracting) return;
         isInteracting = false;
         pianoCamera.gameObject.SetActive(false);
@@ -84,6 +87,7 @@ public class Piano : MonoBehaviour, IInteractable
     private void OnPiano(InputAction.CallbackContext context)
     {
         if (!isInteracting) return;
+        if (GameManager.GetInstance().state != GameState.Playing) return;
         int bindingIndex = context.action.GetBindingIndexForControl(context.control);
         StartCoroutine(PressKey(bindingIndex));
     }
@@ -96,4 +100,6 @@ public class Piano : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(0.1f);
         pianoKeys[realIndex].transform.position += new Vector3(0, 0.01f, 0);
     }
+
+    public bool IsInteractable() => true;
 }

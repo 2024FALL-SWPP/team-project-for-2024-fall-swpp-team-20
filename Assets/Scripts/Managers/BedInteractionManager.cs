@@ -3,57 +3,68 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 
+public enum BedInteractionType { 
+    Sleep,
+    Wakeup,
+    ClearHard
+}
+
 public class BedInteractionManager : MonoBehaviour
 {
 
-    private GameObject player;
+    private GameObject player => GameManager.GetInstance().player;
     private PlayerController pc;
     private CameraController cc;
     private StageManager stageManager;
 
-    private void Start() {
-        player = GameObject.FindGameObjectWithTag("Player");
+
+    public void InitializeVariables() {
+        //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
         cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         stageManager = FindObjectOfType<StageManager>().GetComponent<StageManager>();
     }
 
-    public void TryBedInteraction(bool sleep) => StartCoroutine(BedInteraction(sleep));
+    public void TryBedInteraction(BedInteractionType type) => StartCoroutine(BedInteraction(type));
 
-    public IEnumerator BedInteraction(bool sleep)
+    public IEnumerator BedInteraction(BedInteractionType type)
     {
         ToggleInteraction(false);
 
-        if (sleep && stageManager.GetCurrentStage() == 0)
+        if (type == BedInteractionType.Sleep && stageManager.GetCurrentStage() == 0)
         {
             stageManager.InitializeStage(stageManager.GetCurrentStage() + 1);
             yield return null;
         }
+        else if (type == BedInteractionType.ClearHard) {
+            // Do Something
+            stageManager.InitializeStage(stageManager.GetCurrentStage() + 1);
+        }
         else
         {
-            yield return HandleSleepWakeAnimation(sleep);
-            stageManager.HandleSleepOutcome(sleep);
+            yield return HandleSleepWakeAnimation(type);
+            stageManager.HandleSleepOutcome(type);
         }
     }
 
-    private IEnumerator HandleSleepWakeAnimation(bool sleep)
+    private IEnumerator HandleSleepWakeAnimation(BedInteractionType type)
     {
-        if (sleep)
+        if (type == BedInteractionType.Sleep)
         {
             // Play sleep animation
             yield return new WaitForSeconds(0.1f);
         }
-        else
+        else if (type == BedInteractionType.Wakeup)
         {
             // Play wake up animation
             yield return new WaitForSeconds(0.1f);
         }
     }
 
-    public void ToggleInteraction(bool canInteract)
+    public void ToggleInteraction(bool available)
     {
-        pc.canSleep = canInteract;
-        pc.canMove = canInteract;
-        cc.canInteract = canInteract;
+        pc.SetSleep(available);
+        pc.SetMove(available);
+        cc.SetInteract(available);
     }
 }

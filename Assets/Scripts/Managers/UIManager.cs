@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     private Text generalInfo;
     private Text interactionInfo;
     private Text stateInfo;
+    private RectTransform health;
     private RawImage[] cursorImage;
 
 
@@ -27,10 +28,9 @@ public class UIManager : MonoBehaviour
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
             stateInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
             cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponentsInChildren<RawImage>();
+            health = canvasTransform.Find("Health").GetComponent<RectTransform>();
         }
-        generalInfo.enabled = false;
-        interactionInfo.enabled = false;
-        stateInfo.enabled = false;
+        HideEverything();
     }
 
     public void LoadScene(string sceneName)
@@ -79,13 +79,12 @@ public class UIManager : MonoBehaviour
     {
         interactionInfo.enabled = true;
         interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
-        foreach (RawImage i in cursorImage)
-        {
-            i.enabled = false;
-        }
+        HideCursor();
     }
 
-    public void HideStateUI() => stateInfo.enabled = false;
+
+
+    public void HideStateInfo() => stateInfo.enabled = false;
 
     // Make cursor White if Interaction becomes unable
     public void HideInteractionInfo()
@@ -97,7 +96,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HideInfo()
+    public void HideSleepInfo()
     {
         generalInfo.enabled = false;
     }
@@ -106,6 +105,41 @@ public class UIManager : MonoBehaviour
     {
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with piano";
+        ShowCursor();
+    }
+
+    public void ShowHealthImage() => health.gameObject.SetActive(true);
+    public void HideHealthImage() => health.gameObject.SetActive(false);
+    public void SetHealthImage(float health) {
+        this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
+    }
+
+    //Reset UI when new stage starts
+    public void HideEverything() {
+        HideSleepInfo();
+        HideInteractionInfo();
+        HideStateInfo();
+        HideHealthImage();
+    }
+
+    // For Watching Laptop
+    public void TemporaryHideInteractionInfo() {
+        interactionInfo.text = $"";
+        HideCursor();
+    }
+    public void ShowLaptopInteractionInfo() {
+        interactionInfo.text = $"Mouse click to interact with laptop";
+        ShowCursor();
+    }
+
+    private void HideCursor() {
+        foreach (RawImage i in cursorImage)
+        {
+            i.enabled = false;
+        }
+    }
+
+    private void ShowCursor() {
         foreach (RawImage i in cursorImage)
         {
             i.enabled = true;
