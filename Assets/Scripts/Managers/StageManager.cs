@@ -56,8 +56,8 @@ public class StageManager : MonoBehaviour
         // Reset UI
         GameManager.GetInstance().um.HideEverything();
         // Reset Player position, scale and Information
-        player.transform.position = new Vector3(-19.5f, 1.2f, -5.45f);
-        player.transform.localScale = 0.13f * Vector3.one;
+        player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
+        // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 
         // Create new stage map and inform player about it is hard anomaly or not
