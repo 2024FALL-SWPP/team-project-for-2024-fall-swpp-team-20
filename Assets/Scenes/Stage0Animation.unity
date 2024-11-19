@@ -895,10 +895,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83ef54dd7d0e491984de65a1c22bacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedPlayerPosition: {x: -20, y: -0.2, z: -5}
+  fixedPlayerPosition: {x: -19, y: -0.2, z: -5}
   fixedPlayerRotation: {x: 0, y: 90, z: 0}
-  fixedCameraPosition: {x: -17, y: 2, z: -2}
-  fixedCameraRotation: {x: 20, y: 190, z: 0}
+  fixedCameraPosition: {x: -20, y: 1.8, z: -5}
+  fixedCameraRotation: {x: 20, y: 90, z: 0}
   mainCamera: {fileID: 1792165839}
   eyesUp: {fileID: 632499123}
   eyesDown: {fileID: 442564734}
@@ -920,5 +920,5 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 100
   sleepText: {fileID: 1842162640}
-  sleepPoint: {x: -19.2, y: 0, z: -5}
-  proximityThreshold: 3
+  sleepPoint: {x: -17, y: 0, z: -5}
+  proximityThreshold: 2
