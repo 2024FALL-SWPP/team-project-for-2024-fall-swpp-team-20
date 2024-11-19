@@ -11,11 +11,12 @@ public enum GameState
     GameClear
 }
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
-    private volatile static GameManager instance;
+    private static GameManager instance;
 
     public GameState state;
+    public int prevStage;
 
     public StageManager stageManager;
     public BedInteractionManager bedInteractionManager;
@@ -27,7 +28,8 @@ public class GameManager
 
     public static GameManager GetInstance() {
         if (instance == null) {
-            instance = new GameManager();
+            instance = new GameObject("GameManager").AddComponent<GameManager>();
+            DontDestroyOnLoad(instance.gameObject);
             instance.Initialize();
         }
         return instance;
@@ -44,13 +46,31 @@ public class GameManager
             bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
             stageManager.InitializeVariables();
             bedInteractionManager.InitializeVariables();
-
         }
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
         um.Initialize();
         
         stageManager.GameStart();
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameScene")
+        {
+            Initialize();
+            stageManager.InitializeStage(prevStage);
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void Clear() => state = GameState.GameClear;

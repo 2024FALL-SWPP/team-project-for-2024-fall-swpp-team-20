@@ -114,26 +114,12 @@ public class StageManager : MonoBehaviour
             Succeed();
             SceneManager.LoadScene("AnomalyTrueWakeupScene");
         }
+        GameManager.GetInstance().prevStage = currentStage;
     }
 
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    public void ReInitializeStage()
     {
-        if (scene.name == "GameScene")
-        {
-            GameManager instance = GameManager.GetInstance();
-            instance.um.Initialize();
-            InitializeStage(currentStage);
-        }
-    }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        InitializeStage(currentStage);
     }
 
     private void Succeed()
