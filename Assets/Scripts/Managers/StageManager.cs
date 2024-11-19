@@ -14,7 +14,8 @@ public class StageManager : MonoBehaviour
     private GameObject player => GameManager.GetInstance().player;
     private MapController mc;
     private PlayerController pc;
-    private CameraController cc;
+    private InteractionHandler interactionHandler;
+
     private PlayerInformation pi;
     private LandscapeManager landscapeManager;
     private bool Test => mc.test;
@@ -23,8 +24,8 @@ public class StageManager : MonoBehaviour
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
-        cc = FindObjectOfType<CameraController>();
-        mc = FindObjectOfType<MapController>();
+        interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
+        mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pi = player.GetComponent<PlayerInformation>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>();
@@ -34,7 +35,6 @@ public class StageManager : MonoBehaviour
     {
         currentStage = 0;
         pc.Initialize();
-        cc.Initialize();
         mc.FillAnomaly();
         GameManager.GetInstance().Play();
         InitializeStage(currentStage);
@@ -42,7 +42,7 @@ public class StageManager : MonoBehaviour
 
     public void InitializeStage(int stage)
     {
-        
+
         currentStage = stage;
 
         if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5))
@@ -78,7 +78,7 @@ public class StageManager : MonoBehaviour
     {
         pc.SetSleep(available);
         pc.SetMove(available);
-        cc.SetInteract(available);
+        interactionHandler.SetInteract(available);
     }
     private void GameClear()
     {

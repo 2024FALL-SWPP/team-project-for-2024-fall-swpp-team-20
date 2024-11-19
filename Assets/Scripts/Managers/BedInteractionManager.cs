@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 
-public enum BedInteractionType { 
+public enum BedInteractionType {
     Sleep,
     Wakeup,
     ClearHard
@@ -14,14 +14,14 @@ public class BedInteractionManager : MonoBehaviour
 
     private GameObject player => GameManager.GetInstance().player;
     private PlayerController pc;
-    private CameraController cc;
+    private InteractionHandler interactionHandler;
     private StageManager stageManager;
 
 
     public void InitializeVariables() {
         //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
-        cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
+        interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
         stageManager = FindObjectOfType<StageManager>().GetComponent<StageManager>();
     }
 
@@ -65,6 +65,6 @@ public class BedInteractionManager : MonoBehaviour
     {
         pc.SetSleep(available);
         pc.SetMove(available);
-        cc.SetInteract(available);
+        interactionHandler.SetInteract(available);
     }
 }
