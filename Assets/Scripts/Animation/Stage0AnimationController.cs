@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Stage0AnimationController : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class Stage0AnimationController : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator ActivateSleepTriggerAfterDelay(float delay)
+    private IEnumerator ActivateSleepTriggerAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         animator.SetTrigger("SleepTrigger");
@@ -94,5 +95,7 @@ public class Stage0AnimationController : MonoBehaviour
 
         eyesUp.anchoredPosition = eyesUpTargetPosition;
         eyesDown.anchoredPosition = eyesDownTargetPosition;
+
+        SceneManager.LoadScene("GameScene");
     }
 }

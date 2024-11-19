@@ -920,5 +920,5 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 100
   sleepText: {fileID: 1842162640}
-  sleepPoint: {x: -17, y: 0, z: -5}
-  proximityThreshold: 2
+  sleepPoint: {x: -19.2, y: 0, z: -5}
+  proximityThreshold: 3

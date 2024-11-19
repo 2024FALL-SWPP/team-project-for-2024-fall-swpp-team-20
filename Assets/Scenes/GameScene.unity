@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapPrefab: {fileID: 6260140572017040805, guid: dbd19fdf3f81e4b4886605be4245628c, type: 3}
-  test: 1
+  test: 0
   testAnomaly: 10
 --- !u!4 &1698399175
 Transform:
