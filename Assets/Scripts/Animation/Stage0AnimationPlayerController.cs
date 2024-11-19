@@ -47,6 +47,7 @@ public class Stage0AnimationPlayerController : MonoBehaviour
         {
             moveDirection = Vector3.zero; // 이동 중지
             animator.SetBool("IsWalking", false);
+            sleepText.gameObject.SetActive(false);
             return; // 이동 및 회전 중지
         }
 
