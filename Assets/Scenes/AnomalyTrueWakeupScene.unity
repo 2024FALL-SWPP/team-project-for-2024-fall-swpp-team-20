@@ -2081,6 +2081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_NotSleeping
       objectReference: {fileID: 0}
+    - target: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7779757652445170555, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2220,13 +2224,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 632303971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e60feff7f56cc4bb90ade057d43205, type: 3}
+  m_Script: {fileID: 11500000, guid: bd575c7e114d64fbe9c4e0fa9a5a3a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 632303973}
   messageText: {fileID: 1361627660}
   message: One step closer to the real...
-  targetPosition: {x: -13, y: 0, z: -2.5}
+  targetPosition: {x: 0, y: 0, z: 0}
   triggerDistance: 3
   delay: 0.4
   eyesUp: {fileID: 674315533}

@@ -8057,7 +8057,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147689440001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60a85b1a8f7ff14c86bc753f1a4a45a, type: 3}
+  m_Script: {fileID: 11500000, guid: 650c415289fb7439983a160f6ba98e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5866666020158456769}
@@ -8084,6 +8084,10 @@ PrefabInstance:
     - target: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
       propertyPath: m_Name
       value: Player_NotSleeping
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7779757652445170555, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
       propertyPath: m_RootOrder

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -10,27 +12,22 @@ public class StageManager : MonoBehaviour
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
     private GameObject player => GameManager.GetInstance().player;
-
     private MapController mc;
     private PlayerController pc;
     private CameraController cc;
-
     private PlayerInformation pi;
-
     private LandscapeManager landscapeManager;
-
     private bool Test => mc.test;
-
 
     public void InitializeVariables()
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
-        cc = FindObjectOfType<CameraController>().GetComponent<CameraController>();
-        mc = FindObjectOfType<MapController>().GetComponent<MapController>();
+        cc = FindObjectOfType<CameraController>();
+        mc = FindObjectOfType<MapController>();
         pi = player.GetComponent<PlayerInformation>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
-        landscapeManager = FindObjectOfType<LandscapeManager>().GetComponent<LandscapeManager>();
+        landscapeManager = FindObjectOfType<LandscapeManager>();
     }
 
     public void GameStart()
@@ -96,23 +93,57 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
-        bool sleep = type == BedInteractionType.Sleep ? true : false;
-        if (sleep ^ haveAnomaly)
-            Succeed();
-        else
+        bool sleep = type == BedInteractionType.Sleep;
+        if (sleep && haveAnomaly)
+        {
             Fail();
+            InitializeStage(currentStage); //TODO
+        }
+        else if (!sleep && !haveAnomaly)
+        {
+            Fail();
+            SceneManager.LoadScene("AnomalyFalseWakeupScene");
+        }
+        else if (sleep && !haveAnomaly)
+        {
+            Succeed();
+            InitializeStage(currentStage); //TODO
+        }
+        else if (!sleep && haveAnomaly)
+        {
+            Succeed();
+            SceneManager.LoadScene("AnomalyTrueWakeupScene");
+        }
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameScene")
+        {
+            GameManager instance = GameManager.GetInstance();
+            instance.um.Initialize();
+            InitializeStage(currentStage);
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Succeed()
     {
-        // TODO: Animation
-        InitializeStage(++currentStage);
+        ++currentStage;
     }
 
     private void Fail()
     {
         // TODO: Animation
         if (currentStage > 1) currentStage--;
-        InitializeStage(currentStage);
     }
 }

@@ -30,7 +30,6 @@ public class Piano : MonoBehaviour, IInteractable
         pianoInput.Enable();
         pianoInput.PianoMap.PlayPiano.performed += OnPiano;
         pianoInput.PianoMap.Quit.performed += EndInteraction;
-        Debug.Log("Piano Enabled");
     }
 
     private void OnDisable()
