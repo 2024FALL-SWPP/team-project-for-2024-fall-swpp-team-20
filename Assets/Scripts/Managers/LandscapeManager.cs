@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class LandscapeManager : MonoBehaviour
 {
-    private GameObject[] landscapeObjects;
-
-    [SerializeField]
-    private Material[] landscapeMaterials;
+    public Material landscapeMaterial;
 
     void Start()
     {
-        InitializeVariables();
+        InitializeSkybox();
     }
 
-    private void InitializeVariables()
+    private void InitializeSkybox()
     {
-        landscapeObjects = GameObject.FindGameObjectsWithTag("Landscape");
+        RenderSettings.skybox = landscapeMaterial;
+        SetSkyboxExposure(0);
     }
 
     public void ChangeLandscape(int stage)
     {
-        if (stage >= 0 && stage < landscapeMaterials.Length)
+        SetSkyboxExposure(stage);
+    }
+
+    private void SetSkyboxExposure(int stage)
+    {
+        if (RenderSettings.skybox != null)
         {
-            foreach (GameObject landscapeObject in landscapeObjects)
-            {
-                Renderer renderer = landscapeObject.GetComponent<Renderer>();
-                renderer.material = landscapeMaterials[stage];
-            }
+            float exposureValue = stage * 0.1f;
+            RenderSettings.skybox.SetFloat("_Exposure", exposureValue);
         }
     }
 }
