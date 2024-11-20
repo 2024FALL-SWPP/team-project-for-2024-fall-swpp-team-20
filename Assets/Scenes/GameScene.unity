@@ -2914,7 +2914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPrefab: {fileID: 6260140572017040805, guid: dbd19fdf3f81e4b4886605be4245628c, type: 3}
   test: 1
-  testAnomaly: 5
+  testAnomaly: 14
 --- !u!4 &1698399175
 Transform:
   m_ObjectHideFlags: 0
@@ -3672,6 +3672,10 @@ PrefabInstance:
     - target: {fileID: 6260140572017040805, guid: dbd19fdf3f81e4b4886605be4245628c, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214572267517284938, guid: dbd19fdf3f81e4b4886605be4245628c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbd19fdf3f81e4b4886605be4245628c, type: 3}
