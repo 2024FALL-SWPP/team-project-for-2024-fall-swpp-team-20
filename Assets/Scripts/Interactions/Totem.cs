@@ -25,4 +25,6 @@ public class Totem :  MonoBehaviour, IInteractable
         } // 2: Temporarily rotate
     }
 
+    public bool IsInteractable() => true;
+
 }

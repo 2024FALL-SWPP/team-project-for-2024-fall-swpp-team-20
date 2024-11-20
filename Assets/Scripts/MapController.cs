@@ -20,7 +20,8 @@ public class MapController : MonoBehaviour
     public bool test;
     public int testAnomaly;
 
-    private void Start() {
+    private void Start()
+    {
         currentMap = GameObject.FindGameObjectWithTag("Map");
     }
 
@@ -33,14 +34,15 @@ public class MapController : MonoBehaviour
         anomalies = new List<Anomaly>();
         foreach (Type type in assembly.GetTypes())
         {
-            if (type.IsSubclassOf(typeof(Anomaly)) && !type.IsSubclassOf(typeof(MonoBehaviour)))
+            //Debug.Log($"{type} isAnomaly:{type == typeof(Anomaly)} isHardAnomaly:{type == typeof(HardAnomaly)}");
+            if (type == typeof(Anomaly) || type == typeof(HardAnomaly)) continue;
+            if (typeof(Anomaly).IsAssignableFrom(type))
             {
                 // Create an instance of each type and add it to the list.
                 Anomaly instance = (Anomaly)Activator.CreateInstance(type);
                 anomalies.Add(instance);
             }
         }
-
 
         if (!test)
         {
@@ -63,31 +65,44 @@ public class MapController : MonoBehaviour
         }
     }
 
-    public GameObject GenerateMap(bool haveAnomaly, int stage)
+    // returns current anomaly is hard or not
+    public bool GenerateMap(bool haveAnomaly, int stage)
     {
         CleanupCurrentMap();
+        Anomaly anomaly = null;
 
         if (!haveAnomaly)
         {
             currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             Debug.Log($"Stage {stage}: No Anomaly");
-            return currentMap;
+            return false;
         }
         else
         {
             currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
-            if (test) SetAnomaly(anomalies[testAnomaly]);
-            else SetAnomaly(anomalies[++anomalyIndex % anomalies.Count]);
+            if (test)
+            {
+                anomaly = anomalies[testAnomaly];
+                Debug.Log($"Test: Anomaly {anomaly.GetType()}");
+            }
+            else
+            {
+                anomaly = anomalies[++anomalyIndex % anomalies.Count];
+                Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
+            }
+
             if (anomalyIndex >= maxAnomalyCount)
             {
                 // TODO: There are two options
                 // first option: just refill anomalies and keep playing game
                 // second option: game over
             }
-            Debug.Log($"Stage {stage}: Anomaly {anomalies[anomalyIndex % anomalies.Count].GetType()}");
-            return currentMap;
+
+            SetAnomaly(anomaly);
+            if (anomaly == null) return false;
+            return anomaly is HardAnomaly;
         }
     }
 
@@ -96,6 +111,12 @@ public class MapController : MonoBehaviour
         if (anomalyIndex < anomalies.Count)
         {
             anomaly.Apply(currentMap);
+            //Do Additional Setting For Each Hard Anomaly
+            if (anomaly is HardAnomaly)
+            {
+                HardAnomaly ha = anomaly as HardAnomaly;
+                ha.SetHardAnomalyCodeForLaptop();
+            }
         }
     }
 
