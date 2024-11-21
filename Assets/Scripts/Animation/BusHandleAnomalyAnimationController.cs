@@ -16,7 +16,7 @@ public class BusHandleAnomalyAnimationController : MonoBehaviour
         Vector3 endPos = new Vector3(busHandle.transform.position.x, busHandle.transform.position.y - 0.5f, busHandle.transform.position.z);
         Vector3 endScale = new Vector3(busHandle.transform.localScale.x * 10, busHandle.transform.localScale.y * 10, busHandle.transform.localScale.z * 10);
 
-        while (elapsedTime < duration)
+        while (busHandle && elapsedTime < duration)
         {
             busHandle.transform.position = Vector3.Lerp(startPos, endPos, elapsedTime / duration);
             busHandle.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / duration);

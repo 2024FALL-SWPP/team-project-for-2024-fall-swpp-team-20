@@ -5496,7 +5496,7 @@ GameObject:
   - component: {fileID: 8224648077481395521}
   - component: {fileID: 8224648077481395520}
   m_Layer: 0
-  m_Name: Point Light (6)
+  m_Name: Anomaly Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
