@@ -10,7 +10,7 @@ public class InteractionHandler : MonoBehaviour
 
     private void Start()
     {
-        layerMask = 1 << LayerMask.NameToLayer("Interactable");
+        layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
         immInteractable = false;
         canInteract = false;
     }
@@ -22,20 +22,24 @@ public class InteractionHandler : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
-
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
-            if (!immInteractable)
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))
             {
-                ShowInteractableUI(hit);
+                if (!immInteractable)
+                {
+                    ShowInteractableUI(hit);
+                }
+            }
+            else if (immInteractable)
+            {
+                HideInteractableUI();
             }
         }
         else if (immInteractable)
         {
             HideInteractableUI();
         }
-
         Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
     }
 
