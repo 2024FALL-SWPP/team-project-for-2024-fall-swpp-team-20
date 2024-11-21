@@ -4311,7 +4311,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7395374174458851072}
   - component: {fileID: 7395374174458851087}
-  - component: {fileID: 7395374174458851085}
   - component: {fileID: 7395374174458851086}
   m_Layer: 0
   m_Name: Drawer_L_01
@@ -4349,21 +4348,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05799544, y: 0.54069734, z: 0.74771595}
   m_Center: {x: 0.60588586, y: 0.73871195, z: -0.93000007}
---- !u!114 &7395374174458851085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7395374174458851073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d5557a01f4e0740bd53d6ed2ab7327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pull_01: {fileID: 7395374174458851086}
-  open: 0
-  Player: {fileID: 0}
 --- !u!95 &7395374174458851086
 Animator:
   serializedVersion: 5
@@ -4395,7 +4379,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7395374175519723474}
   - component: {fileID: 7395374175519723487}
-  - component: {fileID: 7395374175519723472}
   - component: {fileID: 7395374175519723473}
   m_Layer: 0
   m_Name: Drawer_R_02
@@ -4433,21 +4416,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05799544, y: 0.27, z: 0.74771595}
   m_Center: {x: 0.60588586, y: 0.6, z: 0.93}
---- !u!114 &7395374175519723472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7395374175519723475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d5557a01f4e0740bd53d6ed2ab7327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pull_01: {fileID: 7395374175519723473}
-  open: 0
-  Player: {fileID: 0}
 --- !u!95 &7395374175519723473
 Animator:
   serializedVersion: 5
@@ -4479,7 +4447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7395374176048557887}
   - component: {fileID: 7395374176048557884}
-  - component: {fileID: 7395374176048557885}
   - component: {fileID: 7395374176048557886}
   m_Layer: 0
   m_Name: Drawer_R_01
@@ -4517,21 +4484,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05799544, y: 0.27, z: 0.74771595}
   m_Center: {x: 0.60588586, y: 0.87, z: 0.93}
---- !u!114 &7395374176048557885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7395374176048557872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d5557a01f4e0740bd53d6ed2ab7327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pull_01: {fileID: 7395374176048557886}
-  open: 0
-  Player: {fileID: 0}
 --- !u!95 &7395374176048557886
 Animator:
   serializedVersion: 5
@@ -16903,7 +16855,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_End_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3002469840237742446, guid: 28f3f85a3fb032b4cbee99b8dd59df44, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28f3f85a3fb032b4cbee99b8dd59df44, type: 3}
 --- !u!4 &1544015700039932908 stripped
 Transform:
@@ -21399,7 +21352,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_End_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5018950055006186486, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
+    - {fileID: 5018950054057871647, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
 --- !u!4 &4000662815900613665 stripped
 Transform:
@@ -44569,7 +44524,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_End_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5018950055006186486, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
+    - {fileID: 5018950054057871647, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
 --- !u!4 &4322775867286950160 stripped
 Transform:
