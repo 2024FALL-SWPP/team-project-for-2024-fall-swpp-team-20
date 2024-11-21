@@ -917,14 +917,6 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.874273
       objectReference: {fileID: 0}
-    - target: {fileID: 6509694532561880318, guid: fa620f32374b177479521cec5bb1460b, type: 3}
-      propertyPath: field of view
-      value: 26.991467
-      objectReference: {fileID: 0}
-    - target: {fileID: 6509694532561880318, guid: fa620f32374b177479521cec5bb1460b, type: 3}
-      propertyPath: m_projectionMatrixMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa620f32374b177479521cec5bb1460b, type: 3}
 --- !u!1 &295003454 stripped
