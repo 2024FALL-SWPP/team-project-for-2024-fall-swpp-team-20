@@ -17727,6 +17727,18 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 546353385, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.31127766
+      objectReference: {fileID: 0}
+    - target: {fileID: 546353385, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
+      propertyPath: m_Center.x
+      value: 0.09415035
+      objectReference: {fileID: 0}
+    - target: {fileID: 546353385, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
+      propertyPath: m_Center.z
+      value: 2.3456755e-14
+      objectReference: {fileID: 0}
     - target: {fileID: 2038714608, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
       propertyPath: Player
       value: 
@@ -17779,7 +17791,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stove_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2038714608, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
 --- !u!4 &7257431088145558645 stripped
 Transform:
