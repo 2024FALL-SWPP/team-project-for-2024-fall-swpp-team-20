@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -87,7 +86,8 @@ public class StageManager : MonoBehaviour
         GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
     }
 
-    public void GameOver() {
+    public void GameOver()
+    {
         GameManager.GetInstance().GameOver();
         GameManager.GetInstance().um.ShowStateUI(GameState.GameOver);
     }
