@@ -15,6 +15,7 @@ public class EasyBusHandleAnomaly : Anomaly
         foreach (GameObject busHandle in busHandles)
         {
             GameObject animationController = new GameObject("AnomalyAnimationController");
+            animationController.transform.SetParent(map.transform);
             BusHandleAnomalyAnimationController anomalyAnimationController = animationController.AddComponent<BusHandleAnomalyAnimationController>();
             float duration = 300.0f;
             anomalyAnimationController.playAnimation(busHandle, duration);
