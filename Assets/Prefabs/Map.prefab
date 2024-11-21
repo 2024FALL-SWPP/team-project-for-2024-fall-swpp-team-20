@@ -6700,7 +6700,8 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8698839405852113477, guid: 355f0f3f8c2463f4d8bed401784f063f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 355f0f3f8c2463f4d8bed401784f063f, type: 3}
 --- !u!4 &2563217802445084031 stripped
 Transform:
@@ -7066,7 +7067,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BR_Cabinet_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2539940527647856536, guid: 4fd059785718649499a344b0c22ecd22, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4fd059785718649499a344b0c22ecd22, type: 3}
 --- !u!4 &736314848552643884 stripped
 Transform:
@@ -8106,7 +8108,8 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4024938239063627940, guid: 2e2398df6726e164fb29cbffecf878a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e2398df6726e164fb29cbffecf878a0, type: 3}
 --- !u!4 &3250380023579406981 stripped
 Transform:
@@ -10869,7 +10872,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5545287591788728562, guid: 54a1d2aa299948d4386f320102e514a9, type: 3}
+    - {fileID: 5545287590895851207, guid: 54a1d2aa299948d4386f320102e514a9, type: 3}
+    - {fileID: 5545287591628662485, guid: 54a1d2aa299948d4386f320102e514a9, type: 3}
+    - {fileID: 5545287591542597057, guid: 54a1d2aa299948d4386f320102e514a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 54a1d2aa299948d4386f320102e514a9, type: 3}
 --- !u!4 &6825322458180356151 stripped
 Transform:
@@ -13915,7 +13922,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Wall_SD_01 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 778501377, guid: 36510e737e626954986f2c5112be9091, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 36510e737e626954986f2c5112be9091, type: 3}
 --- !u!4 &5788254274264269057 stripped
 Transform:
@@ -18089,7 +18097,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Base_Sink_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 17990685, guid: 1a83256f7767c2c46a1371969648490c, type: 3}
+    - {fileID: 2085779861, guid: 1a83256f7767c2c46a1371969648490c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a83256f7767c2c46a1371969648490c, type: 3}
 --- !u!4 &5918798960388731090 stripped
 Transform:
@@ -18725,7 +18735,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Base_SD_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 217195732, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+    - {fileID: 4958267544043016039, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
 --- !u!4 &6995205478496188549 stripped
 Transform:
@@ -21179,7 +21191,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Wall_SD_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 778501377, guid: 36510e737e626954986f2c5112be9091, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 36510e737e626954986f2c5112be9091, type: 3}
 --- !u!4 &5788254274811312227 stripped
 Transform:
@@ -23365,7 +23378,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1371619601, guid: af872b04269986143906a126ca9ff444, type: 3}
+    - {fileID: 1949262247, guid: af872b04269986143906a126ca9ff444, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af872b04269986143906a126ca9ff444, type: 3}
 --- !u!4 &3675572551556693402 stripped
 Transform:
@@ -23827,7 +23842,9 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: -0.887308
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4958267544043016039, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+    - {fileID: 217195732, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
 --- !u!4 &6995205479003667573 stripped
 Transform:
@@ -24021,7 +24038,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Wall_SD_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 778501377, guid: 36510e737e626954986f2c5112be9091, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 36510e737e626954986f2c5112be9091, type: 3}
 --- !u!4 &5788254274987203240 stripped
 Transform:
@@ -26289,7 +26307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Base_DD_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1031967140, guid: 226aa234041d2be48881aab9632ea78e, type: 3}
+    - {fileID: 811105021, guid: 226aa234041d2be48881aab9632ea78e, type: 3}
+    - {fileID: 436849880, guid: 226aa234041d2be48881aab9632ea78e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 226aa234041d2be48881aab9632ea78e, type: 3}
 --- !u!4 &4667253181475488589 stripped
 Transform:
@@ -28665,7 +28686,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1121460507, guid: 48e9669af95ae5746aa4ad24d893f391, type: 3}
+    - {fileID: 277703759, guid: 48e9669af95ae5746aa4ad24d893f391, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48e9669af95ae5746aa4ad24d893f391, type: 3}
 --- !u!4 &8130305895864410327 stripped
 Transform:
@@ -28809,7 +28832,12 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4354149087107697065, guid: a21b031050e1345409177a5cf15ec3b4, type: 3}
+    - {fileID: 5592729497134386355, guid: a21b031050e1345409177a5cf15ec3b4, type: 3}
+    - {fileID: 7412804684765710881, guid: a21b031050e1345409177a5cf15ec3b4, type: 3}
+    - {fileID: 7412804685454077985, guid: a21b031050e1345409177a5cf15ec3b4, type: 3}
+    - {fileID: 7412804685860430163, guid: a21b031050e1345409177a5cf15ec3b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a21b031050e1345409177a5cf15ec3b4, type: 3}
 --- !u!4 &4719246942798191084 stripped
 Transform:
@@ -30016,6 +30044,10 @@ PrefabInstance:
     - target: {fileID: 4327680794412319598, guid: 7699f5af06713974ba61777a8a830f6e, type: 3}
       propertyPath: m_Name
       value: Table_Computer_01_Setup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199697256716965184, guid: 7699f5af06713974ba61777a8a830f6e, type: 3}
+      propertyPath: m_Center.z
+      value: 0.9375476
       objectReference: {fileID: 0}
     - target: {fileID: 6430890726198682700, guid: 7699f5af06713974ba61777a8a830f6e, type: 3}
       propertyPath: m_RootOrder
@@ -44452,7 +44484,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Base_SD_01 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 217195732, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
+    - {fileID: 4958267544043016039, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9d9f374cc51a6b4fb75751346d70b83, type: 3}
 --- !u!4 &7981819664701782409 stripped
 Transform:
