@@ -44,7 +44,6 @@ public class Laptop : MonoBehaviour, IInteractable
         laptopInput = new LaptopSystem();
         laptopInput.Enable();
         laptopInput.Laptop.Quit.performed += StopReadingLaptop;
-        Debug.Log("Laptop Enabled");
     }
 
     private void OnDisable()

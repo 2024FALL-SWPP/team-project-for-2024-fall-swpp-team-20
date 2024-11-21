@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: e7c9a5d670be4be46bc48b5434bbef14
+  - enabled: 1
+    path: Assets/Scenes/Stage0Animation.unity
+    guid: 8409b5fd01fff41139a0178a585630c4
+  - enabled: 1
+    path: Assets/Scenes/AnomalyFalseWakeupScene.unity
+    guid: 592d78fa8b7ed4b97adb654873fe2c52
+  - enabled: 1
+    path: Assets/Scenes/AnomalyTrueWakeupScene.unity
+    guid: 3f97b10dc16af4886843dd504692d965
   m_configObjects: {}

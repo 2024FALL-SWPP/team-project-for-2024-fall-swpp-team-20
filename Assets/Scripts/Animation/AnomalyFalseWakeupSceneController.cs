@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AnomalyFalseWakeupSceneController : MonoBehaviour
 {
@@ -73,5 +74,7 @@ public class AnomalyFalseWakeupSceneController : MonoBehaviour
         // 최종 위치 설정 (정확도를 위해)
         eyesUp.anchoredPosition = eyesUpTargetPosition;
         eyesDown.anchoredPosition = eyesDownTargetPosition;
+
+        SceneManager.LoadScene("GameScene");
     }
 }

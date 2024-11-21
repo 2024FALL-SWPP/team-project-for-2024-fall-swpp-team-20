@@ -731,7 +731,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7817678446759420210, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
   m_PrefabInstance: {fileID: 7817678446813024960}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &97924087
+--- !u!114 &97924083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -740,22 +740,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 97924082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 479198ce5a3332640af41c4a39fb6b19, type: 3}
+  m_Script: {fileID: 11500000, guid: fada8eb61c13a4659a6cf794683aa3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &97924088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97924082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e8e0275984148b997e67d67f676c1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1801053222}
   canInteract: 0
 --- !u!1001 &100507345
 PrefabInstance:
@@ -6716,17 +6703,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
   m_PrefabInstance: {fileID: 1753399456}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1801053222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7817678447473161958, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
-  m_PrefabInstance: {fileID: 7817678446813024960}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147689440001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a098700827691648a9f0b80afe02bf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1813693450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8057,7 +8033,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147689440001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60a85b1a8f7ff14c86bc753f1a4a45a, type: 3}
+  m_Script: {fileID: 11500000, guid: 650c415289fb7439983a160f6ba98e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5866666020158456769}
@@ -8084,6 +8060,10 @@ PrefabInstance:
     - target: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
       propertyPath: m_Name
       value: Player_NotSleeping
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7779757652445170555, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
       propertyPath: m_RootOrder

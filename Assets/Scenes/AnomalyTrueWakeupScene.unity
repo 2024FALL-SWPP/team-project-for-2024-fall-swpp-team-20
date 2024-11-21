@@ -2081,6 +2081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_NotSleeping
       objectReference: {fileID: 0}
+    - target: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7779757652445170555, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2164,17 +2168,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6970605688731947457, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
   m_PrefabInstance: {fileID: 632303970}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &632303972 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7817678447473161958, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
-  m_PrefabInstance: {fileID: 632303970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632303971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a098700827691648a9f0b80afe02bf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &632303973 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4402106497348325633, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
@@ -2185,7 +2178,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7817678446759420210, guid: 8bd5f009485dacf4eada2d7a166f87ac, type: 3}
   m_PrefabInstance: {fileID: 632303970}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &632303976
+--- !u!114 &632303975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2194,23 +2187,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 632303974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e8e0275984148b997e67d67f676c1e, type: 3}
+  m_Script: {fileID: 11500000, guid: fada8eb61c13a4659a6cf794683aa3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 632303972}
   canInteract: 0
---- !u!114 &632303977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632303974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 479198ce5a3332640af41c4a39fb6b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &632303978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,13 +2200,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 632303971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e60feff7f56cc4bb90ade057d43205, type: 3}
+  m_Script: {fileID: 11500000, guid: bd575c7e114d64fbe9c4e0fa9a5a3a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 632303973}
   messageText: {fileID: 1361627660}
   message: One step closer to the real...
-  targetPosition: {x: -13, y: 0, z: -2.5}
+  targetPosition: {x: 0, y: 0, z: 0}
   triggerDistance: 3
   delay: 0.4
   eyesUp: {fileID: 674315533}

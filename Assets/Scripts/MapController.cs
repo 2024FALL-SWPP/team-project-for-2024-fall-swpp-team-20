@@ -63,6 +63,11 @@ public class MapController : MonoBehaviour
             Destroy(currentMap);
             currentMap = null;
         }
+        GameObject[] mapObjects = GameObject.FindGameObjectsWithTag("Map");
+        foreach (GameObject mapObject in mapObjects)
+        {
+            Destroy(mapObject);
+        }
     }
 
     // returns current anomaly is hard or not

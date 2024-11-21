@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -10,17 +12,13 @@ public class StageManager : MonoBehaviour
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
     private GameObject player => GameManager.GetInstance().player;
-
     private MapController mc;
     private PlayerController pc;
     private InteractionHandler interactionHandler;
 
     private PlayerInformation pi;
-
     private LandscapeManager landscapeManager;
-
     private bool Test => mc.test;
-
 
     public void InitializeVariables()
     {
@@ -30,7 +28,7 @@ public class StageManager : MonoBehaviour
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pi = player.GetComponent<PlayerInformation>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
-        landscapeManager = FindObjectOfType<LandscapeManager>().GetComponent<LandscapeManager>();
+        landscapeManager = FindObjectOfType<LandscapeManager>();
     }
 
     public void GameStart()
@@ -95,23 +93,43 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
-        bool sleep = type == BedInteractionType.Sleep ? true : false;
-        if (sleep ^ haveAnomaly)
-            Succeed();
-        else
+        bool sleep = type == BedInteractionType.Sleep;
+        if (sleep && haveAnomaly)
+        {
             Fail();
+            InitializeStage(currentStage); //TODO
+        }
+        else if (!sleep && !haveAnomaly)
+        {
+            Fail();
+            SceneManager.LoadScene("AnomalyFalseWakeupScene");
+        }
+        else if (sleep && !haveAnomaly)
+        {
+            Succeed();
+            InitializeStage(currentStage); //TODO
+        }
+        else if (!sleep && haveAnomaly)
+        {
+            Succeed();
+            SceneManager.LoadScene("AnomalyTrueWakeupScene");
+        }
+        GameManager.GetInstance().prevStage = currentStage;
+    }
+
+    public void ReInitializeStage()
+    {
+        InitializeStage(currentStage);
     }
 
     private void Succeed()
     {
-        // TODO: Animation
-        InitializeStage(++currentStage);
+        ++currentStage;
     }
 
     private void Fail()
     {
         // TODO: Animation
         if (currentStage > 1) currentStage--;
-        InitializeStage(currentStage);
     }
 }

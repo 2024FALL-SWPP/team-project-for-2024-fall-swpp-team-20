@@ -814,9 +814,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6087492492081745880, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8273927007132491359, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
       propertyPath: m_Name
       value: Player_Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8273927007132491359, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8387171588279156282, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
       propertyPath: sleepText
@@ -866,5 +874,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8387171588279156282, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
+    - {fileID: 2081505539, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
+--- !u!1 &1328126723708268139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8273927007132491359, guid: 9bf74f03e4c94c84d80de0b518163115, type: 3}
+  m_PrefabInstance: {fileID: 1328126723708268138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328126723708268140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328126723708268139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83ef54dd7d0e491984de65a1c22bacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedPlayerPosition: {x: -19, y: -0.2, z: -5}
+  fixedPlayerRotation: {x: 0, y: 90, z: 0}
+  fixedCameraPosition: {x: -20, y: 1.8, z: -5}
+  fixedCameraRotation: {x: 20, y: 90, z: 0}
+  mainCamera: {fileID: 1792165839}
+  eyesUp: {fileID: 632499123}
+  eyesDown: {fileID: 442564734}
+  eyeCloseDuration: 3
+  eyesUpTargetPosition: {x: 0, y: 100}
+  eyesDownTargetPosition: {x: 0, y: -100}
+--- !u!114 &1328126723708268141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328126723708268139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfebc82b56b74572b9c3a90f5f1cec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rotateSpeed: 100
+  sleepText: {fileID: 1842162640}
+  sleepPoint: {x: -19.2, y: 0, z: -5}
+  proximityThreshold: 3
