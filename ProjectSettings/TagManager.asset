@@ -13,6 +13,8 @@ TagManager:
   - Lava
   - LavaPlatform
   - Goal
+  - Wall_Horizontal
+  - Wall_Vertical
   layers:
   - Default
   - TransparentFX

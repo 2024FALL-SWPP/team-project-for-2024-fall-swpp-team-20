@@ -55,10 +55,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deltaTime = Time.deltaTime; // Added variable deltaTime to avoid calling Time.deltaTime multiple times in Update()
+        deltaTime = Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
         if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
-            transform.Translate(deltaTime * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
+            transform.Translate(0.01f * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
+            transform.Rotate(0.01f * rotateSpeed * mouseDeltaX * Vector3.up);
         }
     }
 
@@ -81,8 +86,13 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 input = value.ReadValue<Vector2>();
             mouseDeltaX = input.x;
-            transform.Rotate(deltaTime * rotateSpeed * mouseDeltaX * Vector3.up);
+
         }
+    }
+
+    public void OnRotateCanceled(InputAction.CallbackContext value)
+    {
+        mouseDeltaX = 0;
     }
 
     public void OnJump(InputAction.CallbackContext value)
@@ -99,9 +109,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        isJumping = false;
-
         //TODO: isJumping = false when only collision with plane
+        isJumping = false;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        string tag = collision.transform.tag;
+        if (tag == "Wall_Horizontal")
+        {
+            moveDirection.y *= 0.1f;
+        }
+        if (tag == "Wall_Vertical")
+        {
+            moveDirection.x *= 0.1f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -110,7 +132,8 @@ public class PlayerController : MonoBehaviour
         {
             SetInBedRange(true);
         }
-        if (other.gameObject.CompareTag("Goal")) {
+        if (other.gameObject.CompareTag("Goal"))
+        {
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
         }
     }
@@ -141,7 +164,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ToggleSleepUI() { 
+    private void ToggleSleepUI()
+    {
         if (ActuallyCanSleep()) GameManager.GetInstance().um.ShowSleepInfo();
         else GameManager.GetInstance().um.HideSleepInfo();
     }
@@ -189,6 +213,7 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Pause.performed += OnPause;
         control.NewMap.BedInteraction.performed += OnBedInteraction;
         control.NewMap.Rotate.performed += OnRotate;
+        control.NewMap.Rotate.canceled += OnRotateCanceled;
         control.NewMap.Restart.performed += OnRestart;
     }
 
@@ -200,24 +225,29 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Pause.performed -= OnPause;
         control.NewMap.BedInteraction.performed -= OnBedInteraction;
         control.NewMap.Rotate.performed -= OnRotate;
+        control.NewMap.Rotate.canceled -= OnRotateCanceled;
         control.Disable();
     }
 
-    private bool ActuallyCanSleep() {
+    private bool ActuallyCanSleep()
+    {
         return canSleep && inBedRange && !inHardAnomaly;
     }
 
-    public void SetSleep(bool available) {
+    public void SetSleep(bool available)
+    {
         canSleep = available;
         ToggleSleepUI();
     }
 
-    public void SetInBedRange(bool inRange) { 
+    public void SetInBedRange(bool inRange)
+    {
         inBedRange = inRange;
         ToggleSleepUI();
     }
 
-    public void SetMove(bool available) {
+    public void SetMove(bool available)
+    {
         canMove = available;
     }
     public void SetAnomalyType(bool hard) => inHardAnomaly = hard;

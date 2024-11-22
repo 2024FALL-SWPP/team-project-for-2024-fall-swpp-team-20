@@ -12506,6 +12506,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 84
@@ -12552,7 +12556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (67)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -12630,6 +12638,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 87
@@ -12676,7 +12688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (70)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -12754,9 +12770,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (24)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -13344,6 +13368,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -13390,7 +13418,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (26)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -13658,6 +13690,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -13704,7 +13740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (32)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -13720,6 +13760,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -13766,7 +13810,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (34)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -14535,9 +14583,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (20)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -14597,6 +14653,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -14643,7 +14703,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (4)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -14721,6 +14785,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -14767,7 +14835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (55)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -15155,9 +15227,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (13)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -15279,6 +15359,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -15325,7 +15409,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (10)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -15465,6 +15553,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 104
@@ -15511,7 +15603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (25)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -15527,6 +15623,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 71
@@ -15573,7 +15673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (59)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -15775,6 +15879,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -15821,7 +15929,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (14)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -16085,6 +16197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -16131,7 +16247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (17)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -16519,6 +16639,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 94
@@ -16565,7 +16689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (24)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -17015,6 +17143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 82
@@ -17061,7 +17193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (66)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -17438,7 +17574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (19)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -17950,6 +18090,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -17996,7 +18140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (6)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -18095,6 +18243,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -18141,7 +18293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (16)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -18605,6 +18761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 69
@@ -18651,7 +18811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (57)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -18669,7 +18833,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2227830138725803908, guid: 252cc1d947dc9f34fa0d633f87bbcfc0, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_Double_01 (1)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227830138725803908, guid: 252cc1d947dc9f34fa0d633f87bbcfc0, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 2227830138726169508, guid: 252cc1d947dc9f34fa0d633f87bbcfc0, type: 3}
       propertyPath: m_RootOrder
@@ -18729,6 +18897,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 77
@@ -18775,7 +18947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (63)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -19053,6 +19229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 75
@@ -19099,7 +19279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (61)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -19115,6 +19299,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 61
@@ -19161,7 +19349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (56)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -19367,6 +19559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 86
@@ -19413,7 +19609,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (69)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -19491,6 +19691,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -19537,7 +19741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (44)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -19863,9 +20071,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (17)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -20111,6 +20327,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -20157,7 +20377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (11)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -20235,6 +20459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -20281,7 +20509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (62)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -20361,7 +20593,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (2)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -20609,7 +20845,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01 (1)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -20669,6 +20909,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -20715,7 +20959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (2)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -20731,6 +20979,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 90
@@ -20777,7 +21029,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (73)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -20793,6 +21049,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -20839,7 +21099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (18)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -20857,7 +21121,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01 (2)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -20917,9 +21185,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (21)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -20979,9 +21255,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (19)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -21371,6 +21655,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 103
@@ -21417,7 +21705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (75)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -21890,9 +22182,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (8)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -22448,6 +22748,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -22494,7 +22798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (30)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -22572,9 +22880,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (10)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -22820,6 +23136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 57
@@ -22866,7 +23186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (52)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -23006,6 +23330,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.x
+      value: 2.8631964
+      objectReference: {fileID: 0}
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Center.x
+      value: 0.18159819
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -23052,7 +23388,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (46)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -23192,6 +23532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 93
@@ -23238,7 +23582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (23)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -23502,9 +23850,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (12)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -24164,7 +24520,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2227830138725803908, guid: 252cc1d947dc9f34fa0d633f87bbcfc0, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_Double_01
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227830138725803908, guid: 252cc1d947dc9f34fa0d633f87bbcfc0, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 2227830138726169508, guid: 252cc1d947dc9f34fa0d633f87bbcfc0, type: 3}
       propertyPath: m_RootOrder
@@ -24419,6 +24779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -24465,7 +24829,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (21)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -24605,6 +24973,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -24651,7 +25023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (3)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -24793,7 +25169,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (4)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -25249,6 +25629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 98
@@ -25295,7 +25679,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (74)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -25559,6 +25947,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -25605,7 +25997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (50)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -25667,7 +26063,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_04 (7)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
@@ -25747,7 +26147,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (10)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -26429,7 +26833,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -26690,6 +27098,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -26736,7 +27148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (12)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -26752,6 +27168,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 92
@@ -26798,7 +27218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (22)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -27248,6 +27672,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -27294,7 +27722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (19)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -27356,7 +27788,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -27790,7 +28226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (2)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -27870,7 +28310,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (7)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -28732,7 +29176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_04 (6)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
@@ -28872,9 +29320,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (5)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -29217,9 +29673,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (7)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -29341,6 +29805,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -29387,7 +29855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (1)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -29589,6 +30061,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -29635,7 +30111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (42)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -29713,6 +30193,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 70
@@ -29759,7 +30243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (58)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -30085,6 +30573,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 46
@@ -30131,7 +30623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (43)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -30539,6 +31035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 78
@@ -30585,7 +31085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (64)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -30725,6 +31229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 58
@@ -30771,7 +31279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (53)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -30833,7 +31345,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (5)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -31729,6 +32245,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -31775,7 +32295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (29)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -31853,6 +32377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -31899,7 +32427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (45)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -31917,7 +32449,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01 (3)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -32209,7 +32745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (14)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -32519,7 +33059,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (16)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -32535,9 +33079,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (9)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -32721,6 +33273,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -32767,7 +33323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (13)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -32783,6 +33343,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -32829,7 +33393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (5)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -32909,7 +33477,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (8)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -33341,6 +33913,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -33387,7 +33963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (54)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -33589,9 +34169,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (22)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -33653,7 +34241,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (6)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -33821,7 +34413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_04 (5)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
@@ -33837,6 +34433,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 101
@@ -33883,7 +34483,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (77)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -33899,6 +34503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 105
@@ -33945,7 +34553,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (76)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -34155,9 +34767,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (14)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -34767,7 +35387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_04 (1)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
@@ -34847,7 +35471,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -35157,7 +35785,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (1)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -35469,6 +36101,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Center.x
+      value: 5.245839e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Center.z
+      value: 1.2885711
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -35515,7 +36159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (9)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -35577,7 +36225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_04
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
@@ -36089,6 +36741,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -36135,7 +36791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (15)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -36383,7 +37043,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (13)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -36587,7 +37251,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01 (4)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -36755,7 +37423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (3)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -36833,6 +37505,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 79
@@ -36879,7 +37555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (65)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -37021,7 +37701,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (5)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -37081,6 +37765,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 91
@@ -37127,7 +37815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (7)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -37267,9 +37959,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (23)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -37933,7 +38633,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01 (6)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -38303,9 +39007,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (18)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -38365,6 +39077,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -38411,7 +39127,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (31)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -38490,6 +39210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -38536,7 +39260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (49)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -39048,6 +39776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -39094,7 +39826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (20)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -39296,6 +40032,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -39342,7 +40082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (47)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -39606,6 +40350,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -39652,7 +40400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (28)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -39838,7 +40590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_04 (3)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120757317709840816, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a073a915d15da469c414beeb6fef2b, type: 3}
@@ -39962,7 +40718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (15)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -39978,6 +40738,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -40024,7 +40788,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (27)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -40474,6 +41242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -40520,7 +41292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (39)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -40784,9 +41560,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (11)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -41280,6 +42064,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.x
+      value: 2.7381382
+      objectReference: {fileID: 0}
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Center.x
+      value: -0.11906981
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 102
@@ -41330,7 +42126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (51)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -41516,7 +42316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (6)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -41534,7 +42338,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (11)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -41594,9 +42402,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (25)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -41658,7 +42474,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_Window_01 (5)
+      value: HorizontalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732465285068630151, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 6200877827776005092, guid: 4a111030cf811f542a01c361f491a2b1, type: 3}
       propertyPath: m_RootOrder
@@ -41782,7 +42602,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_03 (9)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268499181459835225, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 7621463442920724631, guid: 0ef87058d11dd764abf30aefa470c526, type: 3}
       propertyPath: m_RootOrder
@@ -41966,6 +42790,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 89
@@ -42012,7 +42840,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (72)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -42276,6 +43108,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 85
@@ -42322,7 +43158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (68)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -42338,6 +43178,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 72
@@ -42384,7 +43228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (60)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -42462,9 +43310,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139157798812280973}
     m_Modifications:
+    - target: {fileID: -3522515771475344752, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_Name
-      value: Ext_Apt_01_Wall_01 (15)
+      value: VerticalWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129999413580238423, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 1129999413580534391, guid: edb02028d59ccac4ca6641a183fa7346, type: 3}
       propertyPath: m_RootOrder
@@ -42818,7 +43674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (18)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -42880,7 +43740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_02 (1)
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008556356809421279, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
@@ -43702,6 +44566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -43748,7 +44616,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01
+      value: HorizontalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Horizontal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -44082,6 +44954,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2480468208677956181}
     m_Modifications:
+    - target: {fileID: 332961495277706032, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_RootOrder
       value: 88
@@ -44128,7 +45004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
       propertyPath: m_Name
-      value: Int_Apt_01_Wall_01 (71)
+      value: VerticalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017606091531344936, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
+      propertyPath: m_TagString
+      value: Wall_Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -44587,6 +45467,26 @@ PrefabInstance:
     - target: {fileID: 2170178008488602006, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
       propertyPath: m_Name
       value: DoorFrame_Apt_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296751938604968508, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.37571126
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296751938604968508, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
+      propertyPath: m_Size.z
+      value: 1.7175641
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296751938604968508, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
+      propertyPath: m_Center.x
+      value: -0.17001103
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296751938604968508, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
+      propertyPath: m_Center.y
+      value: 0.05660844
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296751938604968508, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
+      propertyPath: m_Center.z
+      value: 0.72680837
       objectReference: {fileID: 0}
     - target: {fileID: 7296751938604968511, guid: e9a47cdb5968d66499f6b4ee53467cd4, type: 3}
       propertyPath: Player
