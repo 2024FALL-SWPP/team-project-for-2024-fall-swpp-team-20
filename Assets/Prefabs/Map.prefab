@@ -12865,6 +12865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358863387832 stripped
@@ -13206,6 +13210,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -14078,6 +14086,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -15457,6 +15469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358717304064 stripped
@@ -15706,6 +15722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358702003361 stripped
@@ -15893,6 +15913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358683332685 stripped
@@ -15954,6 +15978,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -16079,6 +16107,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -16389,6 +16421,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -17135,6 +17171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358604663432 stripped
@@ -17761,6 +17801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358556987947 stripped
@@ -17842,6 +17886,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.1069417
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5109863
       objectReference: {fileID: 0}
@@ -17851,7 +17899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.000000059604645
+      value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18913,6 +18961,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -20049,6 +20101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358424904260 stripped
@@ -20359,6 +20415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358414530915 stripped
@@ -20606,6 +20666,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -21570,6 +21634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359474458549 stripped
@@ -22013,6 +22081,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -22760,6 +22832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359253070293 stripped
@@ -22821,6 +22897,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -23132,6 +23212,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -23629,6 +23713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359319075727 stripped
@@ -23825,6 +23913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359148125797 stripped
@@ -23887,6 +23979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359147327845 stripped
@@ -23948,6 +24044,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -24922,6 +25022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359093766608 stripped
@@ -24984,6 +25088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359092584899 stripped
@@ -25045,6 +25153,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -25505,6 +25617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359194960348 stripped
@@ -25878,6 +25994,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359175992297 stripped
@@ -26001,6 +26121,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -26438,6 +26562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525358993622630 stripped
@@ -26700,6 +26828,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -27134,6 +27266,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -27710,6 +27846,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -28659,6 +28799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359940251707 stripped
@@ -28908,6 +29052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359914933041 stripped
@@ -29103,6 +29251,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -29378,6 +29530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525360019949122 stripped
@@ -29625,6 +29781,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -29935,6 +30095,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -31385,6 +31549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359853154346 stripped
@@ -31520,6 +31688,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -32141,6 +32313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359680898836 stripped
@@ -32451,6 +32627,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -33569,6 +33749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359720399222 stripped
@@ -34136,6 +34320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359707637741 stripped
@@ -34197,6 +34385,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -35137,6 +35329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525359532946594 stripped
@@ -35760,6 +35956,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -36571,6 +36771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525360459997699 stripped
@@ -37005,6 +37209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525360444844812 stripped
@@ -37314,6 +37522,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -37978,6 +38190,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -41291,8 +41507,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.132174
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.727597
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5109863
+      value: -8.87
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41300,7 +41524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5769129917905125718, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -41958,6 +42182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525360247784535 stripped
@@ -42205,6 +42433,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -42640,6 +42872,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -43761,6 +43997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
 --- !u!4 &2464525360149693095 stripped
@@ -43946,6 +44186,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -44140,6 +44384,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
@@ -44389,6 +44637,10 @@ PrefabInstance:
     - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
       propertyPath: m_Name
       value: Int_apt_01_Ceiling_01 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769129917905624438, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3106a6f3c2fc2a547b55f8f47ff2e09c, type: 3}
