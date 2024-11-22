@@ -110,7 +110,8 @@ public class PlayerController : MonoBehaviour
         {
             SetInBedRange(true);
         }
-        if (other.gameObject.CompareTag("Goal")) {
+        if (other.gameObject.CompareTag("Goal"))
+        {
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
         }
     }
@@ -141,7 +142,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ToggleSleepUI() { 
+    private void ToggleSleepUI()
+    {
         if (ActuallyCanSleep()) GameManager.GetInstance().um.ShowSleepInfo();
         else GameManager.GetInstance().um.HideSleepInfo();
     }
@@ -203,21 +205,25 @@ public class PlayerController : MonoBehaviour
         control.Disable();
     }
 
-    private bool ActuallyCanSleep() {
+    private bool ActuallyCanSleep()
+    {
         return canSleep && inBedRange && !inHardAnomaly;
     }
 
-    public void SetSleep(bool available) {
+    public void SetSleep(bool available)
+    {
         canSleep = available;
         ToggleSleepUI();
     }
 
-    public void SetInBedRange(bool inRange) { 
+    public void SetInBedRange(bool inRange)
+    {
         inBedRange = inRange;
         ToggleSleepUI();
     }
 
-    public void SetMove(bool available) {
+    public void SetMove(bool available)
+    {
         canMove = available;
     }
     public void SetAnomalyType(bool hard) => inHardAnomaly = hard;

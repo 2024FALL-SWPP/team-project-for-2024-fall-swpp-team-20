@@ -22,29 +22,35 @@ public class PlayerInformation : MonoBehaviour
     }
 
     // HurtPlayer can be used whenever If needed
-    private void HurtPlayer(float damage) {
+    private void HurtPlayer(float damage)
+    {
         if (health <= 0) return;
         health -= damage;
         GameManager.GetInstance().um.SetHealthImage(health);
-        if (health <= 0) {
+        if (health <= 0)
+        {
             if (hurt != null) StopCoroutine(hurt);
             GameManager.GetInstance().stageManager.GameOver();
         }
     }
 
     // HurtPlayerByHeat is used in only lava anomaly.
-    public void HurtPlayerByHeat() {
+    public void HurtPlayerByHeat()
+    {
         hurt = StartCoroutine(HurtPlayerByHeat2());
     }
 
-    public IEnumerator HurtPlayerByHeat2() {
-        while (true) {
+    public IEnumerator HurtPlayerByHeat2()
+    {
+        while (true)
+        {
             HurtPlayer(0.5f);
             yield return new WaitForSeconds(0.25f);
         }
     }
 
-    public void StopCoroutines() {
+    public void StopCoroutines()
+    {
         if (hurt != null) StopCoroutine(hurt);
         // Add more if there is another coroutine
     }

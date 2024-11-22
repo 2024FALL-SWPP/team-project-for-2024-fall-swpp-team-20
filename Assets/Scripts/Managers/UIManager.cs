@@ -110,12 +110,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowHealthImage() => health.gameObject.SetActive(true);
     public void HideHealthImage() => health.gameObject.SetActive(false);
-    public void SetHealthImage(float health) {
+    public void SetHealthImage(float health)
+    {
         this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
     }
 
     //Reset UI when new stage starts
-    public void HideEverything() {
+    public void HideEverything()
+    {
         HideSleepInfo();
         HideInteractionInfo();
         HideStateInfo();
@@ -123,23 +125,27 @@ public class UIManager : MonoBehaviour
     }
 
     // For Watching Laptop
-    public void TemporaryHideInteractionInfo() {
+    public void TemporaryHideInteractionInfo()
+    {
         interactionInfo.text = $"";
         HideCursor();
     }
-    public void ShowLaptopInteractionInfo() {
+    public void ShowLaptopInteractionInfo()
+    {
         interactionInfo.text = $"Mouse click to interact with laptop";
         ShowCursor();
     }
 
-    private void HideCursor() {
+    private void HideCursor()
+    {
         foreach (RawImage i in cursorImage)
         {
             i.enabled = false;
         }
     }
 
-    private void ShowCursor() {
+    private void ShowCursor()
+    {
         foreach (RawImage i in cursorImage)
         {
             i.enabled = true;
