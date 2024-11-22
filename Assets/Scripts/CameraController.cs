@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
 
     private Control control;
 
-    private void Start() {
+    private void Start()
+    {
         interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
     }
 
@@ -30,7 +31,8 @@ public class CameraController : MonoBehaviour
         control.NewMap.ObjectInteraction.performed -= OnObjectInteractionPerformed;
         control.Disable();
     }
-    public void Initialize() {
+    public void Initialize()
+    {
         rotateY = 0;
         transform.localRotation = Quaternion.identity;
     }
