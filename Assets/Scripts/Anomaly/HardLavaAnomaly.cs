@@ -23,9 +23,11 @@ public class HardLavaAnomaly : HardAnomaly
 
     // Used some objects as platform to escape the room, removing same objects at the original position
     // it is better to just manipulate transform of objects, but it is too hard work..
-    private void RemoveOriginalObjects() {
+    private void RemoveOriginalObjects()
+    {
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("LavaPlatform");
-        foreach (GameObject platform in platforms) {
+        foreach (GameObject platform in platforms)
+        {
             Object.Destroy(platform);
         }
     }

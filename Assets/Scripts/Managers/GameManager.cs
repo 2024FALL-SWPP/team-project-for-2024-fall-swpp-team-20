@@ -26,8 +26,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
-    public static GameManager GetInstance() {
-        if (instance == null) {
+    public static GameManager GetInstance()
+    {
+        if (instance == null)
+        {
             instance = new GameObject("GameManager").AddComponent<GameManager>();
             DontDestroyOnLoad(instance.gameObject);
             instance.Initialize();
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
         um.Initialize();
-        
+
         stageManager.GameStart();
     }
 
