@@ -2206,7 +2206,7 @@ MonoBehaviour:
   animator: {fileID: 632303973}
   messageText: {fileID: 1361627660}
   message: One step closer to the real...
-  targetPosition: {x: 0, y: 0, z: 0}
+  targetPosition: {x: -10, y: 0, z: -2.5}
   triggerDistance: 3
   delay: 0.4
   eyesUp: {fileID: 674315533}
