@@ -7633,6 +7633,7 @@ GameObject:
   - component: {fileID: 8508318451257043974}
   - component: {fileID: 4736736878225318819}
   - component: {fileID: 7374840454120740713}
+  - component: {fileID: 4767838058891609339}
   m_Layer: 0
   m_Name: Dresser Closet_01_BackOpened
   m_TagString: Untagged
@@ -7705,6 +7706,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4767838058891609339
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032054960386455228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3247702084663180044, guid: 9bdccb610da897c40a4f5e9938cddbbc, type: 3}
 --- !u!1001 &53898723149365441
 PrefabInstance:
   m_ObjectHideFlags: 0
