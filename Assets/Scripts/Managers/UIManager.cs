@@ -134,14 +134,14 @@ public class UIManager : MonoBehaviour
         trialImages[1] = GameObject.Find("Result").transform.Find("RawImage (1)").GetComponent<RawImage>();
         trialImages[2] = GameObject.Find("Result").transform.Find("RawImage (2)").GetComponent<RawImage>();
         trialImages[3] = GameObject.Find("Result").transform.Find("RawImage (3)").GetComponent<RawImage>();
-        for(int i=0; i<4; i++)
+        for (int i = 0; i < 4; i++)
         {
             //implement numBall logic : if correct, show Green. if the number is on other position, show yellow. else red
-            if(passwordInput[i]==realPassword[i])
+            if (passwordInput[i] == realPassword[i])
             {
                 trialImages[i].color = Color.green;
             }
-            else if(realPassword.Contains(passwordInput[i]))
+            else if (realPassword.Contains(passwordInput[i]))
             {
                 trialImages[i].color = Color.yellow;
             }

@@ -17,7 +17,7 @@ public class HardTimeBombAnomaly : HardAnomaly
             Find("Apartment_01").Find("Props").Find("timeBomb").gameObject;
         digitalClock.SetActive(false);
         timeBomb.SetActive(true);
-        
+
         GameManager.GetInstance().um.ShowTimerImage();
         TimerAnimationController timerAnimationController = timeBomb.GetComponent<TimerAnimationController>();
         timerAnimationController.StartTimerAnimation();
