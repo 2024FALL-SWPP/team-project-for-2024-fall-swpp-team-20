@@ -111,6 +111,9 @@ public class Laptop : MonoBehaviour, IInteractable
             case 2: // lava anomaly
                 laptopInfo.text = "THE FLOOR IS LAVA!\nIt seems that you cannot endure much time with this lava.. Find any way to Go out!!";
                 break;
+            case 3: // Time bomb anomaly
+                laptopInfo.text = "TIME BOMB!\nYou have to defuse the bomb before it explodes!";
+                break;
         }
     }
 

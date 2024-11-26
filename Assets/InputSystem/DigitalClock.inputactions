@@ -1,0 +1,54 @@
+{
+    "name": "DigitalClock",
+    "maps": [
+        {
+            "name": "DigitalClock",
+            "id": "6ee92679-84dc-4656-93cc-70fbcae89a32",
+            "actions": [
+                {
+                    "name": "Insert",
+                    "type": "Button",
+                    "id": "fc7ffbfc-756f-4e7b-942b-da4631109930",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "5d8982fc-8643-40c8-9b67-21ecffce3c36",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "99add803-0d6a-4f13-9eb6-fd279c76d4af",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8acda37e-df61-4f21-a91a-422364269d23",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Insert",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
