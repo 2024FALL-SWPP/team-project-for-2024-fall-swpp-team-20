@@ -68,13 +68,12 @@ public class TimeBomb : MonoBehaviour, IInteractable
     {
         if (!isInteracting) return;
         if (GameManager.GetInstance().state != GameState.Playing) return;
-        //check the input whether it is correct or not
         string passwordInput = GameManager.GetInstance().um.GetPassword();
-        if(passwordInput.Length != 4)
+        if (passwordInput.Length != 4)
         {
             return;
         }
-        else if(passwordInput == password)
+        else if (passwordInput == password)
         {
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
             return;
@@ -82,7 +81,7 @@ public class TimeBomb : MonoBehaviour, IInteractable
         else
         {
             trialCount--;
-            if(trialCount <= 0)
+            if (trialCount <= 0)
             {
                 GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.Sleep);
                 return;
