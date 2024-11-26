@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: isJumping = false when only collision with plane
         isJumping = false;
-        Debug.Log("Collision with something");
     }
 
 
