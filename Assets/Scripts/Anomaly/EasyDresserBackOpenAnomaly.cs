@@ -1,6 +1,6 @@
 using UnityEngine;
 
-class EasyDresserBackOpenAnomaly : Anomaly
+public class EasyDresserBackOpenAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {

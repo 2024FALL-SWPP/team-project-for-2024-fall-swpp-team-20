@@ -1,6 +1,6 @@
 using UnityEngine;
 
-class EasyDrawerMissingContentAnomaly : Anomaly
+public class EasyDrawerMissingContentAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
