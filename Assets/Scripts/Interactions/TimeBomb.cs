@@ -45,9 +45,11 @@ public class TimeBomb : MonoBehaviour, IInteractable
         isInteracting = true;
         GameManager.GetInstance().stageManager.ToggleActionAvailability(false);
         GameManager.GetInstance().um.ShowPasswordInputField();
+        GameManager.GetInstance().um.UpdateTrialCount(trialCount);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        trialCount = 5;
     }
 
     private void EndInteraction(InputAction.CallbackContext context)
@@ -86,6 +88,7 @@ public class TimeBomb : MonoBehaviour, IInteractable
                 return;
             }
             GameManager.GetInstance().um.ShowPasswordCompareResult(passwordInput, password);
+            GameManager.GetInstance().um.UpdateTrialCount(trialCount);
         }
     }
 

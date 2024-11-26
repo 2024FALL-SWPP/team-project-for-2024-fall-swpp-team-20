@@ -152,6 +152,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateTrialCount(int trialCount)
+    {
+        Text trialText = GameObject.Find("TrialText").GetComponent<Text>();
+        trialText.text = $"Trial: {trialCount}";
+    }
+
     //Reset UI when new stage starts
     public void HideEverything()
     {
