@@ -8,7 +8,7 @@ public class InteractionHandler : MonoBehaviour
     private int layerMask;
     private RaycastHit hit;
 
-    private void Start()
+    private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
         immInteractable = false;
