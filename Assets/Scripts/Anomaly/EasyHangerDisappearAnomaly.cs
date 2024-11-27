@@ -6,7 +6,7 @@ public class EasyHangerDisappearAnomaly : Anomaly
     {
         for (int i = 0; i < 4; i++)
         {
-            GameObject Hanger = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("CoatHanger" + i).gameObject;
+            GameObject Hanger = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("Clothes").Find("CoatHanger" + i).gameObject;
             Hanger.SetActive(false);
         }
     }

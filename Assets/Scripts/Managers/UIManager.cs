@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UIManager : MonoBehaviour
     private Text generalInfo;
     private Text interactionInfo;
     private Text stateInfo;
+    private Text timerText;
+    private InputField passwordField;
     private RectTransform health;
     private RawImage[] cursorImage;
 
@@ -29,6 +32,8 @@ public class UIManager : MonoBehaviour
             stateInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
             cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponentsInChildren<RawImage>();
             health = canvasTransform.Find("Health").GetComponent<RectTransform>();
+            timerText = canvasTransform.Find("TimerText").GetComponent<Text>();
+            passwordField = canvasTransform.Find("passwordField").GetComponent<InputField>();
         }
         HideEverything();
     }
@@ -115,6 +120,44 @@ public class UIManager : MonoBehaviour
         this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
     }
 
+    public void ShowTimerImage() => timerText.enabled = true;
+    public void HideTimerImage() => timerText.enabled = false;
+    public void SetTimerText(int min, int sec) => timerText.text = $"{min:D2}:{sec:D2}";
+
+    public void ShowPasswordInputField() => passwordField.gameObject.SetActive(true);
+    public void HidePasswordInputField() => passwordField.gameObject.SetActive(false);
+    public string GetPassword() => passwordField.text;
+    public void ShowPasswordCompareResult(string passwordInput, string realPassword)
+    {
+        RawImage[] trialImages = new RawImage[4];
+        trialImages[0] = GameObject.Find("Result").transform.Find("RawImage").GetComponent<RawImage>();
+        trialImages[1] = GameObject.Find("Result").transform.Find("RawImage (1)").GetComponent<RawImage>();
+        trialImages[2] = GameObject.Find("Result").transform.Find("RawImage (2)").GetComponent<RawImage>();
+        trialImages[3] = GameObject.Find("Result").transform.Find("RawImage (3)").GetComponent<RawImage>();
+        for (int i = 0; i < 4; i++)
+        {
+            //implement numBall logic : if correct, show Green. if the number is on other position, show yellow. else red
+            if (passwordInput[i] == realPassword[i])
+            {
+                trialImages[i].color = Color.green;
+            }
+            else if (realPassword.Contains(passwordInput[i]))
+            {
+                trialImages[i].color = Color.yellow;
+            }
+            else
+            {
+                trialImages[i].color = Color.red;
+            }
+        }
+    }
+
+    public void UpdateTrialCount(int trialCount)
+    {
+        Text trialText = GameObject.Find("TrialText").GetComponent<Text>();
+        trialText.text = $"Trial: {trialCount}";
+    }
+
     //Reset UI when new stage starts
     public void HideEverything()
     {
@@ -122,6 +165,8 @@ public class UIManager : MonoBehaviour
         HideInteractionInfo();
         HideStateInfo();
         HideHealthImage();
+        HideTimerImage();
+        HidePasswordInputField();
     }
 
     // For Watching Laptop
