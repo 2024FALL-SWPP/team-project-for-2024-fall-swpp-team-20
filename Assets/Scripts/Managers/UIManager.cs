@@ -161,15 +161,28 @@ public class UIManager : MonoBehaviour
         trialText.text = $"Trial: {trialCount}";
     }
 
-    public void SetHardAnomalyInfo(HardAnomalyCode code) {
-        switch (code) {
+    public void ShowCharacterScript(HardAnomalyCode code)
+    {
+        characterScriptPanel.SetActive(true);
+        characterScript.text = "";
+        switch (code)
+        {
             case HardAnomalyCode.Lava:
+                characterScript.text = "Lava is coming! Run!";
                 break;
             case HardAnomalyCode.TimeBomb:
+                characterScript.text = "Time Bomb is ticking!";
                 break;
             default:
                 break;
         }
+        Time.timeScale = 0;
+    }
+
+    public void HideCharacterScript()
+    {
+        characterScriptPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     //Reset UI when new stage starts
@@ -181,6 +194,7 @@ public class UIManager : MonoBehaviour
         HideHealthImage();
         HideTimerImage();
         HidePasswordInputField();
+        HideCharacterScript();
     }
 
     // For Watching Laptop

@@ -18,7 +18,7 @@ public class HardLavaAnomaly : HardAnomaly
 
     public override void SetHardAnomalyCode()
     {
-        GameManager.GetInstance().um.SetHardAnomalyInfo(HardAnomalyCode.Lava);
+        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Lava);
     }
 
     // Used some objects as platform to escape the room, removing same objects at the original position

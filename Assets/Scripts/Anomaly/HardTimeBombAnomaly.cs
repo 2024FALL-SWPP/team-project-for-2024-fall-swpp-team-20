@@ -25,7 +25,7 @@ public class HardTimeBombAnomaly : HardAnomaly
 
     public override void SetHardAnomalyCode()
     {
-        GameManager.GetInstance().um.SetHardAnomalyInfo(HardAnomalyCode.TimeBomb);
+        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.TimeBomb);
     }
 
     public void Explosion()
