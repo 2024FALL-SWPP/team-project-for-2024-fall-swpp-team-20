@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum HardAnomalyCode { 
+public enum HardAnomalyCode
+{
     Lava,
     TimeBomb,
 }

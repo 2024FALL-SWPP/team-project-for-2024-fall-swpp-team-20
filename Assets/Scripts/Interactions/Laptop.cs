@@ -30,11 +30,12 @@ public class Laptop : MonoBehaviour, IInteractable
             power = !power;
             if (power) StartCoroutine(ToggleLaptop1());
         }
-        else {
+        else
+        {
             if (power) TurnOff();
             else TurnOn();
         }
-        
+
     }
 
     private void TurnOn()
