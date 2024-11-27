@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour
     private InputField passwordField;
     private RectTransform health;
     private RawImage[] cursorImage;
-
+    private GameObject characterScriptPanel;
+    private Text characterScript;
 
     public void Initialize()
     {
@@ -34,6 +35,8 @@ public class UIManager : MonoBehaviour
             health = canvasTransform.Find("Health").GetComponent<RectTransform>();
             timerText = canvasTransform.Find("TimerText").GetComponent<Text>();
             passwordField = canvasTransform.Find("passwordField").GetComponent<InputField>();
+            characterScriptPanel = canvasTransform.Find("CharacterScriptPanel").gameObject;
+            characterScript = characterScriptPanel.GetComponentInChildren<Text>();
         }
         HideEverything();
     }
@@ -156,6 +159,17 @@ public class UIManager : MonoBehaviour
     {
         Text trialText = GameObject.Find("TrialText").GetComponent<Text>();
         trialText.text = $"Trial: {trialCount}";
+    }
+
+    public void SetHardAnomalyInfo(HardAnomalyCode code) {
+        switch (code) {
+            case HardAnomalyCode.Lava:
+                break;
+            case HardAnomalyCode.TimeBomb:
+                break;
+            default:
+                break;
+        }
     }
 
     //Reset UI when new stage starts
