@@ -23,9 +23,9 @@ public class HardTimeBombAnomaly : HardAnomaly
         timerAnimationController.StartTimerAnimation();
     }
 
-    public override void SetHardAnomalyCodeForLaptop()
+    public override void SetHardAnomalyCode()
     {
-        laptop.SetAnomalyCode(3);
+        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.TimeBomb);
     }
 
     public void Explosion()

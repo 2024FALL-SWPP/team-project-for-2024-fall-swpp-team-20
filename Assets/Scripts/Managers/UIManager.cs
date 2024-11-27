@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour
     private InputField passwordField;
     private RectTransform health;
     private RawImage[] cursorImage;
-
+    private GameObject characterScriptPanel;
+    private Text characterScript;
 
     public void Initialize()
     {
@@ -34,6 +35,8 @@ public class UIManager : MonoBehaviour
             health = canvasTransform.Find("Health").GetComponent<RectTransform>();
             timerText = canvasTransform.Find("TimerText").GetComponent<Text>();
             passwordField = canvasTransform.Find("passwordField").GetComponent<InputField>();
+            characterScriptPanel = canvasTransform.Find("CharacterScriptPanel").gameObject;
+            characterScript = characterScriptPanel.GetComponentInChildren<Text>();
         }
         HideEverything();
     }
@@ -158,6 +161,30 @@ public class UIManager : MonoBehaviour
         trialText.text = $"Trial: {trialCount}";
     }
 
+    public void ShowCharacterScript(HardAnomalyCode code)
+    {
+        characterScriptPanel.SetActive(true);
+        characterScript.text = "";
+        switch (code)
+        {
+            case HardAnomalyCode.Lava:
+                characterScript.text = "Lava is coming! Run!";
+                break;
+            case HardAnomalyCode.TimeBomb:
+                characterScript.text = "Time Bomb is ticking!";
+                break;
+            default:
+                break;
+        }
+        Time.timeScale = 0;
+    }
+
+    public void HideCharacterScript()
+    {
+        characterScriptPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     //Reset UI when new stage starts
     public void HideEverything()
     {
@@ -167,6 +194,7 @@ public class UIManager : MonoBehaviour
         HideHealthImage();
         HideTimerImage();
         HidePasswordInputField();
+        HideCharacterScript();
     }
 
     // For Watching Laptop

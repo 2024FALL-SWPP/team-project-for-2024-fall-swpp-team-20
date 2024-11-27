@@ -8,6 +8,6 @@ public class EasyLaptopAnomaly : Anomaly
     {
         Laptop laptop = map.transform.Find("Interior").Find("2nd Floor").
             Find("Apartment_01").Find("Props").Find("laptop").GetComponent<Laptop>();
-        laptop.SetAnomalyCode(1);
+        laptop.SetAnomaly();
     }
 }
