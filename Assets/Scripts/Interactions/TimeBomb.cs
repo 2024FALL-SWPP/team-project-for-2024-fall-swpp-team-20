@@ -8,7 +8,7 @@ public class TimeBomb : MonoBehaviour, IInteractable
 {
     public Camera mainCamera;
     private bool isInteracting = false;
-    private string password = "1234";
+    private string password;
     private int trialCount;
     private RawImage[] trialImages;
 
@@ -50,6 +50,26 @@ public class TimeBomb : MonoBehaviour, IInteractable
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         trialCount = 5;
+        password = GeneratePassword();
+        Debug.Log("password : " + password);
+    }
+
+    private string GeneratePassword()
+    {
+        string password = "";
+        for (int i = 0; i < 4; i++)
+        {
+            int num = Random.Range(0, 10);
+            if (!password.Contains(num.ToString()))
+            {
+                password += num.ToString();
+            }
+            else
+            {
+                i--;
+            }
+        }
+        return password;
     }
 
     private void EndInteraction(InputAction.CallbackContext context)
