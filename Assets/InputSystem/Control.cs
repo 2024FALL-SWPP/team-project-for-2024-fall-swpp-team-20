@@ -89,6 +89,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuitUIScript"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f9d68e5-cb23-4dbc-a3f9-1f9f03c4aa58"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -234,6 +243,17 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1546e2e5-d197-456b-8c57-334a7d71e29c"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuitUIScript"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -266,6 +286,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         m_NewMap_ObjectInteraction = m_NewMap.FindAction("ObjectInteraction", throwIfNotFound: true);
         m_NewMap_Pause = m_NewMap.FindAction("Pause", throwIfNotFound: true);
         m_NewMap_Restart = m_NewMap.FindAction("Restart", throwIfNotFound: true);
+        m_NewMap_QuitUIScript = m_NewMap.FindAction("QuitUIScript", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -334,6 +355,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputAction m_NewMap_ObjectInteraction;
     private readonly InputAction m_NewMap_Pause;
     private readonly InputAction m_NewMap_Restart;
+    private readonly InputAction m_NewMap_QuitUIScript;
     public struct NewMapActions
     {
         private @Control m_Wrapper;
@@ -345,6 +367,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         public InputAction @ObjectInteraction => m_Wrapper.m_NewMap_ObjectInteraction;
         public InputAction @Pause => m_Wrapper.m_NewMap_Pause;
         public InputAction @Restart => m_Wrapper.m_NewMap_Restart;
+        public InputAction @QuitUIScript => m_Wrapper.m_NewMap_QuitUIScript;
         public InputActionMap Get() { return m_Wrapper.m_NewMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -375,6 +398,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Restart.started += instance.OnRestart;
             @Restart.performed += instance.OnRestart;
             @Restart.canceled += instance.OnRestart;
+            @QuitUIScript.started += instance.OnQuitUIScript;
+            @QuitUIScript.performed += instance.OnQuitUIScript;
+            @QuitUIScript.canceled += instance.OnQuitUIScript;
         }
 
         private void UnregisterCallbacks(INewMapActions instance)
@@ -400,6 +426,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Restart.started -= instance.OnRestart;
             @Restart.performed -= instance.OnRestart;
             @Restart.canceled -= instance.OnRestart;
+            @QuitUIScript.started -= instance.OnQuitUIScript;
+            @QuitUIScript.performed -= instance.OnQuitUIScript;
+            @QuitUIScript.canceled -= instance.OnQuitUIScript;
         }
 
         public void RemoveCallbacks(INewMapActions instance)
@@ -435,5 +464,6 @@ public partial class @Control: IInputActionCollection2, IDisposable
         void OnObjectInteraction(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+        void OnQuitUIScript(InputAction.CallbackContext context);
     }
 }

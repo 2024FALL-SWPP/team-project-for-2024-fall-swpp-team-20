@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: isJumping = false when only collision with plane
         isJumping = false;
-        Debug.Log("Collision with something");
     }
 
 
@@ -198,6 +197,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnQuitUIScript(InputAction.CallbackContext value)
+    {
+        if (value.ReadValue<float>() > 0 && GameManager.GetInstance().GetState() == GameState.Playing)
+        {
+            GameManager.GetInstance().um.HideCharacterScript();
+        }
+    }
+
     public void EnableInput()
     {
         control.Enable();
@@ -209,6 +216,7 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.performed += OnRotate;
         control.NewMap.Rotate.canceled += OnRotateCanceled;
         control.NewMap.Restart.performed += OnRestart;
+        control.NewMap.QuitUIScript.performed += OnQuitUIScript;
     }
 
     public void DisableInput()
@@ -220,6 +228,8 @@ public class PlayerController : MonoBehaviour
         control.NewMap.BedInteraction.performed -= OnBedInteraction;
         control.NewMap.Rotate.performed -= OnRotate;
         control.NewMap.Rotate.canceled -= OnRotateCanceled;
+        control.NewMap.Restart.performed -= OnRestart;
+        control.NewMap.QuitUIScript.performed -= OnQuitUIScript;
         control.Disable();
     }
 

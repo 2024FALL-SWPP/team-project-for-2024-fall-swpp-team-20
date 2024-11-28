@@ -29,5 +29,8 @@ public class LandscapeManager : MonoBehaviour
             float exposureValue = stage * 0.1f;
             RenderSettings.skybox.SetFloat("_Exposure", exposureValue);
         }
+
+        float ambientIntensity = 0.5f + (stage * 0.1f);
+        RenderSettings.ambientIntensity = ambientIntensity;
     }
 }

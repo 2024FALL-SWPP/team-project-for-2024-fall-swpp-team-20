@@ -120,7 +120,7 @@ public class MapController : MonoBehaviour
             if (anomaly is HardAnomaly)
             {
                 HardAnomaly ha = anomaly as HardAnomaly;
-                ha.SetHardAnomalyCodeForLaptop();
+                ha.SetHardAnomalyCode();
             }
         }
     }
