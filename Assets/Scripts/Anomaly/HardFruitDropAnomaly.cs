@@ -10,7 +10,9 @@ public class HardFruitDropAnomaly : HardAnomaly
     public override void Apply(GameObject map)
     {
         GameManager.GetInstance().um.ShowHealthImage();
-        FruitDropAnimationController fruitDropAnimationController = map.GetComponent<FruitDropAnimationController>();
+        GameObject fruitDropAnimationControllerObject = new GameObject("FruitDropAnimationController");
+        fruitDropAnimationControllerObject.transform.SetParent(map.transform);
+        FruitDropAnimationController fruitDropAnimationController = fruitDropAnimationControllerObject.AddComponent<FruitDropAnimationController>();
         fruitDropAnimationController.StartFruitDropAnimation(map);
     }
 }

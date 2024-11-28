@@ -11,6 +11,7 @@ public class EasyBusHandleAnomaly : Anomaly
         for (int i = 0; i < 4; i++)
         {
             busHandles[i] = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("bus_handle (" + i + ")").gameObject;
+            busHandles[i].SetActive(true);
         }
         foreach (GameObject busHandle in busHandles)
         {
