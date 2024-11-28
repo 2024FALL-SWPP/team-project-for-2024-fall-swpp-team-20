@@ -21,6 +21,12 @@ public class PlayerInformation : MonoBehaviour
         if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Fruit")) HurtPlayer(10);
+        Destroy(other.gameObject);
+    }
+
     // HurtPlayer can be used whenever If needed
     private void HurtPlayer(float damage)
     {
