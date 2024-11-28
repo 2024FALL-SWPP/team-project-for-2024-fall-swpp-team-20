@@ -6,14 +6,15 @@ public class FruitDropAnimationController : MonoBehaviour
     public GameObject[] fruitPrefabs;
     private GameObject randomFruit;
     public GameObject[] floors;
+    private GameObject fruits;
+
     public void StartFruitDropAnimation(GameObject map)
     {
-        StartCoroutine(DropFruit(map));
+        StartCoroutine(FruitDropAnimation(map));
     }
-
-    private IEnumerator DropFruit(GameObject map)
+    public IEnumerator FruitDropAnimation(GameObject map)
     {
-        GameObject fruits = map.transform.Find("Fruits").gameObject;
+        fruits = map.transform.Find("Fruits").gameObject;
 
         fruitPrefabs = new GameObject[fruits.transform.childCount];
 
@@ -32,26 +33,32 @@ public class FruitDropAnimationController : MonoBehaviour
 
         while (true)
         {
-            randomFruit = fruitPrefabs[Random.Range(0, fruitPrefabs.Length)];
-
-            GameObject randomFloor = floors[Random.Range(0, floors.Length)];
-
-            Debug.Log(floors.Length);
-            Debug.Log(randomFloor==null);
-
-            Vector3 randomPosition = new Vector3(
-                randomFloor.transform.position.x,
-                fruits.transform.position.y,
-                randomFloor.transform.position.z
-            );
-
-            GameObject randomFruitinstace =  Instantiate(randomFruit, randomPosition, Quaternion.identity);
-            
-            yield return new WaitForSeconds(1);
-
-            if(randomFruitinstace) randomFruitinstace.GetComponent<Rigidbody>().useGravity = true;
-
-            yield return new WaitForSeconds(1);
+            StartCoroutine(DropFruit(map));
+            yield return new WaitForSeconds(0.3f);
         }
+    }
+
+    private IEnumerator DropFruit(GameObject map)
+    {
+        randomFruit = fruitPrefabs[Random.Range(0, fruitPrefabs.Length)];
+
+        GameObject randomFloor = floors[Random.Range(0, floors.Length)];
+
+        Debug.Log(floors.Length);
+        Debug.Log(randomFloor==null);
+
+        Vector3 randomPosition = new Vector3(
+            randomFloor.transform.position.x,
+            fruits.transform.position.y,
+            randomFloor.transform.position.z
+        );
+
+        GameObject randomFruitinstace =  Instantiate(randomFruit, randomPosition, Quaternion.identity);
+        
+        yield return new WaitForSeconds(1);
+
+        if(randomFruitinstace) randomFruitinstace.GetComponent<Rigidbody>().useGravity = true;
+
+        yield return new WaitForSeconds(1);
     }
 }

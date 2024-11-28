@@ -4318,7 +4318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4823282745987962542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.559, z: 0}
+  m_LocalPosition: {x: 0, y: 3.405, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9428,6 +9428,18 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4964727409231289085, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964727409231289085, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964727409231289085, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964727409231289085, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -9470,6 +9482,10 @@ PrefabInstance:
     - target: {fileID: 5741405537855078471, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
       propertyPath: m_Name
       value: Sausage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741405537855078471, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7195142124011413020, guid: f74eb5c269068cb499a802976d78fbf6, type: 3}
       propertyPath: m_Convex
@@ -9724,6 +9740,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7479134469769332437, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479134469769332437, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479134469769332437, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479134469769332437, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -9766,6 +9794,10 @@ PrefabInstance:
     - target: {fileID: 7818505689269754991, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
       propertyPath: m_Name
       value: Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818505689269754991, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a4c9f3001043546b781534d3533f26, type: 3}
@@ -13214,9 +13246,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cheese
       objectReference: {fileID: 0}
+    - target: {fileID: 2848573781198614769, guid: e98f79512a57aa340a1b28d316ca2d14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3225697110131599947, guid: e98f79512a57aa340a1b28d316ca2d14, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225697110131599947, guid: e98f79512a57aa340a1b28d316ca2d14, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225697110131599947, guid: e98f79512a57aa340a1b28d316ca2d14, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225697110131599947, guid: e98f79512a57aa340a1b28d316ca2d14, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3225697110131599947, guid: e98f79512a57aa340a1b28d316ca2d14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15846,9 +15894,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato
       objectReference: {fileID: 0}
+    - target: {fileID: 1572623814440851627, guid: 8fd2428df9a94524a9967ba9ee37eee5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2204729353338700305, guid: 8fd2428df9a94524a9967ba9ee37eee5, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204729353338700305, guid: 8fd2428df9a94524a9967ba9ee37eee5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204729353338700305, guid: 8fd2428df9a94524a9967ba9ee37eee5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204729353338700305, guid: 8fd2428df9a94524a9967ba9ee37eee5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2204729353338700305, guid: 8fd2428df9a94524a9967ba9ee37eee5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16157,9 +16221,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumpkin
       objectReference: {fileID: 0}
+    - target: {fileID: 7288200207156559271, guid: d17e74e20171f28448c135743547f5bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7957636060095112989, guid: d17e74e20171f28448c135743547f5bf, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957636060095112989, guid: d17e74e20171f28448c135743547f5bf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957636060095112989, guid: d17e74e20171f28448c135743547f5bf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957636060095112989, guid: d17e74e20171f28448c135743547f5bf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7957636060095112989, guid: d17e74e20171f28448c135743547f5bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50566,6 +50646,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1678573433726113449, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678573433726113449, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678573433726113449, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678573433726113449, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -50608,6 +50700,10 @@ PrefabInstance:
     - target: {fileID: 2017802884612574227, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
       propertyPath: m_Name
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017802884612574227, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8186901158356947314, guid: f6f9d33bcfd48ab4b8c8c544247eb415, type: 3}
       propertyPath: m_Convex
