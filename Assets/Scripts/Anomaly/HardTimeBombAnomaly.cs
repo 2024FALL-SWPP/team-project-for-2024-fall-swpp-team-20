@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class HardTimeBombAnomaly : HardAnomaly
 {
-    private string password = "1234";
     public override void Apply(GameObject map)
     {
         laptop = map.transform.Find("Interior").Find("2nd Floor").
@@ -19,8 +18,9 @@ public class HardTimeBombAnomaly : HardAnomaly
         timeBomb.SetActive(true);
 
         GameManager.GetInstance().um.ShowTimerImage();
-        TimerAnimationController timerAnimationController = timeBomb.GetComponent<TimerAnimationController>();
-        timerAnimationController.StartTimerAnimation();
+        TimeBombAnimationController timerAnimationController = timeBomb.GetComponent<TimeBombAnimationController>();
+        timerAnimationController.StartTimeBombAnimation(timeBomb);
+        GameManager.GetInstance().sm.PlayTimeBombWarningSound(timeBomb);
     }
 
     public override void SetHardAnomalyCode()

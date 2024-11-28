@@ -53,6 +53,7 @@ public class StageManager : MonoBehaviour
         GameManager.GetInstance().um.HideEverything();
         // Reset Player position, scale and Information
         player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
+        player.transform.localScale = 1.2f * Vector3.one;
         // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 
