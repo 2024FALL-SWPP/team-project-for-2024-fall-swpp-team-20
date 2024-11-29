@@ -45,7 +45,7 @@ public class FruitDropAnimationController : MonoBehaviour
         GameObject randomFloor = floors[Random.Range(0, floors.Length)];
 
         Debug.Log(floors.Length);
-        Debug.Log(randomFloor==null);
+        Debug.Log(randomFloor == null);
 
         Vector3 randomPosition = new Vector3(
             randomFloor.transform.position.x,
@@ -53,11 +53,11 @@ public class FruitDropAnimationController : MonoBehaviour
             randomFloor.transform.position.z
         );
 
-        GameObject randomFruitinstace =  Instantiate(randomFruit, randomPosition, Quaternion.identity);
-        
+        GameObject randomFruitinstace = Instantiate(randomFruit, randomPosition, Quaternion.identity);
+
         yield return new WaitForSeconds(1);
 
-        if(randomFruitinstace) randomFruitinstace.GetComponent<Rigidbody>().useGravity = true;
+        if (randomFruitinstace) randomFruitinstace.GetComponent<Rigidbody>().useGravity = true;
 
         yield return new WaitForSeconds(1);
     }
