@@ -12,7 +12,7 @@ public class HardLavaAnomaly : HardAnomaly
             Find("Apartment_01").Find("Props").Find("laptop").GetComponent<Laptop>();
         lava.SetActive(true);
         GameManager.GetInstance().um.ShowHealthImage();
-        GameManager.GetInstance().player.transform.localScale = 0.05f * Vector3.one;
+        GameManager.GetInstance().player.GetComponent<PlayerController>().SetTransform(SpawnPosition.Lava);
         RemoveOriginalObjects();
     }
 

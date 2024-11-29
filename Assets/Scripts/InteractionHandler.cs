@@ -24,7 +24,8 @@ public class InteractionHandler : MonoBehaviour
     {
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+            GameObject target = hit.collider.gameObject;
+            if (target.layer == LayerMask.NameToLayer("Interactable") && target.GetComponent<IInteractable>().IsInteractable())
             {
                 if (!immInteractable)
                 {

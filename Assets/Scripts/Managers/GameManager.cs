@@ -26,17 +26,25 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
-    public static GameManager GetInstance()
+    public static GameManager GetInstance() {
+        if (instance == null)
+        {
+            Debug.LogError("There should be an GameObject object");
+            return null;
+        }
+        else return instance;
+    }
+
+    private void Awake()
     {
         if (instance == null)
         {
-            instance = new GameObject("GameManager").AddComponent<GameManager>();
-            DontDestroyOnLoad(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(this);
             instance.Initialize();
         }
-        return instance;
+        else Destroy(this);
     }
-
 
     private void Initialize()
     {

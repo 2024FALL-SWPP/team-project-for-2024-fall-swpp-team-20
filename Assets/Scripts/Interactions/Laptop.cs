@@ -13,12 +13,8 @@ public class Laptop : MonoBehaviour, IInteractable
     public Material[] anomalyMaterialSet;
     public Renderer screen;
 
-
-
-
     private float[] waitingTimes = { 1f, 0.7f, 0.5f, 0.3f, 0.2f };
 
-    // anomalyCode for laptop: 0 if no anomaly, 1 if laptop anomaly
     private bool inAnomaly = false;
 
     private bool power = false;

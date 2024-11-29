@@ -52,7 +52,10 @@ public class StageManager : MonoBehaviour
         // Reset UI
         GameManager.GetInstance().um.HideEverything();
         // Reset Player position, scale and Information
-        player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
+        //player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
+        PlayerController pc = player.GetComponent<PlayerController>();
+        pc.SetTransform(SpawnPosition.Original);
+        pc.SetCameraClippingPlanes(0.3f);
         // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 

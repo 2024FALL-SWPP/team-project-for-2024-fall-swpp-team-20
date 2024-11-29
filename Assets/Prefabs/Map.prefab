@@ -16653,6 +16653,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chess_Board_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 5058161828459047115, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6791023195854448688, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -16704,6 +16708,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6791023195854448688, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}
   m_PrefabInstance: {fileID: 8224648076609647497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5439369419427572388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4134115837993851181, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}
+  m_PrefabInstance: {fileID: 8224648076609647497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8957838470282770290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439369419427572388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.50374985, y: 0.14190239, z: 0.4917841}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8878868940330516983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439369419427572388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7e43b3969f8b84b995232e33a5f75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8224648076610401248
 PrefabInstance:
   m_ObjectHideFlags: 0

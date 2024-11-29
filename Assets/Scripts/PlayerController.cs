@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum SpawnPosition { 
+    Original,
+    Lava,
+    Chessboard,
+}
 public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDirection;
@@ -17,7 +22,6 @@ public class PlayerController : MonoBehaviour
     public float mouseDeltaX;
 
     public float jumpForce;
-    private float deltaTime;
 
     private bool isJumping;
 
@@ -28,8 +32,35 @@ public class PlayerController : MonoBehaviour
 
     private Control control;
 
+    [SerializeField] private SpawnPositions spawnPositions;
     //private GameState State => GameManager.instance.state;
 
+    public void SetTransform(SpawnPosition positionCode) {
+        TransformSet targetTransform = null;
+
+        switch (positionCode) { 
+            case SpawnPosition.Original:
+                targetTransform = spawnPositions.originalSpawn;
+                break;
+            case SpawnPosition.Lava:
+                targetTransform = spawnPositions.lavaSpawn;
+                break;
+            case SpawnPosition.Chessboard:
+                targetTransform = spawnPositions.chessboardSpawn;
+                break;
+            default:
+                break;
+        }
+
+        transform.localPosition = targetTransform.localPosition;
+        transform.rotation = Quaternion.Euler(targetTransform.eulerRotation);
+        transform.localScale = targetTransform.scale;
+    }
+
+    public void SetCameraClippingPlanes(float plain) {
+        Camera camera = GetComponentInChildren<Camera>();
+        camera.nearClipPlane = plain;
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -54,10 +85,6 @@ public class PlayerController : MonoBehaviour
         SetMove(false);
     }
     // Update is called once per frame
-    void Update()
-    {
-        deltaTime = Time.deltaTime;
-    }
 
     private void FixedUpdate()
     {
