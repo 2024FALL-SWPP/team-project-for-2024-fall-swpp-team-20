@@ -31,6 +31,9 @@ public class HardLavaAnomaly : HardAnomaly
             Object.Destroy(platform);
         }
     }
-
+    public override HardAnomalyCode GetHardAnomalyCode()
+    {
+        return HardAnomalyCode.Lava;
+    }
 
 }

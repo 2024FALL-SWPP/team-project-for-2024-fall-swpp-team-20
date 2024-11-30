@@ -176,6 +176,9 @@ public class UIManager : MonoBehaviour
             case HardAnomalyCode.Chess:
                 characterScript.text = "Hmm.. I wanna play some chess game..";
                 break;
+            case HardAnomalyCode.Chessboard:
+                characterScript.text = "Kill all the chess pieces!\nMouse click to shoot\nDon't get hit by them!";
+                break;
             default:
                 break;
         }

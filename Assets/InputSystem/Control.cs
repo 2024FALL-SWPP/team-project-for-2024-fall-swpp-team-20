@@ -98,6 +98,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""81d8788d-358f-438b-8bb6-7e303c1f1d92"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -254,6 +263,17 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""QuitUIScript"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""607ad432-8cc3-45af-b5c2-0001f86dd1da"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -287,6 +307,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         m_NewMap_Pause = m_NewMap.FindAction("Pause", throwIfNotFound: true);
         m_NewMap_Restart = m_NewMap.FindAction("Restart", throwIfNotFound: true);
         m_NewMap_QuitUIScript = m_NewMap.FindAction("QuitUIScript", throwIfNotFound: true);
+        m_NewMap_Attack = m_NewMap.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +377,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputAction m_NewMap_Pause;
     private readonly InputAction m_NewMap_Restart;
     private readonly InputAction m_NewMap_QuitUIScript;
+    private readonly InputAction m_NewMap_Attack;
     public struct NewMapActions
     {
         private @Control m_Wrapper;
@@ -368,6 +390,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_NewMap_Pause;
         public InputAction @Restart => m_Wrapper.m_NewMap_Restart;
         public InputAction @QuitUIScript => m_Wrapper.m_NewMap_QuitUIScript;
+        public InputAction @Attack => m_Wrapper.m_NewMap_Attack;
         public InputActionMap Get() { return m_Wrapper.m_NewMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +424,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @QuitUIScript.started += instance.OnQuitUIScript;
             @QuitUIScript.performed += instance.OnQuitUIScript;
             @QuitUIScript.canceled += instance.OnQuitUIScript;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(INewMapActions instance)
@@ -429,6 +455,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @QuitUIScript.started -= instance.OnQuitUIScript;
             @QuitUIScript.performed -= instance.OnQuitUIScript;
             @QuitUIScript.canceled -= instance.OnQuitUIScript;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(INewMapActions instance)
@@ -465,5 +494,6 @@ public partial class @Control: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
         void OnQuitUIScript(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

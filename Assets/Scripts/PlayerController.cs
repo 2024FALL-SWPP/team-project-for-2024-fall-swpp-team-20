@@ -28,13 +28,15 @@ public class PlayerController : MonoBehaviour
 
     public bool canSleep;
     private bool inBedRange;
-    private bool inHardAnomaly;
+    private HardAnomalyCode currentAnomaly;
 
     private Control control;
 
     [SerializeField] private SpawnPositions spawnPositions;
     //private GameState State => GameManager.instance.state;
 
+
+    private InteractionHandler interactionHandler;
     public void SetTransform(SpawnPosition positionCode) {
         TransformSet targetTransform = null;
 
@@ -247,6 +249,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnAttack(InputAction.CallbackContext value) {
+        if (currentAnomaly != HardAnomalyCode.Chessboard) return;
+        if (interactionHandler == null) interactionHandler = GetComponentInChildren<InteractionHandler>();
+        interactionHandler.Attack();
+    }
+
     public void EnableInput()
     {
         control.Enable();
@@ -259,6 +267,7 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.canceled += OnRotateCanceled;
         control.NewMap.Restart.performed += OnRestart;
         control.NewMap.QuitUIScript.performed += OnQuitUIScript;
+        control.NewMap.Attack.performed += OnAttack;
     }
 
     public void DisableInput()
@@ -272,12 +281,13 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.canceled -= OnRotateCanceled;
         control.NewMap.Restart.performed -= OnRestart;
         control.NewMap.QuitUIScript.performed -= OnQuitUIScript;
+        control.NewMap.Attack.performed -= OnAttack;
         control.Disable();
     }
 
     private bool ActuallyCanSleep()
     {
-        return canSleep && inBedRange && !inHardAnomaly;
+        return canSleep && inBedRange && (currentAnomaly == HardAnomalyCode.NotInHard);
     }
 
     public void SetSleep(bool available)
@@ -296,5 +306,6 @@ public class PlayerController : MonoBehaviour
     {
         canMove = available;
     }
-    public void SetAnomalyType(bool hard) => inHardAnomaly = hard;
+
+    public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
 }

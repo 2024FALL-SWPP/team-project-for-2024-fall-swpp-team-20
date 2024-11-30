@@ -21,8 +21,9 @@ public class Chessboard : MonoBehaviour, IInteractable
         pc.SetTransform(SpawnPosition.Chessboard);
         pc.SetCameraClippingPlanes(0.02f);
         pc.SetPhysical(SpawnPosition.Chessboard);
+        pc.SetAnomalyType(HardAnomalyCode.Chessboard);
         GameManager.GetInstance().um.ShowHealthImage();
-        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chess);
+        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chessboard);
         foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>()) {
             pawn.Activate();
         }

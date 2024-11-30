@@ -61,7 +61,7 @@ public class StageManager : MonoBehaviour
         pi.Initialize();
 
         // Create new stage map and inform player about it is hard anomaly or not
-        bool hard = mc.GenerateMap(haveAnomaly, stage);
+        HardAnomalyCode hard = mc.GenerateMap(haveAnomaly, stage);
 
         if (stage == 7)
         {

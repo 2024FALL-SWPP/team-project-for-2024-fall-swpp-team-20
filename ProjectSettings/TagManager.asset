@@ -13,6 +13,12 @@ TagManager:
   - Lava
   - LavaPlatform
   - Goal
+  - Pawn
+  - Knight
+  - Bishop
+  - Rook
+  - Queen
+  - King
   layers:
   - Default
   - TransparentFX

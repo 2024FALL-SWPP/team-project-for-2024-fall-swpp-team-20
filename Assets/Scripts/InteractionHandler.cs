@@ -8,6 +8,8 @@ public class InteractionHandler : MonoBehaviour
     private int layerMask;
     private RaycastHit hit;
 
+    [SerializeField] private GameObject bulletPrefab;
+
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
@@ -63,5 +65,11 @@ public class InteractionHandler : MonoBehaviour
     {
         immInteractable = false;
         GameManager.GetInstance().um.HideInteractionInfo();
+    }
+
+    public void Attack() {
+        Vector3 direction = transform.forward;
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        // move bullet with coroutine or rigidbody
     }
 }

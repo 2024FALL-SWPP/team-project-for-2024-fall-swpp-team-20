@@ -9,6 +9,8 @@ public class PlayerInformation : MonoBehaviour
 
     private Coroutine hurt;
 
+    private bool invince = false;
+
     // Reset player data whenever a stage starts
     public void Initialize()
     {
@@ -19,7 +21,15 @@ public class PlayerInformation : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
+        if (!invince && other.gameObject.CompareTag("Pawn"))
+        {
+            HurtPlayer(5);
+            invince = true;
+            Invoke(nameof(RemoveInvincibility), 2);
+        }
     }
+
+    private void RemoveInvincibility() => invince = false;
 
     // HurtPlayer can be used whenever If needed
     private void HurtPlayer(float damage)

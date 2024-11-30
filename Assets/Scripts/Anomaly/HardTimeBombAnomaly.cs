@@ -33,4 +33,8 @@ public class HardTimeBombAnomaly : HardAnomaly
         GameManager.GetInstance().um.HideTimerImage();
         GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.Sleep);
     }
+    public override HardAnomalyCode GetHardAnomalyCode()
+    {
+        return HardAnomalyCode.TimeBomb;
+    }
 }

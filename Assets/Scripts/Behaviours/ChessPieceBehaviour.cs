@@ -8,6 +8,8 @@ public class ChessPieceBehaviour : MonoBehaviour
     public static int DeadPawnCount = 0;
     public static int DeadPieceCount = 0;
 
+    public const float spotSize = 0.0609f;
+
     public GameObject healthBar;
 
     private Vector3 healthbarPos;

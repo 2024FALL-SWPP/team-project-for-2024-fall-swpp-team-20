@@ -17,4 +17,8 @@ public class HardChessAnomaly : HardAnomaly
     {
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chess);
     }
+
+    public override HardAnomalyCode GetHardAnomalyCode() {
+        return HardAnomalyCode.Chess;
+    }
 }
