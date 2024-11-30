@@ -5,8 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SpawnPositions", order = 1)]
 public class SpawnPositions : ScriptableObject
 {
+    public float origialMoveSpeed = 4;
+    public float originalJumpForce = 180;
+
+    public float chessMoveSpeed = 7;
+    public float chessJumpForce = 20;
+
+
     public TransformSet chessboardSpawn = new TransformSet(
-        new Vector3(4.873f, 0.904f, -0.777f),
+        new Vector3(4.93f, 0.904f, -0.777f),
         new Vector3(0, 90, 0),
         new Vector3(0.05f, 0.05f, 0.05f)
         );

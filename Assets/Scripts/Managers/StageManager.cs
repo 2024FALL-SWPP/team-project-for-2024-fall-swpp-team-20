@@ -56,6 +56,7 @@ public class StageManager : MonoBehaviour
         PlayerController pc = player.GetComponent<PlayerController>();
         pc.SetTransform(SpawnPosition.Original);
         pc.SetCameraClippingPlanes(0.3f);
+        pc.SetPhysical(SpawnPosition.Original);
         // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 

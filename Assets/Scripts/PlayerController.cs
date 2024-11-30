@@ -52,9 +52,24 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        transform.localPosition = targetTransform.localPosition;
+        transform.position = targetTransform.localPosition;
         transform.rotation = Quaternion.Euler(targetTransform.eulerRotation);
         transform.localScale = targetTransform.scale;
+    }
+
+    public void SetPhysical(SpawnPosition positionCode) {
+        switch (positionCode) {
+            case SpawnPosition.Original:
+                moveSpeed = spawnPositions.origialMoveSpeed;
+                jumpForce = spawnPositions.originalJumpForce;
+                break;
+            case SpawnPosition.Chessboard:
+                moveSpeed = spawnPositions.chessMoveSpeed;
+                jumpForce = spawnPositions.chessJumpForce;
+                break;
+            default:
+                break;
+        }
     }
 
     public void SetCameraClippingPlanes(float plain) {

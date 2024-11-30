@@ -16,7 +16,8 @@ public class Chessboard : MonoBehaviour, IInteractable
         chessboard.transform.Find("Chess_Board").Find("Black").gameObject.SetActive(false);
         PlayerController pc = player.GetComponent<PlayerController>();
         pc.SetTransform(SpawnPosition.Chessboard);
-        pc.SetCameraClippingPlanes(0.02f);       
+        pc.SetCameraClippingPlanes(0.02f);
+        pc.SetPhysical(SpawnPosition.Chessboard);
     }
 
     public bool IsInteractable() {
