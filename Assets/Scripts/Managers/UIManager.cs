@@ -173,6 +173,9 @@ public class UIManager : MonoBehaviour
             case HardAnomalyCode.TimeBomb:
                 characterScript.text = "Time Bomb is ticking!";
                 break;
+            case HardAnomalyCode.ReverseMap:
+                characterScript.text = "Map is reversed! You should go back to the bed!";
+                break;
             case HardAnomalyCode.FruitDrop:
                 characterScript.text = "Fruit is dropping! You might get hurt!";
                 break;
