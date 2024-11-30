@@ -6,10 +6,10 @@ using UnityEngine;
 public class SpawnPositions : ScriptableObject
 {
     public float origialMoveSpeed = 4;
-    public float originalJumpForce = 180;
+    public float originalJumpForce = 200;
 
     public float chessMoveSpeed = 7;
-    public float chessJumpForce = 20;
+    public float chessJumpForce = 60;
 
 
     public TransformSet chessboardSpawn = new TransformSet(

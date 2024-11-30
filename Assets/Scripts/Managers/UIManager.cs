@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     private RawImage[] cursorImage;
     private GameObject characterScriptPanel;
     private Text characterScript;
-
     public void Initialize()
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
@@ -122,6 +121,7 @@ public class UIManager : MonoBehaviour
     {
         this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
     }
+
 
     public void ShowTimerImage() => timerText.enabled = true;
     public void HideTimerImage() => timerText.enabled = false;
