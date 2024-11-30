@@ -23,6 +23,7 @@ public class PlayerInformation : MonoBehaviour
         if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
         if (!invince && other.gameObject.CompareTag("Pawn"))
         {
+            if (!other.GetComponent<ChessPieceBehaviour>().GetActivated()) return;
             HurtPlayer(5);
             invince = true;
             Invoke(nameof(RemoveInvincibility), 2);

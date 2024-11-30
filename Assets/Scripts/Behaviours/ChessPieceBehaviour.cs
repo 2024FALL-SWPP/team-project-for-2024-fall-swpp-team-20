@@ -16,7 +16,7 @@ public class ChessPieceBehaviour : MonoBehaviour
     private Vector3 cameraPos;
 
     public int health;
-    public bool activated = false;
+    private bool activated = false;
 
     public int pieceCode;
 
@@ -39,4 +39,6 @@ public class ChessPieceBehaviour : MonoBehaviour
         float degree = Mathf.Rad2Deg * Mathf.Atan2(cameraPos.z - healthbarPos.z, healthbarPos.x - cameraPos.x);
         healthBar.transform.rotation = Quaternion.Euler(Vector3.up * degree);
     }
+
+    public bool GetActivated() => activated;
 }
