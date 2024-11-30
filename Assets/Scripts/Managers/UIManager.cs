@@ -175,6 +175,8 @@ public class UIManager : MonoBehaviour
                 break;
             case HardAnomalyCode.ReverseMap:
                 characterScript.text = "Map is reversed! You should go back to the bed!";
+            case HardAnomalyCode.FruitDrop:
+                characterScript.text = "Fruit is dropping! You might get hurt!";
                 break;
             default:
                 break;

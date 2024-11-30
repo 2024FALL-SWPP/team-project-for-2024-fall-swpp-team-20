@@ -7,6 +7,7 @@ public enum HardAnomalyCode
     Lava,
     TimeBomb,
     ReverseMap,
+    FruitDrop,
 }
 
 public abstract class HardAnomaly : Anomaly
