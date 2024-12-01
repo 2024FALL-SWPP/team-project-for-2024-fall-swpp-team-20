@@ -15,6 +15,7 @@ TagManager:
   - Goal
   - ChessWalls
   - ChessPiece
+  - RealLine
   layers:
   - Default
   - TransparentFX

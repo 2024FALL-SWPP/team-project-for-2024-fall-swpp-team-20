@@ -19162,6 +19162,10 @@ MonoBehaviour:
   activated: 0
   pieceCode: 10
   damage: 0
+  pos1: 5
+  pos2: 7
+  guidelinePrefab: {fileID: 6521130049327237542, guid: 17ee01e9208aedd4a8d674c6dfa58ddc, type: 3}
+  reallinePrefab: {fileID: 6521130049327237542, guid: f817962dcaadd464193ec6b1ae6a6895, type: 3}
 --- !u!1 &6098779045138928100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2774471233460298349, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}
@@ -19198,6 +19202,8 @@ MonoBehaviour:
   activated: 0
   pieceCode: 14
   damage: 0
+  pos1: 4
+  pos2: 7
 --- !u!4 &7055852562349270369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1425597485412341480, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}
@@ -19485,6 +19491,10 @@ MonoBehaviour:
   activated: 0
   pieceCode: 11
   damage: 0
+  pos1: 2
+  pos2: 7
+  guidelinePrefab: {fileID: 6521130049327237542, guid: 17ee01e9208aedd4a8d674c6dfa58ddc, type: 3}
+  reallinePrefab: {fileID: 6521130049327237542, guid: f817962dcaadd464193ec6b1ae6a6895, type: 3}
 --- !u!4 &8866131377126893898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 660061409203002051, guid: 04530b01cfbd5f044a2cc04ba39e91df, type: 3}

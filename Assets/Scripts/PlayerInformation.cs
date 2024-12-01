@@ -20,14 +20,22 @@ public class PlayerInformation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
-        if (!invince && other.gameObject.CompareTag("ChessPiece"))
+        if (!invince)
         {
-            ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
-            if (!cpb.activated) return;
-            HurtPlayer(cpb.damage);
-            invince = true;
-            Invoke(nameof(RemoveInvincibility), 2);
+            if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
+            if ( other.gameObject.CompareTag("ChessPiece"))
+            {
+                ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
+                if (!cpb.activated) return;
+                HurtPlayer(cpb.damage);
+                invince = true;
+                Invoke(nameof(RemoveInvincibility), 2);
+            }
+            if (other.gameObject.CompareTag("RealLine")) { // Bishop and Queen's attack
+                HurtPlayer(10);
+                invince = true;
+                Invoke(nameof(RemoveInvincibility), 2);
+            }
         }
     }
 

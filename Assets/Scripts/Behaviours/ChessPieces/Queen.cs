@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Queen : ChessPieceBehaviour
 {
+    public (int, int) chessPosition;
+    public int pos1;
+    public int pos2;
     public override void Attack()
     {
         Debug.Log("Queen Attacks");
@@ -24,6 +27,7 @@ public class Queen : ChessPieceBehaviour
         maxHealth = 10;
         health = maxHealth;
         damage = 10;
+        chessPosition = (pos1, pos2);
         StartCoroutine(AttackCoroutine());
     }
     private void OnDestroy()
