@@ -71,10 +71,4 @@ public class Pawn : ChessPieceBehaviour
         return Vector3.Magnitude(direction);
     }
 
-    private Vector3 GetDirection() {
-        Vector3 playerPos = GetPlayer2DPosition();
-        Vector3 piecePos = transform.position;
-        piecePos.y = 0f;
-        return playerPos - piecePos;
-    }
 }

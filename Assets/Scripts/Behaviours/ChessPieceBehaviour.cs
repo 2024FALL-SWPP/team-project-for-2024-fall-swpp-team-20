@@ -56,4 +56,12 @@ public class ChessPieceBehaviour : MonoBehaviour
         playerPos.y = 0;
         return playerPos;
     }
+
+    public Vector3 GetDirection()
+    {
+        Vector3 playerPos = GetPlayer2DPosition();
+        Vector3 piecePos = transform.position;
+        piecePos.y = 0f;
+        return playerPos - piecePos;
+    }
 }

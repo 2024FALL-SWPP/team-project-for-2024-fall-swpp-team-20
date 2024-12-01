@@ -24,7 +24,7 @@ public class Knight : ChessPieceBehaviour
         float movingTime = 2f;
         while (time < movingTime)
         {
-            time += Time.fixedDeltaTime;
+            time += Time.deltaTime;
             transform.position = GetPosition(time, initialPos, direction, movingTime);
             yield return null;
         }
@@ -70,13 +70,6 @@ public class Knight : ChessPieceBehaviour
         return Vector3.Magnitude(direction);
     }
 
-    private Vector3 GetDirection()
-    {
-        Vector3 playerPos = GetPlayer2DPosition();
-        Vector3 piecePos = transform.position;
-        piecePos.y = 0f;
-        return playerPos - piecePos;
-    }
 
     private Vector3 GetPosition(float time, Vector3 initial, Vector3 direction, float movingTime) {
         Vector3 position = initial + time * direction / movingTime + Vector3.up * -acceleration * time * (time - movingTime);
