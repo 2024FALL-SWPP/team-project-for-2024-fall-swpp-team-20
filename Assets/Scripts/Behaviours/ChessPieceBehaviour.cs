@@ -64,4 +64,10 @@ public class ChessPieceBehaviour : MonoBehaviour
         piecePos.y = 0f;
         return playerPos - piecePos;
     }
+
+    public float CalculateDistanceFromPlayer(out Vector3 direction)
+    {
+        direction = GetDirection();
+        return Vector3.Magnitude(direction);
+    }
 }

@@ -20,26 +20,25 @@ public class Pawn : ChessPieceBehaviour
         }
     }
     private IEnumerator MoveToPlayer(Vector3 direction) {
+        Vector3 initialPos = transform.position;
         float time = 0;
-        float deltaTime;
         while (time < 0.5f) {
-            deltaTime = Time.fixedDeltaTime;
-            time += deltaTime;
-            transform.Translate(direction * deltaTime);
+            time += Time.deltaTime;
+            transform.position = initialPos + direction * (time / 0.5f);
             yield return null;
         }
-        transform.Translate(direction * (0.5f - time));
+        transform.position = initialPos + direction;
     }
     private IEnumerator MoveForward() {
+        Vector3 initialPos = transform.position;
+        Vector3 direction = Vector3.left * spotSize;
         float time = 0;
-        float deltaTime;
         while (time < 0.5f) {
-            deltaTime = Time.fixedDeltaTime;
-            time += deltaTime;
-            transform.Translate(-2 * deltaTime * spotSize * Vector3.right, Space.World);
+            time += Time.deltaTime;
+            transform.position = initialPos + direction * (time / 0.5f);
             yield return null;
         }
-        transform.Translate((time - 0.5f) * spotSize * Vector3.right, Space.World);
+        transform.position = initialPos + direction;
     }
     private IEnumerator AttackCoroutine() {
         yield return new WaitForSeconds(Random.Range(1f, 6f));
@@ -66,9 +65,6 @@ public class Pawn : ChessPieceBehaviour
         }
     }
 
-    private float CalculateDistanceFromPlayer(out Vector3 direction) {
-        direction = GetDirection();
-        return Vector3.Magnitude(direction);
-    }
+ 
 
 }
