@@ -13,12 +13,8 @@ TagManager:
   - Lava
   - LavaPlatform
   - Goal
-  - Pawn
-  - Knight
-  - Bishop
-  - Rook
-  - Queen
-  - King
+  - ChessWalls
+  - ChessPiece
   layers:
   - Default
   - TransparentFX

@@ -16,11 +16,14 @@ public class ChessPieceBehaviour : MonoBehaviour
     private Vector3 cameraPos;
 
     public int health;
-    private bool activated = false;
+    public int maxHealth;
+    public bool activated = false;
 
     public int pieceCode;
 
-    public virtual void Attack(Vector3 playerPos) { }
+    public int damage;
+
+    public virtual void Attack() { }
 
     public virtual void Activate() {
         healthBar = transform.GetChild(0).gameObject;
@@ -37,8 +40,20 @@ public class ChessPieceBehaviour : MonoBehaviour
         if (healthbarPos.x == cameraPos.x) return;
 
         float degree = Mathf.Rad2Deg * Mathf.Atan2(cameraPos.z - healthbarPos.z, healthbarPos.x - cameraPos.x);
-        healthBar.transform.rotation = Quaternion.Euler(Vector3.up * degree);
+        transform.rotation = Quaternion.Euler(Vector3.up * degree);
     }
 
-    public bool GetActivated() => activated;
+    public void Hurt(int damage) {
+        health -= damage;
+        if (health <= 0) Destroy(gameObject);
+        else {
+            healthBar.transform.localScale = new Vector3(1, 1, (float)health / maxHealth);
+        }
+    }
+
+    public Vector3 GetPlayer2DPosition() { 
+        Vector3 playerPos = GameManager.GetInstance().player.transform.position;
+        playerPos.y = 0;
+        return playerPos;
+    }
 }

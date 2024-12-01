@@ -1416,9 +1416,9 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 10
   mouseDeltaX: 0
-  jumpForce: 150
+  jumpForce: 180
   canSleep: 0
-  spawnPositions: {fileID: 0}
+  spawnPositions: {fileID: 11400000, guid: 735de4cd15669294480e8153dfa1305d, type: 2}
 --- !u!136 &397972244
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2166,6 +2166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
+  bulletPrefab: {fileID: 5796379698728612155, guid: 7fc6667856906fd43b42f577fc5ae796, type: 3}
 --- !u!1 &6611031357870047880
 GameObject:
   m_ObjectHideFlags: 0

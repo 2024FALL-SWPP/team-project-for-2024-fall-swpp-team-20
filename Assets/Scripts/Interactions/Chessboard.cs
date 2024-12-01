@@ -18,10 +18,10 @@ public class Chessboard : MonoBehaviour, IInteractable
         GameObject white = chessboard.transform.Find("Chess_Board").Find("White").gameObject;
         black.SetActive(false);
         PlayerController pc = player.GetComponent<PlayerController>();
-        pc.SetTransform(SpawnPosition.Chessboard);
-        pc.SetCameraClippingPlanes(0.02f);
-        pc.SetPhysical(SpawnPosition.Chessboard);
+        InteractionHandler handler = player.GetComponentInChildren<InteractionHandler>();
+        pc.SetPlayerController(SpawnPosition.Chessboard);
         pc.SetAnomalyType(HardAnomalyCode.Chessboard);
+        handler.SetMouseClickAction(1);
         GameManager.GetInstance().um.ShowHealthImage();
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chessboard);
         foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>()) {

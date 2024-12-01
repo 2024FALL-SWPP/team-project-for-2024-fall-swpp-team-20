@@ -7,6 +7,7 @@ public enum GameState
 {
     Playing,
     Pause,
+    ReadingScript,
     GameOver,
     GameClear
 }
@@ -88,6 +89,8 @@ public class GameManager : MonoBehaviour
     public void Play() => state = GameState.Playing;
 
     public void GameOver() => state = GameState.GameOver;
+
+    public void ReadScript() => state = GameState.ReadingScript;
 
     public GameState GetState() => state;
 

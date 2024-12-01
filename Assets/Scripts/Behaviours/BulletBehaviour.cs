@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    private List<string> chessPieces =new List<string> { "Pawn", "Knight", "Bishop", "Rook", "Queen", "King" };
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float speed;
 
     private void OnTriggerEnter(Collider other)
     {
         string tag = other.tag;
-        if (chessPieces.Contains(tag)){ 
-            // damage to piece if it is activated
+        if (other.CompareTag("ChessPiece"))
+        {
+            ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
+            if (!cpb.activated) return;
+            cpb.Hurt(1);
+            Destroy(gameObject);
         }
+        else if (tag == "ChessWalls") Destroy(gameObject);
+    }
+
+    public void Shoot(Vector3 direction) { 
+        rb.velocity = speed * direction;
     }
 }

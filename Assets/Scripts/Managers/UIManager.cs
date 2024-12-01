@@ -163,6 +163,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowCharacterScript(HardAnomalyCode code)
     {
+        GameManager.GetInstance().ReadScript();
         characterScriptPanel.SetActive(true);
         characterScript.text = "";
         switch (code)

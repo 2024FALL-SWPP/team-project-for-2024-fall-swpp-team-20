@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bishop : ChessPieceBehaviour
 {
-    private const int maxHealth = 5;
-    public override void Attack(Vector3 playerPos)
+    public override void Attack()
     {
         Debug.Log("Bishop Attacks");
     }
@@ -14,7 +13,7 @@ public class Bishop : ChessPieceBehaviour
         Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
         while (true)
         {
-            Attack(playerPos);
+            Attack();
             yield return new WaitForSeconds(4f);
         }
     }
@@ -22,12 +21,14 @@ public class Bishop : ChessPieceBehaviour
     public override void Activate()
     {
         base.Activate();
+        maxHealth = 5;
         health = maxHealth;
+        damage = 10;
         StartCoroutine(AttackCoroutine());
     }
     private void OnDestroy()
     {
-        DeadPieceCount++;
+        if (health == 0) DeadPieceCount++;
     }
 
     public override void Update()

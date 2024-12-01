@@ -39,7 +39,9 @@ public class CameraController : MonoBehaviour
 
     public void OnObjectInteractionPerformed(InputAction.CallbackContext value)
     {
-        interactionHandler.HandleInteraction();
+        if (GameManager.GetInstance().GetState() != GameState.Playing) return;
+        Debug.Log("Object interaction performed");
+        interactionHandler.onMouseClick();
     }
 
     // Update is called once per frame

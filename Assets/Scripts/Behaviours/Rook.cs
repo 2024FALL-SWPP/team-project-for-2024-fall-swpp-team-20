@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Rook : ChessPieceBehaviour
 {
-    private const int maxHealth = 5;
-    public override void Attack(Vector3 playerPos)
+    public override void Attack()
     {
         Debug.Log("Rook attacks");
     }
@@ -15,20 +14,22 @@ public class Rook : ChessPieceBehaviour
         Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(4, 6));
-            Attack(playerPos);
+            yield return new WaitForSeconds(Random.Range(3, 7));
+            Attack();
         }
     }
 
     public override void Activate()
     {
         base.Activate();
+        maxHealth = 5;
         health = maxHealth;
+        damage = 10;
         StartCoroutine(AttackCoroutine());
     }
     private void OnDestroy()
     {
-        DeadPieceCount++;
+        if (health == 0) DeadPieceCount++;
     }
 
     public override void Update()

@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class King : ChessPieceBehaviour
 {
-    private const int maxHealth = 20;
-    public override void Attack(Vector3 playerPos)
+    public override void Attack()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("King attacks");
     }
     private IEnumerator AttackCoroutine()
     {
         Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
         while (true)
         {
-            Attack(playerPos);
+            Attack();
             yield return new WaitForSeconds(4f);
         }
     }
 
+    private void OnDestroy()
+    {
+        if (health == 0) { 
+            // Do Something
+        }
+    }
     public override void Activate()
     {
         base.Activate();
+        maxHealth = 20;
         health = maxHealth;
+        damage = 15;
         StartCoroutine(AttackCoroutine());
     }
 

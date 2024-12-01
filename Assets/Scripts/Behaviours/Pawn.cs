@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Pawn : ChessPieceBehaviour
 {
-    private const int maxHealth = 3;
     private int movedCount;
 
-    public override void Attack(Vector3 playerPos)
+
+    public override void Attack()
     {
-        Debug.Log("Pawn Attacks");
         if (CalculateDistanceFromPlayer(out Vector3 direction) < Mathf.Sqrt(2) * spotSize)
         {
             StartCoroutine(MoveToPlayer(direction));
@@ -43,25 +42,28 @@ public class Pawn : ChessPieceBehaviour
         transform.Translate((time - 0.5f) * spotSize * Vector3.right, Space.World);
     }
     private IEnumerator AttackCoroutine() {
-        Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
         yield return new WaitForSeconds(Random.Range(1f, 6f));
-        Attack(playerPos);
+        Attack();
         while (true) {
             yield return new WaitForSeconds(Random.Range(3f, 6f));
-            Attack(playerPos);
+            Attack();
         }
     }
 
     public override void Activate() {
         base.Activate();
+        maxHealth = 3;
         health = maxHealth;
+        damage = 5;
         StartCoroutine(AttackCoroutine());
-        Debug.Log($"My transform.position: {transform.position.z}");
     }
 
     private void OnDestroy() {
-        DeadPawnCount++;
-        DeadPieceCount++;
+        if (health == 0)
+        {
+            DeadPawnCount++;
+            DeadPieceCount++;
+        }
     }
 
     private float CalculateDistanceFromPlayer(out Vector3 direction) {
@@ -70,8 +72,7 @@ public class Pawn : ChessPieceBehaviour
     }
 
     private Vector3 GetDirection() {
-        Vector3 playerPos = GameManager.GetInstance().player.transform.position;
-        playerPos.y = 0f;
+        Vector3 playerPos = GetPlayer2DPosition();
         Vector3 piecePos = transform.position;
         piecePos.y = 0f;
         return playerPos - piecePos;

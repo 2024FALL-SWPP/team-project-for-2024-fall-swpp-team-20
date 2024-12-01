@@ -35,8 +35,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpawnPositions spawnPositions;
     //private GameState State => GameManager.instance.state;
 
+    public void SetPlayerController(SpawnPosition positionCode) {
+        SetTransform(positionCode);
+        SetCameraClippingPlanes(positionCode);
+        SetPhysical(positionCode);
+    }
 
-    private InteractionHandler interactionHandler;
     public void SetTransform(SpawnPosition positionCode) {
         TransformSet targetTransform = null;
 
@@ -62,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public void SetPhysical(SpawnPosition positionCode) {
         switch (positionCode) {
             case SpawnPosition.Original:
+            case SpawnPosition.Lava:
                 moveSpeed = spawnPositions.origialMoveSpeed;
                 jumpForce = spawnPositions.originalJumpForce;
                 break;
@@ -74,9 +79,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetCameraClippingPlanes(float plain) {
+    public void SetCameraClippingPlanes(SpawnPosition positionCode) {
         Camera camera = GetComponentInChildren<Camera>();
-        camera.nearClipPlane = plain;
+        float plane = positionCode switch {
+            SpawnPosition.Original => 0.3f,
+            SpawnPosition.Lava => 0.3f,
+            SpawnPosition.Chessboard => 0.02f,
+            _ => 0.3f
+        };
+        camera.nearClipPlane = plane;
     }
     private void Start()
     {
@@ -243,17 +254,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnQuitUIScript(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0 && GameManager.GetInstance().GetState() == GameState.Playing)
+        if (value.ReadValue<float>() > 0 && GameManager.GetInstance().GetState() == GameState.ReadingScript)
         {
+            GameManager.GetInstance().Play();
             GameManager.GetInstance().um.HideCharacterScript();
         }
     }
 
-    public void OnAttack(InputAction.CallbackContext value) {
-        if (currentAnomaly != HardAnomalyCode.Chessboard) return;
-        if (interactionHandler == null) interactionHandler = GetComponentInChildren<InteractionHandler>();
-        interactionHandler.Attack();
-    }
+    
 
     public void EnableInput()
     {
@@ -267,7 +275,7 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.canceled += OnRotateCanceled;
         control.NewMap.Restart.performed += OnRestart;
         control.NewMap.QuitUIScript.performed += OnQuitUIScript;
-        control.NewMap.Attack.performed += OnAttack;
+
     }
 
     public void DisableInput()
@@ -281,7 +289,7 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.canceled -= OnRotateCanceled;
         control.NewMap.Restart.performed -= OnRestart;
         control.NewMap.QuitUIScript.performed -= OnQuitUIScript;
-        control.NewMap.Attack.performed -= OnAttack;
+
         control.Disable();
     }
 

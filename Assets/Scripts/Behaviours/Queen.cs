@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Queen : ChessPieceBehaviour
 {
-    private const int maxHealth = 10;
-    public override void Attack(Vector3 playerPos)
+    public override void Attack()
     {
         Debug.Log("Queen Attacks");
     }
@@ -14,7 +13,7 @@ public class Queen : ChessPieceBehaviour
         Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
         while (true)
         {
-            Attack(playerPos);
+            Attack();
             yield return new WaitForSeconds(4f);
         }
     }
@@ -22,16 +21,22 @@ public class Queen : ChessPieceBehaviour
     public override void Activate()
     {
         base.Activate();
+        maxHealth = 10;
         health = maxHealth;
+        damage = 10;
         StartCoroutine(AttackCoroutine());
     }
     private void OnDestroy()
     {
-        DeadPieceCount++;
+        if (health == 0)
+        {
+            DeadPieceCount++;
+        }
     }
 
     public override void Update()
     {
+        Debug.Log(DeadPawnCount);
         if (DeadPawnCount == 8 && !activated) Activate();
         base.Update();
     }

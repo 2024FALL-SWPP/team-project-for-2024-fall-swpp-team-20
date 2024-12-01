@@ -54,9 +54,7 @@ public class StageManager : MonoBehaviour
         // Reset Player position, scale and Information
         //player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
         PlayerController pc = player.GetComponent<PlayerController>();
-        pc.SetTransform(SpawnPosition.Original);
-        pc.SetCameraClippingPlanes(0.3f);
-        pc.SetPhysical(SpawnPosition.Original);
+        pc.SetPlayerController(SpawnPosition.Original);
         // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 
@@ -72,6 +70,7 @@ public class StageManager : MonoBehaviour
         pc.SetAnomalyType(hard);
         // Set time
         ToggleActionAvailability(true);
+        interactionHandler.SetMouseClickAction(0);
         landscapeManager.ChangeLandscape(stage);
 
         Cursor.lockState = CursorLockMode.Locked;

@@ -10,11 +10,27 @@ public class InteractionHandler : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
 
+    public delegate void OnMouseClick();
+    public OnMouseClick onMouseClick;
+
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
         immInteractable = false;
         canInteract = false;
+    }
+
+    public void SetMouseClickAction(int actionCode) {
+        switch (actionCode) {
+            case 0:
+                onMouseClick = HandleInteraction;
+                break;
+            case 1:
+                onMouseClick = Attack;
+                break;
+            default:
+                break;
+        }
     }
 
     public void SetInteract(bool value)
@@ -70,6 +86,7 @@ public class InteractionHandler : MonoBehaviour
     public void Attack() {
         Vector3 direction = transform.forward;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        // move bullet with coroutine or rigidbody
+        BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
+        bulletBehaviour.Shoot(direction);
     }
 }
