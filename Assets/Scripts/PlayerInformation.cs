@@ -62,17 +62,17 @@ public class PlayerInformation : MonoBehaviour
         }
     }
 
-    // HurtPlayerByHeat is used in only lava anomaly.
-    public void HurtPlayerByHeat()
+    // DOT Damage
+    public void HurtPlayerByDOT(float damage)
     {
-        hurt = StartCoroutine(HurtPlayerByHeat2());
+        hurt = StartCoroutine(HurtPlayerByDOT2(damage));
     }
 
-    public IEnumerator HurtPlayerByHeat2()
+    public IEnumerator HurtPlayerByDOT2(float damage)
     {
         while (true)
         {
-            HurtPlayer(0.5f);
+            HurtPlayer(damage);
             yield return new WaitForSeconds(0.25f);
         }
     }
