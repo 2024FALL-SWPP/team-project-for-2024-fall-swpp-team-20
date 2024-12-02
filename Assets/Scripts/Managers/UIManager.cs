@@ -180,6 +180,12 @@ public class UIManager : MonoBehaviour
             case HardAnomalyCode.Chessboard:
                 characterScript.text = "Kill all the chess pieces!\nMouse click to shoot\nDon't get hit by them!";
                 break;
+            case HardAnomalyCode.ReverseMap:
+                characterScript.text = "Map is reversed! You should go back to the bed!";
+                break;
+            case HardAnomalyCode.FruitDrop:
+                characterScript.text = "Fruit is dropping! You might get hurt!";
+                break;
             default:
                 break;
         }

@@ -16,11 +16,13 @@ TagManager:
   - ChessWalls
   - ChessPiece
   - RealLine
+  - Fruit
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Interactable

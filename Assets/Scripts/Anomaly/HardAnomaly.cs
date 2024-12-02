@@ -7,6 +7,8 @@ public enum HardAnomalyCode
     NotInHard,
     Lava,
     TimeBomb,
+    ReverseMap,
+    FruitDrop,
     Chess,
     Chessboard
 }
