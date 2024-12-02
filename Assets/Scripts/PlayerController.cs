@@ -136,14 +136,36 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
+        if (isJumping)
         {
-            // 접촉 면의 법선 벡터의 Y 값이 일정 값 이하이면 측면 충돌로 간주
-            if (Mathf.Abs(contact.normal.y) < 0.3f)
+            foreach (ContactPoint contact in collision.contacts)
             {
-                isTouchingSide = true;
-                break;
+                // 플레이어의 전방 벡터와 충돌한 콜라이더의 법선 벡터를 비교하여 측면 충돌을 감지
+                Vector3 forward = transform.forward;
+                if (Vector3.Dot(forward, contact.normal) < -0.5f)
+                {
+                    isTouchingSide = true;
+                    return; // 측면 충돌을 감지하면 더 이상 반복할 필요 없음
+                }
             }
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (isJumping)
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                // 플레이어의 전방 벡터와 충돌한 콜라이더의 법선 벡터를 비교하여 측면 충돌을 감지
+                Vector3 forward = transform.forward;
+                if (Vector3.Dot(forward, contact.normal) < -0.5f)
+                {
+                    isTouchingSide = true;
+                    return; // 측면 충돌을 감지하면 더 이상 반복할 필요 없음
+                }
+            }
+            isTouchingSide = false; // 측면 충돌이 없으면 false로 설정
         }
     }
 
