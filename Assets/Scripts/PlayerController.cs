@@ -71,18 +71,20 @@ public class PlayerController : MonoBehaviour
             Vector3 velocity = rb.velocity;
             Vector3 desiredVelocity = moveSpeed * worldMoveDirection;
 
+            Vector3 velocityChange = new Vector3(desiredVelocity.x - velocity.x, 0f, desiredVelocity.z - velocity.z);
+
             // 공중에 있고 측면에 붙어 있을 때 수평 이동을 제한
             if (isJumping && isTouchingSide)
             {
-                desiredVelocity = Vector3.zero;
+                velocityChange = Vector3.zero;
             }
 
-            Vector3 velocityChange = new Vector3(desiredVelocity.x - velocity.x, 0f, desiredVelocity.z - velocity.z);
             rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
             transform.Rotate(0.01f * rotateSpeed * mouseDeltaX * Vector3.up);
 
             isJumping = !IsGrounded();
+            Debug.Log(isTouchingSide);
         }
     }
 
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             // 접촉 면의 법선 벡터의 Y 값이 일정 값 이하이면 측면 충돌로 간주
-            if (Mathf.Abs(contact.normal.y) < 0.1f)
+            if (Mathf.Abs(contact.normal.y) < 0.2f)
             {
                 isTouchingSide = true;
                 break;
