@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove = false;
 
-    public float moveSpeed;
+    public float moveSpeed = 10f; // 원하는 속도로 증가
     public float rotateSpeed;
     public float mouseDeltaX;
 
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private float deltaTime;
 
     private bool isJumping;
-
+    private bool isTouchingSide = false;
 
     public bool canSleep;
     private bool inBedRange;
@@ -63,13 +63,35 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
+            if (moveDirection.magnitude > 0)
+                worldMoveDirection = transform.TransformVector(new Vector3(moveDirection.x, 0f, moveDirection.y).normalized);
+            else
+                worldMoveDirection = Vector3.zero;
 
-            if (moveDirection.magnitude > 0) worldMoveDirection = transform.TransformVector(new Vector3(moveDirection.x, 0f, moveDirection.y));
-            else worldMoveDirection = Vector3.zero;
-            //transform.Translate(0.01f * moveSpeed * new Vector3(moveDirection.x, 0, moveDirection.y), Space.Self);
-            rb.velocity = moveSpeed * worldMoveDirection + Vector3.up * rb.velocity.y;
+            Vector3 velocity = rb.velocity;
+            Vector3 desiredVelocity = moveSpeed * worldMoveDirection;
+
+            Vector3 velocityChange = new Vector3(desiredVelocity.x - velocity.x, 0f, desiredVelocity.z - velocity.z);
+
+            // 공중에 있고 측면에 붙어 있을 때 수평 이동을 제한
+            if (isJumping && isTouchingSide)
+            {
+                velocityChange = Vector3.zero;
+            }
+
+            rb.AddForce(velocityChange, ForceMode.VelocityChange);
+
             transform.Rotate(0.01f * rotateSpeed * mouseDeltaX * Vector3.up);
+
+            isJumping = !IsGrounded();
+            Debug.Log(isTouchingSide);
         }
+    }
+
+    private bool IsGrounded()
+    {
+        float distanceToGround = 0.1f;
+        return Physics.Raycast(transform.position, Vector3.down, distanceToGround);
     }
 
     public void OnMove(InputAction.CallbackContext value)
@@ -114,10 +136,35 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //TODO: isJumping = false when only collision with plane
-        isJumping = false;
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            // 접촉 면의 법선 벡터의 Y 값이 일정 값 이하이면 측면 충돌로 간주
+            if (Mathf.Abs(contact.normal.y) < 0.3f)
+            {
+                isTouchingSide = true;
+                return; // 측면 충돌을 감지하면 더 이상 반복할 필요 없음
+            }
+        }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            // 접촉 면의 법선 벡터의 Y 값이 일정 값 이하이면 측면 충돌로 간주
+            if (Mathf.Abs(contact.normal.y) < 0.3f)
+            {
+                isTouchingSide = true;
+                return; // 측면 충돌을 감지하면 더 이상 반복할 필요 없음
+            }
+        }
+        isTouchingSide = false; // 측면 충돌이 없으면 false로 설정
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isTouchingSide = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
