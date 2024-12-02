@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             // 접촉 면의 법선 벡터의 Y 값이 일정 값 이하이면 측면 충돌로 간주
-            if (Mathf.Abs(contact.normal.y) < 0.2f)
+            if (Mathf.Abs(contact.normal.y) < 0.3f)
             {
                 isTouchingSide = true;
                 break;
