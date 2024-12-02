@@ -1025,8 +1025,7 @@ PrefabInstance:
       propertyPath: m_projectionMatrixMode
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6009316235446641553, guid: fa620f32374b177479521cec5bb1460b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa620f32374b177479521cec5bb1460b, type: 3}
 --- !u!1 &295003454 stripped
 GameObject:
@@ -1315,7 +1314,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 397972234}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.25136048
   m_Height: 1.7354277
   m_Direction: 1
