@@ -100,22 +100,24 @@ public class StageManager : MonoBehaviour
         if (sleep && haveAnomaly)
         {
             Fail();
+            //SceneManager.LoadScene("SleepScene");
             InitializeStage(currentStage); //TODO
         }
         else if (!sleep && !haveAnomaly)
         {
             Fail();
-            SceneManager.LoadScene("AnomalyFalseWakeupScene");
+            SceneManager.LoadScene("WakeupFalseScene");
         }
         else if (sleep && !haveAnomaly)
         {
             Succeed();
+            //SceneManager.LoadScene("SleepScene");
             InitializeStage(currentStage); //TODO
         }
         else if (!sleep && haveAnomaly)
         {
             Succeed();
-            SceneManager.LoadScene("AnomalyTrueWakeupScene");
+            SceneManager.LoadScene("WakeupTrueScene");
         }
         GameManager.GetInstance().prevStage = currentStage;
     }
