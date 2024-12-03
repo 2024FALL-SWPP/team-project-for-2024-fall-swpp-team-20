@@ -7,6 +7,7 @@ public enum GameState
 {
     Playing,
     Pause,
+    ReadingScript,
     GameOver,
     GameClear
 }
@@ -30,13 +31,22 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = new GameObject("GameManager").AddComponent<GameManager>();
-            DontDestroyOnLoad(instance.gameObject);
-            instance.Initialize();
+            Debug.LogError("There should be an GameObject object");
+            return null;
         }
-        return instance;
+        else return instance;
     }
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+            instance.Initialize();
+        }
+        else Destroy(this);
+    }
 
     private void Initialize()
     {
@@ -80,6 +90,8 @@ public class GameManager : MonoBehaviour
     public void Play() => state = GameState.Playing;
 
     public void GameOver() => state = GameState.GameOver;
+
+    public void ReadScript() => state = GameState.ReadingScript;
 
     public GameState GetState() => state;
 

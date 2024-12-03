@@ -98,7 +98,7 @@ public class NegativeBoxColliderWindow : EditorWindow
     }
     #endregion
 
-    #region 
+    #region
     private void Log(string content)
     {
         Debug.Log($"<color=cyan>[WAV Easy Volume Editor]</color> {content}");

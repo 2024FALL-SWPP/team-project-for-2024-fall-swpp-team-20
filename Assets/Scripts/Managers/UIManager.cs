@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     private RawImage[] cursorImage;
     private GameObject characterScriptPanel;
     private Text characterScript;
-
     public void Initialize()
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
@@ -123,6 +122,7 @@ public class UIManager : MonoBehaviour
         this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
     }
 
+
     public void ShowTimerImage() => timerText.enabled = true;
     public void HideTimerImage() => timerText.enabled = false;
     public void SetTimerText(int min, int sec) => timerText.text = $"{min:D2}:{sec:D2}";
@@ -163,6 +163,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowCharacterScript(HardAnomalyCode code)
     {
+        GameManager.GetInstance().ReadScript();
         characterScriptPanel.SetActive(true);
         characterScript.text = "";
         switch (code)
@@ -172,6 +173,12 @@ public class UIManager : MonoBehaviour
                 break;
             case HardAnomalyCode.TimeBomb:
                 characterScript.text = "Time Bomb is ticking!";
+                break;
+            case HardAnomalyCode.Chess:
+                characterScript.text = "Hmm.. I wanna play some chess game..";
+                break;
+            case HardAnomalyCode.Chessboard:
+                characterScript.text = "Kill all the chess pieces!\nMouse click to shoot\nDon't get hit by them!";
                 break;
             case HardAnomalyCode.ReverseMap:
                 characterScript.text = "Map is reversed! You should go back to the bed!";

@@ -71,7 +71,7 @@ public class MapController : MonoBehaviour
     }
 
     // returns current anomaly is hard or not
-    public bool GenerateMap(bool haveAnomaly, int stage)
+    public HardAnomalyCode GenerateMap(bool haveAnomaly, int stage)
     {
         CleanupCurrentMap();
         Anomaly anomaly = null;
@@ -81,7 +81,7 @@ public class MapController : MonoBehaviour
             currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             Debug.Log($"Stage {stage}: No Anomaly");
-            return false;
+            return HardAnomalyCode.NotInHard;
         }
         else
         {
@@ -106,8 +106,8 @@ public class MapController : MonoBehaviour
             }
 
             SetAnomaly(anomaly);
-            if (anomaly == null) return false;
-            return anomaly is HardAnomaly;
+            if (anomaly == null) return HardAnomalyCode.NotInHard;
+            return (anomaly as HardAnomaly).GetHardAnomalyCode();
         }
     }
 

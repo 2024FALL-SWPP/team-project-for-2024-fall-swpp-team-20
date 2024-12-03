@@ -19,4 +19,9 @@ public class HardFruitDropAnomaly : HardAnomaly
         FruitDropAnimationController fruitDropAnimationController = fruitDropAnimationControllerObject.AddComponent<FruitDropAnimationController>();
         fruitDropAnimationController.StartFruitDropAnimation(map);
     }
+
+    public override HardAnomalyCode GetHardAnomalyCode()
+    {
+        return HardAnomalyCode.FruitDrop;
+    }
 }

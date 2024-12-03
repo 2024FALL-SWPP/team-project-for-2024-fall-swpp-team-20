@@ -15,4 +15,9 @@ public class HardReverseMapAnomaly : HardAnomaly
     {
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.ReverseMap);
     }
+
+    public override HardAnomalyCode GetHardAnomalyCode()
+    {
+        return HardAnomalyCode.FruitDrop;
+    }
 }

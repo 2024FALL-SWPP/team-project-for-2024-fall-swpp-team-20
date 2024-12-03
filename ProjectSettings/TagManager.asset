@@ -13,6 +13,9 @@ TagManager:
   - Lava
   - LavaPlatform
   - Goal
+  - ChessWalls
+  - ChessPiece
+  - RealLine
   - Fruit
   - Floor
   layers:

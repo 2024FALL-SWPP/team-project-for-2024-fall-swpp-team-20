@@ -52,13 +52,14 @@ public class StageManager : MonoBehaviour
         // Reset UI
         GameManager.GetInstance().um.HideEverything();
         // Reset Player position, scale and Information
-        player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
-        player.transform.localScale = 1.2f * Vector3.one;
+        //player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
+        PlayerController pc = player.GetComponent<PlayerController>();
+        pc.SetPlayerController(SpawnPosition.Original);
         // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 
         // Create new stage map and inform player about it is hard anomaly or not
-        bool hard = mc.GenerateMap(haveAnomaly, stage);
+        HardAnomalyCode hard = mc.GenerateMap(haveAnomaly, stage);
 
         if (stage == 7)
         {
@@ -69,6 +70,7 @@ public class StageManager : MonoBehaviour
         pc.SetAnomalyType(hard);
         // Set time
         ToggleActionAvailability(true);
+        interactionHandler.SetMouseClickAction(0);
         landscapeManager.ChangeLandscape(stage);
 
         Cursor.lockState = CursorLockMode.Locked;

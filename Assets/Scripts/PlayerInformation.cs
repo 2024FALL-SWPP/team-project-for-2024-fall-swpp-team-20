@@ -9,6 +9,8 @@ public class PlayerInformation : MonoBehaviour
 
     private Coroutine hurt;
 
+    private bool invince = false;
+
     // Reset player data whenever a stage starts
     public void Initialize()
     {
@@ -18,8 +20,27 @@ public class PlayerInformation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
+        if (!invince)
+        {
+            if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
+            if (other.gameObject.CompareTag("ChessPiece"))
+            {
+                ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
+                if (!cpb.activated) return;
+                HurtPlayer(cpb.damage);
+                invince = true;
+                Invoke(nameof(RemoveInvincibility), 2);
+            }
+            if (other.gameObject.CompareTag("RealLine"))
+            { // Bishop and Queen's attack
+                HurtPlayer(10);
+                invince = true;
+                Invoke(nameof(RemoveInvincibility), 2);
+            }
+        }
     }
+
+    private void RemoveInvincibility() => invince = false;
 
     private void OnTriggerEnter(Collider other)
     {

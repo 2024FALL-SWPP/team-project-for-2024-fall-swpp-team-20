@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum SpawnPosition
+{
+    Original,
+    Lava,
+    Chessboard,
+}
 public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDirection;
@@ -17,19 +23,80 @@ public class PlayerController : MonoBehaviour
     public float mouseDeltaX;
 
     public float jumpForce;
-    private float deltaTime;
 
     private bool isJumping;
     private bool isTouchingSide = false;
 
     public bool canSleep;
     private bool inBedRange;
-    private bool inHardAnomaly;
+    private HardAnomalyCode currentAnomaly;
 
     private Control control;
 
+    [SerializeField] private SpawnPositions spawnPositions;
     //private GameState State => GameManager.instance.state;
 
+    public void SetPlayerController(SpawnPosition positionCode)
+    {
+        SetTransform(positionCode);
+        SetCameraClippingPlanes(positionCode);
+        SetPhysical(positionCode);
+    }
+
+    public void SetTransform(SpawnPosition positionCode)
+    {
+        TransformSet targetTransform = null;
+
+        switch (positionCode)
+        {
+            case SpawnPosition.Original:
+                targetTransform = spawnPositions.originalSpawn;
+                break;
+            case SpawnPosition.Lava:
+                targetTransform = spawnPositions.lavaSpawn;
+                break;
+            case SpawnPosition.Chessboard:
+                targetTransform = spawnPositions.chessboardSpawn;
+                break;
+            default:
+                break;
+        }
+
+        transform.position = targetTransform.localPosition;
+        transform.rotation = Quaternion.Euler(targetTransform.eulerRotation);
+        transform.localScale = targetTransform.scale;
+    }
+
+    public void SetPhysical(SpawnPosition positionCode)
+    {
+        switch (positionCode)
+        {
+            case SpawnPosition.Original:
+            case SpawnPosition.Lava:
+                moveSpeed = spawnPositions.origialMoveSpeed;
+                jumpForce = spawnPositions.originalJumpForce;
+                break;
+            case SpawnPosition.Chessboard:
+                moveSpeed = spawnPositions.chessMoveSpeed;
+                jumpForce = spawnPositions.chessJumpForce;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SetCameraClippingPlanes(SpawnPosition positionCode)
+    {
+        Camera camera = GetComponentInChildren<Camera>();
+        float plane = positionCode switch
+        {
+            SpawnPosition.Original => 0.3f,
+            SpawnPosition.Lava => 0.3f,
+            SpawnPosition.Chessboard => 0.02f,
+            _ => 0.3f
+        };
+        camera.nearClipPlane = plane;
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -54,10 +121,6 @@ public class PlayerController : MonoBehaviour
         SetMove(false);
     }
     // Update is called once per frame
-    void Update()
-    {
-        deltaTime = Time.deltaTime;
-    }
 
     private void FixedUpdate()
     {
@@ -246,11 +309,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnQuitUIScript(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0 && GameManager.GetInstance().GetState() == GameState.Playing)
+        if (value.ReadValue<float>() > 0 && GameManager.GetInstance().GetState() == GameState.ReadingScript)
         {
+            GameManager.GetInstance().Play();
             GameManager.GetInstance().um.HideCharacterScript();
         }
     }
+
+
 
     public void EnableInput()
     {
@@ -264,6 +330,7 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.canceled += OnRotateCanceled;
         control.NewMap.Restart.performed += OnRestart;
         control.NewMap.QuitUIScript.performed += OnQuitUIScript;
+
     }
 
     public void DisableInput()
@@ -277,12 +344,13 @@ public class PlayerController : MonoBehaviour
         control.NewMap.Rotate.canceled -= OnRotateCanceled;
         control.NewMap.Restart.performed -= OnRestart;
         control.NewMap.QuitUIScript.performed -= OnQuitUIScript;
+
         control.Disable();
     }
 
     private bool ActuallyCanSleep()
     {
-        return canSleep && inBedRange && !inHardAnomaly;
+        return canSleep && inBedRange && (currentAnomaly == HardAnomalyCode.NotInHard);
     }
 
     public void SetSleep(bool available)
@@ -301,5 +369,6 @@ public class PlayerController : MonoBehaviour
     {
         canMove = available;
     }
-    public void SetAnomalyType(bool hard) => inHardAnomaly = hard;
+
+    public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
 }
