@@ -10,7 +10,8 @@ public enum HardAnomalyCode
     ReverseMap,
     FruitDrop,
     Chess,
-    Chessboard
+    Chessboard,
+    Visibility
 }
 
 public abstract class HardAnomaly : Anomaly

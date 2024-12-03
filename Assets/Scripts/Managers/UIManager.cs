@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     private RawImage[] cursorImage;
     private GameObject characterScriptPanel;
     private Text characterScript;
+    private GameObject cover;
     public void Initialize()
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
             passwordField = canvasTransform.Find("passwordField").GetComponent<InputField>();
             characterScriptPanel = canvasTransform.Find("CharacterScriptPanel").gameObject;
             characterScript = characterScriptPanel.GetComponentInChildren<Text>();
+            cover = canvasTransform.Find("Cover").gameObject;
         }
         HideEverything();
     }
@@ -161,6 +163,8 @@ public class UIManager : MonoBehaviour
         trialText.text = $"Trial: {trialCount}";
     }
 
+    public void ShowCover() => cover.SetActive(true);
+    public void HideCover() => cover.SetActive(false);
     public void ShowCharacterScript(HardAnomalyCode code)
     {
         GameManager.GetInstance().ReadScript();
@@ -186,6 +190,9 @@ public class UIManager : MonoBehaviour
             case HardAnomalyCode.FruitDrop:
                 characterScript.text = "Fruit is dropping! You might get hurt!";
                 break;
+            case HardAnomalyCode.Visibility:
+                characterScript.text = "Why can't I see anything?! maybe I just need to go sleep again..";
+                break;
             default:
                 break;
         }
@@ -208,6 +215,7 @@ public class UIManager : MonoBehaviour
         HideTimerImage();
         HidePasswordInputField();
         HideCharacterScript();
+        HideCover();
     }
 
     // For Watching Laptop

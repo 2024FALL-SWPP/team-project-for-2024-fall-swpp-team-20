@@ -225,7 +225,6 @@ public class Queen : ChessPieceBehaviour
 
     public override void Update()
     {
-        Debug.Log(DeadPawnCount);
         if (DeadPawnCount == 8 && !activated) Activate();
         base.Update();
     }

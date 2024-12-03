@@ -10,7 +10,7 @@ public class LavaBehaviour : MonoBehaviour
     {
         initialPosX = transform.position.x;
         pi = FindAnyObjectByType<PlayerInformation>();
-        pi.HurtPlayerByHeat();
+        pi.HurtPlayerByDOT(0.5f);
     }
 
 
