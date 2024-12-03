@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.Diagnostics;
 
 public class InstallGitHooks
@@ -8,3 +10,5 @@ public class InstallGitHooks
         Process.Start("git", "config --local include.path ../.gitconfig");
     }
 }
+
+#endif
