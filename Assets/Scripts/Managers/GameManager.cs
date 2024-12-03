@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
-    public static GameManager GetInstance() {
+    public static GameManager GetInstance()
+    {
         if (instance == null)
         {
             Debug.LogError("There should be an GameObject object");
