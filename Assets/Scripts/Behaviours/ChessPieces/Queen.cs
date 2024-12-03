@@ -15,7 +15,6 @@ public class Queen : ChessPieceBehaviour
     public override void Attack()
     {
         (int, int) targetPos = GetPossiblePos(chessPosition);
-        Debug.Log(targetPos);
 
         StartCoroutine(MoveAndAttack(targetPos));
     }
@@ -24,7 +23,6 @@ public class Queen : ChessPieceBehaviour
     {
         Vector3 direction = ChessPosToWorldPos(targetPos) - ChessPosToWorldPos(chessPosition);
         float movingTime = Vector3.Magnitude(direction) / speed;
-        Debug.Log(movingTime);
         float time = 0f;
         while (time < movingTime)
         {
@@ -156,7 +154,6 @@ public class Queen : ChessPieceBehaviour
         {
             while (RearrangeVector(positions[i], i, out positions[i]))
             {
-                Debug.Log("candidate position: " + positions[i]);
                 validPositions.Add(positions[i]);
             }
         }
@@ -225,7 +222,6 @@ public class Queen : ChessPieceBehaviour
 
     public override void Update()
     {
-        Debug.Log(DeadPawnCount);
         if (DeadPawnCount == 8 && !activated) Activate();
         base.Update();
     }

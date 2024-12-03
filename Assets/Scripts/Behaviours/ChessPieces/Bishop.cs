@@ -16,7 +16,6 @@ public class Bishop : ChessPieceBehaviour
     public override void Attack()
     {
         (int, int) targetPos = GetPossiblePos(chessPosition);
-        Debug.Log(targetPos);
 
         StartCoroutine(MoveAndAttack(targetPos));
     }
@@ -25,7 +24,6 @@ public class Bishop : ChessPieceBehaviour
     {
         Vector3 direction = ChessPosToWorldPos(targetPos) - ChessPosToWorldPos(chessPosition);
         float movingTime = Vector3.Magnitude(direction) / speed;
-        Debug.Log(movingTime);
         float time = 0f;
         while (time < movingTime)
         {
@@ -165,7 +163,6 @@ public class Bishop : ChessPieceBehaviour
         {
             while (RearrangeVector(positions[i], i, out positions[i]))
             {
-                Debug.Log("candidate position: " + positions[i]);
                 validPositions.Add(positions[i]);
             }
         }
