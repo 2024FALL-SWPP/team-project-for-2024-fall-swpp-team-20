@@ -11,11 +11,13 @@ public class Rook : ChessPieceBehaviour
         StartCoroutine(Move(direction));
     }
 
-    private IEnumerator Move(Vector3 direction) {
+    private IEnumerator Move(Vector3 direction)
+    {
         Vector3 piecePos = transform.position;
         float movedX = 0;
         float movedZ = 0;
-        while (movedX < Mathf.Abs(direction.x)) {
+        while (movedX < Mathf.Abs(direction.x))
+        {
             movedX += speed * Time.deltaTime;
             transform.Translate(Mathf.Sign(direction.x) * Vector3.right * speed * Time.deltaTime, Space.World);
             yield return null;

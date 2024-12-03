@@ -21,12 +21,14 @@ public class Bishop : ChessPieceBehaviour
         StartCoroutine(MoveAndAttack(targetPos));
     }
 
-    private IEnumerator MoveAndAttack((int, int) targetPos) {
+    private IEnumerator MoveAndAttack((int, int) targetPos)
+    {
         Vector3 direction = ChessPosToWorldPos(targetPos) - ChessPosToWorldPos(chessPosition);
         float movingTime = Vector3.Magnitude(direction) / speed;
         Debug.Log(movingTime);
         float time = 0f;
-        while (time < movingTime) {
+        while (time < movingTime)
+        {
             float deltaTime = Time.deltaTime;
             time += deltaTime;
             transform.position = ChessPosToWorldPos(chessPosition) + Vector3.up * transform.position.y + direction * (time / movingTime);
@@ -58,13 +60,16 @@ public class Bishop : ChessPieceBehaviour
         yield return new WaitForSeconds(0.1f);
         StartAttack(guideline);
     }
-    private void HideGuidelines(List<GameObject> guidelines) {
-        foreach (GameObject guideline in guidelines) { 
+    private void HideGuidelines(List<GameObject> guidelines)
+    {
+        foreach (GameObject guideline in guidelines)
+        {
             guideline.SetActive(false);
         }
     }
 
-    private void StartAttack(List<GameObject> guidelines) {
+    private void StartAttack(List<GameObject> guidelines)
+    {
         foreach (GameObject guideline in guidelines)
         {
             LineBehaviour realline = Instantiate(reallinePrefab, transform.position, guideline.transform.rotation).GetComponent<LineBehaviour>();
@@ -73,12 +78,15 @@ public class Bishop : ChessPieceBehaviour
         }
     }
 
-    private void ShowGuidelines(List<GameObject> guidelines) {
-        foreach (GameObject guideline in guidelines) {
+    private void ShowGuidelines(List<GameObject> guidelines)
+    {
+        foreach (GameObject guideline in guidelines)
+        {
             guideline.SetActive(true);
         }
     }
-    private List<GameObject> InitializeGuideline((int, int) chessPos) {
+    private List<GameObject> InitializeGuideline((int, int) chessPos)
+    {
         List<GameObject> guidelines = new List<GameObject>();
 
         int length45 = Mathf.Min(7 - chessPos.Item1, 7 - chessPos.Item2);
@@ -86,12 +94,14 @@ public class Bishop : ChessPieceBehaviour
         int length225 = Mathf.Min(chessPos.Item1, chessPos.Item2);
         int length315 = Mathf.Min(7 - chessPos.Item1, chessPos.Item2);
 
-        if (length45 > 0) { 
+        if (length45 > 0)
+        {
             GameObject line45 = Instantiate(guidelinePrefab, transform.position, Quaternion.Euler(0, -45, 0));
             line45.transform.localScale = new Vector3(1, 1, Mathf.Sqrt(2) * (length45 + 0.5f * spotSize));
             guidelines.Add(line45);
         }
-        if (length135 > 0) {
+        if (length135 > 0)
+        {
             GameObject line135 = Instantiate(guidelinePrefab, transform.position, Quaternion.Euler(0, -135, 0));
             line135.transform.localScale = new Vector3(1, 1, Mathf.Sqrt(2) * (length135 + 0.5f * spotSize));
             guidelines.Add(line135);
@@ -115,7 +125,7 @@ public class Bishop : ChessPieceBehaviour
     private IEnumerator AttackCoroutine()
     {
         Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
-        
+
         yield return new WaitForSeconds(Random.Range(1, 5));
         Attack();
         while (true)
@@ -146,7 +156,8 @@ public class Bishop : ChessPieceBehaviour
         base.Update();
     }
 
-    private (int, int) GetPossiblePos((int, int) currentPos) {
+    private (int, int) GetPossiblePos((int, int) currentPos)
+    {
         List<(int, int)> validPositions = new List<(int, int)>();
         (int, int)[] positions = new (int, int)[4] { currentPos, currentPos, currentPos, currentPos };
 
@@ -161,7 +172,8 @@ public class Bishop : ChessPieceBehaviour
         int randIndex = Random.Range(0, validPositions.Count);
         return validPositions[randIndex];
     }
-    private bool RearrangeVector((int, int) position, int code, out (int, int) newPosition) {
+    private bool RearrangeVector((int, int) position, int code, out (int, int) newPosition)
+    {
         (int, int) tempPosition = position;
         if ((1 & code) == 1) tempPosition.Item1++;
         else tempPosition.Item1--;
@@ -173,11 +185,13 @@ public class Bishop : ChessPieceBehaviour
         if (isValid(tempPosition)) return true;
         else return false;
     }
-    private bool isValid((int, int) position) {
+    private bool isValid((int, int) position)
+    {
         if (position.Item1 >= 0 && position.Item1 <= 7 && position.Item2 >= 0 && position.Item2 <= 7) return true;
         else return false;
     }
-    private Vector3 ChessPosToWorldPos((int, int) chessPos) {
+    private Vector3 ChessPosToWorldPos((int, int) chessPos)
+    {
         return new Vector3(4.8543f + spotSize * chessPos.Item2, 0f, -0.5428f - spotSize * chessPos.Item1);
     }
 }

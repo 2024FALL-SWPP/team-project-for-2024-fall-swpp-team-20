@@ -20,7 +20,8 @@ public class BulletBehaviour : MonoBehaviour
         else if (tag == "ChessWalls") Destroy(gameObject);
     }
 
-    public void Shoot(Vector3 direction) { 
+    public void Shoot(Vector3 direction)
+    {
         rb.velocity = speed * direction;
     }
 }

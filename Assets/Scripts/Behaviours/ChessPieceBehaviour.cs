@@ -25,13 +25,15 @@ public class ChessPieceBehaviour : MonoBehaviour
 
     public virtual void Attack() { }
 
-    public virtual void Activate() {
+    public virtual void Activate()
+    {
         healthBar = transform.GetChild(0).gameObject;
         healthBar.SetActive(true);
-        activated = true;      
+        activated = true;
     }
 
-    public virtual void Update() {
+    public virtual void Update()
+    {
         if (!activated) return;
 
         healthbarPos = healthBar.transform.position + new Vector3(0, 0.005f, -0.025f);
@@ -43,15 +45,18 @@ public class ChessPieceBehaviour : MonoBehaviour
         transform.rotation = Quaternion.Euler(Vector3.up * degree);
     }
 
-    public void Hurt(int damage) {
+    public void Hurt(int damage)
+    {
         health -= damage;
         if (health <= 0) Destroy(gameObject);
-        else {
+        else
+        {
             healthBar.transform.localScale = new Vector3(1, 1, (float)health / maxHealth);
         }
     }
 
-    public Vector3 GetPlayer2DPosition() { 
+    public Vector3 GetPlayer2DPosition()
+    {
         Vector3 playerPos = GameManager.GetInstance().player.transform.position;
         playerPos.y = 0;
         return playerPos;

@@ -31,12 +31,14 @@ public class SpawnPositions : ScriptableObject
         );
 }
 
-public class TransformSet {
+public class TransformSet
+{
     public Vector3 localPosition;
     public Vector3 eulerRotation;
     public Vector3 scale;
 
-    public TransformSet(Vector3 lp, Vector3 er, Vector3 sc) { 
+    public TransformSet(Vector3 lp, Vector3 er, Vector3 sc)
+    {
         localPosition = lp;
         eulerRotation = er;
         scale = sc;

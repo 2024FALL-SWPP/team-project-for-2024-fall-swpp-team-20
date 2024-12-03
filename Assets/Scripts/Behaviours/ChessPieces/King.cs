@@ -8,13 +8,15 @@ public class King : ChessPieceBehaviour
     public GameObject realline;
     public override void Attack()
     {
-        if (CalculateDistanceFromPlayer(out Vector3 direction) > 2 * spotSize) { 
+        if (CalculateDistanceFromPlayer(out Vector3 direction) > 2 * spotSize)
+        {
             direction = 2 * spotSize * Vector3.Normalize(direction);
         }
         StartCoroutine(MoveAndAttack(direction));
     }
 
-    private IEnumerator MoveAndAttack(Vector3 direction) {
+    private IEnumerator MoveAndAttack(Vector3 direction)
+    {
         Vector3 initialPos = transform.position;
         float time = 0;
         while (time < 0.5f)
@@ -44,7 +46,8 @@ public class King : ChessPieceBehaviour
 
     private void OnDestroy()
     {
-        if (health == 0) {
+        if (health == 0)
+        {
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
         }
     }
