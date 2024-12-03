@@ -13,43 +13,51 @@ public class Pawn : ChessPieceBehaviour
         {
             StartCoroutine(MoveToPlayer(direction));
         }
-        else {
+        else
+        {
             if (movedCount >= 6) return;
             StartCoroutine(MoveForward());
             movedCount++;
         }
     }
-    private IEnumerator MoveToPlayer(Vector3 direction) {
+    private IEnumerator MoveToPlayer(Vector3 direction)
+    {
         Vector3 initialPos = transform.position;
         float time = 0;
-        while (time < 0.5f) {
+        while (time < 0.5f)
+        {
             time += Time.deltaTime;
             transform.position = initialPos + direction * (time / 0.5f);
             yield return null;
         }
         transform.position = initialPos + direction;
     }
-    private IEnumerator MoveForward() {
+    private IEnumerator MoveForward()
+    {
         Vector3 initialPos = transform.position;
         Vector3 direction = Vector3.left * spotSize;
         float time = 0;
-        while (time < 0.5f) {
+        while (time < 0.5f)
+        {
             time += Time.deltaTime;
             transform.position = initialPos + direction * (time / 0.5f);
             yield return null;
         }
         transform.position = initialPos + direction;
     }
-    private IEnumerator AttackCoroutine() {
+    private IEnumerator AttackCoroutine()
+    {
         yield return new WaitForSeconds(Random.Range(1f, 6f));
         Attack();
-        while (true) {
+        while (true)
+        {
             yield return new WaitForSeconds(Random.Range(3f, 6f));
             Attack();
         }
     }
 
-    public override void Activate() {
+    public override void Activate()
+    {
         base.Activate();
         maxHealth = 3;
         health = maxHealth;
@@ -57,7 +65,8 @@ public class Pawn : ChessPieceBehaviour
         StartCoroutine(AttackCoroutine());
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         if (health == 0)
         {
             DeadPawnCount++;
@@ -65,6 +74,6 @@ public class Pawn : ChessPieceBehaviour
         }
     }
 
- 
+
 
 }

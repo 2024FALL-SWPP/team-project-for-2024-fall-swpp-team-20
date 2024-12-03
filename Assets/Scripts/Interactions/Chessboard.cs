@@ -7,7 +7,8 @@ public class Chessboard : MonoBehaviour, IInteractable
     private bool inAnomaly = false;
     private bool activated = false;
 
-    public void Interact(GameObject obj) {
+    public void Interact(GameObject obj)
+    {
         activated = true;
         MoveToChessBoard(GameManager.GetInstance().player, obj);
     }
@@ -24,12 +25,14 @@ public class Chessboard : MonoBehaviour, IInteractable
         handler.SetMouseClickAction(1);
         GameManager.GetInstance().um.ShowHealthImage();
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chessboard);
-        foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>()) {
+        foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>())
+        {
             pawn.Activate();
         }
     }
 
-    public bool IsInteractable() {
+    public bool IsInteractable()
+    {
         if (!inAnomaly) return false;
         else return !activated;
     }

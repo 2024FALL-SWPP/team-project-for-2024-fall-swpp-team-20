@@ -10,7 +10,8 @@ public class Knight : ChessPieceBehaviour
     public override void Attack()
     {
         Vector3 direction;
-        if (CalculateDistanceFromPlayer(out direction) > Mathf.Sqrt(7) * spotSize) {
+        if (CalculateDistanceFromPlayer(out direction) > Mathf.Sqrt(7) * spotSize)
+        {
             direction.Normalize();
             direction *= spotSize * Mathf.Sqrt(7);
         }
@@ -71,7 +72,8 @@ public class Knight : ChessPieceBehaviour
     }
 
 
-    private Vector3 GetPosition(float time, Vector3 initial, Vector3 direction, float movingTime) {
+    private Vector3 GetPosition(float time, Vector3 initial, Vector3 direction, float movingTime)
+    {
         Vector3 position = initial + time * direction / movingTime + Vector3.up * -acceleration * time * (time - movingTime);
         return position;
     }

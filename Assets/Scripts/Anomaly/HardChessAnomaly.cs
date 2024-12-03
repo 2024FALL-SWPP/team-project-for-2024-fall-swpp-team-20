@@ -10,7 +10,7 @@ public class HardChessAnomaly : HardAnomaly
         Chessboard board = storage.chessHitbox.GetComponent<Chessboard>();
         board.SetAnomaly();
         storage.chessWalls.SetActive(true);
-        
+
     }
 
     public override void SetHardAnomalyCode()
@@ -18,7 +18,8 @@ public class HardChessAnomaly : HardAnomaly
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chess);
     }
 
-    public override HardAnomalyCode GetHardAnomalyCode() {
+    public override HardAnomalyCode GetHardAnomalyCode()
+    {
         return HardAnomalyCode.Chess;
     }
 }

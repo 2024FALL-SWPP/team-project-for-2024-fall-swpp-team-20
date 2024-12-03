@@ -11,9 +11,11 @@ public class LineBehaviour2 : MonoBehaviour
         StartCoroutine(GoForward());
     }
 
-    private IEnumerator GoForward() {
+    private IEnumerator GoForward()
+    {
         float deltaTime;
-        while (transform.localScale.x < 8 * 0.0609f) {
+        while (transform.localScale.x < 8 * 0.0609f)
+        {
             deltaTime = Time.deltaTime;
             float moved = speed * 0.0609f * deltaTime;
             transform.Translate(transform.forward * moved, Space.World);
