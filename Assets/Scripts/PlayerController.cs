@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum SpawnPosition { 
+public enum SpawnPosition
+{
     Original,
     Lava,
     Chessboard,
@@ -35,16 +36,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpawnPositions spawnPositions;
     //private GameState State => GameManager.instance.state;
 
-    public void SetPlayerController(SpawnPosition positionCode) {
+    public void SetPlayerController(SpawnPosition positionCode)
+    {
         SetTransform(positionCode);
         SetCameraClippingPlanes(positionCode);
         SetPhysical(positionCode);
     }
 
-    public void SetTransform(SpawnPosition positionCode) {
+    public void SetTransform(SpawnPosition positionCode)
+    {
         TransformSet targetTransform = null;
 
-        switch (positionCode) { 
+        switch (positionCode)
+        {
             case SpawnPosition.Original:
                 targetTransform = spawnPositions.originalSpawn;
                 break;
@@ -63,8 +67,10 @@ public class PlayerController : MonoBehaviour
         transform.localScale = targetTransform.scale;
     }
 
-    public void SetPhysical(SpawnPosition positionCode) {
-        switch (positionCode) {
+    public void SetPhysical(SpawnPosition positionCode)
+    {
+        switch (positionCode)
+        {
             case SpawnPosition.Original:
             case SpawnPosition.Lava:
                 moveSpeed = spawnPositions.origialMoveSpeed;
@@ -79,9 +85,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetCameraClippingPlanes(SpawnPosition positionCode) {
+    public void SetCameraClippingPlanes(SpawnPosition positionCode)
+    {
         Camera camera = GetComponentInChildren<Camera>();
-        float plane = positionCode switch {
+        float plane = positionCode switch
+        {
             SpawnPosition.Original => 0.3f,
             SpawnPosition.Lava => 0.3f,
             SpawnPosition.Chessboard => 0.02f,
@@ -308,7 +316,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
 
     public void EnableInput()
     {

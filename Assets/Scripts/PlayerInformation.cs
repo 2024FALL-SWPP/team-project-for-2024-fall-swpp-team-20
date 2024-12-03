@@ -23,7 +23,7 @@ public class PlayerInformation : MonoBehaviour
         if (!invince)
         {
             if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
-            if ( other.gameObject.CompareTag("ChessPiece"))
+            if (other.gameObject.CompareTag("ChessPiece"))
             {
                 ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
                 if (!cpb.activated) return;
@@ -31,7 +31,8 @@ public class PlayerInformation : MonoBehaviour
                 invince = true;
                 Invoke(nameof(RemoveInvincibility), 2);
             }
-            if (other.gameObject.CompareTag("RealLine")) { // Bishop and Queen's attack
+            if (other.gameObject.CompareTag("RealLine"))
+            { // Bishop and Queen's attack
                 HurtPlayer(10);
                 invince = true;
                 Invoke(nameof(RemoveInvincibility), 2);

@@ -23,8 +23,10 @@ public class InteractionHandler : MonoBehaviour
         canInteract = false;
     }
 
-    public void SetMouseClickAction(int actionCode) {
-        switch (actionCode) {
+    public void SetMouseClickAction(int actionCode)
+    {
+        switch (actionCode)
+        {
             case 0:
                 onMouseClick = HandleInteraction;
                 inAttackMode = false;
@@ -90,7 +92,8 @@ public class InteractionHandler : MonoBehaviour
         GameManager.GetInstance().um.HideInteractionInfo();
     }
 
-    public void Attack() {
+    public void Attack()
+    {
         if (attackCooltime > 0) return;
         Vector3 direction = transform.forward;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
