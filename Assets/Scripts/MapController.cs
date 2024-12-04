@@ -106,8 +106,14 @@ public class MapController : MonoBehaviour
             }
 
             SetAnomaly(anomaly);
-            if (anomaly == null) return HardAnomalyCode.NotInHard;
-            return (anomaly as HardAnomaly).GetHardAnomalyCode();
+            if (anomaly is HardAnomaly)
+            {
+                return (anomaly as HardAnomaly).GetHardAnomalyCode();
+            }
+            else
+            {
+                return HardAnomalyCode.NotInHard;
+            }
         }
     }
 
