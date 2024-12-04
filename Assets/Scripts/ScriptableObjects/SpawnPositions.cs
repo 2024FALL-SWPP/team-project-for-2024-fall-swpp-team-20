@@ -29,6 +29,12 @@ public class SpawnPositions : ScriptableObject
         Vector3.zero,
         1.2f * Vector3.one
         );
+
+    public TransformSet visibilitySpawn = new TransformSet(
+        new Vector3(3.63f, 0.1f, -3.15f),
+        new Vector3(0, 180, 0),
+        1.2f * Vector3.one
+    );
 }
 
 public class TransformSet

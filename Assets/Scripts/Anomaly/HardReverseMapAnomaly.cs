@@ -18,6 +18,6 @@ public class HardReverseMapAnomaly : HardAnomaly
 
     public override HardAnomalyCode GetHardAnomalyCode()
     {
-        return HardAnomalyCode.FruitDrop;
+        return HardAnomalyCode.ReverseMap;
     }
 }

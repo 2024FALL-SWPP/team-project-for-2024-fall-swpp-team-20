@@ -8,6 +8,7 @@ public enum SpawnPosition
     Original,
     Lava,
     Chessboard,
+    Visibility
 }
 public class PlayerController : MonoBehaviour
 {
@@ -58,6 +59,9 @@ public class PlayerController : MonoBehaviour
             case SpawnPosition.Chessboard:
                 targetTransform = spawnPositions.chessboardSpawn;
                 break;
+            case SpawnPosition.Visibility:
+                targetTransform = spawnPositions.visibilitySpawn;
+                break;
             default:
                 break;
         }
@@ -96,6 +100,11 @@ public class PlayerController : MonoBehaviour
             _ => 0.3f
         };
         camera.nearClipPlane = plane;
+        if (positionCode == SpawnPosition.Visibility)
+        {
+            camera.farClipPlane = 4f;
+        }
+        else camera.farClipPlane = 1000f;
     }
     private void Start()
     {
@@ -349,7 +358,13 @@ public class PlayerController : MonoBehaviour
 
     private bool ActuallyCanSleep()
     {
-        return canSleep && inBedRange && (currentAnomaly == HardAnomalyCode.NotInHard);
+        return canSleep && inBedRange && CanSleepInAnomaly(currentAnomaly);
+    }
+
+    private bool CanSleepInAnomaly(HardAnomalyCode current)
+    {
+        if (current == HardAnomalyCode.NotInHard || current == HardAnomalyCode.Visibility) return true;
+        else return false;
     }
 
     public void SetSleep(bool available)
