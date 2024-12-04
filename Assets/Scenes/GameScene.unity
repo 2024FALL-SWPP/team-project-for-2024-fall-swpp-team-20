@@ -5265,9 +5265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcc61264f337d14080a24cbbd5e3216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapPrefab: {fileID: 6747769382992992863}
+  mapPrefab: {fileID: 9065480073589818877, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
   test: 1
-  testAnomaly: 0
+  testAnomaly: 15
 --- !u!4 &1698399175
 Transform:
   m_ObjectHideFlags: 0
@@ -6593,11 +6593,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142708198}
   m_CullTransparentMesh: 1
---- !u!1 &6747769382992992863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9065480073589818877, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-  m_PrefabInstance: {fileID: 9184795285960715389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9184795285960715389
 PrefabInstance:
   m_ObjectHideFlags: 0
