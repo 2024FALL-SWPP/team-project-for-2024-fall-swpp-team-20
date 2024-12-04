@@ -33,7 +33,8 @@ public class TimelineController : MonoBehaviour
             {
                 SceneManager.LoadScene("AnomalyTrueWakeupScene");
             }
-            else {
+            else
+            {
                 SceneManager.LoadScene("GameScene");
             }
         }
