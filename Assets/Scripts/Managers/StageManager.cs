@@ -100,7 +100,7 @@ public class StageManager : MonoBehaviour
         if (sleep && haveAnomaly)
         {
             Fail();
-            //SceneManager.LoadScene("SleepScene");
+            SceneManager.LoadScene("SleepScene");
             InitializeStage(currentStage); //TODO
         }
         else if (!sleep && !haveAnomaly)
@@ -111,7 +111,7 @@ public class StageManager : MonoBehaviour
         else if (sleep && !haveAnomaly)
         {
             Succeed();
-            //SceneManager.LoadScene("SleepScene");
+            SceneManager.LoadScene("SleepScene");
             InitializeStage(currentStage); //TODO
         }
         else if (!sleep && haveAnomaly)
