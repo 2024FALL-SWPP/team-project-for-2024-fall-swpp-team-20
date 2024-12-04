@@ -22,7 +22,7 @@ public class EasyBookColorAnomaly : Anomaly
             GameObject bookCollection = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("book_collection" + i).gameObject;
             for (int j = 0; j < 8; j++)
             {
-                bookCoverRenderer[j] = bookCollection.transform.Find("book" + " (" + j + ")").Find("book_cover").GetComponent<Renderer>();
+                bookCoverRenderer[j] = bookCollection.transform.Find("book" + "__" + j + "_").Find("book_cover_" + j).GetComponent<Renderer>();
                 bookCoverRenderer[j].material.color = anomalyColor[j];
             }
         }

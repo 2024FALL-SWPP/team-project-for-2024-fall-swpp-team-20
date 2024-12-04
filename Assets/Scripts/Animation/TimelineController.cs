@@ -24,7 +24,19 @@ public class TimelineController : MonoBehaviour
     {
         if (director == playableDirector)
         {
-            SceneManager.LoadScene("GameScene");
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene == "WakeupFalseScene")
+            {
+                SceneManager.LoadScene("AnomalyFalseWakeupScene");
+            }
+            else if (currentScene == "WakeupTrueScene")
+            {
+                SceneManager.LoadScene("AnomalyTrueWakeupScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("GameScene");
+            }
         }
     }
 }
