@@ -99,25 +99,25 @@ public class StageManager : MonoBehaviour
         bool sleep = type == BedInteractionType.Sleep;
         if (sleep && haveAnomaly)
         {
-            Fail();
             SceneManager.LoadScene("SleepScene");
+            Fail();
             InitializeStage(currentStage); //TODO
         }
         else if (!sleep && !haveAnomaly)
         {
-            Fail();
             SceneManager.LoadScene("WakeupFalseScene");
+            Fail();
         }
         else if (sleep && !haveAnomaly)
         {
-            Succeed();
             SceneManager.LoadScene("SleepScene");
+            Succeed();
             InitializeStage(currentStage); //TODO
         }
         else if (!sleep && haveAnomaly)
         {
-            Succeed();
             SceneManager.LoadScene("WakeupTrueScene");
+            Succeed();
         }
         GameManager.GetInstance().prevStage = currentStage;
     }
