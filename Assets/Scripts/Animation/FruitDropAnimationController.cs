@@ -44,9 +44,6 @@ public class FruitDropAnimationController : MonoBehaviour
 
         GameObject randomFloor = floors[Random.Range(0, floors.Length)];
 
-        Debug.Log(floors.Length);
-        Debug.Log(randomFloor == null);
-
         Vector3 randomPosition = new Vector3(
             randomFloor.transform.position.x,
             fruits.transform.position.y,

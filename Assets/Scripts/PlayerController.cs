@@ -156,7 +156,6 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(0.01f * rotateSpeed * mouseDeltaX * Vector3.up);
 
             isJumping = !IsGrounded();
-            Debug.Log(isTouchingSide);
         }
     }
 
