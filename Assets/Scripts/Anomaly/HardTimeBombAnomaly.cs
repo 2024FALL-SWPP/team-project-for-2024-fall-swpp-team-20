@@ -8,12 +8,10 @@ public class HardTimeBombAnomaly : HardAnomaly
 {
     public override void Apply(GameObject map)
     {
-        laptop = map.transform.Find("Interior").Find("2nd Floor").
-            Find("Apartment_01").Find("Props").Find("laptop").GetComponent<Laptop>();
-        GameObject digitalClock = map.transform.Find("Interior").Find("2nd Floor").
-            Find("Apartment_01").Find("Props").Find("digital_clock").gameObject;
-        GameObject timeBomb = map.transform.Find("Interior").Find("2nd Floor").
-            Find("Apartment_01").Find("Props").Find("timeBomb").gameObject;
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+        laptop = storage.laptopObject.GetComponent<Laptop>();
+        GameObject digitalClock = storage.digitalClock;
+        GameObject timeBomb = storage.timeBomb.gameObject;
         digitalClock.SetActive(false);
         timeBomb.SetActive(true);
 

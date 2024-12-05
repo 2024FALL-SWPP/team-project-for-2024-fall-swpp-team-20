@@ -6,8 +6,8 @@ public class EasyLaptopAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        Laptop laptop = map.transform.Find("Interior").Find("2nd Floor").
-            Find("Apartment_01").Find("Props").Find("laptop").GetComponent<Laptop>();
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+        Laptop laptop = storage.laptopObject.GetComponent<Laptop>();
         laptop.SetAnomaly();
     }
 }
