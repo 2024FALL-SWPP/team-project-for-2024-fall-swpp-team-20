@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpawnPositions spawnPositions;
     //private GameState State => GameManager.instance.state;
 
+    private bool hasMoved = false;
+    private bool hasJumped = false;
+    private bool hasInteractedWithBed = false;
+
     public void SetPlayerController(SpawnPosition positionCode)
     {
         SetTransform(positionCode);
@@ -170,6 +174,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
             moveDirection = value.ReadValue<Vector2>();
+            hasMoved = true;
         }
     }
 
@@ -197,11 +202,11 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.GetInstance().GetState() != GameState.Playing) return;
         float jumped = value.ReadValue<float>();
-
         if (jumped > 0f && !isJumping)
         {
             isJumping = true;
             rb.AddForce(Vector3.up * jumpForce);
+            hasJumped = true;
         }
     }
 
@@ -272,6 +277,7 @@ public class PlayerController : MonoBehaviour
             float input = value.ReadValue<float>();
             BedInteractionType type = input > 0 ? BedInteractionType.Sleep : BedInteractionType.Wakeup;
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(type);
+            hasInteractedWithBed = true;
         }
     }
 
@@ -385,4 +391,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
+
+    public bool HasMoved() => hasMoved;
+    public bool HasJumped() => hasJumped;
+    public bool HasInteractedWithBed() => hasInteractedWithBed;
 }
