@@ -37,7 +37,8 @@ public class Chessboard : InteractableObject
         else return !activated;
     }
 
-    public void SetAnomaly() {
+    public void SetAnomaly()
+    {
         inAnomaly = true;
         base.Start();
     }
