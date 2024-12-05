@@ -31,6 +31,11 @@ public class BedInteractionManager : MonoBehaviour
 
     public IEnumerator BedInteraction(BedInteractionType type)
     {
+        if (stageManager.GetCurrentStage() == 0 && type != BedInteractionType.Sleep)
+        {
+            yield break;
+        }
+
         ToggleInteraction(false);
 
         if (type == BedInteractionType.Sleep && stageManager.GetCurrentStage() == 0)
