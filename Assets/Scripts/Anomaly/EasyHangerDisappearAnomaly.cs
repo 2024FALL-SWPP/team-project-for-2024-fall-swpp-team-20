@@ -4,10 +4,10 @@ public class EasyHangerDisappearAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         for (int i = 0; i < 4; i++)
         {
-            GameObject Hanger = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("Clothes").Find("CoatHanger" + i).gameObject;
-            Hanger.SetActive(false);
+            storage.hangers[i].SetActive(false);
         }
     }
 }

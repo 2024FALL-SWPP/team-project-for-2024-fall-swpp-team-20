@@ -4,8 +4,9 @@ public class EasyDiceAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        GameObject anomalyDice = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("anomalyDice").gameObject;
-        GameObject normalDice = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("normalDice").gameObject;
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+        GameObject anomalyDice = storage.anomalyDice;
+        GameObject normalDice = storage.normalDice;
         normalDice.SetActive(false);
         anomalyDice.transform.position = normalDice.transform.position;
         anomalyDice.transform.rotation = normalDice.transform.rotation;

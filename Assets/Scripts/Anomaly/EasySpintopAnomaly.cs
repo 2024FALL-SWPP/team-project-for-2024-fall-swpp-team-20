@@ -6,7 +6,8 @@ public class EasySpintopAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        Totem totem = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("inception_totem").GetComponent<Totem>();
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+        Totem totem = storage.spintopObject.GetComponent<Totem>();
         totem.inAnomaly = true;
     }
 }
