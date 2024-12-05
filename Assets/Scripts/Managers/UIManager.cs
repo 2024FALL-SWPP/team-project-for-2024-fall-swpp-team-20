@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowSleepInfo()
     {
-        if(!isBedInteractionTutorial)
+        if (!isBedInteractionTutorial)
         {
             return;
         }

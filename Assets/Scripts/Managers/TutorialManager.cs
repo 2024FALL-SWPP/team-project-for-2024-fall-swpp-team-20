@@ -20,11 +20,21 @@ public class TutorialManager : MonoBehaviour
         playerController = GameManager.GetInstance().player.GetComponent<PlayerController>();
         uiManager = GameManager.GetInstance().um;
         interactionHandler = Camera.main.GetComponent<InteractionHandler>();
+        yield return StartCoroutine(ShowIntroTutorial());
         yield return StartCoroutine(ShowMoveTutorial());
         yield return StartCoroutine(ShowJumpTutorial());
         yield return StartCoroutine(ShowObjectInteractionTutorial());
         uiManager.isBedInteractionTutorial = true;
         yield return StartCoroutine(ShowBedInteractionTutorial());
+    }
+
+    private IEnumerator ShowIntroTutorial()
+    {
+        uiManager.ShowTutorialText("From the next stage, you will enter a dream.\nFind any anomalies to escape the dream.");
+        yield return new WaitForSeconds(5f);
+        uiManager.ShowTutorialText("Before starting the game, you need to learn how to move, jump, and interact with objects.");
+        yield return new WaitForSeconds(5f);
+        uiManager.HideTutorialText();
     }
 
     private IEnumerator ShowMoveTutorial()
@@ -53,7 +63,7 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator ShowObjectInteractionTutorial()
     {
-        uiManager.ShowTutorialText("There are some object that you can interact. \nClick the mouse to interact with objects. \nYou can also open the door as the same way.");
+        uiManager.ShowTutorialText("There are some objects that you can interact with.\nClick the mouse to interact with objects.\nYou can also open doors in the same way.");
         while (!interactionHandler.HasInteractedWithObject())
         {
             yield return null;
@@ -65,7 +75,11 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator ShowBedInteractionTutorial()
     {
-        uiManager.ShowTutorialText("If you know whether this is a dream or not, go to bed.\n Press F to sleep, G to wake up to interact with the bed. \nFor now, press F to get sleep and start the game.");
+        uiManager.ShowTutorialText("This is not a dream, so this room is normal. You can proceed to the next stage by sleeping or waking up.");
+        yield return new WaitForSeconds(5f);
+        uiManager.ShowTutorialText("Before starting the game, please check the room and objects carefully.");
+        yield return new WaitForSeconds(5f);
+        uiManager.ShowTutorialText("When you're ready, go to the bed.\nPress F to sleep or G to wake up to interact with the bed.\nFor now, press F to sleep and start the game.");
         while (!playerController.HasInteractedWithBed())
         {
             yield return null;
