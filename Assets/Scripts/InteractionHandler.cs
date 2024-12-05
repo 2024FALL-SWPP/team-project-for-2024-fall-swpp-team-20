@@ -16,6 +16,8 @@ public class InteractionHandler : MonoBehaviour
     public delegate void OnMouseClick();
     public OnMouseClick onMouseClick;
 
+    InteractableObject interactableObject;
+
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
@@ -57,16 +59,22 @@ public class InteractionHandler : MonoBehaviour
                 if (!immInteractable)
                 {
                     ShowInteractableUI(hit);
+                    interactableObject = target.GetComponent<InteractableObject>();
+                    interactableObject.StartGlow();
                 }
             }
             else if (immInteractable)
             {
                 HideInteractableUI();
+                interactableObject.EndGlow();
+                interactableObject = null;
             }
         }
         else if (immInteractable)
         {
             HideInteractableUI();
+            interactableObject.EndGlow();
+            interactableObject = null;
         }
         Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
     }

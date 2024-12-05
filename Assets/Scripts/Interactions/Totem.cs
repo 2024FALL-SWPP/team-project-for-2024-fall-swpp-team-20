@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Totem : MonoBehaviour, IInteractable
+public class Totem : InteractableObject
 {
     public bool inAnomaly = false;
     private Animator ani;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         ani = GetComponent<Animator>();
         ani.SetInteger("RotateState", 0);
     }
-    public void Interact(GameObject obj)
+
+    public override void Interact(GameObject obj)
     {
 
         if (inAnomaly)
@@ -27,6 +29,6 @@ public class Totem : MonoBehaviour, IInteractable
         } // 2: Temporarily rotate
     }
 
-    public bool IsInteractable() => true;
+    public override bool IsInteractable() => true;
 
 }

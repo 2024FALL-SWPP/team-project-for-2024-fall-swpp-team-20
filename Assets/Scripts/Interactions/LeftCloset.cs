@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftCloset : MonoBehaviour, IInteractable
+public class LeftCloset : InteractableObject
 {
     private bool open = false;
     private bool Open
@@ -21,7 +21,13 @@ public class LeftCloset : MonoBehaviour, IInteractable
             }
         }
     }
-    public void Interact(GameObject obj)
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    public override void Interact(GameObject obj)
     {
         Open = !Open;
     }
@@ -48,5 +54,5 @@ public class LeftCloset : MonoBehaviour, IInteractable
         transform.rotation = targetRotation;
     }
 
-    public bool IsInteractable() => true;
+    public override bool IsInteractable() => true;
 }

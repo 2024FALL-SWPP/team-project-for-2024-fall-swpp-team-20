@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 
 
-public class Laptop : MonoBehaviour, IInteractable
+public class Laptop : InteractableObject
 {
     public Material[] materialSet1;
     public Material[] materialSet2;
@@ -19,7 +19,12 @@ public class Laptop : MonoBehaviour, IInteractable
 
     private bool power = false;
 
-    public void Interact(GameObject obj)
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    public override void Interact(GameObject obj)
     {
         if (inAnomaly)
         {
@@ -60,7 +65,7 @@ public class Laptop : MonoBehaviour, IInteractable
 
     public void SetAnomaly() => inAnomaly = true;
 
-    public bool IsInteractable()
+    public override bool IsInteractable()
     {
         if (inAnomaly) return !power;
         else return true;
