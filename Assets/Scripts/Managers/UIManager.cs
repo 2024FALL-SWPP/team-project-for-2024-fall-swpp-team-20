@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
     private GameObject characterScriptPanel;
     private Text characterScript;
     private GameObject cover;
+    [SerializeField] private TextMeshProUGUI tutorialText;
+    public bool isBedInteractionTutorial = false;
+
     public void Initialize()
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
@@ -38,6 +41,7 @@ public class UIManager : MonoBehaviour
             characterScriptPanel = canvasTransform.Find("CharacterScriptPanel").gameObject;
             characterScript = characterScriptPanel.GetComponentInChildren<Text>();
             cover = canvasTransform.Find("Cover").gameObject;
+            tutorialText = canvasTransform.Find("TutorialText").GetComponent<TextMeshProUGUI>();
         }
         HideEverything();
     }
@@ -49,6 +53,10 @@ public class UIManager : MonoBehaviour
 
     public void ShowSleepInfo()
     {
+        if(!isBedInteractionTutorial)
+        {
+            return;
+        }
         generalInfo.enabled = true;
         generalInfo.text = "Press [F] to Sleep\n Press [G] to Wake Up";
     }
@@ -216,6 +224,7 @@ public class UIManager : MonoBehaviour
         HidePasswordInputField();
         HideCharacterScript();
         HideCover();
+        HideTutorialText();
     }
 
     // For Watching Laptop
@@ -244,5 +253,16 @@ public class UIManager : MonoBehaviour
         {
             i.enabled = true;
         }
+    }
+
+    public void ShowTutorialText(string text)
+    {
+        tutorialText.text = text;
+        tutorialText.enabled = true;
+    }
+
+    public void HideTutorialText()
+    {
+        tutorialText.enabled = false;
     }
 }

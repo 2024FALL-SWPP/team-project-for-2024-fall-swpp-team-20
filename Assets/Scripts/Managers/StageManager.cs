@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
     private MapController mc;
     private PlayerController pc;
     private InteractionHandler interactionHandler;
+    private TutorialManager tutorialManager;
 
     private PlayerInformation pi;
     private LandscapeManager landscapeManager;
@@ -28,6 +29,7 @@ public class StageManager : MonoBehaviour
         pi = player.GetComponent<PlayerInformation>();
         currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>();
+        tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
     public void GameStart()
@@ -67,6 +69,16 @@ public class StageManager : MonoBehaviour
             return;
         }
 
+        if (stage == 0)
+        {
+            tutorialManager.gameObject.SetActive(true);
+            tutorialManager.StartTutorial();
+        }
+        else
+        {
+            tutorialManager.gameObject.SetActive(false);
+        }
+
         pc.SetAnomalyType(hard);
         // Set time
         ToggleActionAvailability(true);
@@ -84,13 +96,14 @@ public class StageManager : MonoBehaviour
     }
     private void GameClear()
     {
-        //DisableControllers();
+        // Game clear logic
         GameManager.GetInstance().Clear();
         GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
     }
 
     public void GameOver()
     {
+        // Game over logic
         GameManager.GetInstance().GameOver();
         GameManager.GetInstance().um.ShowStateUI(GameState.GameOver);
     }

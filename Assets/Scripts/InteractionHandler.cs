@@ -16,6 +16,8 @@ public class InteractionHandler : MonoBehaviour
     public delegate void OnMouseClick();
     public OnMouseClick onMouseClick;
 
+    private bool hasInteractedWithObject;
+
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
@@ -78,6 +80,7 @@ public class InteractionHandler : MonoBehaviour
         GameObject target = hit.transform.gameObject;
         var interactable = target.GetComponent<IInteractable>();
         interactable?.Interact(target);
+        hasInteractedWithObject = true;
     }
 
     private void ShowInteractableUI(RaycastHit hit)
@@ -100,5 +103,10 @@ public class InteractionHandler : MonoBehaviour
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
         bulletBehaviour.Shoot(direction);
         attackCooltime = 0.7f;
+    }
+
+    public bool HasInteractedWithObject()
+    {
+        return hasInteractedWithObject;
     }
 }
