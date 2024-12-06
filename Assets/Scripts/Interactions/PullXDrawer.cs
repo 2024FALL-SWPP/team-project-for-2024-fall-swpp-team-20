@@ -9,7 +9,9 @@ public class PullXDrawer : InteractableObject
 
     protected override void Start()
     {
+        base.Start();
         open = false;
+
     }
 
     public override void Interact(GameObject obj)
@@ -39,4 +41,5 @@ public class PullXDrawer : InteractableObject
         open = false;
         yield return new WaitForSeconds(.5f);
     }
+
 }
