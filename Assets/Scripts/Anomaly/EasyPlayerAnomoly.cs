@@ -4,8 +4,9 @@ public class EasyPlayerAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        GameObject playerSleeping = map.transform.Find("Player_Sleeping").gameObject;
-        GameObject playerAwake = map.transform.Find("Player_Awake").gameObject;
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+        GameObject playerSleeping = storage.playerSleeping;
+        GameObject playerAwake = storage.playerAwake;
         playerSleeping.SetActive(false);
         playerAwake.SetActive(true);
     }

@@ -7,9 +7,9 @@ public class HardLavaAnomaly : HardAnomaly
 
     public override void Apply(GameObject map)
     {
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         GameObject lava = map.transform.Find("Lavas").gameObject;
-        laptop = map.transform.Find("Interior").Find("2nd Floor").
-            Find("Apartment_01").Find("Props").Find("laptop").GetComponent<Laptop>();
+        laptop = storage.laptopObject.GetComponent<Laptop>();
         lava.SetActive(true);
         GameManager.GetInstance().um.ShowHealthImage();
         PlayerController pc = GameManager.GetInstance().player.GetComponent<PlayerController>();

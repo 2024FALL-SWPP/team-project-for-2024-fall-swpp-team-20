@@ -5,7 +5,8 @@ public class EasyDigitalClockAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        TextMeshPro digitalClockText = map.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("digital_clock").Find("ClockText").GetComponent<TextMeshPro>();
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+        TextMeshPro digitalClockText = storage.digitalClockText.GetComponent<TextMeshPro>();
         digitalClockText.text = "FF:FF";
     }
 }

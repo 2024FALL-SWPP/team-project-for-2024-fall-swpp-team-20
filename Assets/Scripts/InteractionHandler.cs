@@ -18,6 +18,8 @@ public class InteractionHandler : MonoBehaviour
 
     InteractableObject interactableObject;
 
+    private bool hasInteractedWithObject;
+
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
@@ -60,20 +62,20 @@ public class InteractionHandler : MonoBehaviour
                 {
                     ShowInteractableUI(hit);
                     interactableObject = target.GetComponent<InteractableObject>();
-                    interactableObject.StartGlow();
+                    interactableObject?.StartGlow();
                 }
             }
             else if (immInteractable)
             {
                 HideInteractableUI();
-                interactableObject.EndGlow();
+                interactableObject?.EndGlow();
                 interactableObject = null;
             }
         }
         else if (immInteractable)
         {
             HideInteractableUI();
-            interactableObject.EndGlow();
+            interactableObject?.EndGlow();
             interactableObject = null;
         }
         Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
@@ -86,6 +88,9 @@ public class InteractionHandler : MonoBehaviour
         GameObject target = hit.transform.gameObject;
         var interactable = target.GetComponent<IInteractable>();
         interactable?.Interact(target);
+        interactableObject?.EndGlow();
+        interactableObject = null;
+        hasInteractedWithObject = true;
     }
 
     private void ShowInteractableUI(RaycastHit hit)
@@ -108,5 +113,10 @@ public class InteractionHandler : MonoBehaviour
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
         bulletBehaviour.Shoot(direction);
         attackCooltime = 0.7f;
+    }
+
+    public bool HasInteractedWithObject()
+    {
+        return hasInteractedWithObject;
     }
 }
