@@ -19,6 +19,7 @@ public class TutorialManager : MonoBehaviour
     {
         playerController = GameManager.GetInstance().player.GetComponent<PlayerController>();
         uiManager = GameManager.GetInstance().um;
+        uiManager.isBedInteractionTutorial = false;
         interactionHandler = Camera.main.GetComponent<InteractionHandler>();
         yield return StartCoroutine(ShowIntroTutorial());
         yield return StartCoroutine(ShowMoveTutorial());

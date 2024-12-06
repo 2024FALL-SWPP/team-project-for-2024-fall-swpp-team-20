@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     private Text characterScript;
     private GameObject cover;
     [SerializeField] private TextMeshProUGUI tutorialText;
-    public bool isBedInteractionTutorial = false;
+    public bool isBedInteractionTutorial;
 
     public void Initialize()
     {
@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
             characterScript = characterScriptPanel.GetComponentInChildren<Text>();
             cover = canvasTransform.Find("Cover").gameObject;
             tutorialText = canvasTransform.Find("TutorialText").GetComponent<TextMeshProUGUI>();
+            isBedInteractionTutorial = true;
         }
         HideEverything();
     }
