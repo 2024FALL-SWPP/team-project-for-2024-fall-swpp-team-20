@@ -32,13 +32,13 @@ public class StageManager : MonoBehaviour
         tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
-    public void GameStart()
+    public void GameStart(bool start = true)
     {
         currentStage = 0;
         pc.Initialize();
         mc.FillAnomaly();
         GameManager.GetInstance().Play();
-        InitializeStage(currentStage);
+        if (start) InitializeStage(currentStage);
     }
 
     public void InitializeStage(int stage)
@@ -114,7 +114,6 @@ public class StageManager : MonoBehaviour
         {
             SceneManager.LoadScene("SleepScene");
             Fail();
-            InitializeStage(currentStage); //TODO
         }
         else if (!sleep && !haveAnomaly)
         {
@@ -125,7 +124,6 @@ public class StageManager : MonoBehaviour
         {
             SceneManager.LoadScene("SleepScene");
             Succeed();
-            InitializeStage(currentStage); //TODO
         }
         else if (!sleep && haveAnomaly)
         {
