@@ -33,6 +33,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         uiManager.ShowTutorialText("Before starting the game, you need to learn how to move, jump, and interact with objects.");
         yield return new WaitForSeconds(5f);
+        uiManager.ShowTutorialText("First, use the W, A, S, D keys to move and the space bar to jump.");
+        yield return new WaitForSeconds(5f);
         uiManager.HideTutorialText();
     }
 
