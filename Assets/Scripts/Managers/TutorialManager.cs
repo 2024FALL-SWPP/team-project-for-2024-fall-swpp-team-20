@@ -22,8 +22,6 @@ public class TutorialManager : MonoBehaviour
         uiManager.isBedInteractionTutorial = false;
         interactionHandler = Camera.main.GetComponent<InteractionHandler>();
         yield return StartCoroutine(ShowIntroTutorial());
-        yield return StartCoroutine(ShowMoveTutorial());
-        yield return StartCoroutine(ShowJumpTutorial());
         yield return StartCoroutine(ShowObjectInteractionTutorial());
         uiManager.isBedInteractionTutorial = true;
         yield return StartCoroutine(ShowBedInteractionTutorial());
@@ -35,30 +33,6 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         uiManager.ShowTutorialText("Before starting the game, you need to learn how to move, jump, and interact with objects.");
         yield return new WaitForSeconds(5f);
-        uiManager.HideTutorialText();
-    }
-
-    private IEnumerator ShowMoveTutorial()
-    {
-        uiManager.ShowTutorialText("Use WASD keys to move.");
-        while (!playerController.HasMoved())
-        {
-            yield return null;
-        }
-        uiManager.ShowTutorialText("Move Tutorial Completed!");
-        yield return new WaitForSeconds(2f);
-        uiManager.HideTutorialText();
-    }
-
-    private IEnumerator ShowJumpTutorial()
-    {
-        uiManager.ShowTutorialText("Press Space to jump.");
-        while (!playerController.HasJumped())
-        {
-            yield return null;
-        }
-        uiManager.ShowTutorialText("Jump Tutorial Completed!");
-        yield return new WaitForSeconds(2f);
         uiManager.HideTutorialText();
     }
 
