@@ -45,10 +45,10 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             glowColors[i] = originalColors[i] + Color.white * 0.6f;
         }
 
-        // var outline = gameObject.AddComponent<Outline>();
-        // outline.OutlineMode = Outline.Mode.OutlineVisible;
-        // outline.OutlineColor = Color.white;
-        // outline.OutlineWidth = 3f;
+        var outline = gameObject.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineVisible;
+        outline.OutlineColor = Color.white;
+        outline.OutlineWidth = 3f;
     }
 
     public virtual void StartGlow()
