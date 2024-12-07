@@ -65,12 +65,6 @@ public class Knight : ChessPieceBehaviour
         base.Update();
     }
 
-    private float CalculateDistanceFromPlayer(out Vector3 direction)
-    {
-        direction = GetDirection();
-        return Vector3.Magnitude(direction);
-    }
-
 
     private Vector3 GetPosition(float time, Vector3 initial, Vector3 direction, float movingTime)
     {

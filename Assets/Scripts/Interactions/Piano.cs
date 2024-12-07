@@ -64,24 +64,6 @@ public class Piano : InteractableObject
         GameManager.GetInstance().um.HidePianoInteractionInfo();
     }
 
-    public void Update()
-    {
-        /*if (isInteracting)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                EndInteraction();
-            }
-            for (int i = 0; i < 8; i++)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-                {
-                    GameManager.instance.sm.PlayPianoSound(i);
-                    StartCoroutine(PressKey(i));
-                }
-            }
-        }*/
-    }
 
     private void OnPiano(InputAction.CallbackContext context)
     {

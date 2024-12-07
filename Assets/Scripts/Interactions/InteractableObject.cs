@@ -14,6 +14,9 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     private bool isGlowing = false;
     private Coroutine glowCoroutine;
 
+    private Outline outline;
+    private bool outlineOn;
+
     protected virtual void Start()
     {
         // 자식 오브젝트 포함 모든 MeshRenderer 가져오기
@@ -45,11 +48,13 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             glowColors[i] = originalColors[i] + Color.white * 0.6f;
         }
 
-        var outline = gameObject.AddComponent<Outline>();
+        outline = gameObject.AddComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineVisible;
         outline.OutlineColor = Color.white;
         outline.OutlineWidth = 3f;
+        outlineOn = true;
     }
+
 
     public virtual void StartGlow()
     {
@@ -105,6 +110,25 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             }
         }
     }
+
+    public virtual void Update()
+    {
+        //Debug.Log("HELLO WORLD");
+        if (!outlineOn && IsInteractable())
+        {
+            Debug.Log($"Hello from {gameObject.name}");
+            outline.EnableShader();
+            outlineOn = true;
+        }
+        else if (outlineOn && !IsInteractable())
+        {
+            Debug.Log($"Hello from {gameObject.name}");
+            outline.DisableShader();
+            outlineOn = false;
+        }
+        
+    }
+
 
     public abstract void Interact(GameObject obj);
 
