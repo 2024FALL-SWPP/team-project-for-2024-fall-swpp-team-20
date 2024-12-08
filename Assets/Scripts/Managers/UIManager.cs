@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     private Text generalInfo;
     private Text interactionInfo;
+    private GameObject sleepText;
+    private GameObject pianoText;
     private Text stateInfo;
     private Text timerText;
     private InputField passwordField;
@@ -35,6 +37,8 @@ public class UIManager : MonoBehaviour
             canvasTransform = FindAnyObjectByType<Canvas>().transform;
             generalInfo = canvasTransform.Find("InformationText").GetComponent<Text>();
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
+            sleepText = canvasTransform.Find("SleepText").gameObject;
+            pianoText = canvasTransform.Find("PianoText").gameObject;
             stateInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
             cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponent<Image>();
             health = canvasTransform.Find("Health").GetComponent<RectTransform>();
@@ -61,8 +65,9 @@ public class UIManager : MonoBehaviour
         {
             return;
         }
-        generalInfo.enabled = true;
-        generalInfo.text = "Press [F] to Sleep\n Press [G] to Wake Up";
+        // generalInfo.enabled = true;
+        // generalInfo.text = "Press [F] to Sleep\n Press [G] to Wake Up";
+        sleepText.gameObject.SetActive(true);
     }
 
     //Make cursor Red if Interaction is able with mouse click
@@ -95,8 +100,10 @@ public class UIManager : MonoBehaviour
 
     public void ShowPianoInteractionInfo()
     {
-        interactionInfo.enabled = true;
-        interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        // interactionInfo.enabled = true;
+        // interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        interactionInfo.enabled = false;
+        pianoText.gameObject.SetActive(true);
         HideCursor();
     }
 
@@ -114,10 +121,12 @@ public class UIManager : MonoBehaviour
     public void HideSleepInfo()
     {
         generalInfo.enabled = false;
+        sleepText.gameObject.SetActive(false);
     }
 
     public void HidePianoInteractionInfo()
     {
+        pianoText.gameObject.SetActive(false);
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with piano";
         ShowCursor();
