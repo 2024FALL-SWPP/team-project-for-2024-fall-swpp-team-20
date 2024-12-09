@@ -75,5 +75,8 @@ public class ObjectStorage : MonoBehaviour
     public GameObject digitalClock;
     public GameObject timeBomb;
 
+    [Header("Tutorial")]
+    public GameObject tutorialImage;
+
 
 }

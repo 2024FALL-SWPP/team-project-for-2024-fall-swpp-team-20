@@ -81,6 +81,11 @@ public class MapController : MonoBehaviour
             currentMap = Instantiate(mapPrefab, Vector3.zero, Quaternion.identity, transform);
             SetClock(stage);
             Debug.Log($"Stage {stage}: No Anomaly");
+            if (stage == 0)
+            {
+                ObjectStorage storage = currentMap.GetComponent<ObjectStorage>();
+                storage.tutorialImage.SetActive(true);
+            }
             return HardAnomalyCode.NotInHard;
         }
         else

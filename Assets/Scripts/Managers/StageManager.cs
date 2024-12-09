@@ -7,7 +7,6 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] private int currentStage;
     public int GetCurrentStage() => currentStage;
-    private GameObject currentMap;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
     private GameObject player => GameManager.GetInstance().player;
@@ -27,7 +26,6 @@ public class StageManager : MonoBehaviour
         interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pi = player.GetComponent<PlayerInformation>();
-        currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
     }
@@ -133,11 +131,6 @@ public class StageManager : MonoBehaviour
             Succeed();
         }
         GameManager.GetInstance().prevStage = currentStage;
-    }
-
-    public void ReInitializeStage()
-    {
-        InitializeStage(currentStage);
     }
 
     private void Succeed()
