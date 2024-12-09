@@ -44,11 +44,12 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
             instance.Initialize();
+            prevStage = 0;
         }
         else Destroy(this);
     }
 
-    private void Initialize()
+    private void Initialize(bool start = true)
     {
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "GameScene")
@@ -63,14 +64,14 @@ public class GameManager : MonoBehaviour
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
         um.Initialize();
 
-        stageManager.GameStart();
+        stageManager.GameStart(start);
     }
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "GameScene")
         {
-            Initialize();
+            Initialize(false);
             stageManager.InitializeStage(prevStage);
         }
     }
