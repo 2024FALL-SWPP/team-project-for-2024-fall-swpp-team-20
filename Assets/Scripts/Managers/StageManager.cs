@@ -38,7 +38,7 @@ public class StageManager : MonoBehaviour
     {
         currentStage = 0;
         pc.Initialize();
-        if(start)
+        if (start)
         {
             am.FillAnomaly();
             InitializeStage(currentStage);
