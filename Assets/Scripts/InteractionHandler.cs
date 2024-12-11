@@ -59,7 +59,8 @@ public class InteractionHandler : MonoBehaviour
             GameObject newTarget = hit.collider.gameObject;
             if (newTarget.layer == LayerMask.NameToLayer("Interactable") && newTarget.GetComponent<IInteractable>().IsInteractable())
             {
-                if (target != null && target != newTarget) {
+                if (target != null && target != newTarget)
+                {
                     interactableObject?.EndGlow();
                 }
                 EnableInteraction(newTarget);
@@ -75,7 +76,8 @@ public class InteractionHandler : MonoBehaviour
         }
         Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
     }
-    private void DisableInteraction() {
+    private void DisableInteraction()
+    {
         HideInteractableUI();
         if (interactableObject == null) return;
         interactableObject?.EndGlow();
@@ -83,7 +85,8 @@ public class InteractionHandler : MonoBehaviour
         target = null;
     }
 
-    private void EnableInteraction(GameObject newTarget) {
+    private void EnableInteraction(GameObject newTarget)
+    {
         ShowInteractableUI(newTarget);
         interactableObject = newTarget.GetComponent<InteractableObject>();
         interactableObject.StartGlow();
