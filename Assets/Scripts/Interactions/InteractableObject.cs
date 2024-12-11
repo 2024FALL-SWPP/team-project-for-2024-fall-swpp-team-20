@@ -126,7 +126,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
             outline.DisableShader();
             outlineOn = false;
         }
-        
+
     }
 
 

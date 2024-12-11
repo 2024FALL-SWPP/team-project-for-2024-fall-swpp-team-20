@@ -114,7 +114,8 @@ public class Outline : MonoBehaviour
         EnableShader();
     }
 
-    public void EnableShader() {
+    public void EnableShader()
+    {
         foreach (var renderer in renderers)
         {
 
@@ -128,7 +129,8 @@ public class Outline : MonoBehaviour
         }
     }
 
-    public void DisableShader() {
+    public void DisableShader()
+    {
         foreach (var renderer in renderers)
         {
 
