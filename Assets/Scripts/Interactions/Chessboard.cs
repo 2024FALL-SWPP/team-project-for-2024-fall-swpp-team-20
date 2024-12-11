@@ -7,6 +7,11 @@ public class Chessboard : InteractableObject
     private bool inAnomaly = false;
     private bool activated = false;
 
+    protected override void Start()
+    {
+
+    }
+
     public override void Interact(GameObject obj)
     {
         activated = true;
