@@ -15,11 +15,15 @@ public class UIManager : MonoBehaviour
 
     private Text generalInfo;
     private Text interactionInfo;
+    private GameObject sleepText;
+    private GameObject pianoText;
     private Text stateInfo;
     private Text timerText;
     private InputField passwordField;
     private RectTransform health;
-    private RawImage[] cursorImage;
+    private Image healthBar;
+    private float maxHealthWidth;
+    private Image cursorImage;
     private GameObject characterScriptPanel;
     private Text characterScript;
     private GameObject cover;
@@ -33,9 +37,12 @@ public class UIManager : MonoBehaviour
             canvasTransform = FindAnyObjectByType<Canvas>().transform;
             generalInfo = canvasTransform.Find("InformationText").GetComponent<Text>();
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
+            sleepText = canvasTransform.Find("SleepText").gameObject;
+            pianoText = canvasTransform.Find("PianoText").gameObject;
             stateInfo = canvasTransform.Find("FinishText").GetComponent<Text>();
-            cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponentsInChildren<RawImage>();
+            cursorImage = canvasTransform.Find("Cursor").gameObject.GetComponent<Image>();
             health = canvasTransform.Find("Health").GetComponent<RectTransform>();
+            healthBar = canvasTransform.Find("HealthBar").GetComponent<Image>();
             timerText = canvasTransform.Find("TimerText").GetComponent<Text>();
             passwordField = canvasTransform.Find("passwordField").GetComponent<InputField>();
             characterScriptPanel = canvasTransform.Find("CharacterScriptPanel").gameObject;
@@ -58,8 +65,9 @@ public class UIManager : MonoBehaviour
         {
             return;
         }
-        generalInfo.enabled = true;
-        generalInfo.text = "Press [F] to Sleep\n Press [G] to Wake Up";
+        // generalInfo.enabled = true;
+        // generalInfo.text = "Press [F] to Sleep\n Press [G] to Wake Up";
+        sleepText.gameObject.SetActive(true);
     }
 
     //Make cursor Red if Interaction is able with mouse click
@@ -67,10 +75,7 @@ public class UIManager : MonoBehaviour
     {
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with {target.transform.name}";
-        foreach (RawImage i in cursorImage)
-        {
-            i.color = Color.red;
-        }
+        // cursorImage.color = Color.red;
     }
 
     public void ShowStateUI(GameState state)
@@ -95,8 +100,10 @@ public class UIManager : MonoBehaviour
 
     public void ShowPianoInteractionInfo()
     {
-        interactionInfo.enabled = true;
-        interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        // interactionInfo.enabled = true;
+        // interactionInfo.text = "Play the piano with the key 1~8 \n Press [Q] to Exit";
+        interactionInfo.enabled = false;
+        pianoText.gameObject.SetActive(true);
         HideCursor();
     }
 
@@ -108,29 +115,44 @@ public class UIManager : MonoBehaviour
     public void HideInteractionInfo()
     {
         interactionInfo.enabled = false;
-        foreach (RawImage i in cursorImage)
-        {
-            i.color = Color.white;
-        }
+        // cursorImage.color = Color.white;
     }
 
     public void HideSleepInfo()
     {
         generalInfo.enabled = false;
+        sleepText.gameObject.SetActive(false);
     }
 
     public void HidePianoInteractionInfo()
     {
+        pianoText.gameObject.SetActive(false);
         interactionInfo.enabled = true;
         interactionInfo.text = $"Mouse click to interact with piano";
         ShowCursor();
     }
 
-    public void ShowHealthImage() => health.gameObject.SetActive(true);
-    public void HideHealthImage() => health.gameObject.SetActive(false);
+    public void ShowHealthImage()
+    {
+        health.gameObject.SetActive(true);
+        healthBar.gameObject.SetActive(true);
+    }
+    public void HideHealthImage()
+    {
+        health.gameObject.SetActive(false);
+        healthBar.gameObject.SetActive(false);
+    }
+
     public void SetHealthImage(float health)
     {
-        this.health.sizeDelta = new Vector2(Mathf.Max(6 * health, 0), 50f);
+        if (maxHealthWidth == 0)
+        {
+            maxHealthWidth = this.health.sizeDelta.x;
+        }
+
+        // Health 값에 비례하여 가로 길이를 설정
+        float newWidth = Mathf.Max(maxHealthWidth * (health / 100f), 0);
+        this.health.sizeDelta = new Vector2(newWidth, this.health.sizeDelta.y);
     }
 
 
@@ -192,6 +214,7 @@ public class UIManager : MonoBehaviour
                 break;
             case HardAnomalyCode.Chessboard:
                 characterScript.text = "Kill all the chess pieces!\nMouse click to shoot\nDon't get hit by them!";
+                SetCharacterScriptPanelHeight(500f);
                 break;
             case HardAnomalyCode.ReverseMap:
                 characterScript.text = "Map is reversed! You should go back to the bed!";
@@ -206,6 +229,12 @@ public class UIManager : MonoBehaviour
                 break;
         }
         Time.timeScale = 0;
+    }
+
+    private void SetCharacterScriptPanelHeight(float newHeight)
+    {
+        RectTransform panelRect = characterScriptPanel.GetComponent<RectTransform>();
+        panelRect.sizeDelta = new Vector2(panelRect.sizeDelta.x, newHeight);
     }
 
     public void HideCharacterScript()
@@ -242,18 +271,12 @@ public class UIManager : MonoBehaviour
 
     private void HideCursor()
     {
-        foreach (RawImage i in cursorImage)
-        {
-            i.enabled = false;
-        }
+        cursorImage.gameObject.SetActive(false);
     }
 
     private void ShowCursor()
     {
-        foreach (RawImage i in cursorImage)
-        {
-            i.enabled = true;
-        }
+        cursorImage.gameObject.SetActive(true);
     }
 
     public void ShowTutorialText(string text)

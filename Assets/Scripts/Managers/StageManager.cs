@@ -7,7 +7,6 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] private int currentStage;
     public int GetCurrentStage() => currentStage;
-    private GameObject currentMap;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
     private GameObject player => GameManager.GetInstance().player;
@@ -18,7 +17,8 @@ public class StageManager : MonoBehaviour
 
     private PlayerInformation pi;
     private LandscapeManager landscapeManager;
-    private bool Test => mc.test;
+    private AnomalyManager am;
+    private bool Test => am.test;
 
     public void InitializeVariables()
     {
@@ -27,18 +27,21 @@ public class StageManager : MonoBehaviour
         interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
         pi = player.GetComponent<PlayerInformation>();
-        currentMap = GameObject.FindGameObjectWithTag("Map");
         landscapeManager = FindObjectOfType<LandscapeManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
+        am = FindObjectOfType<AnomalyManager>();
     }
 
-    public void GameStart()
+    public void GameStart(bool start = true)
     {
         currentStage = 0;
         pc.Initialize();
-        mc.FillAnomaly();
+        if (start)
+        {
+            am.FillAnomaly();
+            InitializeStage(currentStage);
+        }
         GameManager.GetInstance().Play();
-        InitializeStage(currentStage);
     }
 
     public void InitializeStage(int stage)
@@ -114,7 +117,6 @@ public class StageManager : MonoBehaviour
         {
             SceneManager.LoadScene("SleepScene");
             Fail();
-            InitializeStage(currentStage); //TODO
         }
         else if (!sleep && !haveAnomaly)
         {
@@ -125,7 +127,6 @@ public class StageManager : MonoBehaviour
         {
             SceneManager.LoadScene("SleepScene");
             Succeed();
-            InitializeStage(currentStage); //TODO
         }
         else if (!sleep && haveAnomaly)
         {
@@ -133,11 +134,6 @@ public class StageManager : MonoBehaviour
             Succeed();
         }
         GameManager.GetInstance().prevStage = currentStage;
-    }
-
-    public void ReInitializeStage()
-    {
-        InitializeStage(currentStage);
     }
 
     private void Succeed()
