@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class TimeBomb : MonoBehaviour, IInteractable
+public class TimeBomb : InteractableObject
 {
     public Camera mainCamera;
     private bool isInteracting = false;
@@ -14,7 +14,7 @@ public class TimeBomb : MonoBehaviour, IInteractable
 
     public DigitalClockSystem digitalClockInput;
 
-    private void Start()
+    protected override void Start()
     {
         trialCount = 5;
         mainCamera = Camera.main;
@@ -22,6 +22,7 @@ public class TimeBomb : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
+        base.Start();
         digitalClockInput = new DigitalClockSystem();
         digitalClockInput.Enable();
         digitalClockInput.DigitalClock.Insert.performed += OnInsert;
@@ -35,7 +36,7 @@ public class TimeBomb : MonoBehaviour, IInteractable
         digitalClockInput.Disable();
     }
 
-    public void Interact(GameObject obj)
+    public override void Interact(GameObject obj)
     {
         StartInteraction();
     }
@@ -111,5 +112,5 @@ public class TimeBomb : MonoBehaviour, IInteractable
         }
     }
 
-    public bool IsInteractable() => true;
+    public override bool IsInteractable() => true;
 }

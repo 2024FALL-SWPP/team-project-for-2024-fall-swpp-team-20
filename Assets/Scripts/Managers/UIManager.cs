@@ -71,10 +71,10 @@ public class UIManager : MonoBehaviour
     }
 
     //Make cursor Red if Interaction is able with mouse click
-    public void ShowInteractionInfo(RaycastHit hit)
+    public void ShowInteractionInfo(GameObject target)
     {
         interactionInfo.enabled = true;
-        interactionInfo.text = $"Mouse click to interact with {hit.transform.name}";
+        interactionInfo.text = $"Mouse click to interact with {target.transform.name}";
         // cursorImage.color = Color.red;
     }
 

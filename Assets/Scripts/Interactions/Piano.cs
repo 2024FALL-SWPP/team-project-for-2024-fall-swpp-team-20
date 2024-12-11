@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Piano : MonoBehaviour, IInteractable
+public class Piano : InteractableObject
 {
     public GameObject[] pianoKeys = new GameObject[8];
     public bool inAnomaly = false;
@@ -16,9 +16,9 @@ public class Piano : MonoBehaviour, IInteractable
 
 
 
-    private void Start()
+    protected override void Start()
     {
-
+        base.Start();
         mainCamera = Camera.main;
         pianoCamera = GameObject.Find("PianoCamera").GetComponent<Camera>();
         pianoCamera.gameObject.SetActive(false);
@@ -39,7 +39,7 @@ public class Piano : MonoBehaviour, IInteractable
         pianoInput.Disable();
     }
 
-    public void Interact(GameObject obj)
+    public override void Interact(GameObject obj)
     {
         StartInteraction();
     }
@@ -64,24 +64,6 @@ public class Piano : MonoBehaviour, IInteractable
         GameManager.GetInstance().um.HidePianoInteractionInfo();
     }
 
-    public void Update()
-    {
-        /*if (isInteracting)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                EndInteraction();
-            }
-            for (int i = 0; i < 8; i++)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-                {
-                    GameManager.instance.sm.PlayPianoSound(i);
-                    StartCoroutine(PressKey(i));
-                }
-            }
-        }*/
-    }
 
     private void OnPiano(InputAction.CallbackContext context)
     {
@@ -100,5 +82,5 @@ public class Piano : MonoBehaviour, IInteractable
         pianoKeys[realIndex].transform.position += new Vector3(0, 0.01f, 0);
     }
 
-    public bool IsInteractable() => true;
+    public override bool IsInteractable() => true;
 }

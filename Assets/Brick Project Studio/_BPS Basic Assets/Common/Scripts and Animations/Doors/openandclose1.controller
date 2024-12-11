@@ -24,7 +24,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 --- !u!1102 &1102316978540719434
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -50,7 +50,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102376870711517360
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -76,12 +76,12 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102526237658920156
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Closing 1
+  m_Name: Closing
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -102,12 +102,12 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102911340574431934
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Opening 1
+  m_Name: Opening
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -128,7 +128,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &1107283027729849398
 AnimatorStateMachine:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,10 +140,10 @@ AnimatorStateMachine:
     m_Position: {x: 132, y: 168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102526237658920156}
-    m_Position: {x: 492, y: 240, z: 0}
+    m_Position: {x: 490, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102911340574431934}
-    m_Position: {x: 581.9157, y: 112.77013, z: 0}
+    m_Position: {x: 580, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102376870711517360}
     m_Position: {x: 616.9157, y: 177.77013, z: 0}

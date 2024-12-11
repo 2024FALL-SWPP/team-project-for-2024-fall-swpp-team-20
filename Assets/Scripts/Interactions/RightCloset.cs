@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightCloset : MonoBehaviour, IInteractable
+public class RightCloset : InteractableObject
 {
     private bool open = false;
     private bool Open
@@ -21,10 +21,17 @@ public class RightCloset : MonoBehaviour, IInteractable
             }
         }
     }
-    public void Interact(GameObject obj)
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    public override void Interact(GameObject obj)
     {
         Open = !Open;
     }
+
     public IEnumerator OpenDoor()
     {
         Quaternion targetRotation = Quaternion.Euler(-90, 0, 0);
@@ -47,5 +54,5 @@ public class RightCloset : MonoBehaviour, IInteractable
         transform.rotation = targetRotation;
     }
 
-    public bool IsInteractable() => true;
+    public override bool IsInteractable() => true;
 }

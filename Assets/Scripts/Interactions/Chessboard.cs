@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chessboard : MonoBehaviour, IInteractable
+public class Chessboard : InteractableObject
 {
     private bool inAnomaly = false;
     private bool activated = false;
 
-    public void Interact(GameObject obj)
+    protected override void Start()
+    {
+
+    }
+
+    public override void Interact(GameObject obj)
     {
         activated = true;
         MoveToChessBoard(GameManager.GetInstance().player, obj);
@@ -31,11 +36,15 @@ public class Chessboard : MonoBehaviour, IInteractable
         }
     }
 
-    public bool IsInteractable()
+    public override bool IsInteractable()
     {
         if (!inAnomaly) return false;
         else return !activated;
     }
 
-    public void SetAnomaly() => inAnomaly = true;
+    public void SetAnomaly()
+    {
+        inAnomaly = true;
+        base.Start();
+    }
 }

@@ -6,6 +6,7 @@ public class InteractionHandler : MonoBehaviour
     public bool canInteract;
     private bool immInteractable;
     private int layerMask;
+    private GameObject target;
     private RaycastHit hit;
 
     private float attackCooltime;
@@ -15,6 +16,8 @@ public class InteractionHandler : MonoBehaviour
 
     public delegate void OnMouseClick();
     public OnMouseClick onMouseClick;
+
+    InteractableObject interactableObject;
 
     private bool hasInteractedWithObject;
 
@@ -53,24 +56,41 @@ public class InteractionHandler : MonoBehaviour
         if (inAttackMode) attackCooltime -= Time.deltaTime;
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
-            GameObject target = hit.collider.gameObject;
-            if (target.layer == LayerMask.NameToLayer("Interactable") && target.GetComponent<IInteractable>().IsInteractable())
+            GameObject newTarget = hit.collider.gameObject;
+            if (newTarget.layer == LayerMask.NameToLayer("Interactable") && newTarget.GetComponent<IInteractable>().IsInteractable())
             {
-                if (!immInteractable)
+                if (target != null && target != newTarget)
                 {
-                    ShowInteractableUI(hit);
+                    interactableObject?.EndGlow();
                 }
+                EnableInteraction(newTarget);
             }
             else if (immInteractable)
             {
-                HideInteractableUI();
+                DisableInteraction();
             }
         }
         else if (immInteractable)
         {
-            HideInteractableUI();
+            DisableInteraction();
         }
         Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
+    }
+    private void DisableInteraction()
+    {
+        HideInteractableUI();
+        if (interactableObject == null) return;
+        interactableObject?.EndGlow();
+        interactableObject = null;
+        target = null;
+    }
+
+    private void EnableInteraction(GameObject newTarget)
+    {
+        ShowInteractableUI(newTarget);
+        interactableObject = newTarget.GetComponent<InteractableObject>();
+        interactableObject.StartGlow();
+        target = newTarget;
     }
 
     public void HandleInteraction()
@@ -80,13 +100,15 @@ public class InteractionHandler : MonoBehaviour
         GameObject target = hit.transform.gameObject;
         var interactable = target.GetComponent<IInteractable>();
         interactable?.Interact(target);
+        interactableObject?.EndGlow();
+        interactableObject = null;
         hasInteractedWithObject = true;
     }
 
-    private void ShowInteractableUI(RaycastHit hit)
+    private void ShowInteractableUI(GameObject newTarget)
     {
         immInteractable = true;
-        GameManager.GetInstance().um.ShowInteractionInfo(hit);
+        GameManager.GetInstance().um.ShowInteractionInfo(newTarget);
     }
 
     private void HideInteractableUI()
