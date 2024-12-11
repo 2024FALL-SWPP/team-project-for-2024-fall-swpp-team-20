@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using TMPro;
 using Shuffle = System.Random;
+using UnityEngine.SceneManagement;
 
 public class MapController : MonoBehaviour
 {
@@ -14,47 +15,16 @@ public class MapController : MonoBehaviour
     private float initialClockRotation = 240.0f;
     private int anomalyIndex = -1;
     private const int maxAnomalyCount = 50;
-    private List<Anomaly> anomalies;
 
-    //only for anomlay testing
-    public bool test;
-    public int testAnomaly;
+    private AnomalyManager anomalyManager;
+
+    //only for anomaly testing
 
     private void Start()
     {
         currentMap = GameObject.FindGameObjectWithTag("Map");
     }
 
-    public void FillAnomaly()
-    {
-        // Asked for chatGPT about how to use assembly
-        Assembly assembly = Assembly.GetExecutingAssembly();
-
-        // filling delegate list
-        anomalies = new List<Anomaly>();
-        foreach (Type type in assembly.GetTypes())
-        {
-            //Debug.Log($"{type} isAnomaly:{type == typeof(Anomaly)} isHardAnomaly:{type == typeof(HardAnomaly)}");
-            if (type == typeof(Anomaly) || type == typeof(HardAnomaly)) continue;
-            if (typeof(Anomaly).IsAssignableFrom(type))
-            {
-                // Create an instance of each type and add it to the list.
-                Anomaly instance = (Anomaly)Activator.CreateInstance(type);
-                anomalies.Add(instance);
-            }
-        }
-
-        if (!test)
-        {
-            Shuffle s = new();
-            anomalies = anomalies.OrderBy(_ => s.Next()).ToList();
-        }
-
-        for (int index = 0; index < anomalies.Count; index++)
-        {
-            Debug.Log($"Index {index}: {anomalies[index].GetType()}");
-        }
-    }
 
     private void CleanupCurrentMap()
     {
@@ -75,6 +45,9 @@ public class MapController : MonoBehaviour
     {
         CleanupCurrentMap();
         Anomaly anomaly = null;
+        anomalyManager = FindObjectOfType<AnomalyManager>();
+        bool test = anomalyManager.test;
+        int testAnomaly = anomalyManager.testAnomaly;
 
         if (!haveAnomaly)
         {
@@ -94,12 +67,12 @@ public class MapController : MonoBehaviour
             SetClock(stage);
             if (test)
             {
-                anomaly = anomalies[testAnomaly];
+                anomaly = anomalyManager.anomalies[testAnomaly];
                 Debug.Log($"Test: Anomaly {anomaly.GetType()}");
             }
             else
             {
-                anomaly = anomalies[++anomalyIndex % anomalies.Count];
+                anomaly = anomalyManager.anomalies[++anomalyIndex % anomalyManager.anomalies.Count];
                 Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
             }
 
@@ -124,7 +97,7 @@ public class MapController : MonoBehaviour
 
     private void SetAnomaly(Anomaly anomaly)
     {
-        if (anomalyIndex < anomalies.Count)
+        if (anomalyIndex < anomalyManager.anomalies.Count)
         {
             anomaly.Apply(currentMap);
             //Do Additional Setting For Each Hard Anomaly

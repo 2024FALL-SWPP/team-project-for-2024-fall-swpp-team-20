@@ -17,7 +17,8 @@ public class StageManager : MonoBehaviour
 
     private PlayerInformation pi;
     private LandscapeManager landscapeManager;
-    private bool Test => mc.test;
+    private AnomalyManager am;
+    private bool Test => am.test;
 
     public void InitializeVariables()
     {
@@ -28,15 +29,19 @@ public class StageManager : MonoBehaviour
         pi = player.GetComponent<PlayerInformation>();
         landscapeManager = FindObjectOfType<LandscapeManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
+        am = FindObjectOfType<AnomalyManager>();
     }
 
     public void GameStart(bool start = true)
     {
         currentStage = 0;
         pc.Initialize();
-        mc.FillAnomaly();
+        if (start)
+        {
+            am.FillAnomaly();
+            InitializeStage(currentStage);
+        }
         GameManager.GetInstance().Play();
-        if (start) InitializeStage(currentStage);
     }
 
     public void InitializeStage(int stage)
