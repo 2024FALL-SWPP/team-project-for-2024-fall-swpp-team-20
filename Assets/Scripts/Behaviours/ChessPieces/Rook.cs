@@ -41,23 +41,27 @@ public class Rook : ChessPieceBehaviour
         }
     }
 
-    public override void Activate()
+    public override void Activate(bool promoted)
     {
-        base.Activate();
-        maxHealth = 5;
+        base.Activate(promoted);
+        maxHealth = 10;
         health = maxHealth;
         damage = 10;
-        speed = spotSize * 2;
+        speed = spotSize * 3;
         StartCoroutine(AttackCoroutine());
     }
     private void OnDestroy()
     {
-        if (health == 0) DeadPieceCount++;
+        if (health == 0) {
+            
+            if (promoted) DeadPawnCount++;
+            DeadPieceCount++;
+        }
     }
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate();
+        if (DeadPawnCount == 8 && !activated) Activate(false);
         base.Update();
     }
 }

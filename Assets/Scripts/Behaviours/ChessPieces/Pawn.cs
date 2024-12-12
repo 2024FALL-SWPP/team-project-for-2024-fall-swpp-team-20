@@ -6,21 +6,13 @@ public class Pawn : ChessPieceBehaviour
 {
     private int movedCount;
 
-
+    public List<GameObject> promotePieces;
     public override void Attack()
     {
-        if (CalculateDistanceFromPlayer(out Vector3 direction) < Mathf.Sqrt(2) * spotSize)
-        {
-            StartCoroutine(MoveToPlayer(direction));
-        }
-        else
-        {
-            if (movedCount >= 6) return;
-            StartCoroutine(MoveForward());
-            movedCount++;
-        }
+        StartCoroutine(MoveForward());
+        movedCount++;
     }
-    private IEnumerator MoveToPlayer(Vector3 direction)
+    /*private IEnumerator MoveToPlayer(Vector3 direction)
     {
         Vector3 initialPos = transform.position;
         float time = 0;
@@ -31,7 +23,8 @@ public class Pawn : ChessPieceBehaviour
             yield return null;
         }
         transform.position = initialPos + direction;
-    }
+        
+    }*/
     private IEnumerator MoveForward()
     {
         Vector3 initialPos = transform.position;
@@ -44,22 +37,27 @@ public class Pawn : ChessPieceBehaviour
             yield return null;
         }
         transform.position = initialPos + direction;
+        if (movedCount >= 6)
+        {
+            activated = false;
+            Promote();
+        }
     }
     private IEnumerator AttackCoroutine()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 6f));
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
         Attack();
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3f, 6f));
+            yield return new WaitForSeconds(Random.Range(1f, 3f));
             Attack();
         }
     }
 
-    public override void Activate()
+    public override void Activate(bool promoted)
     {
-        base.Activate();
-        maxHealth = 3;
+        base.Activate(promoted);
+        maxHealth = 5;
         health = maxHealth;
         damage = 5;
         StartCoroutine(AttackCoroutine());
@@ -74,6 +72,11 @@ public class Pawn : ChessPieceBehaviour
         }
     }
 
-
+    private void Promote() {
+        int spawnIndex = Random.Range(0, 4);
+        ChessPieceBehaviour newPiece = Instantiate(promotePieces[spawnIndex], transform.position, Quaternion.identity, transform.parent).GetComponent<ChessPieceBehaviour>();
+        newPiece.Activate(true);
+        Destroy(gameObject);
+    }
 
 }

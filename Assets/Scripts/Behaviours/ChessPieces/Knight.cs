@@ -22,7 +22,7 @@ public class Knight : ChessPieceBehaviour
     {
         Vector3 initialPos = transform.position;
         float time = 0;
-        float movingTime = 2f;
+        float movingTime = 1f;
         while (time < movingTime)
         {
             time += Time.deltaTime;
@@ -35,7 +35,7 @@ public class Knight : ChessPieceBehaviour
     private IEnumerator AttackCoroutine()
     {
         Vector3 playerPos = GameManager.GetInstance().player.transform.position; // world position
-        yield return new WaitForSeconds(Random.Range(1f, 5f));
+        yield return new WaitForSeconds(Random.Range(1f, 4f));
         Attack();
         while (true)
         {
@@ -44,10 +44,10 @@ public class Knight : ChessPieceBehaviour
         }
     }
 
-    public override void Activate()
+    public override void Activate(bool promoted)
     {
-        base.Activate();
-        maxHealth = 5;
+        base.Activate(promoted);
+        maxHealth = 10;
         health = maxHealth;
         damage = 10;
         acceleration = 0.1f;
@@ -56,12 +56,17 @@ public class Knight : ChessPieceBehaviour
 
     private void OnDestroy()
     {
-        if (health == 0) DeadPieceCount++;
+        if (health == 0)
+        {
+
+            if (promoted) DeadPawnCount++;
+            DeadPieceCount++;
+        }
     }
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate();
+        if (DeadPawnCount == 8 && !activated) Activate(false);
         base.Update();
     }
 

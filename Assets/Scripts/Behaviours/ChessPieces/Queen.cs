@@ -12,6 +12,8 @@ public class Queen : ChessPieceBehaviour
     public GameObject reallinePrefab;
 
     private float speed;
+
+    private List<GameObject> guideline;
     public override void Attack()
     {
         (int, int) targetPos = GetPossiblePos(chessPosition);
@@ -35,7 +37,7 @@ public class Queen : ChessPieceBehaviour
         chessPosition = targetPos;
 
         //Attack
-        List<GameObject> guideline = InitializeGuideline(chessPosition);
+        guideline = InitializeGuideline(chessPosition);
         yield return new WaitForSeconds(0.6f);
         HideGuidelines(guideline);
         yield return new WaitForSeconds(0.1f);
@@ -202,10 +204,10 @@ public class Queen : ChessPieceBehaviour
         else return false;
     }
 
-    public override void Activate()
+    public override void Activate(bool promoted)
     {
-        base.Activate();
-        maxHealth = 10;
+        base.Activate(promoted);
+        maxHealth = 20;
         health = maxHealth;
         damage = 10;
         chessPosition = (pos1, pos2);
@@ -216,13 +218,17 @@ public class Queen : ChessPieceBehaviour
     {
         if (health == 0)
         {
+            foreach (GameObject g in guideline) {
+                Destroy(g);
+            }
+            if (promoted) DeadPawnCount++;
             DeadPieceCount++;
         }
     }
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate();
+        if (DeadPawnCount == 8 && !activated) Activate(false);
         base.Update();
     }
 
