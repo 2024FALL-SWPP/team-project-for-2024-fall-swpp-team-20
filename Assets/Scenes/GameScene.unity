@@ -955,6 +955,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bf4bcaf360254416c84e0eeb40804277, type: 3}
   - {fileID: 8300000, guid: 48eb6d222a5b94fa092aed3863650461, type: 3}
   timeBombWarningSound: {fileID: 8300000, guid: 4d81e947a11c5a648a295b5ce1712a14, type: 3}
+  footstepSound: {fileID: 8300000, guid: 5c4798febf02846cab3713c155deb94e, type: 3}
+  iswalking: 0
+  footstepSoundPlaying: 0
 --- !u!4 &230178952
 Transform:
   m_ObjectHideFlags: 0
