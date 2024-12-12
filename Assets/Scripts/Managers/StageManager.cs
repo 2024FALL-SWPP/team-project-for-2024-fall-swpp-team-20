@@ -89,6 +89,15 @@ public class StageManager : MonoBehaviour
         landscapeManager.ChangeLandscape(stage);
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (hard==HardAnomalyCode.NotInHard)
+        {
+            GameManager.GetInstance().sm.PlayEasyStageSound();
+        }
+        else
+        {
+            GameManager.GetInstance().sm.PlayHardStageSound();
+        }
     }
 
     public void ToggleActionAvailability(bool available)
