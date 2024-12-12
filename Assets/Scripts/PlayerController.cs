@@ -160,6 +160,22 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(0.01f * rotateSpeed * mouseDeltaX * Vector3.up);
 
             isJumping = !IsGrounded();
+
+            if (moveDirection.magnitude > 0 && !isJumping && !GameManager.GetInstance().sm.iswalking)
+            {
+                if (!GameManager.GetInstance().sm.footstepSoundPlaying)
+                {
+                    GameManager.GetInstance().sm.iswalking = true;
+                    if (!GameManager.GetInstance().sm.footstepSoundPlaying)
+                    {
+                        GameManager.GetInstance().sm.PlayFootstepSound();
+                    }
+                }
+            }
+            else if (moveDirection.magnitude == 0 || isJumping)
+            {
+                GameManager.GetInstance().sm.iswalking = false;
+            }
         }
     }
 
@@ -391,6 +407,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
+    public HardAnomalyCode GetAnomalyType() => currentAnomaly;
 
     public bool HasMoved() => hasMoved;
     public bool HasJumped() => hasJumped;

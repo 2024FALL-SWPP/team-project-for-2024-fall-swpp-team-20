@@ -29,6 +29,7 @@ public class OpenCloseDoor : InteractableObject
 
     private IEnumerator opening()
     {
+        GameManager.GetInstance().sm.PlayDoorOpenSound(gameObject);
         openandclose.Play("Opening");
         open = true;
         yield return new WaitForSeconds(.5f);
@@ -36,6 +37,7 @@ public class OpenCloseDoor : InteractableObject
 
     private IEnumerator closing()
     {
+        GameManager.GetInstance().sm.PlayDoorCloseSound(gameObject);
         openandclose.Play("Closing");
         open = false;
         yield return new WaitForSeconds(.5f);

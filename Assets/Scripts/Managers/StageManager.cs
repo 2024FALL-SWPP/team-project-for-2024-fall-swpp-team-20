@@ -72,12 +72,12 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        if (stage == 0)
+        if (stage == 0 && !Test)
         {
             tutorialManager.gameObject.SetActive(true);
             tutorialManager.StartTutorial();
         }
-        else
+        else if (stage != 0)
         {
             tutorialManager.gameObject.SetActive(false);
         }
@@ -89,6 +89,15 @@ public class StageManager : MonoBehaviour
         landscapeManager.ChangeLandscape(stage);
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (hard == HardAnomalyCode.NotInHard)
+        {
+            GameManager.GetInstance().sm.PlayEasyStageSound();
+        }
+        else
+        {
+            GameManager.GetInstance().sm.PlayHardStageSound();
+        }
     }
 
     public void ToggleActionAvailability(bool available)
@@ -112,8 +121,23 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
+        bool isHard = pc.GetAnomalyType() != HardAnomalyCode.NotInHard;
+        Debug.Log(isHard);
         bool sleep = type == BedInteractionType.Sleep;
-        if (sleep && haveAnomaly)
+        if (isHard)
+        {
+            if (type == BedInteractionType.ClearHard)
+            {
+                SceneManager.LoadScene("AnomalyTrueWakeUpScene");
+                Succeed();
+            }
+            else
+            {
+                SceneManager.LoadScene("AnomalyFalseWakeUpScene");
+                Fail();
+            }
+        }
+        else if (sleep && haveAnomaly)
         {
             SceneManager.LoadScene("SleepScene");
             Fail();

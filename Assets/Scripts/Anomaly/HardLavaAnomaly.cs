@@ -11,6 +11,7 @@ public class HardLavaAnomaly : HardAnomaly
         GameObject lava = map.transform.Find("Lavas").gameObject;
         laptop = storage.laptopObject.GetComponent<Laptop>();
         lava.SetActive(true);
+        GameManager.GetInstance().sm.PlayLavaSound(lava);
         GameManager.GetInstance().um.ShowHealthImage();
         PlayerController pc = GameManager.GetInstance().player.GetComponent<PlayerController>();
         pc.SetPlayerController(SpawnPosition.Lava);

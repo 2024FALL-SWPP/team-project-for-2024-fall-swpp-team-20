@@ -59,7 +59,7 @@ public class PlayerInformation : MonoBehaviour
         if (health <= 0)
         {
             if (hurt != null) StopCoroutine(hurt);
-            GameManager.GetInstance().stageManager.GameOver();
+            GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.FailHard);
         }
     }
 

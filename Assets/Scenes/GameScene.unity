@@ -697,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &177351952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -955,6 +955,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bf4bcaf360254416c84e0eeb40804277, type: 3}
   - {fileID: 8300000, guid: 48eb6d222a5b94fa092aed3863650461, type: 3}
   timeBombWarningSound: {fileID: 8300000, guid: 4d81e947a11c5a648a295b5ce1712a14, type: 3}
+  footstepSound: {fileID: 8300000, guid: 5c4798febf02846cab3713c155deb94e, type: 3}
+  bombBeepSound: {fileID: 8300000, guid: 17cc3b75e049840b6a5ecbae45dcb95d, type: 3}
+  bombExplosionSound: {fileID: 8300000, guid: 179115b0d511843d287292e42e1877ec, type: 3}
+  drawerOpenSound: {fileID: 8300000, guid: eb222a4aee16e4d3c9683bdb0bda532a, type: 3}
+  drawerCloseSound: {fileID: 8300000, guid: 42ce493b42f9744c6839e56f35638fad, type: 3}
+  doorOpenSound: {fileID: 8300000, guid: 746c9b4d87bb64739898550676843844, type: 3}
+  doorCloseSound: {fileID: 8300000, guid: e295d92b76df84ea398057c15e6b04f4, type: 3}
+  lavaSound: {fileID: 8300000, guid: 9bc757435fc4647619aa3bf137ff28f7, type: 3}
+  easyStageSound: {fileID: 8300000, guid: 4d0b02699aab145b687dd8cf27217352, type: 3}
+  hardStageSound: {fileID: 8300000, guid: a7c963004c4a2477f88e600cad013513, type: 3}
+  iswalking: 0
+  footstepSoundPlaying: 0
+  footstepSoundVolume: 0.5
 --- !u!4 &230178952
 Transform:
   m_ObjectHideFlags: 0
@@ -982,7 +995,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5828b5a377d564ad0b093dfb9a0ea886, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1649,7 +1662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &296604631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2611,7 +2624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &522884821
 Transform:
   m_ObjectHideFlags: 0
@@ -3018,7 +3031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &565655959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3602,7 +3615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &747937027
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4334,7 +4347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 0
-  testAnomaly: 0
+  testAnomaly: 20
 --- !u!4 &896207470
 Transform:
   m_ObjectHideFlags: 0
@@ -4441,7 +4454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &917845769
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4873,7 +4886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1296113090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6885,7 +6898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1800910514
 Transform:
   m_ObjectHideFlags: 0
@@ -7195,7 +7208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1896127154
 RectTransform:
   m_ObjectHideFlags: 0

@@ -243,6 +243,11 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void HidePianoText()
+    {
+        pianoText.SetActive(false);
+    }
+
     //Reset UI when new stage starts
     public void HideEverything()
     {
@@ -255,6 +260,7 @@ public class UIManager : MonoBehaviour
         HideCharacterScript();
         HideCover();
         HideTutorialText();
+        HidePianoText();
     }
 
     // For Watching Laptop
