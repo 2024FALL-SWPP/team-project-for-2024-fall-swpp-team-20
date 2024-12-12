@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip timeBombWarningSound;
 
     public AudioClip footstepSound;
+    public AudioClip bombBeepSound;
+    public AudioClip bombExplosionSound;
     public bool iswalking = false;
     public bool footstepSoundPlaying = false;
 
@@ -39,6 +41,17 @@ public class SoundManager : MonoBehaviour
     public void PlayFootstepSound()
     {
         StartCoroutine(PlayFootstepSoundEnumerator());
+    }
+
+    public void PlayBombBeepSound(GameObject bomb)
+    {
+        AudioSource.PlayClipAtPoint(bombBeepSound, bomb.transform.position);
+    }
+
+    public IEnumerator PlayBombExplosionSound(GameObject bomb)
+    {
+        AudioSource.PlayClipAtPoint(bombExplosionSound, bomb.transform.position);
+        yield return bombExplosionSound.length;
     }
 
 }

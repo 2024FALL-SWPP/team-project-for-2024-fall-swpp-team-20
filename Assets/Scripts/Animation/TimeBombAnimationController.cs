@@ -23,7 +23,9 @@ public class TimeBombAnimationController : MonoBehaviour
             int sec = initialTime % 60;
             GameManager.GetInstance().um.SetTimerText(min, sec);
             timeBomb.transform.Find("ClockText").GetComponent<TextMeshPro>().text = $"{min:D2}:{sec:D2}";
+            if (initialTime == 10) GameManager.GetInstance().sm.PlayBombBeepSound(timeBomb);
         }
+        GameManager.GetInstance().sm.PlayBombExplosionSound(timeBomb);
         GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.Sleep);
     }
 

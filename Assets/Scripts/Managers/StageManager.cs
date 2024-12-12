@@ -72,12 +72,12 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        if (stage == 0)
+        if (stage == 0 && !Test)
         {
             tutorialManager.gameObject.SetActive(true);
             tutorialManager.StartTutorial();
         }
-        else
+        else if(stage != 0)
         {
             tutorialManager.gameObject.SetActive(false);
         }
