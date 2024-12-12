@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public IEnumerator PlayFootstepSound()
+    public IEnumerator PlayFootstepSoundEnumerator()
     {
         footstepSoundPlaying = true;
         while (iswalking)
@@ -34,6 +34,11 @@ public class SoundManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         footstepSoundPlaying = false;
+    }
+
+    public void PlayFootstepSound()
+    {
+        StartCoroutine(PlayFootstepSoundEnumerator());
     }
 
 }

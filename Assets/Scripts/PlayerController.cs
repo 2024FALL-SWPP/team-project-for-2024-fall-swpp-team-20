@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
                     GameManager.GetInstance().sm.iswalking = true;
                     if (!GameManager.GetInstance().sm.footstepSoundPlaying)
                     {
-                        StartCoroutine(GameManager.GetInstance().sm.PlayFootstepSound());
+                        GameManager.GetInstance().sm.PlayFootstepSound();
                     }
                 }
             }
