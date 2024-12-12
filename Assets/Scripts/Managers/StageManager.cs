@@ -90,7 +90,7 @@ public class StageManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (hard==HardAnomalyCode.NotInHard)
+        if (hard == HardAnomalyCode.NotInHard)
         {
             GameManager.GetInstance().sm.PlayEasyStageSound();
         }
