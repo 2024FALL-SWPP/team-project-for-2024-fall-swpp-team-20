@@ -78,8 +78,8 @@ public class InteractionHandler : MonoBehaviour
     }
     private bool IsValidInteractable(GameObject target)
     {
-        return target.layer == LayerMask.NameToLayer("Interactable") 
-        && target.GetComponent<IInteractable>() != null 
+        return target.layer == LayerMask.NameToLayer("Interactable")
+        && target.GetComponent<IInteractable>() != null
         && target.GetComponent<IInteractable>().IsInteractable();
     }
 

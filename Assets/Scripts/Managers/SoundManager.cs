@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
     public bool iswalking = false;
     public bool footstepSoundPlaying = false;
     public float footstepSoundVolume = 0.5f;
-    
+
 
     public void PlayPianoSound(int keyIndex)
     {

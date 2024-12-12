@@ -77,7 +77,7 @@ public class StageManager : MonoBehaviour
             tutorialManager.gameObject.SetActive(true);
             tutorialManager.StartTutorial();
         }
-        else if(stage != 0)
+        else if (stage != 0)
         {
             tutorialManager.gameObject.SetActive(false);
         }
@@ -117,7 +117,7 @@ public class StageManager : MonoBehaviour
         bool sleep = type == BedInteractionType.Sleep;
         if (isHard)
         {
-            if(type==BedInteractionType.ClearHard)
+            if (type == BedInteractionType.ClearHard)
             {
                 SceneManager.LoadScene("AnomalyTrueWakeUpScene");
                 Succeed();
