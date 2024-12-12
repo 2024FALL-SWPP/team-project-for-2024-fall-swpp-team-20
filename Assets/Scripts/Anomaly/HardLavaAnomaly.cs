@@ -7,7 +7,6 @@ public class HardLavaAnomaly : HardAnomaly
 
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         GameObject lava = map.transform.Find("Lavas").gameObject;
         laptop = storage.laptopObject.GetComponent<Laptop>();
         lava.SetActive(true);

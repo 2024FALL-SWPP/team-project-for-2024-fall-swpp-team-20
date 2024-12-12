@@ -12,6 +12,7 @@ public class MapController : MonoBehaviour
 {
     public GameObject mapPrefab;
     private GameObject currentMap;
+    private ObjectStorage storage;
     private float initialClockRotation = 240.0f;
     private int anomalyIndex = -1;
     private const int maxAnomalyCount = 50;
@@ -19,11 +20,6 @@ public class MapController : MonoBehaviour
     private AnomalyManager anomalyManager;
 
     //only for anomaly testing
-
-    private void Start()
-    {
-        currentMap = GameObject.FindGameObjectWithTag("Map");
-    }
 
 
     private void CleanupCurrentMap()
@@ -40,7 +36,7 @@ public class MapController : MonoBehaviour
     public HardAnomalyCode GenerateMap(bool haveAnomaly, int stage)
     {
         CleanupCurrentMap();
-        Anomaly anomaly = null;
+        Anomaly anomaly;
         anomalyManager = FindObjectOfType<AnomalyManager>();
         bool test = anomalyManager.test;
         int testAnomaly = anomalyManager.testAnomaly;
@@ -52,7 +48,7 @@ public class MapController : MonoBehaviour
             Debug.Log($"Stage {stage}: No Anomaly");
             if (stage == 0)
             {
-                ObjectStorage storage = currentMap.GetComponent<ObjectStorage>();
+                storage = currentMap.GetComponent<ObjectStorage>();
                 storage.tutorialImage.SetActive(true);
             }
             return HardAnomalyCode.NotInHard;
@@ -95,7 +91,7 @@ public class MapController : MonoBehaviour
     {
         if (anomalyIndex < anomalyManager.anomalies.Count)
         {
-            anomaly.Apply(currentMap);
+            anomaly.ApplyAnomaly(currentMap);
             //Do Additional Setting For Each Hard Anomaly
             if (anomaly is HardAnomaly)
             {

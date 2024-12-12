@@ -7,7 +7,6 @@ public class EasyBusHandleAnomaly : Anomaly
     GameObject[] busHandles;
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         busHandles = storage.busHandles;
         foreach (GameObject busHandle in busHandles)
         {

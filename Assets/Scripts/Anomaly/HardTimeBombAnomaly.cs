@@ -8,7 +8,6 @@ public class HardTimeBombAnomaly : HardAnomaly
 {
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         laptop = storage.laptopObject.GetComponent<Laptop>();
         GameObject digitalClock = storage.digitalClock;
         GameObject timeBomb = storage.timeBomb.gameObject;

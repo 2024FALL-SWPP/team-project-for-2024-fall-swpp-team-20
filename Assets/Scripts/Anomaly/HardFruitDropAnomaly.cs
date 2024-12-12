@@ -9,7 +9,6 @@ public class HardFruitDropAnomaly : HardAnomaly
 
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         GameManager.GetInstance().um.ShowHealthImage();
         GameManager.GetInstance().player.transform.position = new Vector3(0.825f, 0.2f, -6.733f);
         GameObject bed = storage.bed;

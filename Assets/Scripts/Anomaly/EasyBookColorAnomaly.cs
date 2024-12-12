@@ -17,7 +17,6 @@ public class EasyBookColorAnomaly : Anomaly
 
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         for (int i = 0; i < 2; i++)
         {
             GameObject bookCollection = storage.bookCollection[i];
