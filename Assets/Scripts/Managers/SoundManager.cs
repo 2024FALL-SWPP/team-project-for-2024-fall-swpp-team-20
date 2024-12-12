@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip drawerCloseSound;
     public AudioClip doorOpenSound;
     public AudioClip doorCloseSound;
+    public AudioClip lavaSound;
     public bool iswalking = false;
     public bool footstepSoundPlaying = false;
     public float footstepSoundVolume = 0.5f;
@@ -81,4 +82,11 @@ public class SoundManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(doorCloseSound, door.transform.position);
     }
 
+    public void PlayLavaSound(GameObject lava)
+    {
+        AudioSource lavaAudioSource = lava.AddComponent<AudioSource>();
+        lavaAudioSource.clip = lavaSound;
+        lavaAudioSource.loop = true;
+        lavaAudioSource.Play();
+    }
 }

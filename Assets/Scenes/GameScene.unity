@@ -962,6 +962,7 @@ MonoBehaviour:
   drawerCloseSound: {fileID: 8300000, guid: 42ce493b42f9744c6839e56f35638fad, type: 3}
   doorOpenSound: {fileID: 8300000, guid: 746c9b4d87bb64739898550676843844, type: 3}
   doorCloseSound: {fileID: 8300000, guid: e295d92b76df84ea398057c15e6b04f4, type: 3}
+  lavaSound: {fileID: 8300000, guid: 9bc757435fc4647619aa3bf137ff28f7, type: 3}
   iswalking: 0
   footstepSoundPlaying: 0
   footstepSoundVolume: 0.5
@@ -4344,7 +4345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 1
-  testAnomaly: 22
+  testAnomaly: 20
 --- !u!4 &896207470
 Transform:
   m_ObjectHideFlags: 0
