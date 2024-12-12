@@ -47,7 +47,7 @@ public class StageManager : MonoBehaviour
         currentStage = stage;
 
         // 50% chance of having anomaly
-        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5)) 
+        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5))
             haveAnomaly = false;
         else
             haveAnomaly = true;

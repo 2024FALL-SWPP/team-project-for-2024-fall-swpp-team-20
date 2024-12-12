@@ -330,11 +330,11 @@ public class PlayerController : MonoBehaviour
                 GameManager.GetInstance().um.HideStateInfo();
                 Cursor.lockState = cursorLockBeforePause;
                 Cursor.visible = visibleBeforePause;
-                if(stateBeforePause == GameState.Playing)
+                if (stateBeforePause == GameState.Playing)
                 {
                     GameManager.GetInstance().Play();
                 }
-                else if(stateBeforePause == GameState.ReadingScript)
+                else if (stateBeforePause == GameState.ReadingScript)
                 {
                     GameManager.GetInstance().ReadScript();
                 }
