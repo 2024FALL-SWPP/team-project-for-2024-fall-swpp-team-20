@@ -57,7 +57,7 @@ public class InteractionHandler : MonoBehaviour
         if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
             GameObject newTarget = hit.collider.gameObject;
-            if (newTarget.layer == LayerMask.NameToLayer("Interactable") && newTarget.GetComponent<IInteractable>().IsInteractable())
+            if (IsValidInteractable(newTarget))
             {
                 if (target != null && target != newTarget)
                 {
@@ -76,6 +76,13 @@ public class InteractionHandler : MonoBehaviour
         }
         Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
     }
+    private bool IsValidInteractable(GameObject target)
+    {
+        return target.layer == LayerMask.NameToLayer("Interactable") 
+        && target.GetComponent<IInteractable>() != null 
+        && target.GetComponent<IInteractable>().IsInteractable();
+    }
+
     private void DisableInteraction()
     {
         HideInteractableUI();

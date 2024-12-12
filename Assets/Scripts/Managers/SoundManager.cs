@@ -11,9 +11,14 @@ public class SoundManager : MonoBehaviour
     public AudioClip footstepSound;
     public AudioClip bombBeepSound;
     public AudioClip bombExplosionSound;
+    public AudioClip drawerOpenSound;
+    public AudioClip drawerCloseSound;
+    public AudioClip doorOpenSound;
+    public AudioClip doorCloseSound;
     public bool iswalking = false;
     public bool footstepSoundPlaying = false;
     public float footstepSoundVolume = 0.5f;
+    
 
     public void PlayPianoSound(int keyIndex)
     {
@@ -54,6 +59,26 @@ public class SoundManager : MonoBehaviour
     public void PlayBombExplosionSound(GameObject bomb)
     {
         AudioSource.PlayClipAtPoint(bombExplosionSound, bomb.transform.position);
+    }
+
+    public void PlayDrawerOpenSound(GameObject drawer)
+    {
+        AudioSource.PlayClipAtPoint(drawerOpenSound, drawer.transform.position);
+    }
+
+    public void PlayDrawerCloseSound(GameObject drawer)
+    {
+        AudioSource.PlayClipAtPoint(drawerCloseSound, drawer.transform.position);
+    }
+
+    public void PlayDoorOpenSound(GameObject door)
+    {
+        AudioSource.PlayClipAtPoint(doorOpenSound, door.transform.position);
+    }
+
+    public void PlayDoorCloseSound(GameObject door)
+    {
+        AudioSource.PlayClipAtPoint(doorCloseSound, door.transform.position);
     }
 
 }

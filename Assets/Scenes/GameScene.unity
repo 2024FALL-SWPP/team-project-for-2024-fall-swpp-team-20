@@ -958,6 +958,10 @@ MonoBehaviour:
   footstepSound: {fileID: 8300000, guid: 5c4798febf02846cab3713c155deb94e, type: 3}
   bombBeepSound: {fileID: 8300000, guid: 17cc3b75e049840b6a5ecbae45dcb95d, type: 3}
   bombExplosionSound: {fileID: 8300000, guid: 179115b0d511843d287292e42e1877ec, type: 3}
+  drawerOpenSound: {fileID: 8300000, guid: eb222a4aee16e4d3c9683bdb0bda532a, type: 3}
+  drawerCloseSound: {fileID: 8300000, guid: 42ce493b42f9744c6839e56f35638fad, type: 3}
+  doorOpenSound: {fileID: 8300000, guid: 746c9b4d87bb64739898550676843844, type: 3}
+  doorCloseSound: {fileID: 8300000, guid: e295d92b76df84ea398057c15e6b04f4, type: 3}
   iswalking: 0
   footstepSoundPlaying: 0
   footstepSoundVolume: 0.5
