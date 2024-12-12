@@ -960,6 +960,7 @@ MonoBehaviour:
   bombExplosionSound: {fileID: 8300000, guid: 179115b0d511843d287292e42e1877ec, type: 3}
   iswalking: 0
   footstepSoundPlaying: 0
+  footstepSoundVolume: 0.5
 --- !u!4 &230178952
 Transform:
   m_ObjectHideFlags: 0
@@ -987,7 +988,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5828b5a377d564ad0b093dfb9a0ea886, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
