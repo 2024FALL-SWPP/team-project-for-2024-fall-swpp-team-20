@@ -7,7 +7,8 @@ public enum BedInteractionType
 {
     Sleep,
     Wakeup,
-    ClearHard
+    ClearHard,
+    FailHard,
 }
 
 public class BedInteractionManager : MonoBehaviour
@@ -31,7 +32,7 @@ public class BedInteractionManager : MonoBehaviour
 
     public IEnumerator BedInteraction(BedInteractionType type)
     {
-        if (stageManager.GetCurrentStage() == 0 && type != BedInteractionType.Sleep)
+        if (stageManager.GetCurrentStage() == 0 && type == BedInteractionType.Wakeup)
         {
             yield break;
         }
@@ -43,29 +44,9 @@ public class BedInteractionManager : MonoBehaviour
             stageManager.InitializeStage(stageManager.GetCurrentStage() + 1);
             yield return null;
         }
-        else if (type == BedInteractionType.ClearHard)
-        {
-            // Do Something
-            stageManager.InitializeStage(stageManager.GetCurrentStage() + 1);
-        }
         else
         {
-            yield return HandleSleepWakeAnimation(type);
             stageManager.HandleSleepOutcome(type);
-        }
-    }
-
-    private IEnumerator HandleSleepWakeAnimation(BedInteractionType type)
-    {
-        if (type == BedInteractionType.Sleep)
-        {
-            // Play sleep animation
-            yield return new WaitForSeconds(0.1f);
-        }
-        else if (type == BedInteractionType.Wakeup)
-        {
-            // Play wake up animation
-            yield return new WaitForSeconds(0.1f);
         }
     }
 

@@ -116,7 +116,7 @@ public class TimeBomb : InteractableObject
     {
         GameManager.GetInstance().sm.PlayBombExplosionSound(gameObject);
         yield return new WaitForSeconds(GameManager.GetInstance().sm.bombExplosionSound.length);
-        GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.Sleep);
+        GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.FailHard);
     }
 
     public override bool IsInteractable() => true;

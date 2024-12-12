@@ -407,6 +407,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
+    public HardAnomalyCode GetAnomalyType() => currentAnomaly;
 
     public bool HasMoved() => hasMoved;
     public bool HasJumped() => hasJumped;
