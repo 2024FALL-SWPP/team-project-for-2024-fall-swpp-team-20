@@ -10,11 +10,6 @@ public class HardReverseMapAnomaly : HardAnomaly
         storage.bed.tag = "Goal";
     }
 
-    public override void SetHardAnomalyCode()
-    {
-        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.ReverseMap);
-    }
-
     public override HardAnomalyCode GetHardAnomalyCode()
     {
         return HardAnomalyCode.ReverseMap;

@@ -20,11 +20,6 @@ public class HardTimeBombAnomaly : HardAnomaly
         GameManager.GetInstance().sm.PlayTimeBombWarningSound(timeBomb);
     }
 
-    public override void SetHardAnomalyCode()
-    {
-        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.TimeBomb);
-    }
-
     public override HardAnomalyCode GetHardAnomalyCode()
     {
         return HardAnomalyCode.TimeBomb;

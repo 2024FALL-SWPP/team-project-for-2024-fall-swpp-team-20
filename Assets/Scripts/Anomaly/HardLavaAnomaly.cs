@@ -17,11 +17,6 @@ public class HardLavaAnomaly : HardAnomaly
         RemoveOriginalObjects();
     }
 
-    public override void SetHardAnomalyCode()
-    {
-        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Lava);
-    }
-
     // Used some objects as platform to escape the room, removing same objects at the original position
     // it is better to just manipulate transform of objects, but it is too hard work..
     private void RemoveOriginalObjects()

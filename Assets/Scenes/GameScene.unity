@@ -2816,7 +2816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  prevStage: 0
   stageManager: {fileID: 0}
   bedInteractionManager: {fileID: 0}
   um: {fileID: 0}
@@ -4346,7 +4345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfb4e68e8e374175bd1f71b9b15275c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
+  test: 1
   testAnomaly: 20
 --- !u!4 &896207470
 Transform:
@@ -6078,7 +6077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56724729ac5b4ebd99e063cd6bd581d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStage: 0
 --- !u!1 &1611941818
 GameObject:
   m_ObjectHideFlags: 0

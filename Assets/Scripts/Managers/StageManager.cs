@@ -39,7 +39,6 @@ public class StageManager : MonoBehaviour
             am.FillAnomaly();
         }
         InitializeStage(currentStage);
-        GameManager.GetInstance().Play();
     }
 
     public void InitializeStage(int stage)
@@ -89,10 +88,12 @@ public class StageManager : MonoBehaviour
         if (hard == HardAnomalyCode.NotInHard)
         {
             GameManager.GetInstance().sm.PlayEasyStageSound();
+            GameManager.GetInstance().Play();
         }
         else
         {
             GameManager.GetInstance().sm.PlayHardStageSound();
+            GameManager.GetInstance().ReadScript();
         }
     }
 

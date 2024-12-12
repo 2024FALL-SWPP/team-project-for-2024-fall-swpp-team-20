@@ -66,10 +66,10 @@ public class PlayerInformation : MonoBehaviour
     // DOT Damage
     public void HurtPlayerByDOT(float damage)
     {
-        hurt = StartCoroutine(HurtPlayerByDOT2(damage));
+        hurt = StartCoroutine(IHurtPlayerByDOT(damage));
     }
 
-    public IEnumerator HurtPlayerByDOT2(float damage)
+    public IEnumerator IHurtPlayerByDOT(float damage)
     {
         while (true)
         {
