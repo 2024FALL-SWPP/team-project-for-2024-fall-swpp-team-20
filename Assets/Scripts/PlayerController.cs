@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
             if (moveDirection.magnitude > 0 && !isJumping && !GameManager.GetInstance().sm.iswalking)
             {
-                if(!GameManager.GetInstance().sm.footstepSoundPlaying)
+                if (!GameManager.GetInstance().sm.footstepSoundPlaying)
                 {
                     GameManager.GetInstance().sm.iswalking = true;
                     if (!GameManager.GetInstance().sm.footstepSoundPlaying)

@@ -77,7 +77,7 @@ public class StageManager : MonoBehaviour
             tutorialManager.gameObject.SetActive(true);
             tutorialManager.StartTutorial();
         }
-        else if(stage != 0)
+        else if (stage != 0)
         {
             tutorialManager.gameObject.SetActive(false);
         }
