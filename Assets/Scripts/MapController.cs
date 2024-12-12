@@ -28,16 +28,12 @@ public class MapController : MonoBehaviour
 
     private void CleanupCurrentMap()
     {
-        if (currentMap != null)
-        {
-            Destroy(currentMap);
-            currentMap = null;
-        }
         GameObject[] mapObjects = GameObject.FindGameObjectsWithTag("Map");
         foreach (GameObject mapObject in mapObjects)
         {
             Destroy(mapObject);
         }
+        currentMap = null;
     }
 
     // returns current anomaly is hard or not

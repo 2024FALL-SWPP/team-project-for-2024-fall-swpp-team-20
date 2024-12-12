@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
-    [SerializeField] private int currentStage;
+    private static int currentStage;
     public int GetCurrentStage() => currentStage;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
@@ -19,10 +19,8 @@ public class StageManager : MonoBehaviour
     private LandscapeManager landscapeManager;
     private AnomalyManager am;
     private bool Test => am.test;
-
     public void InitializeVariables()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
         interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
         mc = FindObjectOfType<MapController>().GetComponent<MapController>();
@@ -34,13 +32,13 @@ public class StageManager : MonoBehaviour
 
     public void GameStart(bool start = true)
     {
-        currentStage = 0;
         pc.Initialize();
         if (start)
         {
+            currentStage = 0;
             am.FillAnomaly();
-            InitializeStage(currentStage);
         }
+        InitializeStage(currentStage);
         GameManager.GetInstance().Play();
     }
 
@@ -49,7 +47,8 @@ public class StageManager : MonoBehaviour
 
         currentStage = stage;
 
-        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5))
+        // 50% chance of having anomaly
+        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5)) 
             haveAnomaly = false;
         else
             haveAnomaly = true;
@@ -57,10 +56,7 @@ public class StageManager : MonoBehaviour
         // Reset UI
         GameManager.GetInstance().um.HideEverything();
         // Reset Player position, scale and Information
-        //player.transform.position = new Vector3(-19.25f, 0.2f, -7.4f);
-        PlayerController pc = player.GetComponent<PlayerController>();
         pc.SetPlayerController(SpawnPosition.Original);
-        // player.transform.localScale = 0.13f * Vector3.one;
         pi.Initialize();
 
         // Create new stage map and inform player about it is hard anomaly or not
@@ -157,7 +153,6 @@ public class StageManager : MonoBehaviour
             SceneManager.LoadScene("WakeupTrueScene");
             Succeed();
         }
-        GameManager.GetInstance().prevStage = currentStage;
     }
 
     private void Succeed()
