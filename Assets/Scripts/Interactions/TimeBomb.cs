@@ -104,12 +104,19 @@ public class TimeBomb : InteractableObject
             trialCount--;
             if (trialCount <= 0)
             {
-                GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.Sleep);
+                StartCoroutine(HandleBombExplosion());
                 return;
             }
             GameManager.GetInstance().um.ShowPasswordCompareResult(passwordInput, password);
             GameManager.GetInstance().um.UpdateTrialCount(trialCount);
         }
+    }
+
+    public IEnumerator HandleBombExplosion()
+    {
+        GameManager.GetInstance().sm.PlayBombExplosionSound(gameObject);
+        yield return new WaitForSeconds(GameManager.GetInstance().sm.bombExplosionSound.length);
+        GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.Sleep);
     }
 
     public override bool IsInteractable() => true;

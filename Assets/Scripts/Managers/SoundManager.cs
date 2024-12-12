@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip bombExplosionSound;
     public bool iswalking = false;
     public bool footstepSoundPlaying = false;
+    public float footstepSoundVolume = 0.5f;
 
     public void PlayPianoSound(int keyIndex)
     {
@@ -27,12 +29,13 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public IEnumerator PlayFootstepSoundEnumerator()
+    public IEnumerator IPlayFootstepSound()
     {
         footstepSoundPlaying = true;
+        GameObject player = GameManager.GetInstance().player;
         while (iswalking)
         {
-            AudioSource.PlayClipAtPoint(footstepSound, transform.position);
+            AudioSource.PlayClipAtPoint(footstepSound, player.transform.position, footstepSoundVolume);
             yield return new WaitForSeconds(0.5f);
         }
         footstepSoundPlaying = false;
@@ -40,7 +43,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayFootstepSound()
     {
-        StartCoroutine(PlayFootstepSoundEnumerator());
+        StartCoroutine(IPlayFootstepSound());
     }
 
     public void PlayBombBeepSound(GameObject bomb)
@@ -48,10 +51,9 @@ public class SoundManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(bombBeepSound, bomb.transform.position);
     }
 
-    public IEnumerator PlayBombExplosionSound(GameObject bomb)
+    public void PlayBombExplosionSound(GameObject bomb)
     {
         AudioSource.PlayClipAtPoint(bombExplosionSound, bomb.transform.position);
-        yield return bombExplosionSound.length;
     }
 
 }
