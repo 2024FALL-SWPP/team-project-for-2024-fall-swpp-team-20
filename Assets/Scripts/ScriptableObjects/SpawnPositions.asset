@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714e73348a19a9c4eba8c2612d40f17f, type: 3}
   m_Name: SpawnPositions
   m_EditorClassIdentifier: 
-  Chessboard: {x: 0, y: 0, z: 0}
+  origialMoveSpeed: 4
+  originalJumpForce: 200
+  lavaMoveSpeed: 6
+  lavaJumpForce: 250
+  chessMoveSpeed: 7
+  chessJumpForce: 60
