@@ -6,7 +6,6 @@ public class EasySpintopAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         Totem totem = storage.spintopObject.GetComponent<Totem>();
         totem.inAnomaly = true;
     }

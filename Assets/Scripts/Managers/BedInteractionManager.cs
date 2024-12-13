@@ -16,15 +16,12 @@ public class BedInteractionManager : MonoBehaviour
 
     private GameObject player => GameManager.GetInstance().player;
     private PlayerController pc;
-    private InteractionHandler interactionHandler;
     private StageManager stageManager;
 
 
     public void InitializeVariables()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
-        interactionHandler = FindObjectOfType<InteractionHandler>().GetComponent<InteractionHandler>();
         stageManager = FindObjectOfType<StageManager>().GetComponent<StageManager>();
     }
 
@@ -37,7 +34,7 @@ public class BedInteractionManager : MonoBehaviour
             yield break;
         }
 
-        ToggleInteraction(false);
+        stageManager.ToggleActionAvailability(false);
 
         if (type == BedInteractionType.Sleep && stageManager.GetCurrentStage() == 0)
         {
@@ -48,12 +45,5 @@ public class BedInteractionManager : MonoBehaviour
         {
             stageManager.HandleSleepOutcome(type);
         }
-    }
-
-    public void ToggleInteraction(bool available)
-    {
-        pc.SetSleep(available);
-        pc.SetMove(available);
-        interactionHandler.SetInteract(available);
     }
 }

@@ -8,7 +8,6 @@ public class HardTimeBombAnomaly : HardAnomaly
 {
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         laptop = storage.laptopObject.GetComponent<Laptop>();
         GameObject digitalClock = storage.digitalClock;
         GameObject timeBomb = storage.timeBomb.gameObject;
@@ -19,11 +18,6 @@ public class HardTimeBombAnomaly : HardAnomaly
         TimeBombAnimationController timerAnimationController = timeBomb.GetComponent<TimeBombAnimationController>();
         timerAnimationController.StartTimeBombAnimation(timeBomb);
         GameManager.GetInstance().sm.PlayTimeBombWarningSound(timeBomb);
-    }
-
-    public override void SetHardAnomalyCode()
-    {
-        GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.TimeBomb);
     }
 
     public override HardAnomalyCode GetHardAnomalyCode()

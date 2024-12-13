@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
     private bool hasJumped = false;
     private bool hasInteractedWithBed = false;
 
+    private GameState stateBeforePause;
+    private CursorLockMode cursorLockBeforePause;
+    private bool visibleBeforePause;
+
     public void SetPlayerController(SpawnPosition positionCode)
     {
         SetTransform(positionCode);
@@ -310,9 +314,13 @@ public class PlayerController : MonoBehaviour
     {
         if (value.ReadValue<float>() > 0)
         {
-            if (GameManager.GetInstance().GetState() == GameState.Playing)
+            if (GameManager.GetInstance().GetState() == GameState.Playing || GameManager.GetInstance().GetState() == GameState.ReadingScript)
             {
                 Time.timeScale = 0f;
+                stateBeforePause = GameManager.GetInstance().GetState();
+                cursorLockBeforePause = Cursor.lockState;
+                visibleBeforePause = Cursor.visible;
+                Cursor.visible = true;
                 GameManager.GetInstance().um.ShowStateUI(GameState.Pause);
                 GameManager.GetInstance().Pause();
             }
@@ -320,7 +328,16 @@ public class PlayerController : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 GameManager.GetInstance().um.HideStateInfo();
-                GameManager.GetInstance().Play();
+                Cursor.lockState = cursorLockBeforePause;
+                Cursor.visible = visibleBeforePause;
+                if (stateBeforePause == GameState.Playing)
+                {
+                    GameManager.GetInstance().Play();
+                }
+                else if (stateBeforePause == GameState.ReadingScript)
+                {
+                    GameManager.GetInstance().ReadScript();
+                }
             }
         }
 
@@ -341,6 +358,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.ReadValue<float>() > 0 && GameManager.GetInstance().GetState() == GameState.ReadingScript)
         {
+            Debug.Log("QuitUIScript inside");
             GameManager.GetInstance().Play();
             GameManager.GetInstance().um.HideCharacterScript();
         }

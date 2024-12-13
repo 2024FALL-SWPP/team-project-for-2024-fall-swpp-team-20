@@ -3,8 +3,27 @@ using UnityEngine.InputSystem;
 
 public class InteractionHandler : MonoBehaviour
 {
-    public bool canInteract;
+    private bool canInteract;
+    public bool CanInteract
+    {
+        get => canInteract;
+        set
+        {
+            canInteract = value;
+            if (!value && (immInteractable)) immInteractable = false;
+        }
+    }
     private bool immInteractable;
+    public bool ImmInteractable
+    {
+        get => immInteractable;
+        set
+        {
+            immInteractable = value;
+            if (value) EnableInteraction(target);
+            else DisableInteraction();
+        }
+    }
     private int layerMask;
     private GameObject target;
     private RaycastHit hit;
@@ -24,8 +43,8 @@ public class InteractionHandler : MonoBehaviour
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
-        immInteractable = false;
         canInteract = false;
+        immInteractable = false;
     }
 
     public void SetMouseClickAction(int actionCode)
@@ -48,33 +67,27 @@ public class InteractionHandler : MonoBehaviour
 
     public void SetInteract(bool value)
     {
-        canInteract = value;
+        CanInteract = value;
     }
 
     private void Update()
     {
         if (inAttackMode) attackCooltime -= Time.deltaTime;
-        if (canInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
+        if (CanInteract && Physics.Raycast(transform.position, transform.forward, out hit, 5f, layerMask))
         {
             GameObject newTarget = hit.collider.gameObject;
             if (IsValidInteractable(newTarget))
             {
-                if (target != null && target != newTarget)
+                interactableObject?.EndGlow();
+                target = newTarget;
+                if (!ImmInteractable)
                 {
-                    interactableObject?.EndGlow();
+                    ImmInteractable = true;
                 }
-                EnableInteraction(newTarget);
-            }
-            else if (immInteractable)
-            {
-                DisableInteraction();
+                return;
             }
         }
-        else if (immInteractable)
-        {
-            DisableInteraction();
-        }
-        Debug.DrawRay(transform.position, 5 * transform.forward, Color.red);
+        if (ImmInteractable) ImmInteractable = false;
     }
     private bool IsValidInteractable(GameObject target)
     {
@@ -102,7 +115,7 @@ public class InteractionHandler : MonoBehaviour
 
     public void HandleInteraction()
     {
-        if (GameManager.GetInstance().GetState() != GameState.Playing || !immInteractable) return;
+        if (GameManager.GetInstance().GetState() != GameState.Playing || !ImmInteractable) return;
 
         GameObject target = hit.transform.gameObject;
         var interactable = target.GetComponent<IInteractable>();
@@ -114,13 +127,11 @@ public class InteractionHandler : MonoBehaviour
 
     private void ShowInteractableUI(GameObject newTarget)
     {
-        immInteractable = true;
         GameManager.GetInstance().um.ShowInteractionInfo(newTarget);
     }
 
     private void HideInteractableUI()
     {
-        immInteractable = false;
         GameManager.GetInstance().um.HideInteractionInfo();
     }
 

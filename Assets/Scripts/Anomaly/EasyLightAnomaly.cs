@@ -4,7 +4,6 @@ public class EasyLightAnomaly : Anomaly
 {
     public override void Apply(GameObject map)
     {
-        ObjectStorage storage = map.GetComponent<ObjectStorage>();
         Light light = storage.anomalyLight.GetComponent<Light>();
         GameObject animationController = new GameObject("AnomalyAnimationController");
         animationController.transform.SetParent(map.transform);
