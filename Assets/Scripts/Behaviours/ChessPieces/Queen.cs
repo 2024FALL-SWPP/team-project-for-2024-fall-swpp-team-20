@@ -218,7 +218,8 @@ public class Queen : ChessPieceBehaviour
     {
         if (health == 0)
         {
-            foreach (GameObject g in guideline) {
+            foreach (GameObject g in guideline)
+            {
                 Destroy(g);
             }
             if (promoted) DeadPawnCount++;

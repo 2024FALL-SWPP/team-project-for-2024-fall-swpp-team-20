@@ -52,8 +52,9 @@ public class Rook : ChessPieceBehaviour
     }
     private void OnDestroy()
     {
-        if (health == 0) {
-            
+        if (health == 0)
+        {
+
             if (promoted) DeadPawnCount++;
             DeadPieceCount++;
         }

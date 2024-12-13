@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
     public float mouseDeltaX;
 
     public float JumpForce;
-    public float jumpForce {
+    public float jumpForce
+    {
         get => JumpForce;
-        set {
+        set
+        {
             JumpForce = value;
             Debug.Log($"Hello world, my force: {value}");
         }

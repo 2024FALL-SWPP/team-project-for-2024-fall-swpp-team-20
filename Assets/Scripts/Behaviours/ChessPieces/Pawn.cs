@@ -72,7 +72,8 @@ public class Pawn : ChessPieceBehaviour
         }
     }
 
-    private void Promote() {
+    private void Promote()
+    {
         int spawnIndex = Random.Range(0, 4);
         ChessPieceBehaviour newPiece = Instantiate(promotePieces[spawnIndex], transform.position, Quaternion.identity, transform.parent).GetComponent<ChessPieceBehaviour>();
         newPiece.Activate(true);
