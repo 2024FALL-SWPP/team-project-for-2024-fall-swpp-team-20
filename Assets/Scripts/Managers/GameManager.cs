@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
 
     public GameState state;
-    public int prevStage;
 
     public StageManager stageManager;
     public BedInteractionManager bedInteractionManager;
@@ -44,7 +43,6 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
             instance.Initialize();
-            prevStage = 0;
         }
         else Destroy(this);
     }
@@ -72,7 +70,6 @@ public class GameManager : MonoBehaviour
         if (scene.name == "GameScene")
         {
             Initialize(false);
-            stageManager.InitializeStage(prevStage);
         }
     }
 

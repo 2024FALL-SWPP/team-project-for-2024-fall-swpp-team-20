@@ -17,7 +17,10 @@ public enum HardAnomalyCode
 public abstract class HardAnomaly : Anomaly
 {
     public Laptop laptop;
-    public abstract void SetHardAnomalyCode();
+    public void SetHardAnomalyCode()
+    {
+        GameManager.GetInstance().um.ShowCharacterScript(GetHardAnomalyCode());
+    }
 
     public abstract HardAnomalyCode GetHardAnomalyCode();
 }

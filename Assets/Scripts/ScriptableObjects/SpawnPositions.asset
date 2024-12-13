@@ -15,6 +15,6 @@ MonoBehaviour:
   origialMoveSpeed: 4
   originalJumpForce: 200
   lavaMoveSpeed: 6
-  lavaJumpForce: 250
+  lavaJumpForce: 220
   chessMoveSpeed: 7
   chessJumpForce: 60

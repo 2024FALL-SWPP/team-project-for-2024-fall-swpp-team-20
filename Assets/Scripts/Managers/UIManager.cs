@@ -198,7 +198,6 @@ public class UIManager : MonoBehaviour
     public void HideCover() => cover.SetActive(false);
     public void ShowCharacterScript(HardAnomalyCode code)
     {
-        GameManager.GetInstance().ReadScript();
         characterScriptPanel.SetActive(true);
         characterScript.text = "";
         switch (code)
