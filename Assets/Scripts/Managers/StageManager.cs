@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class StageManager : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class StageManager : MonoBehaviour
         {
             currentStage = 0;
             am.FillAnomaly();
+            am.initializeAnomalyIndex();
         }
         InitializeStage(currentStage);
     }
@@ -47,7 +49,7 @@ public class StageManager : MonoBehaviour
         currentStage = stage;
 
         // 50% chance of having anomaly
-        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5))
+        if (!Test && (stage == 0 || stage == 7 || Random.Range(0f, 1f) > 0.5) && stage != 5 && stage != 6)
             haveAnomaly = false;
         else
             haveAnomaly = true;
@@ -57,6 +59,12 @@ public class StageManager : MonoBehaviour
         // Reset Player position, scale and Information
         pc.SetPlayerController(SpawnPosition.Original);
         pi.Initialize();
+
+        if (!Test && haveAnomaly && am.noAnomalyCheck(stage))
+        {
+            GameOver();
+            return;
+        }
 
         // Create new stage map and inform player about it is hard anomaly or not
         HardAnomalyCode hard = mc.GenerateMap(haveAnomaly, stage);

@@ -30,6 +30,7 @@ public class Chessboard : InteractableObject
         handler.SetMouseClickAction(1);
         GameManager.GetInstance().um.ShowHealthImage();
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chessboard);
+        GameManager.GetInstance().state = GameState.ReadingScript;
         foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>())
         {
             pawn.Activate(false);
