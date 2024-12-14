@@ -72,14 +72,14 @@ public class MapController : MonoBehaviour
             }
             else
             {
-                if(stage < 5)
+                if (stage < 5)
                 {
                     anomaly = anomalyManager.easyAnomalies[anomalyManager.easyAnomalyIndex++];
                     Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
-                    
+
                 }
                 else
-                {                    
+                {
                     anomaly = anomalyManager.hardAnomalies[anomalyManager.hardAnomalyIndex++];
                     Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
                 }

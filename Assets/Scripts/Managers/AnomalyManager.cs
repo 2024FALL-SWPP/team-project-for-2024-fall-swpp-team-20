@@ -33,11 +33,11 @@ public class AnomalyManager : MonoBehaviour
 
     public bool noAnomalyCheck(bool isHard)
     {
-        if(!isHard && easyAnomalyIndex >= easyAnomalies.Count)
+        if (!isHard && easyAnomalyIndex >= easyAnomalies.Count)
         {
             return true;
         }
-        else if(isHard && hardAnomalyIndex >= hardAnomalies.Count)
+        else if (isHard && hardAnomalyIndex >= hardAnomalies.Count)
         {
             return true;
         }
