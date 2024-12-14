@@ -32,7 +32,7 @@ public class Chessboard : InteractableObject
         GameManager.GetInstance().um.ShowCharacterScript(HardAnomalyCode.Chessboard);
         foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>())
         {
-            pawn.Activate();
+            pawn.Activate(false);
         }
     }
 

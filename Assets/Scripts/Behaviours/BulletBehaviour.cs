@@ -7,6 +7,8 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
 
+    private float lifetime = 2f;
+
     private void OnTriggerEnter(Collider other)
     {
         string tag = other.tag;
@@ -17,9 +19,12 @@ public class BulletBehaviour : MonoBehaviour
             cpb.Hurt(1);
             Destroy(gameObject);
         }
-        else if (tag == "ChessWalls") Destroy(gameObject);
     }
-
+    private void Update()
+    {
+        lifetime -= Time.deltaTime;
+        if (lifetime < 0f) Destroy(gameObject);
+    }
     public void Shoot(Vector3 direction)
     {
         rb.velocity = speed * direction;

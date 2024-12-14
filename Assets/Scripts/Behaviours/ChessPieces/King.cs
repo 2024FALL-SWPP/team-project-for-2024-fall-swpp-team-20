@@ -51,10 +51,10 @@ public class King : ChessPieceBehaviour
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
         }
     }
-    public override void Activate()
+    public override void Activate(bool promoted)
     {
-        base.Activate();
-        maxHealth = 20;
+        base.Activate(promoted);
+        maxHealth = 30;
         health = maxHealth;
         damage = 15;
         StartCoroutine(AttackCoroutine());
@@ -62,7 +62,7 @@ public class King : ChessPieceBehaviour
 
     public override void Update()
     {
-        if (DeadPieceCount == 15 && !activated) Activate();
+        if (DeadPieceCount == 15 && !activated) Activate(false);
         base.Update();
     }
 }

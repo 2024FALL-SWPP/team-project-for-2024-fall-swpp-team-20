@@ -5,11 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SpawnPositions", order = 1)]
 public class SpawnPositions : ScriptableObject
 {
-    public float origialMoveSpeed = 4;
-    public float originalJumpForce = 200;
+    public float origialMoveSpeed;
+    public float originalJumpForce;
 
-    public float chessMoveSpeed = 7;
-    public float chessJumpForce = 60;
+    public float lavaMoveSpeed;
+    public float lavaJumpForce;
+
+    public float chessMoveSpeed;
+    public float chessJumpForce;
 
 
     public TransformSet chessboardSpawn = new TransformSet(
@@ -21,7 +24,7 @@ public class SpawnPositions : ScriptableObject
     public TransformSet lavaSpawn = new TransformSet(
         new Vector3(-19.25f, 1f, -5.382f),
         Vector3.zero,
-        1.2f * Vector3.one
+        0.6f * Vector3.one
     );
 
     public TransformSet originalSpawn = new TransformSet(

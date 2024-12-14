@@ -22,7 +22,7 @@ public class PlayerInformation : MonoBehaviour
     {
         if (!invince)
         {
-            if (other.gameObject.CompareTag("Lava")) HurtPlayer(30 * Time.deltaTime);
+            if (other.gameObject.CompareTag("Lava")) HurtPlayer(10 * Time.deltaTime);
             if (other.gameObject.CompareTag("ChessPiece"))
             {
                 ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
