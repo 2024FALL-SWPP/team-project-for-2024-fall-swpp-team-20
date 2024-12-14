@@ -14,6 +14,7 @@ public class HardVisibilityAnomaly : HardAnomaly
         foreach (InteractableObject obj in list) { 
             obj.inVisibilityAnomaly = true;
         }
+        storage.door.GetComponent<OpenCloseDoor>().OpenRemotely();
         pc.SetPlayerController(SpawnPosition.Visibility);
         pi.HurtPlayerByDOT(0.5f);
     }

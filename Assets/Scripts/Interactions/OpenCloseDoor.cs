@@ -25,6 +25,9 @@ public class OpenCloseDoor : InteractableObject
         }
     }
 
+    public void OpenRemotely() {
+        StartCoroutine(opening());
+    }
     //public override bool IsInteractable() => true;
 
     private IEnumerator opening()
