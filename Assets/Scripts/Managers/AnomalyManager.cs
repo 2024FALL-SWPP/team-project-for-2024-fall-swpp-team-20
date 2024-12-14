@@ -31,13 +31,13 @@ public class AnomalyManager : MonoBehaviour
         hardAnomalyIndex = 0;
     }
 
-    public bool noAnomalyCheck(bool isHard)
+    public bool noAnomalyCheck(int stage)
     {
-        if(!isHard && easyAnomalyIndex >= easyAnomalies.Count)
+        if (stage < 5 && easyAnomalyIndex >= easyAnomalies.Count)
         {
             return true;
         }
-        else if(isHard && hardAnomalyIndex >= hardAnomalies.Count)
+        else if ((stage == 5 && hardAnomalyIndex >= hardAnomalies.Count - 1) || (stage == 6 && hardAnomalyIndex >= hardAnomalies.Count))
         {
             return true;
         }

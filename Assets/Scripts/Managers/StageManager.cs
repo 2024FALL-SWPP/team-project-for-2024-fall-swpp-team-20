@@ -60,7 +60,7 @@ public class StageManager : MonoBehaviour
         pc.SetPlayerController(SpawnPosition.Original);
         pi.Initialize();
 
-        if(!Test && haveAnomaly && am.noAnomalyCheck(stage >= 5))
+        if (!Test && haveAnomaly && am.noAnomalyCheck(stage))
         {
             GameOver();
             return;
