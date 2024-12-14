@@ -1417,7 +1417,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 15
   mouseDeltaX: 0
-  jumpForce: 200
+  JumpForce: 0
   canSleep: 0
   spawnPositions: {fileID: 11400000, guid: 735de4cd15669294480e8153dfa1305d, type: 2}
 --- !u!136 &397972244
@@ -2129,7 +2129,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 5
-  field of view: 30
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2180,7 +2180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fada8eb61c13a4659a6cf794683aa3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 0
   bulletPrefab: {fileID: 5796379698728612155, guid: 7fc6667856906fd43b42f577fc5ae796, type: 3}
 --- !u!1 &6611031357870047880
 GameObject:
