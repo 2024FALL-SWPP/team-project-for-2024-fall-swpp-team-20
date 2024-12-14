@@ -75,7 +75,6 @@ public class MapController : MonoBehaviour
                 {
                     anomaly = anomalyManager.easyAnomalies[anomalyManager.easyAnomalyIndex++];
                     Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
-
                 }
                 else
                 {
