@@ -25,7 +25,8 @@ public class OpenCloseDoor : InteractableObject
         }
     }
 
-    public void OpenRemotely() {
+    public void OpenRemotely()
+    {
         StartCoroutine(opening());
     }
     //public override bool IsInteractable() => true;

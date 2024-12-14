@@ -11,7 +11,8 @@ public class HardVisibilityAnomaly : HardAnomaly
         PlayerController pc = GameManager.GetInstance().player.GetComponent<PlayerController>();
         PlayerInformation pi = GameManager.GetInstance().player.GetComponent<PlayerInformation>();
         InteractableObject[] list = GameObject.FindObjectsByType<InteractableObject>(FindObjectsSortMode.None);
-        foreach (InteractableObject obj in list) { 
+        foreach (InteractableObject obj in list)
+        {
             obj.inVisibilityAnomaly = true;
         }
         storage.door.GetComponent<OpenCloseDoor>().OpenRemotely();
