@@ -33,6 +33,10 @@ public class TimelineController : MonoBehaviour
             {
                 SceneManager.LoadScene("AnomalyTrueWakeupScene");
             }
+            else if (currentScene == "GameOverScene" || currentScene == "GameClearScene")
+            {
+                return;
+            }
             else
             {
                 SceneManager.LoadScene("GameScene");
