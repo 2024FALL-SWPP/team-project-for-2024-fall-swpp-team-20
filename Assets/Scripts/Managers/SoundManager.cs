@@ -25,7 +25,8 @@ public class SoundManager : MonoBehaviour
     public float generalVolume;
     private List<AudioSource> sourceList;
 
-    public void Initialize() { 
+    public void Initialize()
+    {
         sourceList = new List<AudioSource>();
         generalVolume = GameManager.GetInstance().GetVolume();
         AudioSource mainSource = GetComponent<AudioSource>();
@@ -51,7 +52,8 @@ public class SoundManager : MonoBehaviour
     {
         Debug.Log("HELlo WORLd");
         generalVolume = value;
-        foreach (AudioSource source in sourceList) {
+        foreach (AudioSource source in sourceList)
+        {
             source.volume = generalVolume;
         }
     }

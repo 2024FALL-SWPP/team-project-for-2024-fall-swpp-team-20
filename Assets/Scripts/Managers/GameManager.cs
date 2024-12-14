@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
         else Destroy(this);
     }
 
-    private void InitializeSetting() {
+    private void InitializeSetting()
+    {
         sensitivity = 50f;
         volume = 1f;
         started = false;
@@ -83,7 +84,8 @@ public class GameManager : MonoBehaviour
         if (scene.name == "GameScene")
         {
             if (started) Initialize(false);
-            else {
+            else
+            {
                 started = true;
                 Initialize(true);
             }
@@ -110,14 +112,16 @@ public class GameManager : MonoBehaviour
 
     public GameState GetState() => state;
 
-    public void SetVolume(float value) {
+    public void SetVolume(float value)
+    {
         volume = value / 100f;
         Debug.Assert(sm != null, "NULL?!");
         sm.SetVolume(volume);
     }
 
     public float GetVolume() => volume;
-    public void SetSensitivity(float value) {
+    public void SetSensitivity(float value)
+    {
         sensitivity = value;
     }
 

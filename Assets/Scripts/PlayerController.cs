@@ -339,7 +339,7 @@ public class PlayerController : MonoBehaviour
                 Cursor.visible = true;
                 GameManager.GetInstance().um.ShowSettingPanel();
                 GameManager.GetInstance().Pause();
-                
+
             }
             else if (GameManager.GetInstance().GetState() == GameState.Pause)
             {
@@ -348,7 +348,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void QuitPauseState() {
+    public void QuitPauseState()
+    {
         SetSensitivity(GameManager.GetInstance().GetSensitivity());
         Time.timeScale = 1f;
         GameManager.GetInstance().um.HideSettingPanel();
@@ -445,7 +446,8 @@ public class PlayerController : MonoBehaviour
         canMove = available;
     }
 
-    private void SetSensitivity(float sens) {
+    private void SetSensitivity(float sens)
+    {
         rotateSpeed = sens * 15f / 50f;
     }
     public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;

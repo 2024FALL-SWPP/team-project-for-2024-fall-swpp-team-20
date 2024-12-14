@@ -35,7 +35,8 @@ public class UIManager : MonoBehaviour
     private Control control;
     public void Initialize()
     {
-        if (SceneManager.GetActiveScene().name == "MainScene") { 
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
             canvasTransform = FindAnyObjectByType<Canvas>().transform;
             settingPanel = canvasTransform.Find("SettingBackground").gameObject;
         }
@@ -304,18 +305,20 @@ public class UIManager : MonoBehaviour
         tutorialText.enabled = false;
     }
 
-    public void ShowSettingPanel() 
+    public void ShowSettingPanel()
     {
         settingPanel.gameObject.SetActive(true);
     }
 
 
-    public void HideSettingPanel() {
+    public void HideSettingPanel()
+    {
         settingPanel.gameObject.SetActive(false);
     }
 
-    private void HideSettingPanelByInput(InputAction.CallbackContext value) {
-        if(value.ReadValue<float>() > 0) HideSettingPanel();
+    private void HideSettingPanelByInput(InputAction.CallbackContext value)
+    {
+        if (value.ReadValue<float>() > 0) HideSettingPanel();
 
     }
 
@@ -328,15 +331,18 @@ public class UIManager : MonoBehaviour
     {
         DisableInputInMainScene();
     }
-    public void EnableInputInMainScene() {
-        if (SceneManager.GetActiveScene().name == "MainScene") {
+    public void EnableInputInMainScene()
+    {
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
             control = new Control();
             control.Enable();
             control.NewMap.Pause.performed += HideSettingPanelByInput;
         }
     }
 
-    public void DisableInputInMainScene() {
+    public void DisableInputInMainScene()
+    {
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
             control.NewMap.Pause.performed -= HideSettingPanelByInput;

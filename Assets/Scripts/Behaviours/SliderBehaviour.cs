@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum SliderType { 
+enum SliderType
+{
     Volume,
     Sensitivity
 }
@@ -20,8 +21,10 @@ public class SliderBehaviour : MonoBehaviour
         if (sliderText == null) sliderText = GetComponentInChildren<Text>();
         SetSlider();
     }
-    public void SetSlider() {
-        switch (sliderType) { 
+    public void SetSlider()
+    {
+        switch (sliderType)
+        {
             case SliderType.Volume:
                 if (slider.value != GameManager.GetInstance().GetVolume())
                 {
@@ -41,9 +44,11 @@ public class SliderBehaviour : MonoBehaviour
         SetNumber();
     }
 
-    public void SetValue() {
+    public void SetValue()
+    {
         SetNumber();
-        switch (sliderType) { 
+        switch (sliderType)
+        {
             case SliderType.Volume:
                 GameManager.GetInstance().SetVolume(slider.value);
                 break;
@@ -56,7 +61,8 @@ public class SliderBehaviour : MonoBehaviour
         }
     }
 
-    private void SetNumber() {
+    private void SetNumber()
+    {
         sliderText.text = $"{(int)slider.value}";
     }
 }
