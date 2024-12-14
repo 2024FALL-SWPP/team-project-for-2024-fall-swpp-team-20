@@ -144,6 +144,8 @@ public class PlayerController : MonoBehaviour
     {
         mouseDeltaX = 0;
         transform.localRotation = Quaternion.identity;
+        float sensitivity = GameManager.GetInstance().GetSensitivity();
+        SetSensitivity(sensitivity);
 
         isJumping = false;
         SetInBedRange(false);
@@ -333,8 +335,8 @@ public class PlayerController : MonoBehaviour
                 stateBeforePause = GameManager.GetInstance().GetState();
                 cursorLockBeforePause = Cursor.lockState;
                 visibleBeforePause = Cursor.visible;
-                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 GameManager.GetInstance().um.ShowSettingPanel();
                 GameManager.GetInstance().Pause();
                 
@@ -347,6 +349,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void QuitPauseState() {
+        SetSensitivity(GameManager.GetInstance().GetSensitivity());
         Time.timeScale = 1f;
         GameManager.GetInstance().um.HideSettingPanel();
         Cursor.lockState = cursorLockBeforePause;
@@ -442,6 +445,9 @@ public class PlayerController : MonoBehaviour
         canMove = available;
     }
 
+    private void SetSensitivity(float sens) {
+        rotateSpeed = sens * 15f / 50f;
+    }
     public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
     public HardAnomalyCode GetAnomalyType() => currentAnomaly;
 

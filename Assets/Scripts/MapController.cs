@@ -60,6 +60,7 @@ public class MapController : MonoBehaviour
             {
                 if (testHard)
                 {
+                    Debug.Assert(anomalyManager.hardAnomalies != null, "NULL2");
                     anomaly = anomalyManager.hardAnomalies[testAnomaly];
                     Debug.Log($"Test: Anomaly {anomaly.GetType()}");
                 }

@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
 
     public void Initialize() { 
         sourceList = new List<AudioSource>();
-        generalVolume = GameManager.GetInstance().volume;
+        generalVolume = GameManager.GetInstance().GetVolume();
         AudioSource mainSource = GetComponent<AudioSource>();
         sourceList.Add(mainSource);
     }

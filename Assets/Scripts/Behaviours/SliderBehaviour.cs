@@ -21,13 +21,18 @@ public class SliderBehaviour : MonoBehaviour
         SetSlider();
     }
     public void SetSlider() {
-        Debug.Log(slider.value);
         switch (sliderType) { 
             case SliderType.Volume:
-                slider.value = GameManager.GetInstance().volume * 100f;
+                if (slider.value != GameManager.GetInstance().GetVolume())
+                {
+                    slider.value = GameManager.GetInstance().GetVolume() * 100f;
+                }
                 break;
             case SliderType.Sensitivity:
-                slider.value = GameManager.GetInstance().sensitivity;
+                if (slider.value != GameManager.GetInstance().GetSensitivity())
+                {
+                    slider.value = GameManager.GetInstance().GetSensitivity();
+                }
                 break;
             default:
                 Debug.LogError("Invalid or null type");
