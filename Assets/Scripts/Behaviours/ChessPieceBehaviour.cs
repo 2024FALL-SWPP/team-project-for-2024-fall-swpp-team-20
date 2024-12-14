@@ -23,12 +23,15 @@ public class ChessPieceBehaviour : MonoBehaviour
 
     public int damage;
 
+    public bool promoted = false;
+
     public virtual void Attack() { }
 
-    public virtual void Activate()
+    public virtual void Activate(bool promoted)
     {
         healthBar = transform.GetChild(0).gameObject;
         healthBar.SetActive(true);
+        this.promoted = true;
         activated = true;
     }
 

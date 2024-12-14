@@ -23,7 +23,16 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
     public float mouseDeltaX;
 
-    public float jumpForce;
+    public float JumpForce;
+    public float jumpForce
+    {
+        get => JumpForce;
+        set
+        {
+            JumpForce = value;
+            Debug.Log($"Hello world, my force: {value}");
+        }
+    }
 
     private bool isJumping;
     private bool isTouchingSide = false;
@@ -47,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetPlayerController(SpawnPosition positionCode)
     {
+        Debug.Log($"Hello from pc: {positionCode}");
         SetTransform(positionCode);
         SetCameraClippingPlanes(positionCode);
         SetPhysical(positionCode);
@@ -84,9 +94,12 @@ public class PlayerController : MonoBehaviour
         switch (positionCode)
         {
             case SpawnPosition.Original:
-            case SpawnPosition.Lava:
                 moveSpeed = spawnPositions.origialMoveSpeed;
                 jumpForce = spawnPositions.originalJumpForce;
+                break;
+            case SpawnPosition.Lava:
+                moveSpeed = spawnPositions.lavaMoveSpeed;
+                jumpForce = spawnPositions.lavaJumpForce;
                 break;
             case SpawnPosition.Chessboard:
                 moveSpeed = spawnPositions.chessMoveSpeed;

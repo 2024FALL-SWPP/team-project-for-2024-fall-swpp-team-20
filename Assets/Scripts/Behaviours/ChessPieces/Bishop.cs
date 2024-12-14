@@ -13,6 +13,8 @@ public class Bishop : ChessPieceBehaviour
     public GameObject guidelinePrefab;
     public GameObject reallinePrefab;
 
+    List<GameObject> guideline;
+
     public override void Attack()
     {
         (int, int) targetPos = GetPossiblePos(chessPosition);
@@ -36,7 +38,7 @@ public class Bishop : ChessPieceBehaviour
         chessPosition = targetPos;
 
         //Attack
-        List<GameObject> guideline = InitializeGuideline(chessPosition);
+        guideline = InitializeGuideline(chessPosition);
         yield return new WaitForSeconds(0.6f);
         HideGuidelines(guideline);
         yield return new WaitForSeconds(0.1f);
@@ -133,10 +135,10 @@ public class Bishop : ChessPieceBehaviour
         }
     }
 
-    public override void Activate()
+    public override void Activate(bool promoted)
     {
-        base.Activate();
-        maxHealth = 5;
+        base.Activate(promoted);
+        maxHealth = 10;
         health = maxHealth;
         damage = 10;
         speed = spotSize * 5;
@@ -145,12 +147,20 @@ public class Bishop : ChessPieceBehaviour
     }
     private void OnDestroy()
     {
-        if (health == 0) DeadPieceCount++;
+        if (health == 0)
+        {
+            foreach (GameObject g in guideline)
+            {
+                Destroy(g);
+            }
+            if (promoted) DeadPawnCount++;
+            DeadPieceCount++;
+        }
     }
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate();
+        if (DeadPawnCount == 8 && !activated) Activate(false);
         base.Update();
     }
 

@@ -961,7 +961,7 @@ PlayableDirector:
   m_GameObject: {fileID: 2141781645}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 3b43569fe0d7af042b61dddba4d59175, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -987,6 +987,26 @@ PlayableDirector:
     value: {fileID: 4270273396751041880}
   - key: {fileID: 6669766153554247568, guid: 3b43569fe0d7af042b61dddba4d59175, type: 2}
     value: {fileID: 124090646}
+  - key: {fileID: -8288648154940079671, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 124090645}
+  - key: {fileID: 6669766153554247568, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 124090646}
+  - key: {fileID: 3938958566988196703, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 124090646}
+  - key: {fileID: 1738511205105490024, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 4270273396751041880}
+  - key: {fileID: 7609033342863028972, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 1395840746}
+  - key: {fileID: 5850902606498182037, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 885544715}
+  - key: {fileID: 2259079864348904021, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 188188327}
+  - key: {fileID: -2322935496049781232, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 1395840746}
+  - key: {fileID: -5263137962643235903, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 1499395262}
+  - key: {fileID: 1126938100991179103, guid: f2801f799e2cdd34fa305204b745adbd, type: 2}
+    value: {fileID: 1499395262}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &2141781647
@@ -1019,6 +1039,18 @@ PrefabInstance:
     - target: {fileID: 2939412314505239783, guid: 0fbf3a55889167f40b21201d86f78071, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939412314505239783, guid: 0fbf3a55889167f40b21201d86f78071, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939412314505239783, guid: 0fbf3a55889167f40b21201d86f78071, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939412314505239783, guid: 0fbf3a55889167f40b21201d86f78071, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2939412314505239783, guid: 0fbf3a55889167f40b21201d86f78071, type: 3}
       propertyPath: m_LocalPosition.x

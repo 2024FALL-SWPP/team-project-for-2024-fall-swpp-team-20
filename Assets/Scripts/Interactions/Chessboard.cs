@@ -33,7 +33,7 @@ public class Chessboard : InteractableObject
         GameManager.GetInstance().state = GameState.ReadingScript;
         foreach (Pawn pawn in white.GetComponentsInChildren<Pawn>())
         {
-            pawn.Activate();
+            pawn.Activate(false);
         }
     }
 
