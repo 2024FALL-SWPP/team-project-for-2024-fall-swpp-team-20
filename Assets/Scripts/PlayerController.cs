@@ -121,11 +121,11 @@ public class PlayerController : MonoBehaviour
             _ => 0.3f
         };
         camera.nearClipPlane = plane;
-        if (positionCode == SpawnPosition.Visibility)
+        /*if (positionCode == SpawnPosition.Visibility)
         {
             camera.farClipPlane = 4f;
         }
-        else camera.farClipPlane = 1000f;
+        else camera.farClipPlane = 1000f;*/
     }
     private void Start()
     {

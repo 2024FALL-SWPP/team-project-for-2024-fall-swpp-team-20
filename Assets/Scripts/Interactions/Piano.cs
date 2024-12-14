@@ -82,5 +82,5 @@ public class Piano : InteractableObject
         pianoKeys[realIndex].transform.position += new Vector3(0, 0.01f, 0);
     }
 
-    public override bool IsInteractable() => true;
+    //public override bool IsInteractable() => true;
 }

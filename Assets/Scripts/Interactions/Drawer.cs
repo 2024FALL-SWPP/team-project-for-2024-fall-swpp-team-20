@@ -53,5 +53,5 @@ public class Drawer : InteractableObject
         transform.position = targetPosition;
     }
 
-    public override bool IsInteractable() => true;
+    //public override bool IsInteractable() => true;
 }
