@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -29,12 +30,19 @@ public class UIManager : MonoBehaviour
     private GameObject cover;
     [SerializeField] private TextMeshProUGUI tutorialText;
     public bool isBedInteractionTutorial;
+    private GameObject settingPanel;
 
+    private Control control;
     public void Initialize()
     {
+        if (SceneManager.GetActiveScene().name == "MainScene") { 
+            canvasTransform = FindAnyObjectByType<Canvas>().transform;
+            settingPanel = canvasTransform.Find("SettingBackground").gameObject;
+        }
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
             canvasTransform = FindAnyObjectByType<Canvas>().transform;
+            settingPanel = canvasTransform.Find("SettingBackground").gameObject;
             generalInfo = canvasTransform.Find("InformationText").GetComponent<Text>();
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
             sleepText = canvasTransform.Find("SleepText").gameObject;
@@ -50,8 +58,8 @@ public class UIManager : MonoBehaviour
             cover = canvasTransform.Find("Cover").gameObject;
             tutorialText = canvasTransform.Find("TutorialText").GetComponent<TextMeshProUGUI>();
             isBedInteractionTutorial = true;
+            HideEverything();
         }
-        HideEverything();
     }
 
     public void LoadScene(string sceneName)
@@ -260,6 +268,7 @@ public class UIManager : MonoBehaviour
         HideCover();
         HideTutorialText();
         HidePianoText();
+        HideSettingPanel();
     }
 
     // For Watching Laptop
@@ -293,5 +302,45 @@ public class UIManager : MonoBehaviour
     public void HideTutorialText()
     {
         tutorialText.enabled = false;
+    }
+
+    public void ShowSettingPanel() 
+    {
+        settingPanel.gameObject.SetActive(true);
+    }
+
+
+    public void HideSettingPanel() {
+        settingPanel.gameObject.SetActive(false);
+    }
+
+    private void HideSettingPanelByInput(InputAction.CallbackContext value) {
+        if(value.ReadValue<float>() > 0) HideSettingPanel();
+
+    }
+
+    private void OnEnable()
+    {
+        EnableInputInMainScene();
+    }
+
+    private void OnDisable()
+    {
+        DisableInputInMainScene();
+    }
+    public void EnableInputInMainScene() {
+        if (SceneManager.GetActiveScene().name == "MainScene") {
+            control = new Control();
+            control.Enable();
+            control.NewMap.Pause.performed += HideSettingPanelByInput;
+        }
+    }
+
+    public void DisableInputInMainScene() {
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
+            control.NewMap.Pause.performed -= HideSettingPanelByInput;
+            control.Disable();
+        }
     }
 }

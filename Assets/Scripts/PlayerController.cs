@@ -334,26 +334,31 @@ public class PlayerController : MonoBehaviour
                 cursorLockBeforePause = Cursor.lockState;
                 visibleBeforePause = Cursor.visible;
                 Cursor.visible = true;
-                GameManager.GetInstance().um.ShowStateUI(GameState.Pause);
+                Cursor.lockState = CursorLockMode.None;
+                GameManager.GetInstance().um.ShowSettingPanel();
                 GameManager.GetInstance().Pause();
+                
             }
             else if (GameManager.GetInstance().GetState() == GameState.Pause)
             {
-                Time.timeScale = 1f;
-                GameManager.GetInstance().um.HideStateInfo();
-                Cursor.lockState = cursorLockBeforePause;
-                Cursor.visible = visibleBeforePause;
-                if (stateBeforePause == GameState.Playing)
-                {
-                    GameManager.GetInstance().Play();
-                }
-                else if (stateBeforePause == GameState.ReadingScript)
-                {
-                    GameManager.GetInstance().ReadScript();
-                }
+                QuitPauseState();
             }
         }
+    }
 
+    public void QuitPauseState() {
+        Time.timeScale = 1f;
+        GameManager.GetInstance().um.HideSettingPanel();
+        Cursor.lockState = cursorLockBeforePause;
+        Cursor.visible = visibleBeforePause;
+        if (stateBeforePause == GameState.Playing)
+        {
+            GameManager.GetInstance().Play();
+        }
+        else if (stateBeforePause == GameState.ReadingScript)
+        {
+            GameManager.GetInstance().ReadScript();
+        }
     }
 
 
