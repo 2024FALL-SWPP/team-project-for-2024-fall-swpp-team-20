@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
+    [Header("Settings")]
+    private float sensitivity;
+    private float volume;
+
+    private bool started;
+
     public static GameManager GetInstance()
     {
         if (instance == null)
@@ -41,15 +47,27 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            instance.InitializeSetting();
             DontDestroyOnLoad(this);
             instance.Initialize();
         }
         else Destroy(this);
     }
 
+    private void InitializeSetting()
+    {
+        sensitivity = 50f;
+        volume = 1f;
+        started = false;
+    }
+
     private void Initialize(bool start = true)
     {
         string activeScene = SceneManager.GetActiveScene().name;
+        um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
+        sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
+        um.Initialize();
+        sm.Initialize();
         if (activeScene == "GameScene")
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -57,19 +75,20 @@ public class GameManager : MonoBehaviour
             bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
             stageManager.InitializeVariables();
             bedInteractionManager.InitializeVariables();
+            stageManager.GameStart(start);
         }
-        um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
-        sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
-        um.Initialize();
-
-        stageManager.GameStart(start);
     }
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "GameScene")
         {
-            Initialize(false);
+            if (started) Initialize(false);
+            else
+            {
+                started = true;
+                Initialize(true);
+            }
         }
     }
 
@@ -93,4 +112,18 @@ public class GameManager : MonoBehaviour
 
     public GameState GetState() => state;
 
+    public void SetVolume(float value)
+    {
+        volume = value / 100f;
+        Debug.Assert(sm != null, "NULL?!");
+        sm.SetVolume(volume);
+    }
+
+    public float GetVolume() => volume;
+    public void SetSensitivity(float value)
+    {
+        sensitivity = value;
+    }
+
+    public float GetSensitivity() => sensitivity;
 }
