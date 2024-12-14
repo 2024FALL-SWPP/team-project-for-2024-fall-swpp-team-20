@@ -1303,6 +1303,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Transparent
       objectReference: {fileID: 0}
+    - target: {fileID: 6509694532561880318, guid: fa620f32374b177479521cec5bb1460b, type: 3}
+      propertyPath: field of view
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509694532561880318, guid: fa620f32374b177479521cec5bb1460b, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa620f32374b177479521cec5bb1460b, type: 3}
 --- !u!1 &296604630
@@ -3976,8 +3984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   easyAnomalyIndex: 0
   hardAnomalyIndex: 0
-  test: 1
-  testAnomaly: 0
+  test: 0
+  testAnomaly: 5
   testHard: 1
 --- !u!4 &896207470
 Transform:
@@ -7410,10 +7418,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6941163153840960252, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: m_Name
-      value: ChessBoard
-      objectReference: {fileID: 0}
     - target: {fileID: 9065480073589818876, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
       propertyPath: m_RootOrder
       value: 0
