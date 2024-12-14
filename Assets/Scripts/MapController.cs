@@ -14,7 +14,6 @@ public class MapController : MonoBehaviour
     private GameObject currentMap;
     private ObjectStorage storage;
     private float initialClockRotation = 240.0f;
-    private int anomalyIndex = -1;
     private const int maxAnomalyCount = 50;
 
     private AnomalyManager anomalyManager;
@@ -40,6 +39,7 @@ public class MapController : MonoBehaviour
         anomalyManager = FindObjectOfType<AnomalyManager>();
         bool test = anomalyManager.test;
         int testAnomaly = anomalyManager.testAnomaly;
+        bool testHard = anomalyManager.testHard;
 
         if (!haveAnomaly)
         {
@@ -59,20 +59,30 @@ public class MapController : MonoBehaviour
             SetClock(stage);
             if (test)
             {
-                anomaly = anomalyManager.anomalies[testAnomaly];
-                Debug.Log($"Test: Anomaly {anomaly.GetType()}");
+                if (testHard)
+                {
+                    anomaly = anomalyManager.hardAnomalies[testAnomaly];
+                    Debug.Log($"Test: Anomaly {anomaly.GetType()}");
+                }
+                else
+                {
+                    anomaly = anomalyManager.easyAnomalies[testAnomaly];
+                    Debug.Log($"Test: Anomaly {anomaly.GetType()}");
+                }
             }
             else
             {
-                anomaly = anomalyManager.anomalies[++anomalyIndex % anomalyManager.anomalies.Count];
-                Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
-            }
-
-            if (anomalyIndex >= maxAnomalyCount)
-            {
-                // TODO: There are two options
-                // first option: just refill anomalies and keep playing game
-                // second option: game over
+                if(stage < 5)
+                {
+                    anomaly = anomalyManager.easyAnomalies[anomalyManager.easyAnomalyIndex++];
+                    Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
+                    
+                }
+                else
+                {                    
+                    anomaly = anomalyManager.hardAnomalies[anomalyManager.hardAnomalyIndex++];
+                    Debug.Log($"Stage {stage}: Anomaly {anomaly.GetType()}");
+                }
             }
 
             SetAnomaly(anomaly);
@@ -89,15 +99,12 @@ public class MapController : MonoBehaviour
 
     private void SetAnomaly(Anomaly anomaly)
     {
-        if (anomalyIndex < anomalyManager.anomalies.Count)
+        anomaly.ApplyAnomaly(currentMap);
+        //Do Additional Setting For Each Hard Anomaly
+        if (anomaly is HardAnomaly)
         {
-            anomaly.ApplyAnomaly(currentMap);
-            //Do Additional Setting For Each Hard Anomaly
-            if (anomaly is HardAnomaly)
-            {
-                HardAnomaly ha = anomaly as HardAnomaly;
-                ha.SetHardAnomalyCode();
-            }
+            HardAnomaly ha = anomaly as HardAnomaly;
+            ha.SetHardAnomalyCode();
         }
     }
 

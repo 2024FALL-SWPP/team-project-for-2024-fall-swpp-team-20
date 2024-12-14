@@ -7,13 +7,16 @@ using Shuffle = System.Random;
 
 public class AnomalyManager : MonoBehaviour
 {
-    public static AnomalyManager instance;
-
-    public List<Anomaly> anomalies;
+    private static AnomalyManager instance;
+    public List<Anomaly> easyAnomalies;
+    public List<Anomaly> hardAnomalies;
+    public int easyAnomalyIndex;
+    public int hardAnomalyIndex;
     public bool test;
     public int testAnomaly;
+    public bool testHard;
 
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
@@ -22,34 +25,67 @@ public class AnomalyManager : MonoBehaviour
         }
     }
 
+    public void initializeAnomalyIndex()
+    {
+        easyAnomalyIndex = 0;
+        hardAnomalyIndex = 0;
+    }
+
+    public bool noAnomalyCheck(bool isHard)
+    {
+        if(!isHard && easyAnomalyIndex >= easyAnomalies.Count)
+        {
+            return true;
+        }
+        else if(isHard && hardAnomalyIndex >= hardAnomalies.Count)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void FillAnomaly()
     {
-        // Asked for chatGPT about how to use assembly
         Assembly assembly = Assembly.GetExecutingAssembly();
 
-        // filling delegate list
-        anomalies = new List<Anomaly>();
+        easyAnomalies = new List<Anomaly>();
+        hardAnomalies = new List<Anomaly>();
+
         foreach (Type type in assembly.GetTypes())
         {
-            //Debug.Log($"{type} isAnomaly:{type == typeof(Anomaly)} isHardAnomaly:{type == typeof(HardAnomaly)}");
             if (type == typeof(Anomaly) || type == typeof(HardAnomaly)) continue;
             if (typeof(Anomaly).IsAssignableFrom(type))
             {
-                // Create an instance of each type and add it to the list.
                 Anomaly instance = (Anomaly)Activator.CreateInstance(type);
-                anomalies.Add(instance);
+                if (type.IsSubclassOf(typeof(HardAnomaly)))
+                {
+                    hardAnomalies.Add(instance);
+                }
+                else
+                {
+                    easyAnomalies.Add(instance);
+                }
             }
         }
 
         if (!test)
         {
             Shuffle s = new();
-            anomalies = anomalies.OrderBy(_ => s.Next()).ToList();
+            easyAnomalies = easyAnomalies.OrderBy(_ => s.Next()).ToList();
+            hardAnomalies = hardAnomalies.OrderBy(_ => s.Next()).ToList();
         }
 
-        for (int index = 0; index < anomalies.Count; index++)
+        for (int index = 0; index < easyAnomalies.Count; index++)
         {
-            Debug.Log($"Index {index}: {anomalies[index].GetType()}");
+            Debug.Log($"Easy Index {index}: {easyAnomalies[index].GetType()}");
+        }
+
+        for (int index = 0; index < hardAnomalies.Count; index++)
+        {
+            Debug.Log($"Hard Index {index}: {hardAnomalies[index].GetType()}");
         }
     }
 }
