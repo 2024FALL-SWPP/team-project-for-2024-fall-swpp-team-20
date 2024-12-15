@@ -135,7 +135,8 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public abstract void Interact(GameObject obj);
 
-    public virtual bool IsInteractable() {
+    public virtual bool IsInteractable()
+    {
         if (inVisibilityAnomaly) return false;
         return true;
     }
