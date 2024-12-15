@@ -29,6 +29,6 @@ public class Totem : InteractableObject
         } // 2: Temporarily rotate
     }
 
-    public override bool IsInteractable() => true;
+    //public override bool IsInteractable() => true;
 
 }

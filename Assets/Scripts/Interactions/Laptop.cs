@@ -67,6 +67,7 @@ public class Laptop : InteractableObject
 
     public override bool IsInteractable()
     {
+        if (inVisibilityAnomaly) return false;
         if (inAnomaly) return !power;
         else return true;
     }

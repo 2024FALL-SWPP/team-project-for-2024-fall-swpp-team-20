@@ -26,7 +26,7 @@ public class PullXDrawer : InteractableObject
         }
     }
 
-    public override bool IsInteractable() => true;
+    //public override bool IsInteractable() => true;
 
     private IEnumerator OpenDrawer()
     {

@@ -75,6 +75,9 @@ public class ObjectStorage : MonoBehaviour
     public GameObject digitalClock;
     public GameObject timeBomb;
 
+    [Header("HardVisibilityDecreaseAnomaly")]
+    public GameObject door;
+
     [Header("Tutorial")]
     public GameObject tutorialImage;
 

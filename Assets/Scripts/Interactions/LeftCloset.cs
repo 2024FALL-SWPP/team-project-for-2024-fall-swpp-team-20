@@ -54,5 +54,5 @@ public class LeftCloset : InteractableObject
         transform.rotation = targetRotation;
     }
 
-    public override bool IsInteractable() => true;
+    //public override bool IsInteractable() => true;
 }

@@ -39,6 +39,7 @@ public class Chessboard : InteractableObject
 
     public override bool IsInteractable()
     {
+        if (inVisibilityAnomaly) return false;
         if (!inAnomaly) return false;
         else return !activated;
     }

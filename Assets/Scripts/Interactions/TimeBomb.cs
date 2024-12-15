@@ -119,5 +119,5 @@ public class TimeBomb : InteractableObject
         GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.FailHard);
     }
 
-    public override bool IsInteractable() => true;
+    //public override bool IsInteractable() => true;
 }

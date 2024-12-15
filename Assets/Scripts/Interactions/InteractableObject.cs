@@ -17,6 +17,9 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     private Outline outline;
     private bool outlineOn;
 
+    // block interaction when visibility anomaly
+    public bool inVisibilityAnomaly = false;
+
     protected virtual void Start()
     {
         // 자식 오브젝트 포함 모든 MeshRenderer 가져오기
@@ -132,5 +135,9 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public abstract void Interact(GameObject obj);
 
-    public abstract bool IsInteractable();
+    public virtual bool IsInteractable()
+    {
+        if (inVisibilityAnomaly) return false;
+        return true;
+    }
 }
