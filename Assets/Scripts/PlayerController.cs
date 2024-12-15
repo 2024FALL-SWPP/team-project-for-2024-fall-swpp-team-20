@@ -308,10 +308,21 @@ public class PlayerController : MonoBehaviour
         if (ActuallyCanSleep())
         {
             float input = value.ReadValue<float>();
-            BedInteractionType type = input > 0 ? BedInteractionType.Sleep : BedInteractionType.Wakeup;
+            BedInteractionType type = GetBedInteractionType(input);
             GameManager.GetInstance().bedInteractionManager.TryBedInteraction(type);
             hasInteractedWithBed = true;
         }
+    }
+
+    private BedInteractionType GetBedInteractionType(float input)
+    {
+        if (currentAnomaly == HardAnomalyCode.Visibility)
+        {
+            if (input > 0) return BedInteractionType.ClearHard;
+            else return BedInteractionType.FailHard;
+        }
+        if (input > 0) return BedInteractionType.Sleep;
+        else return BedInteractionType.Wakeup;
     }
 
     private void ToggleSleepUI()
