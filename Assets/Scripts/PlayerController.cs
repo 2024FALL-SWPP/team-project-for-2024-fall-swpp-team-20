@@ -280,6 +280,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Bed"))
         {
             SetInBedRange(true);
+            if (currentAnomaly == HardAnomalyCode.Visibility)
+            {
+                GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
+            }
         }
         if (other.gameObject.CompareTag("Goal"))
         {
@@ -316,11 +320,6 @@ public class PlayerController : MonoBehaviour
 
     private BedInteractionType GetBedInteractionType(float input)
     {
-        if (currentAnomaly == HardAnomalyCode.Visibility)
-        {
-            if (input > 0) return BedInteractionType.ClearHard;
-            else return BedInteractionType.FailHard;
-        }
         if (input > 0) return BedInteractionType.Sleep;
         else return BedInteractionType.Wakeup;
     }
@@ -427,7 +426,7 @@ public class PlayerController : MonoBehaviour
 
     private bool CanSleepInAnomaly(HardAnomalyCode current)
     {
-        if (current == HardAnomalyCode.NotInHard || current == HardAnomalyCode.Visibility) return true;
+        if (current == HardAnomalyCode.NotInHard) return true;
         else return false;
     }
 
