@@ -5229,9 +5229,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Red : Out
 
-    Green : Ball
+    Yellow : Ball
 
-    Yellow : Strike'
+    Green : Strike'
 --- !u!222 &1382363307
 CanvasRenderer:
   m_ObjectHideFlags: 0
