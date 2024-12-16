@@ -24,6 +24,7 @@ public class StageManager : MonoBehaviour
     private PlayerInformation pi;
     private LandscapeManager landscapeManager;
     private AnomalyManager am;
+
     private bool Test => am.test;
     public void InitializeVariables()
     {
@@ -119,6 +120,9 @@ public class StageManager : MonoBehaviour
     private void GameClear()
     {
         // Game clear logic
+        AchievementManager am = GameManager.GetInstance().am;
+        am.ClearAchievement(Achievements.GameClear);
+        if (!am.Missed()) am.ClearAchievement(Achievements.GameClearWithoutMiss);
         GameManager.GetInstance().Clear();
         GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
     }
@@ -139,46 +143,62 @@ public class StageManager : MonoBehaviour
         {
             if (type == BedInteractionType.ClearHard)
             {
-                SceneManager.LoadScene("AnomalyTrueWakeUpScene");
                 Succeed();
+                SceneManager.LoadScene("AnomalyTrueWakeUpScene");
             }
             else
             {
-                SceneManager.LoadScene("AnomalyFalseWakeUpScene");
                 Fail();
+                SceneManager.LoadScene("AnomalyFalseWakeUpScene");
             }
         }
         else if (sleep && haveAnomaly)
         {
-            SceneManager.LoadScene("SleepScene");
             Fail();
+            SceneManager.LoadScene("SleepScene");
         }
         else if (!sleep && !haveAnomaly)
         {
-            SceneManager.LoadScene("WakeupFalseScene");
             Fail();
+            SceneManager.LoadScene("WakeupFalseScene");
         }
         else if (sleep && !haveAnomaly)
         {
-            SceneManager.LoadScene("SleepScene");
             Succeed();
+            SceneManager.LoadScene("SleepScene");
         }
         else if (!sleep && haveAnomaly)
         {
-            SceneManager.LoadScene("WakeupTrueScene");
             Succeed();
+            SceneManager.LoadScene("WakeupTrueScene");
         }
     }
 
     private void Succeed()
     {
         ++currentStage;
+        AchievementManager am = GameManager.GetInstance().am;
+        am.ClearAchievement(currentAnomaly);
+        if (currentAnomaly == AnomalyCode.HardLava) { 
+            if (am.TimeLeft()) am.ClearAchievement(Achievements.LavaAnomalyClearFast);
+            if (!am.DamageTaken()) am.ClearAchievement(Achievements.LavaAnomalyNoDamage);
+        }
+        if (currentAnomaly == AnomalyCode.HardVisibility && am.TimeLeft()) am.ClearAchievement(Achievements.VisibilityAnomalyClearFast);
+        if (currentAnomaly == AnomalyCode.HardChess) {
+            if (!am.DamageTaken()) am.ClearAchievement(Achievements.ChessAnomalyNoDamage);
+            if (am.GetShootCount() >= 200) am.ClearAchievement(Achievements.ChessAnomalyMachineGun);
+        }
+        if (currentAnomaly == AnomalyCode.HardFruitDrop && !am.DamageTaken()) am.ClearAchievement(Achievements.FruitAnomalyNoDamage);
     }
 
     private void Fail()
     {
         // TODO: Animation
         if (currentStage > 1) currentStage--;
+        AchievementManager am = GameManager.GetInstance().am;
+        if (Anomaly.AnomalyIsHard(currentAnomaly)) am.ClearAchievement(Achievements.MissHardAnomaly);
+        else am.ClearAchievement(Achievements.MissEasyAnomaly);
+        am.SetMissFlag();
     }
 
     public void QuitGame() {

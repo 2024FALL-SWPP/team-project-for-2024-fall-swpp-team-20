@@ -22,18 +22,18 @@ public class PlayerInformation : MonoBehaviour
     {
         if (!invince)
         {
-            if (other.gameObject.CompareTag("Lava")) HurtPlayer(10 * Time.deltaTime);
+            if (other.gameObject.CompareTag("Lava")) HurtPlayer(10 * Time.deltaTime, false);
             if (other.gameObject.CompareTag("ChessPiece"))
             {
                 ChessPieceBehaviour cpb = other.GetComponent<ChessPieceBehaviour>();
                 if (!cpb.activated) return;
-                HurtPlayer(cpb.damage);
+                HurtPlayer(cpb.damage, false);
                 invince = true;
                 Invoke(nameof(RemoveInvincibility), 2);
             }
             if (other.gameObject.CompareTag("RealLine"))
             { // Bishop and Queen's attack
-                HurtPlayer(10);
+                HurtPlayer(10, false);
                 invince = true;
                 Invoke(nameof(RemoveInvincibility), 2);
             }
@@ -46,14 +46,15 @@ public class PlayerInformation : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Fruit"))
         {
-            HurtPlayer(10);
+            HurtPlayer(10, false);
             Destroy(other.gameObject);
         }
     }
     // HurtPlayer can be used whenever If needed
-    private void HurtPlayer(float damage)
+    private void HurtPlayer(float damage, bool isDOT)
     {
         if (health <= 0) return;
+        if (!isDOT) GameManager.GetInstance().am.SetDamageFlag();
         health -= damage;
         GameManager.GetInstance().um.SetHealthImage(health);
         if (health <= 0)
@@ -73,7 +74,7 @@ public class PlayerInformation : MonoBehaviour
     {
         while (true)
         {
-            HurtPlayer(damage);
+            HurtPlayer(damage, true);
             yield return new WaitForSeconds(0.25f);
         }
     }

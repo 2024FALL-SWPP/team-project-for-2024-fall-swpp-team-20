@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
             stageManager.InitializeVariables();
             bedInteractionManager.InitializeVariables();
-            am.Initialize();
+            am.Initialize(start);
             stageManager.GameStart(start);
         }
     }

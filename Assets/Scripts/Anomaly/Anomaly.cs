@@ -14,7 +14,7 @@ public abstract class Anomaly
 
     public static bool AnomalyIsHard(AnomalyCode code)
     {
-        if (code == AnomalyCode.HardChess || code == AnomalyCode.HardFruitDrop ||
+        if (code == AnomalyCode.HardLava || code == AnomalyCode.HardFruitDrop ||
             code == AnomalyCode.HardChess || code == AnomalyCode.HardReverseMap ||
             code == AnomalyCode.HardTimeBomb || code == AnomalyCode.HardVisibility) return true;
         else return false;
