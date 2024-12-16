@@ -65,7 +65,7 @@ public class Laptop : InteractableObject
 
         for (int i = 0; i < materials.Length; i++)
         {
-            if (materials[i].name == "screen (Instance)" || materials[i].name == "screen") 
+            if (materials[i].name == "screen (Instance)" || materials[i].name == "screen")
             {
                 screenMaterialIndex = i; // "screen" Material의 인덱스를 저장
                 // Debug.Log("Screen material found at index: " + screenMaterialIndex);
