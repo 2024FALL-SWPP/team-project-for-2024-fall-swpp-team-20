@@ -9,4 +9,8 @@ public class EasyHangerDisappearAnomaly : Anomaly
             storage.hangers[i].SetActive(false);
         }
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyHangerDisaeppear;
+    }
 }

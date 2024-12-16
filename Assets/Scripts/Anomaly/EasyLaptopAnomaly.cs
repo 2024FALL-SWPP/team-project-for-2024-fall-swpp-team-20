@@ -9,4 +9,8 @@ public class EasyLaptopAnomaly : Anomaly
         Laptop laptop = storage.laptopObject.GetComponent<Laptop>();
         laptop.SetAnomaly();
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyLaptop;
+    }
 }

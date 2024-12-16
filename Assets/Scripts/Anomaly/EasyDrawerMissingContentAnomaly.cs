@@ -7,4 +7,8 @@ public class EasyDrawerMissingContentAnomaly : Anomaly
         GameObject missingContent = storage.drawerMissingContent;
         missingContent.SetActive(false);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyDrawerMissingContent;
+    }
 }

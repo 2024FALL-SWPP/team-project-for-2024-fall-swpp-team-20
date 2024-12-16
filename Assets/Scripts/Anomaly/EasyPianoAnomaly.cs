@@ -9,4 +9,9 @@ public class EasyPianoAnomaly : Anomaly
         Piano piano = storage.pianoObject.GetComponent<Piano>();
         piano.inAnomaly = true;
     }
+
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyPiano;
+    }
 }

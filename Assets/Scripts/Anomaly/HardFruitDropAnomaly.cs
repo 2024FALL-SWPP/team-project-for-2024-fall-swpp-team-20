@@ -14,8 +14,8 @@ public class HardFruitDropAnomaly : HardAnomaly
         fruitDropAnimationController.StartFruitDropAnimation(map);
     }
 
-    public override HardAnomalyCode GetHardAnomalyCode()
+    public override AnomalyCode GetAnomalyCode()
     {
-        return HardAnomalyCode.FruitDrop;
+        return AnomalyCode.HardFruitDrop;
     }
 }

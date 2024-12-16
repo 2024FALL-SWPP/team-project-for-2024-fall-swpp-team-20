@@ -7,4 +7,8 @@ public class EasySofaDisappearAnomaly : Anomaly
         GameObject sofa = storage.sofa;
         sofa.SetActive(false);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasySofaDisappear;
+    }
 }

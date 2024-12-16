@@ -126,7 +126,7 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
-        bool isHard = !Anomaly.AnomalyIsHard(pc.GetAnomalyType());
+        bool isHard = Anomaly.AnomalyIsHard(pc.GetAnomalyType());
         Debug.Log(isHard);
         bool sleep = type == BedInteractionType.Sleep;
         if (isHard)

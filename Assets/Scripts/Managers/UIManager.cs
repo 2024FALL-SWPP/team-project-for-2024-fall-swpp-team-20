@@ -205,32 +205,32 @@ public class UIManager : MonoBehaviour
 
     public void ShowCover() => cover.SetActive(true);
     public void HideCover() => cover.SetActive(false);
-    public void ShowCharacterScript(HardAnomalyCode code)
+    public void ShowCharacterScript(AnomalyCode code)
     {
         characterScriptPanel.SetActive(true);
         characterScript.text = "";
         switch (code)
         {
-            case HardAnomalyCode.Lava:
+            case AnomalyCode.HardLava:
                 characterScript.text = "Lava is coming! Run!";
                 break;
-            case HardAnomalyCode.TimeBomb:
+            case AnomalyCode.HardTimeBomb:
                 characterScript.text = "Time Bomb is ticking!";
                 break;
-            case HardAnomalyCode.Chess:
+            case AnomalyCode.HardChess:
                 characterScript.text = "Hmm.. I wanna play some chess game..";
                 break;
-            case HardAnomalyCode.Chessboard:
+            case AnomalyCode.Chessboard:
                 characterScript.text = "Kill all the chess pieces!\nMouse click to shoot\nDon't get hit by them!";
                 SetCharacterScriptPanelHeight(500f);
                 break;
-            case HardAnomalyCode.ReverseMap:
+            case AnomalyCode.HardReverseMap:
                 characterScript.text = "Map is reversed! You should go back to the bed!";
                 break;
-            case HardAnomalyCode.FruitDrop:
+            case AnomalyCode.HardFruitDrop:
                 characterScript.text = "Fruit is dropping! You might get hurt!";
                 break;
-            case HardAnomalyCode.Visibility:
+            case AnomalyCode.HardVisibility:
                 characterScript.text = "Why can't I see anything?! maybe I just need to go sleep again..";
                 break;
             default:

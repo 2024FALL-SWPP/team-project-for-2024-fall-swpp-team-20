@@ -9,4 +9,9 @@ public class EasyTeddyBearAnomaly : Anomaly
         normalTeddyBear.SetActive(false);
         anomalyTeddyBear.SetActive(true);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyTeddyBear;
+    }
+
 }

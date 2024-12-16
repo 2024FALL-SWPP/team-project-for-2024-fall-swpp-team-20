@@ -8,4 +8,8 @@ public class EasyDigitalClockAnomaly : Anomaly
         TextMeshPro digitalClockText = storage.digitalClockText.GetComponent<TextMeshPro>();
         digitalClockText.text = "FF:FF";
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyDigitalClock;
+    }
 }
