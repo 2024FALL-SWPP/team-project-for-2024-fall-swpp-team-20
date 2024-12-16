@@ -174,4 +174,10 @@ public class StageManager : MonoBehaviour
         // TODO: Animation
         if (currentStage > 1) currentStage--;
     }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainScene");
+        GameManager.GetInstance().ResetGame();
+        //TODO: save achievement state
+    }
 }
