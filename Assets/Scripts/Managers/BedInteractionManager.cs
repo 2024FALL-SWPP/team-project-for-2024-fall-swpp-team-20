@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BedInteractionType
 {
@@ -38,6 +39,7 @@ public class BedInteractionManager : MonoBehaviour
 
         if (type == BedInteractionType.Sleep && stageManager.GetCurrentStage() == 0)
         {
+            SceneManager.LoadScene("Stage0SleepScene");
             stageManager.InitializeStage(stageManager.GetCurrentStage() + 1);
             yield return null;
         }
