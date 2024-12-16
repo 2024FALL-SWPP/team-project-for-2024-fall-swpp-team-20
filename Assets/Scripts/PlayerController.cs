@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canSleep;
     private bool inBedRange;
-    private AnomalyCode currentAnomaly;
+    private AnomalyCode currentAnomaly => GameManager.GetInstance().stageManager.GetCurrentAnomaly();
 
     private Control control;
 
@@ -460,7 +460,7 @@ public class PlayerController : MonoBehaviour
     {
         rotateSpeed = sens * 15f / 50f;
     }
-    public void SetAnomalyType(AnomalyCode code) => currentAnomaly = code;
+    //public void SetAnomalyType(AnomalyCode code) => currentAnomaly = code;
     public AnomalyCode GetAnomalyType() => currentAnomaly;
 
     public bool HasMoved() => hasMoved;

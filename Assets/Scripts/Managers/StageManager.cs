@@ -10,6 +10,10 @@ public class StageManager : MonoBehaviour
     public int GetCurrentStage() => currentStage;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
+
+    private AnomalyCode currentAnomaly;
+    public AnomalyCode GetCurrentAnomaly() => currentAnomaly;
+    public void SetAnomalyType(AnomalyCode code) => currentAnomaly = code;
     private GameObject player => GameManager.GetInstance().player;
     private MapController mc;
     private PlayerController pc;
@@ -85,7 +89,7 @@ public class StageManager : MonoBehaviour
             tutorialManager.gameObject.SetActive(false);
         }
 
-        pc.SetAnomalyType(code);
+        SetAnomalyType(code);
         // Set time
         ToggleActionAvailability(true);
         interactionHandler.SetMouseClickAction(0);
