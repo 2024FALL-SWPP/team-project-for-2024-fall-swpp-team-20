@@ -7,7 +7,7 @@ using Shuffle = System.Random;
 
 public enum AnomalyCode
 {
-    NoAnomaly,
+    NoAnomaly = -1,
     EasyBookColor,
     EasyBusHandle,
     EasyCanvasChange,

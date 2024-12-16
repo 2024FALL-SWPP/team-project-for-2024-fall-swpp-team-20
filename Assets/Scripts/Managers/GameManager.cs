@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
 
     private bool started;
 
-    private int achievementFlag;
+    private int achievementFlag; // Total completed achievement
+    private int newCompletedAchievement; // newly complete achivement saving
 
     public static GameManager GetInstance()
     {
@@ -143,5 +144,10 @@ public class GameManager : MonoBehaviour
     public void SetAchievementFlag(int flag) 
     {
         achievementFlag = flag;
+    }
+
+    public void SetAchievementFlagForStage(int flag)
+    {
+        newCompletedAchievement = flag;
     }
 }

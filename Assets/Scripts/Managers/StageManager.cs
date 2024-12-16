@@ -7,6 +7,7 @@ using UnityEngine.XR;
 public class StageManager : MonoBehaviour
 {
     private static int currentStage;
+
     public int GetCurrentStage() => currentStage;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
@@ -130,6 +131,7 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
+        GameManager.GetInstance().am.SaveAchievementFlag();
         bool isHard = Anomaly.AnomalyIsHard(pc.GetAnomalyType());
         Debug.Log(isHard);
         bool sleep = type == BedInteractionType.Sleep;
