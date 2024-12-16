@@ -2965,8 +2965,6 @@ MonoBehaviour:
   um: {fileID: 0}
   sm: {fileID: 0}
   player: {fileID: 0}
-  sensitivity: 0
-  volume: 0
 --- !u!1 &549453087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4575,7 +4573,7 @@ MonoBehaviour:
   easyAnomalyIndex: 0
   hardAnomalyIndex: 0
   test: 1
-  testAnomaly: 5
+  testAnomaly: 1
   testHard: 1
 --- !u!4 &896207470
 Transform:

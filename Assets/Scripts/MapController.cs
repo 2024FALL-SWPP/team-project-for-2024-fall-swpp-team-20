@@ -109,9 +109,10 @@ public class MapController : MonoBehaviour
 
     private void SetClock(int stage)
     {
-        GameObject clockHourHand = currentMap.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("clock").Find("Hour Hand").gameObject;
+        ObjectStorage storage = currentMap.GetComponent<ObjectStorage>();
+        GameObject clockHourHand = storage.clockHourHand;
         clockHourHand.transform.localRotation = Quaternion.Euler(-90, 0, initialClockRotation + 30 * stage);
-        TextMeshPro digitalClockText = currentMap.transform.Find("Interior").Find("2nd Floor").Find("Apartment_01").Find("Props").Find("digital_clock").Find("ClockText").GetComponent<TextMeshPro>();
+        TextMeshPro digitalClockText = storage.digitalClockText.GetComponent<TextMeshPro>();
         digitalClockText.text = stage == 0 ? "00:00" : "0" + stage.ToString() + ":00";
     }
 }
