@@ -81,5 +81,10 @@ public class ObjectStorage : MonoBehaviour
     [Header("Tutorial")]
     public GameObject tutorialImage;
 
+    [Header("MapController")]
+    public GameObject clockHourHand;
+
+    [Header("FruitDropAnimationController")]
+    public GameObject fruits;
 
 }

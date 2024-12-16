@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Data.SqlTypes;
+using System.Reflection;
 using UnityEngine;
 
 public class FruitDropAnimationController : MonoBehaviour
@@ -14,7 +16,9 @@ public class FruitDropAnimationController : MonoBehaviour
     }
     public IEnumerator FruitDropAnimation(GameObject map)
     {
-        fruits = map.transform.Find("Fruits").gameObject;
+        ObjectStorage storage = map.GetComponent<ObjectStorage>();
+
+        fruits = storage.fruits;
 
         fruitPrefabs = new GameObject[fruits.transform.childCount];
 
