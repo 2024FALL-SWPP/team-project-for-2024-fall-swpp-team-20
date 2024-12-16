@@ -67,7 +67,7 @@ public class StageManager : MonoBehaviour
         }
 
         // Create new stage map and inform player about it is hard anomaly or not
-        HardAnomalyCode hard = mc.GenerateMap(haveAnomaly, stage);
+        AnomalyCode code = mc.GenerateMap(haveAnomaly, stage);
 
         if (stage == 7)
         {
@@ -85,7 +85,7 @@ public class StageManager : MonoBehaviour
             tutorialManager.gameObject.SetActive(false);
         }
 
-        pc.SetAnomalyType(hard);
+        pc.SetAnomalyType(code);
         // Set time
         ToggleActionAvailability(true);
         interactionHandler.SetMouseClickAction(0);
@@ -93,7 +93,7 @@ public class StageManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (hard == HardAnomalyCode.NotInHard)
+        if (!Anomaly.AnomalyIsHard(code))
         {
             GameManager.GetInstance().sm.PlayEasyStageSound();
             GameManager.GetInstance().Play();
@@ -126,7 +126,7 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
-        bool isHard = pc.GetAnomalyType() != HardAnomalyCode.NotInHard;
+        bool isHard = !Anomaly.AnomalyIsHard(pc.GetAnomalyType());
         Debug.Log(isHard);
         bool sleep = type == BedInteractionType.Sleep;
         if (isHard)
@@ -173,5 +173,9 @@ public class StageManager : MonoBehaviour
     {
         // TODO: Animation
         if (currentStage > 1) currentStage--;
+    }
+
+    public void QuitGame() {
+        GameManager.GetInstance().ResetGame();
     }
 }

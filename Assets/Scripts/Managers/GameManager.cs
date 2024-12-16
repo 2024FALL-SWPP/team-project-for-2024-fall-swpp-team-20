@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public StageManager stageManager;
     public BedInteractionManager bedInteractionManager;
+    public AchievementManager am;
 
     public UIManager um;
     public SoundManager sm;
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     private float volume;
 
     private bool started;
+
+    private int achievementFlag;
 
     public static GameManager GetInstance()
     {
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour
     {
         sensitivity = 50f;
         volume = 1f;
+        achievementFlag = -1;
         started = false;
     }
 
@@ -73,8 +77,10 @@ public class GameManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
             stageManager = GameObject.FindAnyObjectByType<StageManager>().GetComponent<StageManager>();
             bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
+            am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
             stageManager.InitializeVariables();
             bedInteractionManager.InitializeVariables();
+            am.Initialize();
             stageManager.GameStart(start);
         }
     }
@@ -126,4 +132,16 @@ public class GameManager : MonoBehaviour
     }
 
     public float GetSensitivity() => sensitivity;
+
+    public void ResetGame()
+    {
+        Debug.Assert(started, "Game not started");
+        started = false;
+    }
+
+    public int GetAchievementFlag() => achievementFlag;
+    public void SetAchievementFlag(int flag) 
+    {
+        achievementFlag = flag;
+    }
 }

@@ -49,17 +49,24 @@ public class AchievementManager : MonoBehaviour
 
     }
 
-    private int achievementFlag = -1;
+    // store achievement state. Does not change 
+    private int tempFlag;
 
     public void Initialize()
     {
-        if (achievementFlag < 0) achievementFlag = 0;
+        tempFlag = GameManager.GetInstance().GetAchievementFlag();
+        if (tempFlag < 0) tempFlag = 0;
     }
 
     public void ClearAchievement(Achievements achievement)
     {
         int flag = (int)Mathf.Pow(2, (int)achievement);
 
-        if ((achievementFlag & flag) == 0) achievementFlag += (int)Mathf.Pow(2, (int)achievement);
+        if ((tempFlag & flag) == 0) tempFlag += (int)Mathf.Pow(2, (int)achievement);
+    }
+
+    public void SaveAchievementFlag()
+    {
+        GameManager.GetInstance().SetAchievementFlag(tempFlag);
     }
 }
