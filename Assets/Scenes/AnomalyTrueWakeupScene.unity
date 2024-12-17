@@ -568,6 +568,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124090646, guid: 6fb1c031d16b3914abec3651f9b130ad, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6970605688731947457, guid: 6fb1c031d16b3914abec3651f9b130ad, type: 3}
       propertyPath: m_Name
       value: Player_Awake_Animation
