@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         if (sceneName == "MainScene")
         {
             if (am != null) am.ShowClearPanel();
+            Initialize();
         }
     }
 
