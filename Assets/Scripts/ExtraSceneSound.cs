@@ -6,7 +6,10 @@ public class ExtraSceneSound : MonoBehaviour
 {
     private void Start()
     {
-        AudioSource source = GetComponent<AudioSource>();
-        source.volume = GameManager.GetInstance().GetBGMVolume();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        foreach (AudioSource source in sources)
+        {
+            source.volume = GameManager.GetInstance().GetBGMVolume();
+        }
     }
 }
