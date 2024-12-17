@@ -572,10 +572,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Awake_Animation
       objectReference: {fileID: 0}
-    - target: {fileID: 6970605688731947457, guid: 6fb1c031d16b3914abec3651f9b130ad, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7779757652445170555, guid: 6fb1c031d16b3914abec3651f9b130ad, type: 3}
       propertyPath: m_RootOrder
       value: 8
