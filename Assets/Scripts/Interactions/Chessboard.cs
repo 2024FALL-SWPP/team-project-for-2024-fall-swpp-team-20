@@ -26,6 +26,7 @@ public class Chessboard : InteractableObject
         PlayerController pc = player.GetComponent<PlayerController>();
         InteractionHandler handler = player.GetComponentInChildren<InteractionHandler>();
         pc.SetPlayerController(SpawnPosition.Chessboard);
+        Camera.main.transform.rotation = Quaternion.Euler(0, 90, 0);
         GameManager.GetInstance().stageManager.SetAnomalyType(AnomalyCode.Chessboard);
         handler.SetMouseClickAction(1);
         GameManager.GetInstance().um.ShowHealthImage();
