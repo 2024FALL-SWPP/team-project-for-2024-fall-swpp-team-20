@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
 
     private bool started;
 
-    private int achievementFlag; // Total completed achievement
-    private int newCompletedAchievement; // newly complete achivement saving
+    private long achievementFlag; // Total completed achievement
+
 
     public static GameManager GetInstance()
     {
@@ -68,27 +68,29 @@ public class GameManager : MonoBehaviour
 
     private void Initialize(bool start = true)
     {
+        Debug.Log($"Hello from GameManager.Initialize, start = {start}");
         string activeScene = SceneManager.GetActiveScene().name;
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
+        if (am == null) am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
         um.Initialize();
         sm.Initialize();
+        am.Initialize(start);
         if (activeScene == "GameScene")
         {
             player = GameObject.FindGameObjectWithTag("Player");
             stageManager = GameObject.FindAnyObjectByType<StageManager>().GetComponent<StageManager>();
             bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
-            am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
             stageManager.InitializeVariables();
             bedInteractionManager.InitializeVariables();
-            am.Initialize(start);
             stageManager.GameStart(start);
         }
     }
 
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GameScene")
+        string sceneName = scene.name;
+        if (sceneName == "GameScene")
         {
             if (started) Initialize(false);
             else
@@ -96,6 +98,9 @@ public class GameManager : MonoBehaviour
                 started = true;
                 Initialize(true);
             }
+        }
+        if (sceneName == "MainScene") {
+            if (am != null) am.ShowClearPanel();
         }
     }
 
@@ -141,14 +146,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
-    public int GetAchievementFlag() => achievementFlag;
-    public void SetAchievementFlag(int flag) 
+    public long GetAchievementFlag() => achievementFlag;
+    public void SetAchievementFlag(long flag) 
     {
         achievementFlag = flag;
-    }
-
-    public void SetAchievementFlagForStage(int flag)
-    {
-        newCompletedAchievement = flag;
     }
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Linq;
 
 public enum Achievements
 {
@@ -58,29 +60,89 @@ public class AchievementManager : MonoBehaviour
     int shootCount;
     bool missFlag;
 
+    public List<GameObject> achievementPanels;
+    public Text achievementText;
+
+    // store completed achievement until current stage
+    private long tempFlag;
+    
+    // store newly completed achievement in current stage.
+    private long newAchievements;
+
+    private static string[] achievementNames = new string[] {
+        "Book Color Anomaly",
+        "Bus Handle Anomaly",
+        "Canvas Change Anomaly",
+        "Canvas Disappear Anomaly",
+        "Canvas Flip Anomaly",
+        "Cube Anomaly",
+        "Dice Anomaly",
+        "Digital Clock Anomaly",
+        "Drawer Empty Anomaly",
+        "Dresser Opened Anomaly",
+        "Hanger Missing Anomaly",
+        "Laptop Anomaly",
+        "Light Anomaly",
+        "Piano Anomaly",
+        "Player Anomaly",
+        "Sofa Missing Anomaly",
+        "Spintop Anomaly",
+        "Teddy Bear Anomaly",
+        "Magnus Carlsen",
+        "Cloudy With A Chance Of Fruit",
+        "Floor is Lava!",
+        "Upside Down",
+        "Tik Tok Tik Tok..",
+        "Overcome The Fear",
+        "Escaped Dream!",
+        "Perfect Game!",
+        "Anomaly Master",
+        "Bad Eye",
+        "Bad Control",
+        "Endless Dream",
+        "Chess Master",
+        "Machine Gun",
+        "Hot Runner",
+        "Hot Jumper",
+        "Eyes are Not Necessary",
+        "Nothing More Than Food",
+        "Achievement Master"
+    };
+
     private void Awake()
     {
         if (GameManager.GetInstance().am != null && GameManager.GetInstance().am != this) Destroy(gameObject);
         else DontDestroyOnLoad(gameObject);
     }
-    public void ShowClearPanel(int newAchievementFlag)
+    public void ShowClearPanel()
     {
-
+        achievementPanels = GameObject.FindGameObjectsWithTag("AchievementPanel").ToList();
+        achievementText = GameObject.FindGameObjectWithTag("AchievementText").GetComponent<Text>();
+        Debug.Log($"NewAchievementFlag: {newAchievements}");
+        int panelIndex = 0;
+        for (int i = 0; i < 36; i++) {
+            if (((long)Mathf.Pow(2, i) & newAchievements) != 0) {
+                if (panelIndex < 3) 
+                {
+                    Text achievementName = achievementPanels[panelIndex].transform.GetChild(1).GetComponent<Text>();
+                    achievementName.text = achievementNames[i].ToString();
+                    achievementPanels[panelIndex].GetComponent<Animator>().SetTrigger("Move");
+                }
+                panelIndex++;
+            }
+        }
+        if (panelIndex >= 3)
+        {
+            achievementText.text = $"And {panelIndex - 2} more..";
+            achievementText.GetComponent<Animator>().SetTrigger("Move");
+        }
     }
-
-    // store completed achievement until current stage
-    private int tempFlag;
-
-
-    // store newly completed achievement in current stage.
-    private int newAchievements;
-
 
     public void Initialize(bool start)
     {
         tempFlag = GameManager.GetInstance().GetAchievementFlag();
         if (tempFlag < 0) tempFlag = 0;
-        ShowClearPanel(newAchievements);
+        ShowClearPanel();
         newAchievements = 0;
         if (start)
         {
@@ -94,11 +156,12 @@ public class AchievementManager : MonoBehaviour
         }
         shootCount = 0;
         time = 20f;
+        
     }
 
     public void ClearAchievement(Achievements achievement)
     {
-        int flag = (int)Mathf.Pow(2, (int)achievement);
+        long flag = (long)Mathf.Pow(2, (int)achievement);
 
         if ((tempFlag & flag) == 0) {
             tempFlag += flag;
@@ -106,17 +169,18 @@ public class AchievementManager : MonoBehaviour
             Debug.Log($"Achievement Clear: {achievement}");
         }
         else return;
-        if (tempFlag % (int)Mathf.Pow(2, 24) == (int)Mathf.Pow(2, 24) - 1) ClearAchievement(Achievements.ClearAllAnomaly);
-        if (tempFlag == (int)Mathf.Pow(2, 36) - 1) ClearAchievement(Achievements.AllAchievementClear);
+        if (tempFlag % (long)Mathf.Pow(2, 24) == (long)Mathf.Pow(2, (int)Achievements.ClearAllAnomaly) - 1) ClearAchievement(Achievements.ClearAllAnomaly);
+        if (tempFlag == (long)Mathf.Pow(2, (int)Achievements.AllAchievementClear) - 1) ClearAchievement(Achievements.AllAchievementClear);
     }
     public void ClearAchievement(AnomalyCode anomaly)
     {
         if (anomaly == AnomalyCode.Chessboard) anomaly = AnomalyCode.HardChess; // Convert Chessboard to HardChess
         Debug.Log($"Anomaly clear: {anomaly}, {(Achievements)(int)anomaly}");
-        int flag = (int)Mathf.Pow(2, (int)anomaly);
+        long flag = (long)Mathf.Pow(2, (int)anomaly);
 
         if ((tempFlag & flag) == 0)
         {
+            Debug.Log($"cleared flag: {flag}");
             tempFlag += flag;
             newAchievements += flag;
         }

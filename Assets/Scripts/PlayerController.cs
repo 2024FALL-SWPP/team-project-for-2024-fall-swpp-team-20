@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         set
         {
             JumpForce = value;
-            Debug.Log($"Hello world, my force: {value}");
         }
     }
 
@@ -57,7 +56,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetPlayerController(SpawnPosition positionCode)
     {
-        Debug.Log($"Hello from pc: {positionCode}");
         SetTransform(positionCode);
         SetCameraClippingPlanes(positionCode);
         SetPhysical(positionCode);

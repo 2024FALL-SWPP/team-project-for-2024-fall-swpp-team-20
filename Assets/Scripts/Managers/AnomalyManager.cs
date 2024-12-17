@@ -61,6 +61,9 @@ public class AnomalyManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+        else {
+            Destroy(gameObject);
+        }
     }
 
     public void initializeAnomalyIndex()
@@ -87,6 +90,7 @@ public class AnomalyManager : MonoBehaviour
 
     public void FillAnomaly()
     {
+        Debug.Log("Hello from FillAnomaly");
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         easyAnomalies = new List<Anomaly>();

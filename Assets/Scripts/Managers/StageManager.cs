@@ -43,6 +43,7 @@ public class StageManager : MonoBehaviour
         pc.Initialize();
         if (start)
         {
+            Debug.Log("Hello from GameStart_True");
             currentStage = 0;
             am.FillAnomaly();
             am.initializeAnomalyIndex();
