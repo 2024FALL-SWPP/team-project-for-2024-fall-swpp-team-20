@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
         }
         if (sceneName == "MainScene")
         {
+            Initialize();
             if (stageManager != null) stageManager.InitializeAnomalyManager();
         }
     }
