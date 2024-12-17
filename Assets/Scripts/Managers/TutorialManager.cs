@@ -31,7 +31,7 @@ public class TutorialManager : MonoBehaviour
     {
         uiManager.ShowTutorialText("From the next stage, you will enter a dream.\nFind any anomalies to escape the dream.");
         yield return new WaitForSeconds(5f);
-        uiManager.ShowTutorialText("If you discover an anomaly and fall asleep, time will move forward.\nConversely, if you uncover an anomaly and wake up, time will move backward.");
+        uiManager.ShowTutorialText("If you find an anomaly and wake up, time will rewind by 1 hour.\nConversely, if you find an anomaly and fall asleep, time will advance by 1 hour.");
         yield return new WaitForSeconds(5f);
         uiManager.ShowTutorialText("You can interact with objects by clicking the mouse.\nYou can also open doors in the same way.");
         yield return new WaitForSeconds(5f);
