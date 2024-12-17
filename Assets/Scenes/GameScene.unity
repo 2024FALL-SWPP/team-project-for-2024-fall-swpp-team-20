@@ -4318,7 +4318,7 @@ MonoBehaviour:
   easyAnomalyIndex: 0
   hardAnomalyIndex: 0
   test: 0
-  testAnomaly: 0
+  testAnomaly: 14
   testHard: 0
 --- !u!4 &896207470
 Transform:
