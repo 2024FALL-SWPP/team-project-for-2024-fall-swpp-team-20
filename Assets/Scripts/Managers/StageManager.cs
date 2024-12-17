@@ -116,6 +116,8 @@ public class StageManager : MonoBehaviour
     {
         // Game clear logic
         GameManager.GetInstance().Clear();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("GameClearScene");
     }
 
@@ -123,6 +125,8 @@ public class StageManager : MonoBehaviour
     {
         // Game over logic
         GameManager.GetInstance().GameOver();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("GameOverScene");
     }
     public void HandleSleepOutcome(BedInteractionType type)
