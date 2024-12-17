@@ -116,7 +116,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Update()
     {
-        //Debug.Log("HELLO WORLD");
         if (!outlineOn && IsInteractable())
         {
             Debug.Log($"Hello from {gameObject.name}");

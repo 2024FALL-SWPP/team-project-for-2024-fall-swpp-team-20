@@ -102,6 +102,8 @@ public class Outline : MonoBehaviour
         outlineMaskMaterial.name = "OutlineMask (Instance)";
         outlineFillMaterial.name = "OutlineFill (Instance)";
 
+        outlineMode = Mode.OutlineVisible;
+
         // Retrieve or generate smooth normals
         LoadSmoothNormals();
 
