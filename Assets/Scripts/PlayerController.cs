@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         transform.position = targetTransform.localPosition;
         transform.rotation = Quaternion.Euler(targetTransform.eulerRotation);
         transform.localScale = targetTransform.scale;
+        Camera.main.transform.rotation = transform.rotation;
     }
 
     public void SetPhysical(SpawnPosition positionCode)
