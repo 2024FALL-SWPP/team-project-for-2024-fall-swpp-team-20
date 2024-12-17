@@ -4,5 +4,38 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 59bf9804affa913469678dab50adcf2c
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: e7c9a5d670be4be46bc48b5434bbef14
+  - enabled: 1
+    path: Assets/Scenes/Stage0Animation.unity
+    guid: 8409b5fd01fff41139a0178a585630c4
+  - enabled: 1
+    path: Assets/Scenes/AnomalyFalseWakeupScene.unity
+    guid: 592d78fa8b7ed4b97adb654873fe2c52
+  - enabled: 1
+    path: Assets/Scenes/AnomalyTrueWakeupScene.unity
+    guid: 3f97b10dc16af4886843dd504692d965
+  - enabled: 1
+    path: Assets/Scenes/SleepScene.unity
+    guid: fb7a4afa01e1be540b9db101c4eed4f3
+  - enabled: 1
+    path: Assets/Scenes/Stage0SleepScene.unity
+    guid: 0d64b1233a53d404a82c6a5d93a4573c
+  - enabled: 1
+    path: Assets/Scenes/WakeupFalseScene.unity
+    guid: 9c9ddd52e364b9f4aaa0943e48640f58
+  - enabled: 1
+    path: Assets/Scenes/WakeupTrueScene.unity
+    guid: f81124f2fda75dc4aa011d2653df045f
+  - enabled: 1
+    path: Assets/Scenes/GameClearScene.unity
+    guid: 06b3319921d32984383f502f19f9a929
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 64a99325b31ac2147936d55f6e9a48db
   m_configObjects: {}

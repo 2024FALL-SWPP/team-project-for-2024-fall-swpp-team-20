@@ -3,15 +3,32 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bed
+  - HourHand
+  - Map
+  - Labtop
+  - Dice
+  - Landscape
+  - Lava
+  - LavaPlatform
+  - Goal
+  - ChessWalls
+  - ChessPiece
+  - RealLine
+  - Fruit
+  - Floor
+  - AchievementPanel
+  - AchievementText
+  - AchievementImage
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 

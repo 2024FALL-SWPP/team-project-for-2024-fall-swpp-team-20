@@ -1,0 +1,158 @@
+#!/bin/sh
+LC_ALL=C
+echo "Running pre-commit hook"
+ASSETS_DIR="$(git config --get unity3d.assets-dir || echo "Assets")"
+
+if git rev-parse --verify HEAD >/dev/null
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=`git hash-object -t tree /dev/null`
+fi
+
+# Redirect output to stderr
+exec 1>&2
+
+### Check for invalid characters in new files
+echo "Checking for invalid characters in new files"
+git diff --cached --name-only --diff-filter=A -z $against | while IFS= read -r -d '' filename; do
+	if [[ $filename =~ "\\" ]]; then
+		>&2 echo "The generated file \"${filename}\" contains invalid character '\'."
+		exit 2
+	fi
+done
+
+### Format C# files
+# echo "Checking for .editorconfig file"
+# if [ ! -f .editorconfig ]; then
+# 	echo "No .editorconfig file found"
+# 	exit 1
+# fi
+
+echo "Checking for dotnet-format"
+# Find the solution file in the root directory
+SOLUTION_FILE=$(find . -maxdepth 1 -name "*.sln" | head -n 1)
+[ -z "$SOLUTION_FILE" ] && echo "Solution file not found!" && exit 1
+
+# Select files to format
+FILES=$(git diff --cached --name-only --diff-filter=ACM "*.cs" | sed 's| |\\ |g')
+if [ -n "$FILES" ]; then
+	# Convert space-separated file paths into a comma-separated list
+	FORMATTABLE_FILES=$(echo "$FILES" | tr '\n' ',' | sed 's/,$//')
+
+	# Format the selected files using the workspace option
+	dotnet format "$SOLUTION_FILE" --verbosity diagnostic --include "$FORMATTABLE_FILES"
+
+	# Add back the modified files to staging
+	echo "$FILES" | xargs git add
+
+	# Check if the formatting was successful
+	ret="$?"
+	if [ "$ret" != 0 ]; then
+		exit "$ret"
+	fi
+fi
+
+### Check for large files
+# ensure that there's not a >100mb file in this checkin, which github won't allow
+echo "Checking for >100MB files"
+CURRENT_DIR="$(pwd)"
+HAS_ERROR=""
+COMMIT_TEXT=$(git diff --cached --name-only | sort | uniq)
+SAVEIFS=$IFS
+
+IFS="
+"
+for file in $COMMIT_TEXT; do
+	file_size=$(du -m $CURRENT_DIR/$file | awk '{print $1}')
+	if [ "$file_size" -ge 100 ]; then
+		echo "$file is over 100MB."
+		HAS_ERROR="1"
+	fi
+done
+IFS=$SAVEIFS
+
+if [ "$HAS_ERROR" != "" ]; then
+    echo "Can't commit, fix errors first." >&2
+    exit 1
+fi
+
+### Check for staged files and their meta files
+echo "Checking for staged files and their meta files"
+assets_files=$(git diff --cached --name-only --diff-filter=A -z $against -- "$ASSETS_DIR")
+if [ -n "$assets_files" ]; then
+    echo "$assets_files" | while read -d $'\0' f; do
+        ext="${f##*.}"
+        base="${f%.*}"
+
+        if [ "$ext" = "meta" ]; then
+            if [ "$(git ls-files --cached -- "$base" | wc -l)" = 0 ]; then
+                cat <<EOF
+Error: Redundant meta file.
+Meta file \`$f' is added, but \`$base' is not in the git index.
+Please add \`$base' to git as well.
+EOF
+                exit 1
+            fi
+        else
+            p="$f"
+            while [ "$p" != "$ASSETS_DIR" ]; do
+                if [ "$(git ls-files --cached -- "$p.meta" | wc -l)" = 0 ]; then
+                    cat <<EOF
+Error: Missing meta file.
+Asset \`$f' is added, but \`$p.meta' is not in the git index.
+Please add \`$p.meta' to git as well.
+EOF
+                    exit 1
+                fi
+                p="${p%/*}"
+            done
+        fi
+    done
+fi
+
+ret="$?"
+if [ "$ret" != 0 ]; then
+	exit "$ret"
+fi
+
+deleted_assets_files=$(git diff --cached --name-only --diff-filter=D -z $against -- "$ASSETS_DIR")
+if [ -n "$deleted_assets_files" ]; then
+    echo "$deleted_assets_files" | while read -d $'\0' f; do
+        ext="${f##*.}"
+        base="${f%.*}"
+
+        if [ "$ext" = "meta" ]; then
+            if [ "$(git ls-files --cached -- "$base" | wc -l)" != 0 ]; then
+                cat <<EOF
+Error: Redundant meta file.
+Meta file \`$f' is removed, but \`$base' is still in the git index.
+Please remove \`$base' from git as well.
+EOF
+                exit 1
+            fi
+        else
+            p="$f"
+            while [ "$p" != "$ASSETS_DIR" ]; do
+                if [ "$(git ls-files --cached -- "$p" | wc -l)" = 0 ] && [ "$(git ls-files --cached -- "$p.meta" | wc -l)" != 0 ]; then
+                    cat <<EOF
+Error: Missing meta file.
+Asset \`$f' is removed, but \`$p.meta' is still in the git index.
+Please remove \`$p.meta' from git as well.
+EOF
+                    exit 1
+                fi
+                p="${p%/*}"
+            done
+        fi
+    done
+fi
+
+ret="$?"
+if [ "$ret" != 0 ]; then
+	exit "$ret"
+fi
+
+echo "Pre-commit hook passed"
+exit 0
