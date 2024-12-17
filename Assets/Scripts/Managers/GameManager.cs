@@ -99,7 +99,8 @@ public class GameManager : MonoBehaviour
                 Initialize(true);
             }
         }
-        if (sceneName == "MainScene") {
+        if (sceneName == "MainScene")
+        {
             if (am != null) am.ShowClearPanel();
         }
     }
@@ -147,7 +148,7 @@ public class GameManager : MonoBehaviour
     }
 
     public long GetAchievementFlag() => achievementFlag;
-    public void SetAchievementFlag(long flag) 
+    public void SetAchievementFlag(long flag)
     {
         achievementFlag = flag;
     }

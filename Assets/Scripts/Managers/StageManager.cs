@@ -181,12 +181,14 @@ public class StageManager : MonoBehaviour
         ++currentStage;
         AchievementManager am = GameManager.GetInstance().am;
         am.ClearAchievement(currentAnomaly);
-        if (currentAnomaly == AnomalyCode.HardLava) { 
+        if (currentAnomaly == AnomalyCode.HardLava)
+        {
             if (am.TimeLeft()) am.ClearAchievement(Achievements.LavaAnomalyClearFast);
             if (!am.DamageTaken()) am.ClearAchievement(Achievements.LavaAnomalyNoDamage);
         }
         if (currentAnomaly == AnomalyCode.HardVisibility && am.TimeLeft()) am.ClearAchievement(Achievements.VisibilityAnomalyClearFast);
-        if (currentAnomaly == AnomalyCode.HardChess) {
+        if (currentAnomaly == AnomalyCode.HardChess)
+        {
             if (!am.DamageTaken()) am.ClearAchievement(Achievements.ChessAnomalyNoDamage);
             if (am.GetShootCount() >= 200) am.ClearAchievement(Achievements.ChessAnomalyMachineGun);
         }
@@ -203,7 +205,8 @@ public class StageManager : MonoBehaviour
         am.SetMissFlag();
     }
 
-    public void QuitGame() {
+    public void QuitGame()
+    {
         GameManager.GetInstance().ResetGame();
     }
     public void BackToMainMenu()
