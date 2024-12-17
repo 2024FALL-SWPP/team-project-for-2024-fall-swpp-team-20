@@ -1,0 +1,56 @@
+name: Unity Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: write
+  checks: write
+  contents: read
+  pull-requests: read
+  statuses: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build my project ✨
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v4
+        with:
+          unityVersion: 2021.3.42f1
+          targetPlatform: WebGL
+          allowDirtyBuild: true
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/WebGL/WebGL
+
+  # Deploy job
+  deploy:
+    needs: build
+    name: Deploy my project ▶️
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
