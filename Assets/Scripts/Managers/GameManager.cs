@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Assert(started, "Game not started");
         started = false;
+        SceneManager.LoadScene("MainScene");
     }
 
     public int GetAchievementFlag() => achievementFlag;

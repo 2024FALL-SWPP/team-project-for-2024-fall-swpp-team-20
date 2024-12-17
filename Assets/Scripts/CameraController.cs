@@ -40,7 +40,6 @@ public class CameraController : MonoBehaviour
     public void OnObjectInteractionPerformed(InputAction.CallbackContext value)
     {
         if (GameManager.GetInstance().GetState() != GameState.Playing) return;
-        Debug.Log("Object interaction performed");
         interactionHandler.onMouseClick();
     }
 

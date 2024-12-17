@@ -8,7 +8,8 @@ public enum SpawnPosition
     Original,
     Lava,
     Chessboard,
-    Visibility
+    Visibility,
+    Reverse
 }
 public class PlayerController : MonoBehaviour
 {
@@ -79,6 +80,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case SpawnPosition.Visibility:
                 targetTransform = spawnPositions.visibilitySpawn;
+                break;
+            case SpawnPosition.Reverse:
+                targetTransform = spawnPositions.reverseSpawn;
                 break;
             default:
                 break;

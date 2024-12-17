@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     private static int currentStage;
 
     public int GetCurrentStage() => currentStage;
+    public void SetCurrentStage(int stage) => currentStage = stage;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
 
@@ -124,14 +125,14 @@ public class StageManager : MonoBehaviour
         am.ClearAchievement(Achievements.GameClear);
         if (!am.Missed()) am.ClearAchievement(Achievements.GameClearWithoutMiss);
         GameManager.GetInstance().Clear();
-        GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
+        SceneManager.LoadScene("GameClearScene");
     }
 
     public void GameOver()
     {
         // Game over logic
         GameManager.GetInstance().GameOver();
-        GameManager.GetInstance().um.ShowStateUI(GameState.GameOver);
+        SceneManager.LoadScene("GameOverScene");
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
@@ -203,5 +204,11 @@ public class StageManager : MonoBehaviour
 
     public void QuitGame() {
         GameManager.GetInstance().ResetGame();
+    }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainScene");
+        GameManager.GetInstance().ResetGame();
+        //TODO: save achievement state
     }
 }
