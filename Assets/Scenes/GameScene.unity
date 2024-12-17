@@ -4032,8 +4032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   easyAnomalyIndex: 0
   hardAnomalyIndex: 0
-  test: 0
-  testAnomaly: 5
+  test: 1
+  testAnomaly: 3
   testHard: 1
 --- !u!4 &896207470
 Transform:
@@ -7610,10 +7610,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3111831993853608020, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: laptopObject
-      value: 
-      objectReference: {fileID: 9184795285960715390}
     - target: {fileID: 9065480073589818876, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7664,8 +7660,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
---- !u!1 &9184795285960715390 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6587462841735620343, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-  m_PrefabInstance: {fileID: 9184795285960715389}
-  m_PrefabAsset: {fileID: 0}
