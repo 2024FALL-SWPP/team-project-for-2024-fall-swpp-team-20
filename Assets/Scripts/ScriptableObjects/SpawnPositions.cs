@@ -38,6 +38,12 @@ public class SpawnPositions : ScriptableObject
         new Vector3(0, 180, 0),
         1.2f * Vector3.one
     );
+
+    public TransformSet reverseSpawn = new TransformSet(
+        new Vector3(1.838f, -3.827f, 7.026f),
+        new Vector3(0, 180, 0),
+        1.2f * Vector3.one
+    );
 }
 
 public class TransformSet
