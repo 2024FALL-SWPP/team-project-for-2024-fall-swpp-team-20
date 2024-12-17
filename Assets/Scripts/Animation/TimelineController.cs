@@ -35,7 +35,7 @@ public class TimelineController : MonoBehaviour
             }
             else if (currentScene == "GameOverScene" || currentScene == "GameClearScene")
             {
-                return;
+                SceneManager.LoadScene("MainScene");
             }
             else
             {
