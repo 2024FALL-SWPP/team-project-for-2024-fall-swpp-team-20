@@ -44,11 +44,16 @@ public class StageManager : MonoBehaviour
         if (start)
         {
             Debug.Log("Hello from GameStart_True");
-            currentStage = 0;
-            am.FillAnomaly();
-            am.initializeAnomalyIndex();
+            InitializeAnomalyManager();
         }
         InitializeStage(currentStage);
+    }
+
+    public void InitializeAnomalyManager()
+    {
+        currentStage = 0;
+        am.FillAnomaly();
+        am.initializeAnomalyIndex();
     }
 
     public void InitializeStage(int stage)
@@ -127,6 +132,7 @@ public class StageManager : MonoBehaviour
         GameManager.GetInstance().Clear();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GameManager.GetInstance().ResetGame();
         SceneManager.LoadScene("GameClearScene");
     }
 
@@ -136,6 +142,7 @@ public class StageManager : MonoBehaviour
         GameManager.GetInstance().GameOver();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GameManager.GetInstance().ResetGame();
         SceneManager.LoadScene("GameOverScene");
     }
     public void HandleSleepOutcome(BedInteractionType type)
