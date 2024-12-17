@@ -163,7 +163,7 @@ public class AchievementManager : MonoBehaviour
         ShowClearPanel();
         tempFlag = GameManager.GetInstance().GetAchievementFlag();
         if (tempFlag < 0) tempFlag = 0;
-        
+
         newAchievements = 0;
         if (start)
         {

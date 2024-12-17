@@ -62,7 +62,8 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetSFXVolume(float value) {
+    public void SetSFXVolume(float value)
+    {
         sfxVolume = value;
         foreach (AudioSource source in sfxList)
         {

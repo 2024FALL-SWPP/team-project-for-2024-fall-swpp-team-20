@@ -33,7 +33,7 @@ public class SliderBehaviour : MonoBehaviour
                 }
                 break;
             case SliderType.SFXVolume:
-                if (slider.value != GameManager.GetInstance().GetSFXVolume()) 
+                if (slider.value != GameManager.GetInstance().GetSFXVolume())
                 {
                     slider.value = GameManager.GetInstance().GetSFXVolume() * 100f;
                 }
@@ -51,7 +51,8 @@ public class SliderBehaviour : MonoBehaviour
         SetNumber();
     }
 
-    public void SetValue() {
+    public void SetValue()
+    {
         StartCoroutine(ISetValue());
     }
 

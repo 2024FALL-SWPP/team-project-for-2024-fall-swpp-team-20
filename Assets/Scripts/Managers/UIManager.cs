@@ -339,8 +339,10 @@ public class UIManager : MonoBehaviour
 
     private void HideSettingPanelByInput(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0) {
-            if (settingBackground.activeSelf) {
+        if (value.ReadValue<float>() > 0)
+        {
+            if (settingBackground.activeSelf)
+            {
                 if (achievementPanel.activeSelf) HideAchievementPanel();
                 else HideSettingPanel();
             }
@@ -348,7 +350,8 @@ public class UIManager : MonoBehaviour
     }
 
     public bool AchievementPanelOn() => achievementPanel.activeSelf;
-    public void ShowAchievementPanel() {
+    public void ShowAchievementPanel()
+    {
         settingPanel.SetActive(false);
         achievementPanel.SetActive(true);
         if (achievementImages == null || achievementImages.Count == 0)
@@ -362,11 +365,13 @@ public class UIManager : MonoBehaviour
         SetAchievementUnlockImage();
     }
 
-    private void SetAchievementUnlockImage() {
+    private void SetAchievementUnlockImage()
+    {
         long completed = GameManager.GetInstance().GetAchievementFlag();
         AchievementBackgroundStorage abs = achievementPanel.GetComponent<AchievementBackgroundStorage>();
         //Debug.Log($"{achievementImages.Count}");
-        for (int i = 0; i <= (int)Achievements.AllAchievementClear; i++) {
+        for (int i = 0; i <= (int)Achievements.AllAchievementClear; i++)
+        {
             if (((long)Mathf.Pow(2, i) & completed) > 0)
             {
                 achievementImages[i].sprite = abs.sprites[i];
@@ -375,7 +380,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HideAchievementPanel() {
+    public void HideAchievementPanel()
+    {
         achievementPanel.SetActive(false);
         settingPanel.SetActive(true);
     }
@@ -408,7 +414,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void InformationOn(RectTransform rt) {
+    public void InformationOn(RectTransform rt)
+    {
         //Debug.Log("Hello from InformationOn");
         information.gameObject.SetActive(true);
         List<Text> informationTexts = information.GetComponentsInChildren<Text>().ToList();
@@ -420,7 +427,8 @@ public class UIManager : MonoBehaviour
         irt.anchoredPosition = rt.anchoredPosition + new Vector2(250, 75);
     }
 
-    public void InformationOff() {
+    public void InformationOff()
+    {
         information.gameObject.SetActive(false);
     }
 
@@ -452,7 +460,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (achievementPanel == null || !achievementPanel.activeSelf) {
+        if (achievementPanel == null || !achievementPanel.activeSelf)
+        {
             if (information != null && information.gameObject.activeSelf) InformationOff();
             return;
         }

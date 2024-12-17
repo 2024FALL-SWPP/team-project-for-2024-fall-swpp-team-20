@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         if (am == null) am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
         um.Initialize();
         sm.Initialize();
-        
+
         if (activeScene == "GameScene")
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -138,7 +138,8 @@ public class GameManager : MonoBehaviour
 
     public float GetBGMVolume() => BGMVolume;
 
-    public void SetSFXVolume(float value) {
+    public void SetSFXVolume(float value)
+    {
         SFXVolume = value / 100f;
         Debug.Assert(sm != null, "NULL!?");
         sm.SetSFXVolume(SFXVolume);
