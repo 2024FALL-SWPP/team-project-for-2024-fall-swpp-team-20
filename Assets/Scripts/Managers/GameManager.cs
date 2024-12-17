@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Settings")]
     private float sensitivity;
-    private float volume;
+    private float BGMVolume;
+    private float SFXVolume;
 
     private bool started;
 
@@ -61,7 +62,8 @@ public class GameManager : MonoBehaviour
     private void InitializeSetting()
     {
         sensitivity = 50f;
-        volume = 1f;
+        BGMVolume = 1f;
+        SFXVolume = 1f;
         achievementFlag = -1;
         started = false;
     }
@@ -125,14 +127,22 @@ public class GameManager : MonoBehaviour
 
     public GameState GetState() => state;
 
-    public void SetVolume(float value)
+    public void SetBGMVolume(float value)
     {
-        volume = value / 100f;
+        BGMVolume = value / 100f;
         Debug.Assert(sm != null, "NULL?!");
-        sm.SetVolume(volume);
+        sm.SetBGMVolume(BGMVolume);
     }
 
-    public float GetVolume() => volume;
+    public float GetBGMVolume() => BGMVolume;
+
+    public void SetSFXVolume(float value) {
+        SFXVolume = value / 100f;
+        Debug.Assert(sm != null, "NULL!?");
+        sm.SetSFXVolume(SFXVolume);
+    }
+
+    public float GetSFXVolume() => SFXVolume;
     public void SetSensitivity(float value)
     {
         sensitivity = value;
