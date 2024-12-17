@@ -362,18 +362,23 @@ public class PlayerController : MonoBehaviour
 
     public void QuitPauseState()
     {
-        SetSensitivity(GameManager.GetInstance().GetSensitivity());
-        Time.timeScale = 1f;
-        GameManager.GetInstance().um.HideSettingPanel();
-        Cursor.lockState = cursorLockBeforePause;
-        Cursor.visible = visibleBeforePause;
-        if (stateBeforePause == GameState.Playing)
+        UIManager um = GameManager.GetInstance().um;
+        if (um.AchievementPanelOn()) um.HideAchievementPanel();
+        else
         {
-            GameManager.GetInstance().Play();
-        }
-        else if (stateBeforePause == GameState.ReadingScript)
-        {
-            GameManager.GetInstance().ReadScript();
+            SetSensitivity(GameManager.GetInstance().GetSensitivity());
+            Time.timeScale = 1f;
+            GameManager.GetInstance().um.HideSettingPanel();
+            Cursor.lockState = cursorLockBeforePause;
+            Cursor.visible = visibleBeforePause;
+            if (stateBeforePause == GameState.Playing)
+            {
+                GameManager.GetInstance().Play();
+            }
+            else if (stateBeforePause == GameState.ReadingScript)
+            {
+                GameManager.GetInstance().ReadScript();
+            }
         }
     }
 

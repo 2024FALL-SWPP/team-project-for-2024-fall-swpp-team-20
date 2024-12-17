@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Linq;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -30,20 +32,35 @@ public class UIManager : MonoBehaviour
     private GameObject cover;
     [SerializeField] private TextMeshProUGUI tutorialText;
     public bool isBedInteractionTutorial;
+    private GameObject settingBackground;
+
     private GameObject settingPanel;
+    private GameObject achievementPanel;
+    public List<Image> achievementImages;
+    public Image information;
+
+    public GraphicRaycaster graphicRaycaster; // Reference to GraphicRaycaster
+    public EventSystem eventSystem; // Reference to EventSystem
+    public string targetTag = "AchievementImage"; // The name of the layer to check
 
     private Control control;
     public void Initialize()
     {
+        canvasTransform = FindAnyObjectByType<Canvas>().transform;
+        settingBackground = canvasTransform.Find("SettingBackground").gameObject;
+        settingPanel = settingBackground.transform.Find("Setting").gameObject;
+        achievementPanel = settingBackground.transform.Find("AchievementPanel").gameObject;
+        graphicRaycaster = canvasTransform.GetComponent<GraphicRaycaster>();
+
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
-            canvasTransform = FindAnyObjectByType<Canvas>().transform;
-            settingPanel = canvasTransform.Find("SettingBackground").gameObject;
+            //canvasTransform = FindAnyObjectByType<Canvas>().transform;
+            //settingBackground = canvasTransform.Find("SettingBackground").gameObject;
         }
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
-            canvasTransform = FindAnyObjectByType<Canvas>().transform;
-            settingPanel = canvasTransform.Find("SettingBackground").gameObject;
+            //canvasTransform = FindAnyObjectByType<Canvas>().transform;
+            //settingBackground = canvasTransform.Find("SettingBackground").gameObject;
             generalInfo = canvasTransform.Find("InformationText").GetComponent<Text>();
             interactionInfo = canvasTransform.Find("InteractionText").GetComponent<Text>();
             sleepText = canvasTransform.Find("SleepText").gameObject;
@@ -307,19 +324,56 @@ public class UIManager : MonoBehaviour
 
     public void ShowSettingPanel()
     {
-        settingPanel.gameObject.SetActive(true);
+        settingBackground.gameObject.SetActive(true);
     }
 
 
     public void HideSettingPanel()
     {
-        settingPanel.gameObject.SetActive(false);
+        settingBackground.gameObject.SetActive(false);
     }
 
     private void HideSettingPanelByInput(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0 && !settingPanel.gameObject.activeSelf) HideSettingPanel();
+        if (value.ReadValue<float>() > 0) {
+            if (settingBackground.activeSelf) {
+                if (achievementPanel.activeSelf) HideAchievementPanel();
+                else HideSettingPanel();
+            }
+        }
+    }
 
+    public bool AchievementPanelOn() => achievementPanel.activeSelf;
+    public void ShowAchievementPanel() {
+        settingPanel.SetActive(false);
+        achievementPanel.SetActive(true);
+        if (achievementImages == null || achievementImages.Count == 0)
+        {
+            achievementImages = achievementPanel.GetComponentsInChildren<Image>().ToList();
+            if (information == null) information = achievementImages[achievementImages.Count - 1];
+            achievementImages.RemoveAt(achievementImages.Count - 1);
+            achievementImages.RemoveAt(achievementImages.Count - 1);
+            achievementImages.RemoveAt(0);
+        }
+        SetAchievementUnlockImage();
+    }
+
+    private void SetAchievementUnlockImage() {
+        long completed = GameManager.GetInstance().GetAchievementFlag();
+        AchievementBackgroundStorage abs = achievementPanel.GetComponent<AchievementBackgroundStorage>();
+        //Debug.Log($"{achievementImages.Count}");
+        for (int i = 0; i <= (int)Achievements.AllAchievementClear; i++) {
+            if (((long)Mathf.Pow(2, i) & completed) > 0)
+            {
+                achievementImages[i].sprite = abs.sprites[i];
+            }
+            else achievementImages[i].sprite = abs.sprites[37];
+        }
+    }
+
+    public void HideAchievementPanel() {
+        achievementPanel.SetActive(false);
+        settingPanel.SetActive(true);
     }
 
     private void OnEnable()
@@ -348,5 +402,59 @@ public class UIManager : MonoBehaviour
             control.NewMap.Pause.performed -= HideSettingPanelByInput;
             control.Disable();
         }
+    }
+
+    public void InformationOn(RectTransform rt) {
+        //Debug.Log("Hello from InformationOn");
+        information.gameObject.SetActive(true);
+        List<Text> informationTexts = information.GetComponentsInChildren<Text>().ToList();
+        int index = achievementImages.IndexOf(rt.GetComponent<Image>());
+        //Debug.Log(index);
+        informationTexts[0].text = AchievementManager.achievementNames[index];
+        informationTexts[1].text = AchievementManager.achievementConditions[index <= 23 ? 0 : index - 23];
+        RectTransform irt = information.GetComponent<RectTransform>();
+        irt.anchoredPosition = rt.anchoredPosition + new Vector2(250, 75);
+    }
+
+    public void InformationOff() {
+        information.gameObject.SetActive(false);
+    }
+
+    // Asked for chatGPT to determine whether mouse cursor is on specific UI object or not
+    public void IsMouseOverTargetUILayer(out RectTransform rTransform)
+    {
+        // Prepare a PointerEventData for the mouse position
+        PointerEventData pointerEventData = new PointerEventData(eventSystem)
+        {
+            position = Input.mousePosition
+        };
+        //Debug.Log(Input.mousePosition);
+        // Raycast into the UI
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        graphicRaycaster.Raycast(pointerEventData, raycastResults);
+        //Debug.Log(raycastResults.Count);
+        // Check if any of the hit objects are on the target layer
+        foreach (RaycastResult result in raycastResults)
+        {
+            if (result.gameObject.CompareTag(targetTag))
+            {
+                rTransform = result.gameObject.GetComponent<RectTransform>();
+                return;
+            }
+        }
+        rTransform = null;
+        return; // No matching UI object found under the cursor
+    }
+
+    private void Update()
+    {
+        if (achievementPanel == null || !achievementPanel.activeSelf) {
+            if (information != null && information.gameObject.activeSelf) InformationOff();
+            return;
+        }
+        IsMouseOverTargetUILayer(out RectTransform rt);
+        //Debug.Log($"{rt == null}, {information == null}");
+        if (rt == null && information.gameObject.activeSelf) InformationOff();
+        else if (rt != null) InformationOn(rt);
     }
 }

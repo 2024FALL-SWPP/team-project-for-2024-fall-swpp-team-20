@@ -69,7 +69,7 @@ public class AchievementManager : MonoBehaviour
     // store newly completed achievement in current stage.
     private long newAchievements;
 
-    private static string[] achievementNames = new string[] {
+    public static string[] achievementNames = new string[] {
         "Book Color Anomaly",
         "Bus Handle Anomaly",
         "Canvas Change Anomaly",
@@ -88,7 +88,7 @@ public class AchievementManager : MonoBehaviour
         "Sofa Missing Anomaly",
         "Spintop Anomaly",
         "Teddy Bear Anomaly",
-        "Magnus Carlsen",
+        "Chess Master",
         "Cloudy With A Chance Of Fruit",
         "Floor is Lava!",
         "Upside Down",
@@ -100,13 +100,30 @@ public class AchievementManager : MonoBehaviour
         "Bad Eye",
         "Bad Control",
         "Endless Dream",
-        "Chess Master",
+        "Magnus Carlsen",
         "Machine Gun",
         "Hot Runner",
         "Hot Jumper",
         "Eyes are Not Necessary",
         "Nothing More Than Food",
         "Achievement Master"
+    };
+
+    public static string[] achievementConditions = new string[] {
+        "Clear this Anomaly",
+        "Clear game for the first time",
+        "Clear game without wrong decision",
+        "Find and clear all anomalies",
+        "Fail to pass an easy anomaly",
+        "Fail to pass a hard anomaly",
+        "Play 15 stages in one game",
+        "Clear chess game without taking damage",
+        "Shoot more than 200 times in a chess game",
+        "Clear lava anoamly within 20 seconds",
+        "Clear lava anomaly without touching lava",
+        "Clear visibility anomaly within 20 seconds",
+        "Clear Fruit Anomaly without taking damage",
+        "Clear ALL achievements and become the GOAT"
     };
 
     private void Awake()
