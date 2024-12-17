@@ -135,23 +135,27 @@ public class Bishop : ChessPieceBehaviour
         }
     }
 
-    public override void Activate(bool promoted)
+    public override void Activate(bool promoted, int row)
     {
-        base.Activate(promoted);
+        base.Activate(promoted, row);
         maxHealth = 10;
         health = maxHealth;
         damage = 10;
         speed = spotSize * 5;
-        chessPosition = (pos1, pos2);
+        chessPosition = promoted ? (row, 0) : (pos1, pos2);
         StartCoroutine(AttackCoroutine());
     }
     private void OnDestroy()
     {
         if (health == 0)
         {
-            foreach (GameObject g in guideline)
+            if (guideline != null)
             {
-                Destroy(g);
+                foreach (GameObject g in guideline)
+                {
+                    Destroy(g);
+                }
+
             }
             if (promoted) DeadPawnCount++;
             DeadPieceCount++;
@@ -160,7 +164,7 @@ public class Bishop : ChessPieceBehaviour
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate(false);
+        if (DeadPawnCount == 8 && !activated) Activate(false, 0);
         base.Update();
     }
 

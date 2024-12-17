@@ -41,9 +41,9 @@ public class Rook : ChessPieceBehaviour
         }
     }
 
-    public override void Activate(bool promoted)
+    public override void Activate(bool promoted, int row)
     {
-        base.Activate(promoted);
+        base.Activate(promoted, row);
         maxHealth = 10;
         health = maxHealth;
         damage = 10;
@@ -62,7 +62,7 @@ public class Rook : ChessPieceBehaviour
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate(false);
+        if (DeadPawnCount == 8 && !activated) Activate(false, 0);
         base.Update();
     }
 }

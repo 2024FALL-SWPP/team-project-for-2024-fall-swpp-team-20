@@ -204,13 +204,13 @@ public class Queen : ChessPieceBehaviour
         else return false;
     }
 
-    public override void Activate(bool promoted)
+    public override void Activate(bool promoted, int row)
     {
-        base.Activate(promoted);
+        base.Activate(promoted, row);
         maxHealth = 20;
         health = maxHealth;
         damage = 10;
-        chessPosition = (pos1, pos2);
+        chessPosition = promoted ? (row, 0) : (pos1, pos2);
         speed = 3 * spotSize;
         StartCoroutine(AttackCoroutine());
     }
@@ -218,9 +218,12 @@ public class Queen : ChessPieceBehaviour
     {
         if (health == 0)
         {
-            foreach (GameObject g in guideline)
+            if (guideline == null)
             {
-                Destroy(g);
+                foreach (GameObject g in guideline)
+                {
+                    Destroy(g);
+                }
             }
             if (promoted) DeadPawnCount++;
             DeadPieceCount++;
@@ -229,7 +232,7 @@ public class Queen : ChessPieceBehaviour
 
     public override void Update()
     {
-        if (DeadPawnCount == 8 && !activated) Activate(false);
+        if (DeadPawnCount == 8 && !activated) Activate(false, 0);
         base.Update();
     }
 
