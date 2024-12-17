@@ -4033,8 +4033,8 @@ MonoBehaviour:
   easyAnomalyIndex: 0
   hardAnomalyIndex: 0
   test: 0
-  testAnomaly: 5
-  testHard: 1
+  testAnomaly: 0
+  testHard: 0
 --- !u!4 &896207470
 Transform:
   m_ObjectHideFlags: 0
@@ -7704,10 +7704,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3111831993853608020, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: laptopObject
-      value: 
-      objectReference: {fileID: 9184795285960715390}
     - target: {fileID: 9065480073589818876, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
       propertyPath: m_RootOrder
       value: 0
