@@ -138,13 +138,15 @@ public class AchievementManager : MonoBehaviour
             achievementText.text = $"And {panelIndex - 2} more..";
             achievementText.GetComponent<Animator>().SetTrigger("Move");
         }
+        SaveAchievementFlag();
     }
 
     public void Initialize(bool start)
     {
+        ShowClearPanel();
         tempFlag = GameManager.GetInstance().GetAchievementFlag();
         if (tempFlag < 0) tempFlag = 0;
-        ShowClearPanel();
+        
         newAchievements = 0;
         if (start)
         {
@@ -191,6 +193,7 @@ public class AchievementManager : MonoBehaviour
 
     public void SaveAchievementFlag()
     {
+        Debug.Log($"Achievement Saved. flag: {tempFlag}");
         GameManager.GetInstance().SetAchievementFlag(tempFlag);
     }
 

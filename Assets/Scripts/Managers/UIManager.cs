@@ -318,7 +318,7 @@ public class UIManager : MonoBehaviour
 
     private void HideSettingPanelByInput(InputAction.CallbackContext value)
     {
-        if (value.ReadValue<float>() > 0) HideSettingPanel();
+        if (value.ReadValue<float>() > 0 && !settingPanel.gameObject.activeSelf) HideSettingPanel();
 
     }
 

@@ -82,7 +82,6 @@ public class StageManager : MonoBehaviour
             GameClear();
             return;
         }
-
         if (stage == 0 && !Test)
         {
             tutorialManager.gameObject.SetActive(true);
@@ -141,9 +140,7 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
-        GameManager.GetInstance().am.SaveAchievementFlag();
         bool isHard = Anomaly.AnomalyIsHard(pc.GetAnomalyType());
-        Debug.Log(isHard);
         bool sleep = type == BedInteractionType.Sleep;
         if (isHard)
         {

@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         if (am == null) am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
         um.Initialize();
         sm.Initialize();
-        am.Initialize(start);
+        
         if (activeScene == "GameScene")
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
             bedInteractionManager.InitializeVariables();
             stageManager.GameStart(start);
         }
+        if (activeScene != "GameScene" || stageManager.GetCurrentStage() != 7) am.Initialize(start);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -103,7 +104,8 @@ public class GameManager : MonoBehaviour
         }
         if (sceneName == "MainScene")
         {
-            if (am != null) am.ShowClearPanel();
+            Initialize(false);
+            //if (am != null) am.ShowClearPanel();
         }
     }
 

@@ -51,9 +51,14 @@ public class SliderBehaviour : MonoBehaviour
         SetNumber();
     }
 
-    public void SetValue()
+    public void SetValue() {
+        StartCoroutine(ISetValue());
+    }
+
+    public IEnumerator ISetValue()
     {
         SetNumber();
+        yield return new WaitUntil(() => GameManager.GetInstance().sm != null);
         switch (sliderType)
         {
             case SliderType.BGMVolume:
