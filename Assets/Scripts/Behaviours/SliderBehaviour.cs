@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 enum SliderType
 {
-    Volume,
+    BGMVolume,
+    SFXVolume,
     Sensitivity
 }
 
@@ -25,10 +26,16 @@ public class SliderBehaviour : MonoBehaviour
     {
         switch (sliderType)
         {
-            case SliderType.Volume:
-                if (slider.value != GameManager.GetInstance().GetVolume())
+            case SliderType.BGMVolume:
+                if (slider.value != GameManager.GetInstance().GetBGMVolume())
                 {
-                    slider.value = GameManager.GetInstance().GetVolume() * 100f;
+                    slider.value = GameManager.GetInstance().GetBGMVolume() * 100f;
+                }
+                break;
+            case SliderType.SFXVolume:
+                if (slider.value != GameManager.GetInstance().GetSFXVolume())
+                {
+                    slider.value = GameManager.GetInstance().GetSFXVolume() * 100f;
                 }
                 break;
             case SliderType.Sensitivity:
@@ -46,11 +53,20 @@ public class SliderBehaviour : MonoBehaviour
 
     public void SetValue()
     {
+        StartCoroutine(ISetValue());
+    }
+
+    public IEnumerator ISetValue()
+    {
         SetNumber();
+        yield return new WaitUntil(() => GameManager.GetInstance().sm != null);
         switch (sliderType)
         {
-            case SliderType.Volume:
-                GameManager.GetInstance().SetVolume(slider.value);
+            case SliderType.BGMVolume:
+                GameManager.GetInstance().SetBGMVolume(slider.value);
+                break;
+            case SliderType.SFXVolume:
+                GameManager.GetInstance().SetSFXVolume(slider.value);
                 break;
             case SliderType.Sensitivity:
                 GameManager.GetInstance().SetSensitivity(slider.value);
