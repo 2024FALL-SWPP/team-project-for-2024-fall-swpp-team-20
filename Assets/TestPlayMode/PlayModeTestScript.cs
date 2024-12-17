@@ -17,8 +17,8 @@ public class PlayModeTestScript
 
         gameStartButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
-        yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "Stage0Animation");
-        Assert.AreEqual("Stage0Animation", SceneManager.GetActiveScene().name);
+        yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "GameScene");
+        Assert.AreEqual("GameScene", SceneManager.GetActiveScene().name);
     }
 
     [UnityTest]

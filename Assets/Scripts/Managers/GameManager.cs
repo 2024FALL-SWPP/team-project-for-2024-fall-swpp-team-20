@@ -126,4 +126,11 @@ public class GameManager : MonoBehaviour
     }
 
     public float GetSensitivity() => sensitivity;
+
+    public void ResetGame()
+    {
+        started = false;
+        //TODO: save achievement state
+        SceneManager.LoadScene("MainScene");
+    }
 }

@@ -1713,7 +1713,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8702969383403822778, guid: 93846bef62e684c4da5dc558f9a78bd5, type: 3}
+  - {fileID: 2100000, guid: 7014360f4cbfcb942b10a6680a282cd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1983,13 +1983,14 @@ GameObject:
   - component: {fileID: 7817678447473161960}
   - component: {fileID: 7817678447473161958}
   - component: {fileID: 632303978}
+  - component: {fileID: 5866666020158456770}
   m_Layer: 0
   m_Name: Player_NotSleeping
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7779757652445170555
 Transform:
   m_ObjectHideFlags: 0
@@ -2079,8 +2080,9 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 10
   mouseDeltaX: 0
-  jumpForce: 150
+  JumpForce: 0
   canSleep: 0
+  spawnPositions: {fileID: 0}
 --- !u!114 &632303978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,6 +2100,28 @@ MonoBehaviour:
   message: One step closer to the real...
   targetPosition: {x: -10, y: 0, z: -2.5}
   triggerDistance: 3
+  delay: 0.4
+  eyesUp: {fileID: 0}
+  eyesDown: {fileID: 0}
+  eyeCloseDuration: 3
+  eyesUpTargetPosition: {x: 0, y: 100}
+  eyesDownTargetPosition: {x: 0, y: -100}
+--- !u!114 &5866666020158456770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6970605688731947457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650c415289fb7439983a160f6ba98e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4402106497348325633}
+  messageText: {fileID: 0}
+  message: Oh no, something's gone wrong...
+  targetObjectName: Barrier
   delay: 0.4
   eyesUp: {fileID: 0}
   eyesDown: {fileID: 0}
