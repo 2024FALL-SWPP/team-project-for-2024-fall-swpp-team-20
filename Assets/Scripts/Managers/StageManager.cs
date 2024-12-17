@@ -186,7 +186,7 @@ public class StageManager : MonoBehaviour
             if (!am.DamageTaken()) am.ClearAchievement(Achievements.LavaAnomalyNoDamage);
         }
         if (currentAnomaly == AnomalyCode.HardVisibility && am.TimeLeft()) am.ClearAchievement(Achievements.VisibilityAnomalyClearFast);
-        if (currentAnomaly == AnomalyCode.HardChess) {
+        if (currentAnomaly == AnomalyCode.Chessboard) {
             if (!am.DamageTaken()) am.ClearAchievement(Achievements.ChessAnomalyNoDamage);
             if (am.GetShootCount() >= 200) am.ClearAchievement(Achievements.ChessAnomalyMachineGun);
         }
