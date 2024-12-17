@@ -155,7 +155,7 @@ public class Bishop : ChessPieceBehaviour
                 {
                     Destroy(g);
                 }
-                
+
             }
             if (promoted) DeadPawnCount++;
             DeadPieceCount++;
