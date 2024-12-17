@@ -85,6 +85,10 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
     public void ShowSleepInfo()
     {
         if (!isBedInteractionTutorial)

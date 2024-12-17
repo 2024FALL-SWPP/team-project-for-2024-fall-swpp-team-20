@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         transform.position = targetTransform.localPosition;
         transform.rotation = Quaternion.Euler(targetTransform.eulerRotation);
         transform.localScale = targetTransform.scale;
+        Camera.main.transform.rotation = transform.rotation;
     }
 
     public void SetPhysical(SpawnPosition positionCode)
@@ -158,7 +159,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
+        if (!canMove)
+        {
+            GameManager.GetInstance().sm.iswalking = false;
+        }
+        else if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
             if (moveDirection.magnitude > 0)
                 worldMoveDirection = transform.TransformVector(new Vector3(moveDirection.x, 0f, moveDirection.y).normalized);
