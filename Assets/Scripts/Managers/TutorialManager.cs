@@ -52,7 +52,7 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator ShowBedInteractionTutorial()
     {
-        uiManager.ShowTutorialText("This is not a dream, so this room is normal. You can proceed to the next stage by sleeping or waking up.");
+        uiManager.ShowTutorialText("This is not a dream, so this room is normal. \nYou can proceed to the next stage by sleeping or waking up.");
         yield return new WaitForSeconds(5f);
         uiManager.ShowTutorialText("Before starting the game, please check the room and objects carefully.");
         yield return new WaitForSeconds(5f);
