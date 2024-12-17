@@ -17,6 +17,7 @@ public class TimeBomb : InteractableObject
     protected override void Start()
     {
         trialCount = 5;
+        password = null;
         mainCamera = Camera.main;
     }
 
@@ -51,7 +52,7 @@ public class TimeBomb : InteractableObject
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         trialCount = 5;
-        password = GeneratePassword();
+        if (password == null) password = GeneratePassword();
         Debug.Log("password : " + password);
     }
 
