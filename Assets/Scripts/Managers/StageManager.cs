@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
 {
     private static int currentStage;
     public int GetCurrentStage() => currentStage;
+    public void SetCurrentStage(int stage) => currentStage = stage;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
     private GameObject player => GameManager.GetInstance().player;

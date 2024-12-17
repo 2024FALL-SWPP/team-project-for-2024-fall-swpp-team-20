@@ -36,6 +36,7 @@ public class BedInteractionManager : MonoBehaviour
         if (type == BedInteractionType.Sleep && stageManager.GetCurrentStage() == 0)
         {
             // 씬 로드 후 Stage 업데이트
+            stageManager.SetCurrentStage(1);
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene("Stage0SleepScene");
             yield return null; // Scene 전환 중에는 코루틴 일시 정지
@@ -50,8 +51,6 @@ public class BedInteractionManager : MonoBehaviour
     {
         if (scene.name == "Stage0SleepScene")
         {
-            // Stage를 +1로 업데이트
-            stageManager.InitializeStage(stageManager.GetCurrentStage() + 1);
             // 이벤트 해제
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
