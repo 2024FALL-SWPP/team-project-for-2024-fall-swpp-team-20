@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         if (sceneName == "MainScene")
         {
             if (am != null) am.ShowClearPanel();
-            if (stageManager!=null) stageManager.InitializeAnomalyManager();
+            if (stageManager != null) stageManager.InitializeAnomalyManager();
         }
     }
 
