@@ -7,6 +7,8 @@ public class Pawn : ChessPieceBehaviour
     private int movedCount;
 
     public List<GameObject> promotePieces;
+
+    public int row;
     public override void Attack()
     {
         StartCoroutine(MoveForward());
@@ -54,9 +56,9 @@ public class Pawn : ChessPieceBehaviour
         }
     }
 
-    public override void Activate(bool promoted)
+    public override void Activate(bool promoted, int row)
     {
-        base.Activate(promoted);
+        base.Activate(promoted, row);
         maxHealth = 5;
         health = maxHealth;
         damage = 5;
@@ -76,7 +78,7 @@ public class Pawn : ChessPieceBehaviour
     {
         int spawnIndex = Random.Range(0, 4);
         ChessPieceBehaviour newPiece = Instantiate(promotePieces[spawnIndex], transform.position, Quaternion.identity, transform.parent).GetComponent<ChessPieceBehaviour>();
-        newPiece.Activate(true);
+        newPiece.Activate(true, row);
         Destroy(gameObject);
     }
 
