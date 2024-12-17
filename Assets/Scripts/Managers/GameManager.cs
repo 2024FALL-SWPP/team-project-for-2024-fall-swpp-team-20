@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             bedInteractionManager = GameObject.FindAnyObjectByType<BedInteractionManager>().GetComponent<BedInteractionManager>();
             stageManager.InitializeVariables();
             bedInteractionManager.InitializeVariables();
-            stageManager.GameStart(start);
+            stageManager.GameStart(start && !started);
         }
     }
 
@@ -95,14 +95,14 @@ public class GameManager : MonoBehaviour
             if (started) Initialize(false);
             else
             {
-                started = true;
                 Initialize(true);
+                started = true;
             }
         }
         if (sceneName == "MainScene")
         {
             if (am != null) am.ShowClearPanel();
-            Initialize();
+            if (stageManager!=null) stageManager.InitializeAnomalyManager();
         }
     }
 
