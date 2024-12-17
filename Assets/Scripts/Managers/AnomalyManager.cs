@@ -61,7 +61,8 @@ public class AnomalyManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
-        else {
+        else
+        {
             Destroy(gameObject);
         }
     }
@@ -131,5 +132,5 @@ public class AnomalyManager : MonoBehaviour
         }
     }
 
-   
+
 }

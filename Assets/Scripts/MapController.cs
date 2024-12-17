@@ -93,7 +93,8 @@ public class MapController : MonoBehaviour
     {
         anomaly.ApplyAnomaly(currentMap);
         //Do Additional Setting For Each Hard Anomaly
-        if (anomaly is HardAnomaly) {
+        if (anomaly is HardAnomaly)
+        {
             HardAnomaly ha = anomaly as HardAnomaly;
             ha.SetAnomalyCode();
         }
