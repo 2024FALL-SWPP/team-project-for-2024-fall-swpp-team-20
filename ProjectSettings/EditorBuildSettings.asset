@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WakeupTrueScene.unity
     guid: f81124f2fda75dc4aa011d2653df045f
+  - enabled: 1
+    path: Assets/Scenes/GameClearScene.unity
+    guid: 06b3319921d32984383f502f19f9a929
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 64a99325b31ac2147936d55f6e9a48db
   m_configObjects: {}

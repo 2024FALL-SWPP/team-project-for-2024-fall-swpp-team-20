@@ -115,14 +115,14 @@ public class StageManager : MonoBehaviour
     {
         // Game clear logic
         GameManager.GetInstance().Clear();
-        GameManager.GetInstance().um.ShowStateUI(GameState.GameClear);
+        SceneManager.LoadScene("GameClearScene");
     }
 
     public void GameOver()
     {
         // Game over logic
         GameManager.GetInstance().GameOver();
-        GameManager.GetInstance().um.ShowStateUI(GameState.GameOver);
+        SceneManager.LoadScene("GameOverScene");
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
