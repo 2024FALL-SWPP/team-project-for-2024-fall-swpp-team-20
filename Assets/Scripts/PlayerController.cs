@@ -159,7 +159,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
+        if (!canMove)
+        {
+            GameManager.GetInstance().sm.iswalking = false;
+        }
+        else if (GameManager.GetInstance().GetState() == GameState.Playing && canMove)
         {
             if (moveDirection.magnitude > 0)
                 worldMoveDirection = transform.TransformVector(new Vector3(moveDirection.x, 0f, moveDirection.y).normalized);
