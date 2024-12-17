@@ -65,7 +65,7 @@ public class AchievementManager : MonoBehaviour
 
     // store completed achievement until current stage
     private long tempFlag;
-    
+
     // store newly completed achievement in current stage.
     private long newAchievements;
 
@@ -120,9 +120,11 @@ public class AchievementManager : MonoBehaviour
         achievementText = GameObject.FindGameObjectWithTag("AchievementText").GetComponent<Text>();
         Debug.Log($"NewAchievementFlag: {newAchievements}");
         int panelIndex = 0;
-        for (int i = 0; i < 36; i++) {
-            if (((long)Mathf.Pow(2, i) & newAchievements) != 0) {
-                if (panelIndex < 3) 
+        for (int i = 0; i < 36; i++)
+        {
+            if (((long)Mathf.Pow(2, i) & newAchievements) != 0)
+            {
+                if (panelIndex < 3)
                 {
                     Text achievementName = achievementPanels[panelIndex].transform.GetChild(1).GetComponent<Text>();
                     achievementName.text = achievementNames[i].ToString();
@@ -156,14 +158,15 @@ public class AchievementManager : MonoBehaviour
         }
         shootCount = 0;
         time = 20f;
-        
+
     }
 
     public void ClearAchievement(Achievements achievement)
     {
         long flag = (long)Mathf.Pow(2, (int)achievement);
 
-        if ((tempFlag & flag) == 0) {
+        if ((tempFlag & flag) == 0)
+        {
             tempFlag += flag;
             newAchievements += flag;
             Debug.Log($"Achievement Clear: {achievement}");
@@ -194,7 +197,7 @@ public class AchievementManager : MonoBehaviour
     public void Update()
     {
         if (SceneManager.GetActiveScene().name == "GameScene" && time > 0f)
-        time -= Time.deltaTime;
+            time -= Time.deltaTime;
     }
 
     public void SetMissFlag() => missFlag = true;
