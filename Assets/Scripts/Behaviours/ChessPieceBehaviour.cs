@@ -19,7 +19,7 @@ public class ChessPieceBehaviour : MonoBehaviour
     public int maxHealth;
     public bool activated = false;
 
-    public int pieceCode;
+    //public int pieceCode;
 
     public int damage;
 
@@ -27,11 +27,11 @@ public class ChessPieceBehaviour : MonoBehaviour
 
     public virtual void Attack() { }
 
-    public virtual void Activate(bool promoted)
+    public virtual void Activate(bool promoted, int row)
     {
         healthBar = transform.GetChild(0).gameObject;
         healthBar.SetActive(true);
-        this.promoted = true;
+        this.promoted = promoted;
         activated = true;
     }
 

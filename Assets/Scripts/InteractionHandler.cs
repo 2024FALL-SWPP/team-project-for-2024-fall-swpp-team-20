@@ -137,7 +137,10 @@ public class InteractionHandler : MonoBehaviour
     public void Attack()
     {
         Vector3 direction = transform.forward;
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        float degree = Mathf.Rad2Deg * Mathf.Atan2(-direction.z, direction.x);
+        float degree2 = -transform.localRotation.eulerAngles.x;
+        Debug.Log(degree2);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, degree, degree2)));
         if (am == null) am = GameManager.GetInstance().am;
         am.Shoot();
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
