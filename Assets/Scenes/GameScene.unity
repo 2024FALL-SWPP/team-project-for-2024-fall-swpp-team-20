@@ -4032,8 +4032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   easyAnomalyIndex: 0
   hardAnomalyIndex: 0
-  test: 1
-  testAnomaly: 4
+  test: 0
+  testAnomaly: 0
   testHard: 0
 --- !u!4 &896207470
 Transform:
@@ -7610,26 +7610,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4805272243747445878, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4805272243747445878, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4805272243747445878, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4805272243747445878, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4805272243747445878, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9065480073589818876, guid: 1ee7fc245e6c13d4fa5e0cb1a55380f9, type: 3}
       propertyPath: m_RootOrder
       value: 0

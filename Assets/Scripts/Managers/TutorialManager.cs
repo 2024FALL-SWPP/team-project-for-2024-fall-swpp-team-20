@@ -31,9 +31,9 @@ public class TutorialManager : MonoBehaviour
     {
         uiManager.ShowTutorialText("From the next stage, you will enter a dream.\nFind any anomalies to escape the dream.");
         yield return new WaitForSeconds(5f);
-        uiManager.ShowTutorialText("Before starting the game, you need to learn how to move, jump, and interact with objects.");
+        uiManager.ShowTutorialText("If you discover an anomaly and fall asleep, time will move forward.\nConversely, if you uncover an anomaly and wake up, time will move backward.");
         yield return new WaitForSeconds(5f);
-        uiManager.ShowTutorialText("First, use the W, A, S, D keys to move and the space bar to jump.");
+        uiManager.ShowTutorialText("You can interact with objects by clicking the mouse.\nYou can also open doors in the same way.");
         yield return new WaitForSeconds(5f);
         uiManager.HideTutorialText();
     }
