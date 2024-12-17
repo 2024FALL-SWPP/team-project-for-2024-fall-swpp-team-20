@@ -9,4 +9,8 @@ public class EasyCubeAnomaly : Anomaly
         normalCube.SetActive(false);
         anomalyCube.SetActive(true);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyCube;
+    }
 }

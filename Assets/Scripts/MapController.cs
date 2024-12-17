@@ -31,7 +31,7 @@ public class MapController : MonoBehaviour
     }
 
     // returns current anomaly is hard or not
-    public HardAnomalyCode GenerateMap(bool haveAnomaly, int stage)
+    public AnomalyCode GenerateMap(bool haveAnomaly, int stage)
     {
         CleanupCurrentMap();
         Anomaly anomaly;
@@ -50,7 +50,7 @@ public class MapController : MonoBehaviour
                 storage = currentMap.GetComponent<ObjectStorage>();
                 storage.tutorialImage.SetActive(true);
             }
-            return HardAnomalyCode.NotInHard;
+            return AnomalyCode.NoAnomaly; // TODO: Make seperate anomaly code for easy anomalies
         }
         else
         {
@@ -85,14 +85,7 @@ public class MapController : MonoBehaviour
             }
 
             SetAnomaly(anomaly);
-            if (anomaly is HardAnomaly)
-            {
-                return (anomaly as HardAnomaly).GetHardAnomalyCode();
-            }
-            else
-            {
-                return HardAnomalyCode.NotInHard;
-            }
+            return anomaly.GetAnomalyCode();
         }
     }
 
@@ -103,7 +96,7 @@ public class MapController : MonoBehaviour
         if (anomaly is HardAnomaly)
         {
             HardAnomaly ha = anomaly as HardAnomaly;
-            ha.SetHardAnomalyCode();
+            ha.SetAnomalyCode();
         }
     }
 

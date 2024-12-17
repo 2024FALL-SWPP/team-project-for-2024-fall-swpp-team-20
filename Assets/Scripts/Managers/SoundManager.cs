@@ -50,7 +50,6 @@ public class SoundManager : MonoBehaviour
 
     public void SetVolume(float value)
     {
-        Debug.Log("HELlo WORLd");
         generalVolume = value;
         foreach (AudioSource source in sourceList)
         {

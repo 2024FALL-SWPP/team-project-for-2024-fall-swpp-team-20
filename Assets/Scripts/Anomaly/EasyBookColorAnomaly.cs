@@ -27,4 +27,9 @@ public class EasyBookColorAnomaly : Anomaly
             }
         }
     }
+
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyBookColor;
+    }
 }

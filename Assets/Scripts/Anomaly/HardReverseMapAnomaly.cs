@@ -10,8 +10,8 @@ public class HardReverseMapAnomaly : HardAnomaly
         storage.bed.tag = "Goal";
     }
 
-    public override HardAnomalyCode GetHardAnomalyCode()
+    public override AnomalyCode GetAnomalyCode()
     {
-        return HardAnomalyCode.ReverseMap;
+        return AnomalyCode.HardReverseMap;
     }
 }

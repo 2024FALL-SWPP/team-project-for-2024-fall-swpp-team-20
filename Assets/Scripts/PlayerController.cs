@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         set
         {
             JumpForce = value;
-            Debug.Log($"Hello world, my force: {value}");
         }
     }
 
@@ -40,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canSleep;
     private bool inBedRange;
-    private HardAnomalyCode currentAnomaly;
+    private AnomalyCode currentAnomaly => GameManager.GetInstance().stageManager.GetCurrentAnomaly();
 
     private Control control;
 
@@ -57,7 +56,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetPlayerController(SpawnPosition positionCode)
     {
-        Debug.Log($"Hello from pc: {positionCode}");
         SetTransform(positionCode);
         SetCameraClippingPlanes(positionCode);
         SetPhysical(positionCode);
@@ -286,7 +284,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Bed"))
         {
             SetInBedRange(true);
-            if (currentAnomaly == HardAnomalyCode.Visibility)
+            if (currentAnomaly == AnomalyCode.HardVisibility)
             {
                 GameManager.GetInstance().bedInteractionManager.TryBedInteraction(BedInteractionType.ClearHard);
             }
@@ -437,9 +435,9 @@ public class PlayerController : MonoBehaviour
         return canSleep && inBedRange && CanSleepInAnomaly(currentAnomaly);
     }
 
-    private bool CanSleepInAnomaly(HardAnomalyCode current)
+    private bool CanSleepInAnomaly(AnomalyCode current)
     {
-        if (current == HardAnomalyCode.NotInHard) return true;
+        if (!Anomaly.AnomalyIsHard(current)) return true;
         else return false;
     }
 
@@ -464,8 +462,8 @@ public class PlayerController : MonoBehaviour
     {
         rotateSpeed = sens * 15f / 50f;
     }
-    public void SetAnomalyType(HardAnomalyCode code) => currentAnomaly = code;
-    public HardAnomalyCode GetAnomalyType() => currentAnomaly;
+    //public void SetAnomalyType(AnomalyCode code) => currentAnomaly = code;
+    public AnomalyCode GetAnomalyType() => currentAnomaly;
 
     public bool HasMoved() => hasMoved;
     public bool HasJumped() => hasJumped;

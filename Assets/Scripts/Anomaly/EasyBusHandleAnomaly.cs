@@ -19,4 +19,9 @@ public class EasyBusHandleAnomaly : Anomaly
             GameObject.Destroy(animationController, duration);
         }
     }
+
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyBusHandle;
+    }
 }

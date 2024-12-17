@@ -18,6 +18,8 @@ TagManager:
   - RealLine
   - Fruit
   - Floor
+  - AchievementPanel
+  - AchievementText
   layers:
   - Default
   - TransparentFX

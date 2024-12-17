@@ -7,4 +7,8 @@ public class EasyCanvasDisappearAnomaly : Anomaly
         GameObject giraffeCanvas = storage.giraffeCanvas;
         giraffeCanvas.SetActive(false);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyCanvasDisappear;
+    }
 }

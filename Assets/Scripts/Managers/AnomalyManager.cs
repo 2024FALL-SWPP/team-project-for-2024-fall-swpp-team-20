@@ -5,6 +5,44 @@ using System.Linq;
 using System;
 using Shuffle = System.Random;
 
+public enum AnomalyCode
+{
+    NoAnomaly = -1,
+    EasyBookColor,
+    EasyBusHandle,
+    EasyCanvasChange,
+    EasyCanvasDisappear,
+    EasyCanvasFlip,
+    EasyCube,
+    EasyDice,
+    EasyDigitalClock,
+    EasyDrawerMissingContent,
+    EasyDresserBackOpen,
+    EasyHangerDisaeppear,
+    EasyLaptop,
+    EasyLight,
+    EasyPiano,
+    EasyPlayer,
+    EasySofaDisappear,
+    EasySpintop,
+    EasyTeddyBear,
+    HardChess,
+    HardFruitDrop,
+    HardLava,
+    HardReverseMap,
+    HardTimeBomb,
+    HardVisibility,
+    /*NotInHard,
+    Lava,
+    TimeBomb,
+    ReverseMap,
+    FruitDrop,
+    Chess,
+    Chessboard,
+    Visibility*/
+    Chessboard,
+}
+
 public class AnomalyManager : MonoBehaviour
 {
     private static AnomalyManager instance;
@@ -22,6 +60,10 @@ public class AnomalyManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -49,6 +91,7 @@ public class AnomalyManager : MonoBehaviour
 
     public void FillAnomaly()
     {
+        Debug.Log("Hello from FillAnomaly");
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         easyAnomalies = new List<Anomaly>();
@@ -88,4 +131,6 @@ public class AnomalyManager : MonoBehaviour
             Debug.Log($"Hard Index {index}: {hardAnomalies[index].GetType()}");
         }
     }
+
+
 }

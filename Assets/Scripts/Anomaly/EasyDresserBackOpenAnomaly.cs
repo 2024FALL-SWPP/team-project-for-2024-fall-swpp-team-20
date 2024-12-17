@@ -9,4 +9,8 @@ public class EasyDresserBackOpenAnomaly : Anomaly
         dresser.SetActive(false);
         backOpenedDresser.SetActive(true);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyDresserBackOpen;
+    }
 }

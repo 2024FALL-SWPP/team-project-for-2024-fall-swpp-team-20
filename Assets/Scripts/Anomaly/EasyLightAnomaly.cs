@@ -10,4 +10,8 @@ public class EasyLightAnomaly : Anomaly
         LightAnomalyAnimationController anomalyAnimationController = animationController.AddComponent<LightAnomalyAnimationController>();
         anomalyAnimationController.playAnimation(light);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyLight;
+    }
 }

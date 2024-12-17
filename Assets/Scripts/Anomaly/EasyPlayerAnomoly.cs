@@ -9,4 +9,9 @@ public class EasyPlayerAnomaly : Anomaly
         playerSleeping.SetActive(false);
         playerAwake.SetActive(true);
     }
+
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyPlayer;
+    }
 }

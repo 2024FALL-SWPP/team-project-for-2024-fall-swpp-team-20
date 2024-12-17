@@ -12,8 +12,8 @@ public class HardChessAnomaly : HardAnomaly
 
     }
 
-    public override HardAnomalyCode GetHardAnomalyCode()
+    public override AnomalyCode GetAnomalyCode()
     {
-        return HardAnomalyCode.Chess;
+        return AnomalyCode.HardChess;
     }
 }

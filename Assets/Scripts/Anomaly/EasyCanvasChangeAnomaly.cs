@@ -9,4 +9,9 @@ public class EasyCanvasChangeAnomaly : Anomaly
         normalCanvas.SetActive(false);
         anomalCanvas.SetActive(true);
     }
+
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyCanvasChange;
+    }
 }

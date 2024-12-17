@@ -9,4 +9,9 @@ public class EasySpintopAnomaly : Anomaly
         Totem totem = storage.spintopObject.GetComponent<Totem>();
         totem.inAnomaly = true;
     }
+
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasySpintop;
+    }
 }

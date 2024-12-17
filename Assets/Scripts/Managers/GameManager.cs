@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public StageManager stageManager;
     public BedInteractionManager bedInteractionManager;
+    public AchievementManager am;
 
     public UIManager um;
     public SoundManager sm;
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
     private float volume;
 
     private bool started;
+
+    private long achievementFlag; // Total completed achievement
+
 
     public static GameManager GetInstance()
     {
@@ -58,16 +62,20 @@ public class GameManager : MonoBehaviour
     {
         sensitivity = 50f;
         volume = 1f;
+        achievementFlag = -1;
         started = false;
     }
 
     private void Initialize(bool start = true)
     {
+        Debug.Log($"Hello from GameManager.Initialize, start = {start}");
         string activeScene = SceneManager.GetActiveScene().name;
         um = GameObject.FindAnyObjectByType<UIManager>().GetComponent<UIManager>();
         sm = GameObject.FindAnyObjectByType<SoundManager>().GetComponent<SoundManager>();
+        if (am == null) am = GameObject.FindAnyObjectByType<AchievementManager>().GetComponent<AchievementManager>();
         um.Initialize();
         sm.Initialize();
+        am.Initialize(start);
         if (activeScene == "GameScene")
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -79,9 +87,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GameScene")
+        string sceneName = scene.name;
+        if (sceneName == "GameScene")
         {
             if (started) Initialize(false);
             else
@@ -89,6 +98,10 @@ public class GameManager : MonoBehaviour
                 started = true;
                 Initialize(true);
             }
+        }
+        if (sceneName == "MainScene")
+        {
+            if (am != null) am.ShowClearPanel();
         }
     }
 
@@ -129,8 +142,14 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        Debug.Assert(started, "Game not started");
         started = false;
-        //TODO: save achievement state
         SceneManager.LoadScene("MainScene");
+    }
+
+    public long GetAchievementFlag() => achievementFlag;
+    public void SetAchievementFlag(long flag)
+    {
+        achievementFlag = flag;
     }
 }

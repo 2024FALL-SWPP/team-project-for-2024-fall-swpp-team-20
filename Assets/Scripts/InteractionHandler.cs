@@ -39,6 +39,8 @@ public class InteractionHandler : MonoBehaviour
 
     private bool hasInteractedWithObject;
 
+    AchievementManager am;
+
     private void Awake()
     {
         layerMask = (1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Default"));
@@ -136,6 +138,8 @@ public class InteractionHandler : MonoBehaviour
     {
         Vector3 direction = transform.forward;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        if (am == null) am = GameManager.GetInstance().am;
+        am.Shoot();
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
         bulletBehaviour.Shoot(direction);
     }

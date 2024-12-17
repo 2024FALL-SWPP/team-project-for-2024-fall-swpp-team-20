@@ -19,8 +19,10 @@ public class HardVisibilityAnomaly : HardAnomaly
         pc.SetPlayerController(SpawnPosition.Visibility);
         pi.HurtPlayerByDOT(0.5f);
     }
-    public override HardAnomalyCode GetHardAnomalyCode()
+    public override AnomalyCode GetAnomalyCode()
     {
-        return HardAnomalyCode.Visibility;
+        return AnomalyCode.HardVisibility;
     }
+
+
 }

@@ -7,10 +7,15 @@ using UnityEngine.XR;
 public class StageManager : MonoBehaviour
 {
     private static int currentStage;
+
     public int GetCurrentStage() => currentStage;
     public void SetCurrentStage(int stage) => currentStage = stage;
     private bool haveAnomaly;
     public bool GetHaveAnomaly() => haveAnomaly;
+
+    private AnomalyCode currentAnomaly;
+    public AnomalyCode GetCurrentAnomaly() => currentAnomaly;
+    public void SetAnomalyType(AnomalyCode code) => currentAnomaly = code;
     private GameObject player => GameManager.GetInstance().player;
     private MapController mc;
     private PlayerController pc;
@@ -20,6 +25,7 @@ public class StageManager : MonoBehaviour
     private PlayerInformation pi;
     private LandscapeManager landscapeManager;
     private AnomalyManager am;
+
     private bool Test => am.test;
     public void InitializeVariables()
     {
@@ -37,6 +43,7 @@ public class StageManager : MonoBehaviour
         pc.Initialize();
         if (start)
         {
+            Debug.Log("Hello from GameStart_True");
             currentStage = 0;
             am.FillAnomaly();
             am.initializeAnomalyIndex();
@@ -68,7 +75,7 @@ public class StageManager : MonoBehaviour
         }
 
         // Create new stage map and inform player about it is hard anomaly or not
-        HardAnomalyCode hard = mc.GenerateMap(haveAnomaly, stage);
+        AnomalyCode code = mc.GenerateMap(haveAnomaly, stage);
 
         if (stage == 7)
         {
@@ -86,7 +93,7 @@ public class StageManager : MonoBehaviour
             tutorialManager.gameObject.SetActive(false);
         }
 
-        pc.SetAnomalyType(hard);
+        SetAnomalyType(code);
         // Set time
         ToggleActionAvailability(true);
         interactionHandler.SetMouseClickAction(0);
@@ -94,7 +101,7 @@ public class StageManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (hard == HardAnomalyCode.NotInHard)
+        if (!Anomaly.AnomalyIsHard(code))
         {
             GameManager.GetInstance().sm.PlayEasyStageSound();
             GameManager.GetInstance().Play();
@@ -115,6 +122,9 @@ public class StageManager : MonoBehaviour
     private void GameClear()
     {
         // Game clear logic
+        AchievementManager am = GameManager.GetInstance().am;
+        am.ClearAchievement(Achievements.GameClear);
+        if (!am.Missed()) am.ClearAchievement(Achievements.GameClearWithoutMiss);
         GameManager.GetInstance().Clear();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -131,53 +141,77 @@ public class StageManager : MonoBehaviour
     }
     public void HandleSleepOutcome(BedInteractionType type)
     {
-        bool isHard = pc.GetAnomalyType() != HardAnomalyCode.NotInHard;
+        GameManager.GetInstance().am.SaveAchievementFlag();
+        bool isHard = Anomaly.AnomalyIsHard(pc.GetAnomalyType());
         Debug.Log(isHard);
         bool sleep = type == BedInteractionType.Sleep;
         if (isHard)
         {
             if (type == BedInteractionType.ClearHard)
             {
-                SceneManager.LoadScene("AnomalyTrueWakeUpScene");
                 Succeed();
+                SceneManager.LoadScene("AnomalyTrueWakeUpScene");
             }
             else
             {
-                SceneManager.LoadScene("AnomalyFalseWakeUpScene");
                 Fail();
+                SceneManager.LoadScene("AnomalyFalseWakeUpScene");
             }
         }
         else if (sleep && haveAnomaly)
         {
-            SceneManager.LoadScene("SleepScene");
             Fail();
+            SceneManager.LoadScene("SleepScene");
         }
         else if (!sleep && !haveAnomaly)
         {
-            SceneManager.LoadScene("WakeupFalseScene");
             Fail();
+            SceneManager.LoadScene("WakeupFalseScene");
         }
         else if (sleep && !haveAnomaly)
         {
-            SceneManager.LoadScene("SleepScene");
             Succeed();
+            SceneManager.LoadScene("SleepScene");
         }
         else if (!sleep && haveAnomaly)
         {
-            SceneManager.LoadScene("WakeupTrueScene");
             Succeed();
+            SceneManager.LoadScene("WakeupTrueScene");
         }
     }
 
     private void Succeed()
     {
         ++currentStage;
+        AchievementManager am = GameManager.GetInstance().am;
+        am.ClearAchievement(currentAnomaly);
+        if (currentAnomaly == AnomalyCode.HardLava)
+        {
+            if (am.TimeLeft()) am.ClearAchievement(Achievements.LavaAnomalyClearFast);
+            if (!am.DamageTaken()) am.ClearAchievement(Achievements.LavaAnomalyNoDamage);
+        }
+        if (currentAnomaly == AnomalyCode.HardVisibility && am.TimeLeft()) am.ClearAchievement(Achievements.VisibilityAnomalyClearFast);
+        if (currentAnomaly == AnomalyCode.Chessboard)
+        {
+            if (!am.DamageTaken()) am.ClearAchievement(Achievements.ChessAnomalyNoDamage);
+            if (am.GetShootCount() >= 200) am.ClearAchievement(Achievements.ChessAnomalyMachineGun);
+        }
+        if (currentAnomaly == AnomalyCode.HardFruitDrop && !am.DamageTaken()) am.ClearAchievement(Achievements.FruitAnomalyNoDamage);
     }
 
     private void Fail()
     {
         // TODO: Animation
         if (currentStage > 1) currentStage--;
+        AchievementManager am = GameManager.GetInstance().am;
+        if (Anomaly.AnomalyIsHard(currentAnomaly)) am.ClearAchievement(Achievements.MissHardAnomaly);
+        else am.ClearAchievement(Achievements.MissEasyAnomaly);
+        am.SetMissFlag();
+    }
+
+    public void QuitGame()
+    {
+        GameManager.GetInstance().ResetGame();
     }
     public void BackToMainMenu()
     {

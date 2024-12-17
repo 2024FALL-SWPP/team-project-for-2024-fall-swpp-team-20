@@ -11,4 +11,8 @@ public class EasyDiceAnomaly : Anomaly
         anomalyDice.transform.rotation = normalDice.transform.rotation;
         anomalyDice.SetActive(true);
     }
+    public override AnomalyCode GetAnomalyCode()
+    {
+        return AnomalyCode.EasyDice;
+    }
 }
